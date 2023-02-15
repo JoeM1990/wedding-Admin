@@ -176,7 +176,8 @@
 
                 <h2>Compte Clients</h2>
               
-                <button type="button" class="btn btn-primary" style="margin-bottom: 10px;">+</button>
+                <button type="button" class="btn btn-primary" style="margin-bottom: 10px;" data-bs-toggle="modal"
+                data-bs-target="#basicModal">+</button>
 
                  <!-- Basic Bootstrap Table -->
               <div class="card">
@@ -222,6 +223,48 @@
                 </div>
               </div>
               <!--/ Basic Bootstrap Table -->
+
+              <!-- Modal -->
+              <div class="modal fade" id="basicModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel1">Informations</h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row">
+                        <div class="col mb-3">
+                          <label for="nameBasic" class="form-label">Username</label>
+                          <input type="text" id="nameBasic" class="form-control" placeholder="Enter Username" />
+                        </div>
+                      </div>
+                      <div class="row g-2">
+                        <div class="col mb-0">
+                          <label for="emailBasic" class="form-label">Email</label>
+                          <input type="text" id="emailBasic" class="form-control" placeholder="xxxx@xxx.xx" />
+                        </div>
+                        <div class="col mb-0">
+                          <label for="dobBasic" class="form-label">Password</label>
+                          <input type="password" id="dobBasic" class="form-control" placeholder="xxxxxx" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                        Close
+                      </button>
+                      <button type="button" class="btn btn-primary">Ajouter</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Modal -->
 
             </div>
             <!-- / Content -->
