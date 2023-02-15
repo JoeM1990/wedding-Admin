@@ -176,6 +176,8 @@
 
                 <h2>Paiement</h2>
 
+                <button type="button" class="btn btn-primary" style="margin-bottom: 10px;" data-bs-toggle="modal"
+                data-bs-target="#basicModal">+</button>
                   <!-- Basic Bootstrap Table -->
               <div class="card">
                 <!-- <h5 class="card-header">Table Basic</h5> -->
@@ -218,6 +220,51 @@
                 </div>
               </div>
               <!--/ Basic Bootstrap Table -->
+
+              <!-- Modal -->
+              <div class="modal fade" id="basicModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel1">Informations</h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row">
+                        <div class="col mb-3">
+                          <label for="nameBasic" class="form-label">Email</label>
+                          <select class="form-control">
+                            <option></option>
+                            <option>xxx.xx@.xx</option>
+                        </select>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col mb-3">
+                            <label for="nameBasic" class="form-label">Type Forfait</label>
+                            <select class="form-control">
+                                <option></option>
+                                <option>Basic</option>
+                                <option>Full</option>
+                            </select>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                        Close
+                      </button>
+                      <button type="button" class="btn btn-primary">Ajouter</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Modal -->
               
             </div>
             <!-- / Content -->
