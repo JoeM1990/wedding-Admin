@@ -9,6 +9,8 @@ import { CompleClientComponent } from './dashboard/pages/comple-client/comple-cl
 import { CompleAdminComponent } from './dashboard/pages/comple-admin/comple-admin.component';
 import { PaiementComponent } from './dashboard/pages/paiement/paiement.component';
 import { GenerateComponent } from './dashboard/pages/generate/generate.component';
+import { ListViewComponent } from './dashboard/pages/list-view/list-view.component';
+import { NotificationComponent } from './dashboard/pages/notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { GenerateComponent } from './dashboard/pages/generate/generate.component
     CompleClientComponent,
     CompleAdminComponent,
     PaiementComponent,
-    GenerateComponent
+    GenerateComponent,
+    ListViewComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
