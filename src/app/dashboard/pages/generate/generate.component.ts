@@ -28,6 +28,7 @@ export class GenerateComponent implements OnInit {
         var img = new Image();
         img.src = dataUrl;
         document.body.appendChild(img);
+        var imgGet=dataUrl;
         alert(dataUrl);
       })
       .catch(function (error) {
