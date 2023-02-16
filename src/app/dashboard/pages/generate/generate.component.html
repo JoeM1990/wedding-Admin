@@ -185,16 +185,16 @@
                         <div>
                           <label for="defaultFormControlInput" class="form-label">Titre evenement</label>
                           <input type="text" class="form-control" id="defaultFormControlInput" placeholder="John Doe"
-                            aria-describedby="defaultFormControlHelp"/>
+                            aria-describedby="defaultFormControlHelp" [(ngModel)]="title1"/>
                         <label for="defaultFormControlInput" class="form-label">Nom Invite</label>
                           <input type="text" class="form-control" id="defaultFormControlInput" placeholder="John Doe"
-                            aria-describedby="defaultFormControlHelp"/>
+                            aria-describedby="defaultFormControlHelp" [(ngModel)]="title2"/>
                         <label for="defaultFormControlInput" class="form-label">Table</label>
                           <input type="text" class="form-control" id="defaultFormControlInput" placeholder="John Doe"
-                            aria-describedby="defaultFormControlHelp"/>
+                            aria-describedby="defaultFormControlHelp" [(ngModel)]="title3"/>
                         <label for="defaultFormControlInput" class="form-label">Lieu | Heure | Date</label>
                           <input type="text" class="form-control" id="defaultFormControlInput" placeholder="Kin Marche - 15h - 24/12/2023"
-                            aria-describedby="defaultFormControlHelp"/>
+                            aria-describedby="defaultFormControlHelp" [(ngModel)]="title4"/>
                             <button type="button" class="btn btn-primary" style="margin-top: 10px;">Generer</button>
                             <button type="button" class="btn btn-primary" style="margin-top: 10px; margin-left: 10px;">View</button>
                           <!-- <div id="defaultFormControlHelp" class="form-text">
@@ -208,7 +208,7 @@
                       <div class="card mb-4">
                         <h5 class="card-header" style="align-items: center;">INVITATION</h5>
                         <div class="card-body">
-                          <label  class="form-label"></label>
+                          <label  class="form-label">{{title1}}</label><br>
                           <label class="form-label"></label>
                           <label class="form-label"></label>
                           <label class="form-label ">Bienvenue</label>
