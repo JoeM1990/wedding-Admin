@@ -195,7 +195,7 @@
                         <label for="defaultFormControlInput" class="form-label">Lieu | Heure | Date</label>
                           <input type="text" class="form-control" id="defaultFormControlInput" placeholder="Kin Marche - 15h - 24/12/2023"
                             aria-describedby="defaultFormControlHelp" [(ngModel)]="title4" [maxLength]="60"/>
-                            <button type="button" class="btn btn-primary" style="margin-top: 10px;">Generer</button>
+                            <button type="button" class="btn btn-primary" style="margin-top: 10px;" (click)="generateImage()">Generer</button>
                             <button type="button" class="btn btn-primary" style="margin-top: 10px; margin-left: 10px;">View</button>
                           <!-- <div id="defaultFormControlHelp" class="form-text">
                             We'll never share your details with anyone else.
@@ -208,7 +208,7 @@
                       <button type="button" class="btn btn-primary" style="margin-bottom: 10px;" data-bs-toggle="modal"
                  data-bs-target="#basicModal">Background</button>
 
-                      <div class="card mb-4">
+                      <div class="card mb-4" id="sectionImage">
                         <h5 class="card-header" style="align-items: center; text-decoration: underline;">INVITATION</h5>
                         <div class="card-body">
                           <label class="" style="text-transform: uppercase; ">{{title1}}</label><br>
@@ -220,6 +220,12 @@
                         </div>
                       </div>
                     </div>
+
+                    <div class="col-md-6">
+                      <img [src]="">
+                    </div>
+
+
                  </div>
               
             </div>
