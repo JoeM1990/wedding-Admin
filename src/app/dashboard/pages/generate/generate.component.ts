@@ -29,11 +29,12 @@ export class GenerateComponent implements OnInit {
         img.src = dataUrl;
         document.body.appendChild(img);
         var imgGet=dataUrl;
-        alert(dataUrl);
+        //alert(dataUrl);
       })
       .catch(function (error) {
         console.error('Erreur', error);
       });
   }
+
 
 }
