@@ -36,5 +36,9 @@ export class GenerateComponent implements OnInit {
       });
   }
 
+  changeBack(){
+  //document.querySelector('fondChange')?.style
+  }
+
 
 }

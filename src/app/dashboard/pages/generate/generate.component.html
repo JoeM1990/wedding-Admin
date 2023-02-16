@@ -205,10 +205,23 @@
                     </div>
                     </div>
                     <div class="col-md-6">
-                      <button type="button" class="btn btn-primary" style="margin-bottom: 10px;" data-bs-toggle="modal"
-                 data-bs-target="#basicModal">Background</button>
+                      <!-- <button type="button" class="btn btn-primary" style="margin-bottom: 10px;" data-bs-toggle="modal"
+                 data-bs-target="#basicModal">Background</button> -->
 
-                      <div class="card mb-4" id="sectionImage" background="#FFFFFF">
+                      <div class="btn-group" role="group" aria-label="Basic example" style="margin-bottom: 10px; margin-left: 4%;">
+                        <button type="button" class="btn btn-secondary" id="btn1">1</button>
+                        <button type="button" class="btn btn-secondary">2</button>
+                        <button type="button" class="btn btn-secondary">3</button>
+                        <button type="button" class="btn btn-secondary">4</button>
+                        <button type="button" class="btn btn-secondary">5</button>
+                        <button type="button" class="btn btn-secondary">6</button>
+                        <button type="button" class="btn btn-secondary">7</button>
+                        <button type="button" class="btn btn-secondary">8</button>
+                        <button type="button" class="btn btn-secondary">9</button>
+                        <button type="button" class="btn btn-secondary">10</button>
+                      </div>
+
+                      <div class="card mb-4 fondChange" id="sectionImage">
                         <h5 class="card-header" style="align-items: center; text-decoration: underline; margin-left: 38%;">INVITATION</h5>
                         <div class="card-body">
                           <label class="" style="text-transform: uppercase; ">{{title1}}</label><br>
@@ -337,4 +350,16 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>  
+    <script>  
+        $(document).ready(function() {  
+            $("#btn1").click(function() {  
+              alert('bonjour');
+            //$("#fondChange").css({"background-image": "url(../../../../assets/templates/img1.jpg)"});  
+        });  
+        });  
+    </script>  
+
+
   </body>
