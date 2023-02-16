@@ -12,6 +12,8 @@ import { GenerateComponent } from './dashboard/pages/generate/generate.component
 import { ListViewComponent } from './dashboard/pages/list-view/list-view.component';
 import { NotificationComponent } from './dashboard/pages/notification/notification.component';
 
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +28,9 @@ import { NotificationComponent } from './dashboard/pages/notification/notificati
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
