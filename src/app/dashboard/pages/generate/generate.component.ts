@@ -15,6 +15,8 @@ export class GenerateComponent implements OnInit {
 
   imgGet:any;
 
+  toggle1=false;
+
 
   constructor() { }
 
@@ -36,8 +38,8 @@ export class GenerateComponent implements OnInit {
       });
   }
 
-  changeBack(){
-  //document.querySelector('fondChange')?.style
+  changeBack1(){   
+    this.toggle1=true; 
   }
 
 

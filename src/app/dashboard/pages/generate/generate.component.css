@@ -6,7 +6,6 @@ footer{
     /* height:100px; */
 }
 
-#fondChange{
-    color: black;
-    
+.fond1{
+    background-image: url(../../../../assets/templates/img1.jpg);
 }

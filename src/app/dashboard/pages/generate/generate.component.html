@@ -209,7 +209,8 @@
                  data-bs-target="#basicModal">Background</button> -->
 
                       <div class="btn-group" role="group" aria-label="Basic example" style="margin-bottom: 10px; margin-left: 4%;">
-                        <button type="button" class="btn btn-secondary" id="btn1">1</button>
+                        <button type="button" class="btn btn-secondary" (click)="changeBack1()"
+                        >1</button>
                         <button type="button" class="btn btn-secondary">2</button>
                         <button type="button" class="btn btn-secondary">3</button>
                         <button type="button" class="btn btn-secondary">4</button>
@@ -221,7 +222,7 @@
                         <button type="button" class="btn btn-secondary">10</button>
                       </div>
 
-                      <div class="card mb-4 fondChange" id="sectionImage">
+                      <div class="card mb-4 fondChange" id="sectionImage" [ngClass]="{'fond1' : toggle1}">
                         <h5 class="card-header" style="align-items: center; text-decoration: underline; margin-left: 38%;">INVITATION</h5>
                         <div class="card-body">
                           <label class="" style="text-transform: uppercase; ">{{title1}}</label><br>
