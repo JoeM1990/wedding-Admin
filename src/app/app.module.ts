@@ -24,6 +24,9 @@ import { ErrorComponent } from './dialog/error/error.component';
 import { SuccessComponent } from './dialog/success/success.component';
 import { ConfirmationComponent } from './dialog/confirmation/confirmation.component';
 import { WaitingComponent } from './dialog/waiting/waiting.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 @NgModule({
   declarations: [
@@ -51,6 +54,7 @@ import { WaitingComponent } from './dialog/waiting/waiting.component';
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(environment.firebase),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

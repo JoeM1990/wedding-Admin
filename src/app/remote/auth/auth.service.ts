@@ -25,7 +25,7 @@ export class AuthService {
         //   }, timeout)
         // })
 
-        //alert('Erreur de connexion');
+       //alert('Erreur de connexion');
 
         
         this.router.navigate(['/login']);
