@@ -195,7 +195,7 @@
                         <label for="defaultFormControlInput" class="form-label">Lieu | Heure | Date</label>
                           <input type="text" class="form-control" id="defaultFormControlInput" placeholder="Kin Marche - 15h - 24/12/2023"
                             aria-describedby="defaultFormControlHelp" [(ngModel)]="title4" [maxLength]="60"/>
-                            <button type="button" class="btn btn-primary" style="margin-top: 10px;" (click)="generateImage()">Generer</button>
+                            <button type="button" class="btn btn-primary" style="margin-top: 10px;" (click)="downloadImage()">Generer</button>
                             <!-- <button type="button" class="btn btn-primary" style="margin-top: 10px; margin-left: 10px;">View</button> -->
                           <!-- <div id="defaultFormControlHelp" class="form-text">
                             We'll never share your details with anyone else.
@@ -221,7 +221,7 @@
                         <button type="button" class="btn btn-secondary" (click)="changeBack10()">10</button>
                       </div>
 
-                      <div class="card mb-4 fondChange" id="sectionImage" [ngStyle]="{'background-image': 'url(' + photo + ')'}">
+                      <div class="card mb-4 fondChange" id="sectionImage" [ngStyle]="{'background-image': 'url(' + photo + ')'}" #screen>
                         <h5 class="card-header" style="align-items: center; text-decoration: underline; margin-left: 38%; font-family: 'Julee', serif;" [ngStyle]="{'color': style }" >INVITATION</h5>
                         <div class="card-body">
                           <label class="" style="text-transform: uppercase; font-family: 'Acme', serif;" [ngStyle]="{'color': style }">{{title1}}</label><br>
@@ -235,6 +235,11 @@
                     </div>
 
                  </div>
+
+                 <div id="download">
+                  <img #canvas>
+                  <a #downloadLink></a>
+                </div>
               
             </div>
             <!-- / Content -->

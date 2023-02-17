@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import * as htmlToImage from 'html-to-image';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-generate',
@@ -17,6 +18,13 @@ export class GenerateComponent implements OnInit {
 
   photo:any;
   style:any;
+
+  @ViewChild('screen')
+  screen!: ElementRef;
+  @ViewChild('canvas')
+  canvas!: ElementRef;
+  @ViewChild('downloadLink')
+  downloadLink!: ElementRef;
 
 
   constructor() { }
@@ -86,6 +94,36 @@ export class GenerateComponent implements OnInit {
   changeBack10(){   
     this.photo='../../../../assets/templates/img10.jpg';
     this.style='black';
+  }
+
+  // generateImageDiv(){
+  //   let element = document.querySelector("#capture");
+  //   html2canvas(document).then(function(canvas) {
+  //       // Convert the canvas to blob
+  //       canvas.toBlob(function(blob){
+  //           // To download directly on browser default 'downloads' location
+  //           let link = document.createElement("a");
+  //           link.download = "image.png";
+  //           link.href = URL.createObjectURL(blob);
+  //           link.click();
+
+  //           // To save manually somewhere in file explorer
+  //           window.saveAs(blob, 'image.png');
+            
+
+  //       },'image/png');
+  //   });
+  // }
+
+
+
+  downloadImage(){
+    html2canvas(this.screen.nativeElement).then(canvas => {
+      this.canvas.nativeElement.src = canvas.toDataURL();
+      this.downloadLink.nativeElement.href = canvas.toDataURL('image/png');
+      this.downloadLink.nativeElement.download = 'marble-diagram.png';
+      this.downloadLink.nativeElement.click();
+    });
   }
 
 
