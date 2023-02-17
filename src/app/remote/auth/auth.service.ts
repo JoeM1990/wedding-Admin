@@ -18,19 +18,8 @@ export class AuthService {
         this.router.navigate(['/dashboard']);
         return true;
     }, err => {
-        const timeout=1200;
-
-        let dialogRef=this.dialog.open(ErrorComponent,{data:'Nom d utilisateur où Mot de passe incorrect'});
-
-        dialogRef.afterOpened().subscribe(_ => {
-          setTimeout(() => {
-             dialogRef.close();
-          }, timeout)
-        })
-
-       //alert('Erreur de connexion');
-
-        
+        this.dialogError('Username ou password incorrect');
+      
         this.router.navigate(['/login']);
     } ) 
 
@@ -38,33 +27,12 @@ export class AuthService {
 
   register(email: string, password: string){
     this.fireauth.createUserWithEmailAndPassword(email,password).then( () => {
-
-      const timeout=1200;
-
-      let dialogRef=this.dialog.open(SuccessComponent,{data:'Enregistrement effectué avec succes'});
-
-        dialogRef.afterOpened().subscribe(_ => {
-          setTimeout(() => {
-             dialogRef.close();
-          }, timeout)
-        })
-
-
+      this.dialogSuccess('Enregistrement effectué avec succes');
       //alert('Enregistrement effectue')
       this.router.navigate(['/login']);
     }, err => {
       //alert(err.message);
-
-      const timeout=1200;
-
-        let dialogRef=this.dialog.open(ErrorComponent,{data:'Echec d enregistrement'});
-
-        dialogRef.afterOpened().subscribe(_ => {
-          setTimeout(() => {
-             dialogRef.close();
-          }, timeout)
-        })
-
+      this.dialogError('Echec d enregistrement');
       this.router.navigate(['/login']);
     }
 
@@ -84,6 +52,30 @@ export class AuthService {
 
   checkLogin(){
     return !! localStorage.getItem('token');
+  }
+
+  dialogSuccess(message:any){
+    const timeout=1200;
+
+      let dialogRef=this.dialog.open(SuccessComponent,{data:message});
+
+        dialogRef.afterOpened().subscribe(_ => {
+          setTimeout(() => {
+             dialogRef.close();
+          }, timeout)
+        })
+  }
+
+  dialogError(message:any){
+    const timeout=1200;
+
+        let dialogRef=this.dialog.open(ErrorComponent,{data:message});
+
+        dialogRef.afterOpened().subscribe(_ => {
+          setTimeout(() => {
+             dialogRef.close();
+          }, timeout)
+        })
   }
 
 
