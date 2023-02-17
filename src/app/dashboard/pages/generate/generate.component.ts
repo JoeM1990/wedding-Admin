@@ -47,7 +47,7 @@ export class GenerateComponent implements OnInit {
   }
 
   changeBack3(){   
-    this.photo='../../../../assets/templates/img3.jpg';
+    this.photo='../../../../assets/templates/img11.avif';
   }
 
   changeBack4(){   
@@ -55,11 +55,11 @@ export class GenerateComponent implements OnInit {
   }
 
   changeBack5(){   
-    this.photo='../../../../assets/templates/img5.jpg';
+    this.photo='../../../../assets/templates/img5.webp';
   }
 
   changeBack6(){   
-    this.photo='../../../../assets/templates/img6.webp';
+    this.photo='../../../../assets/templates/img6.jpg';
   }
 
   changeBack7(){   
