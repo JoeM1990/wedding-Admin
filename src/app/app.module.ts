@@ -26,6 +26,7 @@ import { ConfirmationComponent } from './dialog/confirmation/confirmation.compon
 import { WaitingComponent } from './dialog/waiting/waiting.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -55,6 +56,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(environment.firebase),
     BrowserAnimationsModule,
+    MatDialogModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
