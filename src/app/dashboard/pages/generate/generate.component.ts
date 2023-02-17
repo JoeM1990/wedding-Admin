@@ -46,26 +46,32 @@ export class GenerateComponent implements OnInit {
 
   changeBack2(){   
     this.photo='../../../../assets/templates/img2.jpg';
+    this.style='black';
   }
 
   changeBack3(){   
     this.photo='../../../../assets/templates/img11.avif';
+    this.style='black';
   }
 
   changeBack4(){   
     this.photo='../../../../assets/templates/img4.jpg';
+    this.style='black';
   }
 
   changeBack5(){   
     this.photo='../../../../assets/templates/img5.webp';
+    this.style='black';
   }
 
   changeBack6(){   
     this.photo='../../../../assets/templates/img6.jpg';
+    this.style='black';
   }
 
   changeBack7(){   
     this.photo='../../../../assets/templates/img7.jpg';
+    this.style='white';
   }
 
   changeBack8(){   
