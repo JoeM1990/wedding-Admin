@@ -28,6 +28,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MatDialogModule} from '@angular/material/dialog';
 
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
+
 
 @NgModule({
   declarations: [
@@ -56,8 +58,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(environment.firebase),
     BrowserAnimationsModule,
-    MatDialogModule
-    
+    MatDialogModule,
+    NgxQRCodeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
