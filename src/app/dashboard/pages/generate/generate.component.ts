@@ -15,8 +15,6 @@ export class GenerateComponent implements OnInit {
 
   imgGet:any;
 
-  toggle1=false;
-
   photo:any;
 
 
@@ -41,13 +39,43 @@ export class GenerateComponent implements OnInit {
   }
 
   changeBack1(){   
-    //this.toggle1=true; 
     this.photo='../../../../assets/templates/img1.jpg';
   }
 
   changeBack2(){   
-    //this.toggle1=true; 
     this.photo='../../../../assets/templates/img2.jpg';
+  }
+
+  changeBack3(){   
+    this.photo='../../../../assets/templates/img3.jpg';
+  }
+
+  changeBack4(){   
+    this.photo='../../../../assets/templates/img4.jpg';
+  }
+
+  changeBack5(){   
+    this.photo='../../../../assets/templates/img5.jpg';
+  }
+
+  changeBack6(){   
+    this.photo='../../../../assets/templates/img6.webp';
+  }
+
+  changeBack7(){   
+    this.photo='../../../../assets/templates/img7.jpg';
+  }
+
+  changeBack8(){   
+    this.photo='../../../../assets/templates/img8.jpg';
+  }
+
+  changeBack9(){   
+    this.photo='../../../../assets/templates/img9.webp';
+  }
+
+  changeBack10(){   
+    this.photo='../../../../assets/templates/img10.jpg';
   }
 
 
