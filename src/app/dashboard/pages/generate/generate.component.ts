@@ -19,6 +19,9 @@ export class GenerateComponent implements OnInit {
   photo:any;
   style:any;
 
+  visible:false | undefined;
+  
+
   @ViewChild('screen')
   screen!: ElementRef;
   @ViewChild('canvas')

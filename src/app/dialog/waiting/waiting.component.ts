@@ -11,7 +11,6 @@ export class WaitingComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data:string, private matDialogRef: MatDialogRef<ErrorComponent>) { }
 
-
   ngOnInit(): void {
   }
 

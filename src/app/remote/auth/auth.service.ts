@@ -18,7 +18,7 @@ export class AuthService {
         this.router.navigate(['/dashboard']);
         return true;
     }, err => {
-        this.dialogError('Username ou password incorrect');
+        this.dialogError('Username ou password incorrect')
       
         this.router.navigate(['/login']);
     } ) 
@@ -27,7 +27,7 @@ export class AuthService {
 
   register(email: string, password: string){
     this.fireauth.createUserWithEmailAndPassword(email,password).then( () => {
-      this.dialogSuccess('Enregistrement effectué avec succes');
+      this.dialogSuccess('Enregistrement effectué avec succes')
       //alert('Enregistrement effectue')
       this.router.navigate(['/login']);
     }, err => {

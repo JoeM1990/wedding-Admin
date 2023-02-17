@@ -236,10 +236,12 @@
 
                  </div>
 
-                 <div id="download">
-                  <img #canvas>
-                  <a #downloadLink></a>
-                </div>
+                 <ng-container *ngIf="visible">
+                    <div id="download">
+                      <img #canvas>
+                      <a #downloadLink></a>
+                    </div>
+                </ng-container>
               
             </div>
             <!-- / Content -->
