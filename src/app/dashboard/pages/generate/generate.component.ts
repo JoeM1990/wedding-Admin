@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 import * as htmlToImage from 'html-to-image';
 import html2canvas from 'html2canvas';
 
@@ -28,6 +29,10 @@ export class GenerateComponent implements OnInit {
   canvas!: ElementRef;
   @ViewChild('downloadLink')
   downloadLink!: ElementRef;
+
+  elementType = NgxQrcodeElementTypes.URL;
+  correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
+  value = 'https://www.monkila-tech.com/';
 
 
   constructor() { }
