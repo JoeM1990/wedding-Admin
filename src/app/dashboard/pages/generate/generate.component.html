@@ -236,6 +236,22 @@
 
                  </div>
 
+                 <div class="row">
+                  <div class="col-md-6">
+                    <div class="card mb-4">
+                      <h5 class="card-header">QR CODE</h5>
+                      <div class="card-body">
+                        <ngx-qrcode
+                            [elementType]="elementType"
+                            [errorCorrectionLevel]="correctionLevel"
+                            [value]="value"
+                            cssClass="bshadow">
+                        </ngx-qrcode>
+                      </div>
+                    </div>
+                  </div>
+                 </div>
+
                  <ng-container *ngIf="visible">
                     <div id="download">
                       <img #canvas>
