@@ -221,10 +221,10 @@
                         <button type="button" class="btn btn-secondary" (click)="changeBack10()">10</button>
                       </div>
 
-                      <div class="card mb-4 fondChange" id="sectionImage"[ngStyle]="{'background-image': 'url(' + photo + ')'}">
-                        <h5 class="card-header" style="align-items: center; text-decoration: underline; margin-left: 38%;">INVITATION</h5>
+                      <div class="card mb-4 fondChange" id="sectionImage" [ngStyle]="{'background-image': 'url(' + photo + ')'}">
+                        <h5 class="card-header" style="align-items: center; text-decoration: underline; margin-left: 38%;" [ngStyle]="{'color': style }">INVITATION</h5>
                         <div class="card-body">
-                          <label class="" style="text-transform: uppercase; ">{{title1}}</label><br>
+                          <label class="" style="text-transform: uppercase; " >{{title1}}</label><br>
                           <label class="" style="text-transform: capitalize; ">Nom : {{title2}}</label><br>
                           <label class="" style="text-transform: capitalize;">Table : {{title3}}</label><br>
                           <label class="" style="text-transform: capitalize; margin-left: 40%;">----------------------</label><br>
