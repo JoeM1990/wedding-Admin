@@ -6,6 +6,12 @@ footer{
     /* height:100px; */
 }
 
+.fondChange{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto; 
+}
+
 .fond1{
     background-image: url(../../../../assets/templates/img1.jpg);
     background-position: center;
