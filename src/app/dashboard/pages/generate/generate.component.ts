@@ -41,7 +41,7 @@ export class GenerateComponent implements OnInit {
 
   changeBack1(){   
     this.photo='../../../../assets/templates/img1.jpg';
-    this.style='white;';
+    this.style='black';
   }
 
   changeBack2(){   

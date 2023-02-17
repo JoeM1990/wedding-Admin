@@ -224,12 +224,12 @@
                       <div class="card mb-4 fondChange" id="sectionImage" [ngStyle]="{'background-image': 'url(' + photo + ')'}">
                         <h5 class="card-header" style="align-items: center; text-decoration: underline; margin-left: 38%;" [ngStyle]="{'color': style }">INVITATION</h5>
                         <div class="card-body">
-                          <label class="" style="text-transform: uppercase; " >{{title1}}</label><br>
-                          <label class="" style="text-transform: capitalize; ">Nom : {{title2}}</label><br>
-                          <label class="" style="text-transform: capitalize;">Table : {{title3}}</label><br>
-                          <label class="" style="text-transform: capitalize; margin-left: 40%;">----------------------</label><br>
-                          <label class="" style="text-transform: capitalize;">{{title4}}</label><br>
-                          <label class="form-label" style="margin-left: 45%;">Bienvenue</label>
+                          <label class="" style="text-transform: uppercase; " [ngStyle]="{'color': style }">{{title1}}</label><br>
+                          <label class="" style="text-transform: capitalize; " [ngStyle]="{'color': style }">Nom : {{title2}}</label><br>
+                          <label class="" style="text-transform: capitalize;" [ngStyle]="{'color': style }">Table : {{title3}}</label><br>
+                          <label class="" style="text-transform: capitalize; margin-left: 40%;" [ngStyle]="{'color': style }">----------------------</label><br>
+                          <label class="" style="text-transform: capitalize;" [ngStyle]="{'color': style }">{{title4}}</label><br>
+                          <label class="form-label" style="margin-left: 45%;" [ngStyle]="{'color': style }">Bienvenue</label>
                         </div>
                       </div>
                     </div>
