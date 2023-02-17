@@ -6,15 +6,16 @@ import { CompleClientComponent } from './dashboard/pages/comple-client/comple-cl
 import { GenerateComponent } from './dashboard/pages/generate/generate.component';
 import { PaiementComponent } from './dashboard/pages/paiement/paiement.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './remote/guard/auth.guard';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: 'login', component:LoginComponent},
-  { path: 'dashboard', component:DashboardComponent},
-  { path: 'compte-admin', component:CompleAdminComponent},
-  { path: 'compte-clients', component:CompleClientComponent},
-  { path: 'paiement', component:PaiementComponent},
-  { path: 'generate', component:GenerateComponent},
+  { path: 'dashboard', component:DashboardComponent,canActivate:[AuthGuard]},
+  { path: 'compte-admin', component:CompleAdminComponent,canActivate:[AuthGuard]},
+  { path: 'compte-clients', component:CompleClientComponent,canActivate:[AuthGuard]},
+  { path: 'paiement', component:PaiementComponent,canActivate:[AuthGuard]},
+  { path: 'generate', component:GenerateComponent,canActivate:[AuthGuard]},
 ];
 
 @NgModule({
