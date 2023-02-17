@@ -20,6 +20,10 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from 'src/environments/environment';
+import { ErrorComponent } from './dialog/error/error.component';
+import { SuccessComponent } from './dialog/success/success.component';
+import { ConfirmationComponent } from './dialog/confirmation/confirmation.component';
+import { WaitingComponent } from './dialog/waiting/waiting.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,11 @@ import { environment } from 'src/environments/environment';
     PaiementComponent,
     GenerateComponent,
     ListViewComponent,
-    NotificationComponent
+    NotificationComponent,
+    ErrorComponent,
+    SuccessComponent,
+    ConfirmationComponent,
+    WaitingComponent
   ],
   imports: [
     BrowserModule,
