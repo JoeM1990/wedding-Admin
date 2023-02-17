@@ -17,6 +17,8 @@ export class GenerateComponent implements OnInit {
 
   toggle1=false;
 
+  photo:any;
+
 
   constructor() { }
 
@@ -39,7 +41,13 @@ export class GenerateComponent implements OnInit {
   }
 
   changeBack1(){   
-    this.toggle1=true; 
+    //this.toggle1=true; 
+    this.photo='../../../../assets/templates/img1.jpg';
+  }
+
+  changeBack2(){   
+    //this.toggle1=true; 
+    this.photo='../../../../assets/templates/img2.jpg';
   }
 
 
