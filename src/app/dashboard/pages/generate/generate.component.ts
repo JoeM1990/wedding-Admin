@@ -121,7 +121,7 @@ export class GenerateComponent implements OnInit {
     html2canvas(this.screen.nativeElement).then(canvas => {
       this.canvas.nativeElement.src = canvas.toDataURL();
       this.downloadLink.nativeElement.href = canvas.toDataURL('image/png');
-      this.downloadLink.nativeElement.download = 'marble-diagram.png';
+      this.downloadLink.nativeElement.download = this.title2+'.png';
       this.downloadLink.nativeElement.click();
     });
   }
