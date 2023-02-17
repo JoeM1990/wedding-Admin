@@ -5,10 +5,10 @@
 			<div class="signup">
 				<form>
 					<label for="chk" aria-hidden="true">Formulaire</label>
-					<input type="text" name="txt" placeholder="Username" required>
-					<input type="email" name="email" placeholder="Email" required>
-					<input type="password" name="pswd" placeholder="Password" required>
-					<button>Valider</button>
+					<input type="text" name="txt" placeholder="Username" required #username>
+					<input type="email" name="email" placeholder="Email" required #emailReg>
+					<input type="password" name="pswd" placeholder="Password" required #passwordReg>
+					<button (click)="register(emailReg.value,passwordReg.value)">Valider</button>
 				</form>
 			</div>
 

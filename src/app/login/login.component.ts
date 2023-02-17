@@ -17,4 +17,8 @@ export class LoginComponent implements OnInit {
     this.auth.login(email,password);
   }
 
+  register(email:any,password:any){
+    this.auth.register(email,password);
+  }
+
 }
