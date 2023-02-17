@@ -40,7 +40,7 @@ export class GenerateComponent implements OnInit {
   }
 
   changeBack1(){   
-    this.photo='../../../../assets/templates/img1.jpg';
+    this.photo='../../../../assets/templates/img12.jpg';
     this.style='black';
   }
 
