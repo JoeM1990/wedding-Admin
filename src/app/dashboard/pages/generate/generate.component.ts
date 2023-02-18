@@ -37,7 +37,7 @@ export class GenerateComponent implements OnInit {
   correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
   value = 'https://www.monkila-tech.com/';
 
-  selectedFiles!: FileList;
+  selectedFiles!: File;
   currentFileUpload!: FileUpload;
   item!: Item;
 
@@ -140,12 +140,14 @@ export class GenerateComponent implements OnInit {
       this.selectedFiles=this.downloadLink.nativeElement.click();
       this.visible=false;
 
-      this.selectedFiles
+      this.uploadInvitation(this.selectedFiles);
     });
+
+    
   }
 
-  uploadInvitation(){
-    let file= this.selectedFiles.item(0);
+  uploadInvitation(file:File){
+    //let file= this.selectedFiles;
     //this.selectedFiles = undefined;
 
     if(file){
