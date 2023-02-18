@@ -128,26 +128,27 @@ export class GenerateComponent implements OnInit {
 
   //       },'image/png');
   //   });
-  // }
-
-
+  // 
 
   downloadImage(){
+
     html2canvas(this.screen.nativeElement).then(canvas => {
       this.canvas.nativeElement.src = canvas.toDataURL();
       this.downloadLink.nativeElement.href = canvas.toDataURL('image/png');
       this.downloadLink.nativeElement.download = this.title2+'.png';
-      this.selectedFiles=this.downloadLink.nativeElement.click();
+      this.downloadLink.nativeElement.click();
+      this.selectedFiles=this.downloadLink.nativeElement
       this.visible=false;
 
-      this.uploadInvitation(this.selectedFiles);
+
+      this.uploadInvitation();
     });
 
     
   }
 
-  uploadInvitation(file:File){
-    //let file= this.selectedFiles;
+  uploadInvitation(){
+    let file= this.selectedFiles;
     //this.selectedFiles = undefined;
 
     if(file){
