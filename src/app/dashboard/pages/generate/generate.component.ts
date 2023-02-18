@@ -4,6 +4,7 @@ import * as htmlToImage from 'html-to-image';
 import html2canvas from 'html2canvas';
 import { CrudService } from 'src/app/utils/crud/crud.service';
 import { FileUpload } from 'src/app/utils/model/file-upload';
+import { Item } from 'src/app/utils/model/item';
 
 @Component({
   selector: 'app-generate',
@@ -38,6 +39,7 @@ export class GenerateComponent implements OnInit {
 
   selectedFiles!: FileList;
   currentFileUpload!: FileUpload;
+  item!: Item;
 
 
   constructor(private crud:CrudService) { }
@@ -148,9 +150,9 @@ export class GenerateComponent implements OnInit {
 
     if(file){
       this.currentFileUpload = new FileUpload(file);
-      this.crud.addFile(this.currentFileUpload,this.candidatureForm.value);
+      this.crud.addInvitation(this.currentFileUpload,this.item);
       alert('Effectuer avec success');
-      this.candidatureForm.reset();
+      
     }
     
   }

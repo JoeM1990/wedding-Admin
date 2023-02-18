@@ -6,7 +6,7 @@ import { CompleClientComponent } from './dashboard/pages/comple-client/comple-cl
 import { GenerateComponent } from './dashboard/pages/generate/generate.component';
 import { PaiementComponent } from './dashboard/pages/paiement/paiement.component';
 import { LoginComponent } from './login/login.component';
-import { AuthGuard } from './remote/guard/auth.guard';
+import { AuthGuard } from './utils/guard/auth.guard';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },

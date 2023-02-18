@@ -30,8 +30,10 @@ export class CrudService {
 
       item.description=downloadURL;
       item.name=fileUpload.file.name;
+      item.email_user=localStorage.getItem('email_user')?.toString();
 
       this.addItem(item);
+      alert('success');
       
       });
         })
