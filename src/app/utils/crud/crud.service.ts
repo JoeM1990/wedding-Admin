@@ -29,6 +29,7 @@ export class CrudService {
       fileUpload.name = fileUpload.file.name;
 
       item.description=downloadURL;
+      item.name=fileUpload.file.name;
 
       this.addItem(item);
       

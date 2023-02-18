@@ -2,6 +2,8 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 import * as htmlToImage from 'html-to-image';
 import html2canvas from 'html2canvas';
+import { CrudService } from 'src/app/utils/crud/crud.service';
+import { FileUpload } from 'src/app/utils/model/file-upload';
 
 @Component({
   selector: 'app-generate',
@@ -34,8 +36,11 @@ export class GenerateComponent implements OnInit {
   correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
   value = 'https://www.monkila-tech.com/';
 
+  selectedFiles!: FileList;
+  currentFileUpload!: FileUpload;
 
-  constructor() { }
+
+  constructor(private crud:CrudService) { }
 
   ngOnInit(): void {
   }
@@ -130,9 +135,24 @@ export class GenerateComponent implements OnInit {
       this.canvas.nativeElement.src = canvas.toDataURL();
       this.downloadLink.nativeElement.href = canvas.toDataURL('image/png');
       this.downloadLink.nativeElement.download = this.title2+'.png';
-      this.downloadLink.nativeElement.click();
+      this.selectedFiles=this.downloadLink.nativeElement.click();
       this.visible=false;
+
+      this.selectedFiles
     });
+  }
+
+  uploadInvitation(){
+    let file= this.selectedFiles.item(0);
+    //this.selectedFiles = undefined;
+
+    if(file){
+      this.currentFileUpload = new FileUpload(file);
+      this.crud.addFile(this.currentFileUpload,this.candidatureForm.value);
+      alert('Effectuer avec success');
+      this.candidatureForm.reset();
+    }
+    
   }
 
 
