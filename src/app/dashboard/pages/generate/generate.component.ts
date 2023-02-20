@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
@@ -44,15 +45,23 @@ export class GenerateComponent implements OnInit {
 
   public infosForm!: FormGroup;
 
+  today = new Date();
+  pipe = new DatePipe('en-US');
+
+  ChangedFormat = this.pipe.transform(this.today, 'dd/MM/YYYY');
+  changedDate = this.ChangedFormat;
+
 
   constructor(private crud:CrudService,public formBuilder: FormBuilder) {
     this.infosForm = this.formBuilder.group({
       name: this.title2,
       email_user: localStorage.getItem('email_user'),
+      date:'',
     })
    }
 
   ngOnInit(): void {
+    alert(this.changedDate);
   }
 
   generateImage(){
