@@ -62,7 +62,7 @@ export class GenerateComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.value=this.crud.urlGet;
+    
   }
 
   generateImage(){
@@ -178,9 +178,10 @@ export class GenerateComponent implements OnInit {
       this.crud.addInvitation(this.currentFileUpload,this.infosForm.value);
 
 
-      alert(this.crud.urlGet);
+      //alert(localStorage.getItem('urlInvitation'));
+      this.value=localStorage.getItem('urlInvitation');
 
-      this.value=this.crud.urlGet;
+      //this.value=this.crud.urlGet;
       
       alert('Effectuer avec success');
       

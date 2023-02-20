@@ -32,7 +32,7 @@ export class CrudService {
       localStorage.setItem('urlInvitation',downloadURL);
       //item.email_user=localStorage.getItem('email_user')?.toString();
       this.addItem(item);
-      alert('success');
+      //alert('success');
       
       });
         })
