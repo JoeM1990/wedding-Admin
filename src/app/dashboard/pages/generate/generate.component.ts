@@ -157,8 +157,9 @@ export class GenerateComponent implements OnInit {
       //this.selectedFiles=this.downloadLink.nativeElement.click();
       this.visible=false;
 
-      canvas.toBlob( (blob) => {
-        const file = new File( [  ],  this.title2+'.png');
+      canvas.toBlob( (blob:any) => {
+        //let blobT = new Blob(blob, { type: "image/png" });
+        const file = new File( [ blob ],  this.title2+'.png');
         const dT = new DataTransfer();
         dT.items.add( file );
 
