@@ -154,11 +154,11 @@ export class GenerateComponent implements OnInit {
       this.downloadLink.nativeElement.href = canvas.toDataURL('image/png');
       this.downloadLink.nativeElement.download = this.title2+'.png';
       this.downloadLink.nativeElement.click();
-      this.selectedFiles=this.downloadLink.nativeElement.click();
+      //this.selectedFiles=this.downloadLink.nativeElement.click();
       this.visible=false;
 
       canvas.toBlob( (blob) => {
-        const file = new File( [ blob as BlobPart ],  this.title2+'.png');
+        const file = new File( [  ],  this.title2+'.png');
         const dT = new DataTransfer();
         dT.items.add( file );
 
