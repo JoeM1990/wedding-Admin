@@ -41,6 +41,7 @@ export class GenerateComponent implements OnInit {
   value:any;
 
   selectedFiles!: File;
+  selectedFilesT!: FileList;
   currentFileUpload!: FileUpload;
   item!: Item;
 
@@ -177,12 +178,34 @@ export class GenerateComponent implements OnInit {
   }
 
   selectFile(event: any){
-    this.selectedFiles = event.target.files;
+    this.selectedFilesT = event.target.files;
   }
 
   uploadInvitation(){
     //let file= this.selectedFiles.item(0);
     let file=this.selectedFiles;
+    //this.selectedFiles = undefined;
+
+    if(file){
+      
+      this.currentFileUpload = new FileUpload(file);
+      this.crud.addInvitation(this.currentFileUpload,this.infosForm.value);
+
+
+      //alert(localStorage.getItem('urlInvitation'));
+      this.value=localStorage.getItem('urlInvitation');
+
+      //this.value=this.crud.urlGet;
+      
+      //alert('Effectuer avec success');
+      
+    }
+    
+  }
+
+  uploadInvitationFrom(){
+    let file= this.selectedFilesT.item(0);
+    //let file=this.selectedFiles;
     //this.selectedFiles = undefined;
 
     if(file){
