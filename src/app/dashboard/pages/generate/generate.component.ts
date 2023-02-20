@@ -37,7 +37,8 @@ export class GenerateComponent implements OnInit {
 
   elementType = NgxQrcodeElementTypes.URL;
   correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
-  value = 'https://www.monkila-tech.com/';
+
+  value:any;
 
   selectedFiles!: FileList;
   currentFileUpload!: FileUpload;
@@ -56,12 +57,12 @@ export class GenerateComponent implements OnInit {
     this.infosForm = this.formBuilder.group({
       name: this.title2,
       email_user: localStorage.getItem('email_user'),
-      date:'',
+      date:this.changedDate,
     })
    }
 
   ngOnInit(): void {
-    alert(this.changedDate);
+    this.value=this.crud.urlGet;
   }
 
   generateImage(){
@@ -175,6 +176,8 @@ export class GenerateComponent implements OnInit {
       
       this.currentFileUpload = new FileUpload(file);
       this.crud.addInvitation(this.currentFileUpload,this.infosForm.value);
+
+      this.value=this.crud.urlGet;
       
       alert('Effectuer avec success');
       
