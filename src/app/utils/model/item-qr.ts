@@ -3,4 +3,5 @@ export class ItemQr {
     email_user:string|undefined;
     name:string|undefined;
     description:string|undefined;
+    date:string|undefined;
 }
