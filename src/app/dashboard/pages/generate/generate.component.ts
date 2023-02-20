@@ -40,7 +40,7 @@ export class GenerateComponent implements OnInit {
 
   value:any;
 
-  selectedFiles!: FileList;
+  selectedFiles!: File;
   currentFileUpload!: FileUpload;
   item!: Item;
 
@@ -157,8 +157,19 @@ export class GenerateComponent implements OnInit {
       this.selectedFiles=this.downloadLink.nativeElement.click();
       this.visible=false;
 
+      canvas.toBlob( (blob) => {
+        const file = new File( [ blob as BlobPart ],  this.title2+'.png');
+        const dT = new DataTransfer();
+        dT.items.add( file );
 
-      this.uploadInvitation();
+        this.selectedFiles=file;
+
+        this.uploadInvitation();
+        
+      } );
+
+
+      //this.uploadInvitation();
     });
 
     
@@ -169,7 +180,8 @@ export class GenerateComponent implements OnInit {
   }
 
   uploadInvitation(){
-    let file= this.selectedFiles.item(0);
+    //let file= this.selectedFiles.item(0);
+    let file=this.selectedFiles;
     //this.selectedFiles = undefined;
 
     if(file){
@@ -183,7 +195,7 @@ export class GenerateComponent implements OnInit {
 
       //this.value=this.crud.urlGet;
       
-      alert('Effectuer avec success');
+      //alert('Effectuer avec success');
       
     }
     
