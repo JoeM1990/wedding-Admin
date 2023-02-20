@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 import * as htmlToImage from 'html-to-image';
 import html2canvas from 'html2canvas';
@@ -42,10 +42,15 @@ export class GenerateComponent implements OnInit {
   currentFileUpload!: FileUpload;
   item!: Item;
 
-  //spublic uploadInvitationForm!: FormGroup;
+  public infosForm!: FormGroup;
 
 
-  constructor(private crud:CrudService) { }
+  constructor(private crud:CrudService,public formBuilder: FormBuilder) {
+    this.infosForm = this.formBuilder.group({
+      name: this.title2,
+      email_user: localStorage.getItem('email_user'),
+    })
+   }
 
   ngOnInit(): void {
   }
@@ -58,7 +63,6 @@ export class GenerateComponent implements OnInit {
         img.src = dataUrl;
         document.body.appendChild(img);
         var imgGet=dataUrl;
-        //alert(dataUrl);
       })
       .catch(function (error) {
         console.error('Erreur', error);
@@ -161,11 +165,9 @@ export class GenerateComponent implements OnInit {
     if(file){
       
       this.currentFileUpload = new FileUpload(file);
-      this.crud.addInvitation(this.currentFileUpload,this.item);
-      
+      this.crud.addInvitation(this.currentFileUpload,this.infosForm.value);
       
       alert('Effectuer avec success');
-    
       
     }
     
