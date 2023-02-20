@@ -180,9 +180,10 @@
 
                     <div class="col-md-6">
                     <div class="card mb-4">
-                      <h5 class="card-header">Informations</h5>
+                      <!-- <h5 class="card-header">Informations</h5> -->
                       <div class="card-body">
                         <div>
+                          <form>
                           <label for="defaultFormControlInput" class="form-label">Titre evenement</label>
                           <input type="text" class="form-control" id="defaultFormControlInput" placeholder="Festival"
                             aria-describedby="defaultFormControlHelp" [(ngModel)]="title1" [maxLength]="50" pattern="[A-Za-z]"/>
@@ -195,6 +196,7 @@
                         <label for="defaultFormControlInput" class="form-label">Lieu | Heure | Date</label>
                           <input type="text" class="form-control" id="defaultFormControlInput" placeholder="Kin Marche - 15h - 24/12/2023"
                             aria-describedby="defaultFormControlHelp" [(ngModel)]="title4" [maxLength]="60"/>
+                          </form>
                             <button type="button" class="btn btn-primary" style="margin-top: 10px;" (click)="downloadImage()">Download</button>
                             <button type="button" class="btn btn-primary" style="margin-top: 10px; margin-left: 5px;" data-bs-toggle="modal"
                             data-bs-target="#uploadModal">Upload</button>

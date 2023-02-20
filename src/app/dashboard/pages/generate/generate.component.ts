@@ -159,8 +159,10 @@ export class GenerateComponent implements OnInit {
     //this.selectedFiles = undefined;
 
     if(file){
+      
       this.currentFileUpload = new FileUpload(file);
       this.crud.addInvitation(this.currentFileUpload,this.item);
+      
       
       alert('Effectuer avec success');
     
