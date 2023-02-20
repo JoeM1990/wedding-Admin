@@ -196,7 +196,8 @@
                           <input type="text" class="form-control" id="defaultFormControlInput" placeholder="Kin Marche - 15h - 24/12/2023"
                             aria-describedby="defaultFormControlHelp" [(ngModel)]="title4" [maxLength]="60"/>
                             <button type="button" class="btn btn-primary" style="margin-top: 10px;" (click)="downloadImage()">Download</button>
-                            <button type="button" class="btn btn-primary" style="margin-top: 10px;" (click)="downloadImage()">Upload</button>
+                            <button type="button" class="btn btn-primary" style="margin-top: 10px;" data-bs-toggle="modal"
+                            data-bs-target="#uploadModal">Upload</button>
                             <!-- <button type="button" class="btn btn-primary" style="margin-top: 10px; margin-left: 10px;">View</button> -->
                           <!-- <div id="defaultFormControlHelp" class="form-text">
                             We'll never share your details with anyone else.
@@ -325,7 +326,9 @@
                     <div class="row">
                       <div class="col mb-3">
                         <label for="nameBasic" class="form-label">Image</label>
-                        <input type="file" id="nameBasic" class="form-control" (change)="selectFile($event)" />
+                        <form>
+                          <input type="file" id="nameBasic" class="form-control" (change)="selectFile($event)" />
+                        </form>
                       </div>
                     </div>
                     <!-- <div class="row g-2">
@@ -344,7 +347,7 @@
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                       Close
                     </button>
-                    <button type="button" class="btn btn-primary">Valider</button>
+                    <button type="button" class="btn btn-primary" (click)="uploadInvitation()">Valider</button>
                     <!-- <button type="button" class="btn btn-primary">Color</button> -->
                   </div>
                 </div>
