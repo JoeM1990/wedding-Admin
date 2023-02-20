@@ -177,6 +177,9 @@ export class GenerateComponent implements OnInit {
       this.currentFileUpload = new FileUpload(file);
       this.crud.addInvitation(this.currentFileUpload,this.infosForm.value);
 
+
+      alert(this.crud.urlGet);
+
       this.value=this.crud.urlGet;
       
       alert('Effectuer avec success');

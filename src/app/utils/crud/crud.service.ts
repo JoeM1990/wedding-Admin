@@ -14,8 +14,6 @@ export class CrudService {
   private basePath = '/uploadQr';
   private basePath2 = '/uploadInvitation';
 
-  public urlGet:string|undefined;
-
   constructor(private angularFirestore: AngularFirestore,private storage: AngularFireStorage,private db: AngularFireDatabase) { }
 
 
@@ -31,9 +29,8 @@ export class CrudService {
       fileUpload.name = fileUpload.file.name;
 
       item.description=downloadURL;
-      this.urlGet=downloadURL;
+      localStorage.setItem('urlInvitation',downloadURL);
       //item.email_user=localStorage.getItem('email_user')?.toString();
-
       this.addItem(item);
       alert('success');
       
