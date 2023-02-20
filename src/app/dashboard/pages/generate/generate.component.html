@@ -195,7 +195,8 @@
                         <label for="defaultFormControlInput" class="form-label">Lieu | Heure | Date</label>
                           <input type="text" class="form-control" id="defaultFormControlInput" placeholder="Kin Marche - 15h - 24/12/2023"
                             aria-describedby="defaultFormControlHelp" [(ngModel)]="title4" [maxLength]="60"/>
-                            <button type="button" class="btn btn-primary" style="margin-top: 10px;" (click)="downloadImage()">Generer</button>
+                            <button type="button" class="btn btn-primary" style="margin-top: 10px;" (click)="downloadImage()">Download</button>
+                            <button type="button" class="btn btn-primary" style="margin-top: 10px;" (click)="downloadImage()">Upload</button>
                             <!-- <button type="button" class="btn btn-primary" style="margin-top: 10px; margin-left: 10px;">View</button> -->
                           <!-- <div id="defaultFormControlHelp" class="form-text">
                             We'll never share your details with anyone else.
@@ -305,6 +306,52 @@
               </div>
             </div>
             <!-- Modal -->
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="uploadModal" tabindex="-1" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                  
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="col mb-3">
+                        <label for="nameBasic" class="form-label">Image</label>
+                        <input type="file" id="nameBasic" class="form-control" (change)="selectFile($event)" />
+                      </div>
+                    </div>
+                    <!-- <div class="row g-2">
+                      <div class="col mb-0">
+                        <label for="emailBasic" class="form-label">Background Color</label>
+                        <select class="form-control">
+                          <option>Noir</option>
+                          <option>Blanc</option>
+                          <option>Rouge</option>
+                          <option>Vert</option>
+                        </select>
+                      </div>
+                    </div> -->
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                      Close
+                    </button>
+                    <button type="button" class="btn btn-primary">Valider</button>
+                    <!-- <button type="button" class="btn btn-primary">Color</button> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Modal -->
+
 
             <!-- Footer -->
             <footer>
