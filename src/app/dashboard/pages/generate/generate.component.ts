@@ -137,7 +137,7 @@ export class GenerateComponent implements OnInit {
       this.downloadLink.nativeElement.href = canvas.toDataURL('image/png');
       this.downloadLink.nativeElement.download = this.title2+'.png';
       this.downloadLink.nativeElement.click();
-      this.selectedFiles=this.downloadLink.nativeElement
+      this.selectedFiles=this.downloadLink.nativeElement.click();
       this.visible=false;
 
 
