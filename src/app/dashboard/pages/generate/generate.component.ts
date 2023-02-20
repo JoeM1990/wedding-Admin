@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 import * as htmlToImage from 'html-to-image';
 import html2canvas from 'html2canvas';
@@ -40,6 +41,8 @@ export class GenerateComponent implements OnInit {
   selectedFiles!: FileList;
   currentFileUpload!: FileUpload;
   item!: Item;
+
+  //spublic uploadInvitationForm!: FormGroup;
 
 
   constructor(private crud:CrudService) { }
@@ -158,7 +161,9 @@ export class GenerateComponent implements OnInit {
     if(file){
       this.currentFileUpload = new FileUpload(file);
       this.crud.addInvitation(this.currentFileUpload,this.item);
+      
       alert('Effectuer avec success');
+    
       
     }
     
