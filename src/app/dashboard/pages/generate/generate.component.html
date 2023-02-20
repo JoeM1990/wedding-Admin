@@ -249,6 +249,7 @@
                             [elementType]="elementType"
                             [errorCorrectionLevel]="correctionLevel"
                             [value]="value"
+                            [width]=200
                             cssClass="bshadow">
                         </ngx-qrcode>
                       </div>
@@ -329,7 +330,7 @@
                       <div class="col mb-3">
                         <label for="nameBasic" class="form-label">Image</label>
                         
-                          <input type="file" id="nameBasic" class="form-control" (change)="selectFile($event)" />
+                          <input type="file" id="nameBasic" class="form-control" (change)="selectFile($event)" multiple />
                        
                       </div>
                     </div>
