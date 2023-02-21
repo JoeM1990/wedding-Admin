@@ -1,6 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 import * as htmlToImage from 'html-to-image';
 import html2canvas from 'html2canvas';
@@ -54,7 +55,7 @@ export class GenerateComponent implements OnInit {
   changedDate = this.ChangedFormat;
 
 
-  constructor(private crud:CrudService,public formBuilder: FormBuilder) {
+  constructor(private crud:CrudService,public formBuilder: FormBuilder, public router:Router) {
     this.infosForm = this.formBuilder.group({
       name: this.title2,
       email_user: localStorage.getItem('email_user'),
@@ -156,6 +157,7 @@ export class GenerateComponent implements OnInit {
       this.downloadLink.nativeElement.download = this.title2+'.png';
       this.downloadLink.nativeElement.click();
       //this.selectedFiles=this.downloadLink.nativeElement.click();
+      
       this.visible=false;
 
       canvas.toBlob( (blob:any) => {
@@ -167,10 +169,13 @@ export class GenerateComponent implements OnInit {
         this.selectedFiles=file;
 
         this.uploadInvitation();
+
+        this.router.navigate(['/generate']);
         
       } );
 
-
+      
+      
       //this.uploadInvitation();
     });
 
