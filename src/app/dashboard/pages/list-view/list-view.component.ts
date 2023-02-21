@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ItemQr } from 'src/app/utils/model/item-qr';
 
 @Component({
   selector: 'app-list-view',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-view.component.css']
 })
 export class ListViewComponent implements OnInit {
+
+  itemQr!:ItemQr;
 
   constructor() { }
 
