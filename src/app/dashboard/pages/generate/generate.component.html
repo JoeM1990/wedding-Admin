@@ -245,13 +245,13 @@
                   <div class="col-md-3">
                     <div class="card mb-4">
                       <h5 class="card-header">QR CODE</h5>
-                      <div class="card-body" #screenQr>
+                      <div class="card-body" >
                         <ngx-qrcode
                             [elementType]="elementType"
                             [errorCorrectionLevel]="correctionLevel"
                             [value]="value"
                             [width]=200
-                            cssClass="bshadow">
+                            cssClass="bshadow" #screenQr>
                         </ngx-qrcode>
                       </div>
                     </div>

@@ -76,7 +76,7 @@ export class CrudService {
 
       item.description=downloadURL;
       item.name=localStorage.getItem('nomForm')?.toString();
-      localStorage.setItem('urlInvitation',downloadURL);
+      localStorage.setItem('urlQr',downloadURL);
       //item.email_user=localStorage.getItem('email_user')?.toString();
       this.addQr(item);
       //alert('success');

@@ -50,6 +50,7 @@ export class GenerateComponent implements OnInit {
   value:any;
 
   selectedFiles!: File;
+  selectedQr!: File;
   selectedFilesT!: FileList;
   currentFileUpload!: FileUpload;
   item!: Item;
@@ -163,6 +164,8 @@ export class GenerateComponent implements OnInit {
         this.value=localStorage.getItem('urlInvitation');
 
 
+        this.downloadQr();
+
         this.router.navigate(['/generate']);
         
       } );
@@ -171,6 +174,8 @@ export class GenerateComponent implements OnInit {
       
       //this.uploadInvitation();
     });
+
+    
 
     
   }
@@ -226,13 +231,13 @@ export class GenerateComponent implements OnInit {
   downloadQr(){
 
     html2canvas(this.screenQr.nativeElement).then(canvasQr => {
-      this.canvasQr.nativeElement.src = canvasQr.toDataURL();
-      this.downloadLinkQr.nativeElement.href = canvasQr.toDataURL('image/png');
-      this.downloadLinkQr.nativeElement.downloadQr = this.title2+'.png';
-      this.downloadLinkQr.nativeElement.click();
+      //this.canvasQr.nativeElement.src = canvasQr.toDataURL();
+      //this.downloadLinkQr.nativeElement.href = canvasQr.toDataURL('image/png');
+      //this.downloadLinkQr.nativeElement.downloadQr = this.title2+'.png';
+      //this.downloadLinkQr.nativeElement.click();
       //this.selectedFiles=this.downloadLink.nativeElement.click();
       
-      this.visible=false;
+      this.visibleQr=true;
 
       canvasQr.toBlob( (blob:any) => {
         //let blobT = new Blob(blob, { type: "image/png" });
@@ -240,11 +245,11 @@ export class GenerateComponent implements OnInit {
         const dT = new DataTransfer();
         dT.items.add( file );
 
-        this.selectedFiles=file;
+        this.selectedQr=file;
 
         localStorage.setItem('nomForm',this.title2);
 
-        //this.uploadInvitation();
+        this.uploadQr();
         this.value=localStorage.getItem('urlInvitation');
 
 
@@ -257,6 +262,28 @@ export class GenerateComponent implements OnInit {
       //this.uploadInvitation();
     });
 
+    
+  }
+
+  uploadQr(){
+    //let file= this.selectedFiles.item(0);
+    let file=this.selectedQr;
+    //this.selectedFiles = undefined;
+
+    if(file){
+      
+      this.currentFileUpload = new FileUpload(file);
+      this.crud.addQrCode(this.currentFileUpload,this.infosForm.value);
+
+
+      //alert(localStorage.getItem('urlInvitation'));
+      //this.value=localStorage.getItem('urlInvitation');
+
+      //this.value=this.crud.urlGet;
+      
+      //alert('Effectuer avec success');
+      
+    }
     
   }
 
