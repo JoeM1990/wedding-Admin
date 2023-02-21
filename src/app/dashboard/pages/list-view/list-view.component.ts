@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CrudService } from 'src/app/utils/crud/crud.service';
+import { Item } from 'src/app/utils/model/item';
 import { ItemQr } from 'src/app/utils/model/item-qr';
 
 @Component({
@@ -8,11 +10,20 @@ import { ItemQr } from 'src/app/utils/model/item-qr';
 })
 export class ListViewComponent implements OnInit {
 
-  itemQr!:ItemQr;
+  ItemQr!:ItemQr[];
 
-  constructor() { }
+  constructor(public crud:CrudService) { }
 
   ngOnInit(): void {
+    this.crud.getAllQr().subscribe(res => {
+      
+      this.ItemQr = res.map( e => {
+        return{
+          id: e.payload.doc.id,
+          ...e.payload.doc.data() as {}
+        } as unknown as ItemQr;
+      })
+     })
   }
 
 }

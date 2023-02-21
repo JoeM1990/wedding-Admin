@@ -194,11 +194,13 @@
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                      <tr>
-                        <td>1</td>
-                        <td>Joe Monkila</td>
-                        <td>Jnkiwa25@gmail.com</td>
-                        <td>xxxxxxxxx</td>
+                      <tr *ngFor="let item of ItemQr; let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.email_user}}</td>
+                        <td>
+                            <img src="">
+                        </td>
                         <td>
                             <i class='bx bxs-send'></i>
                             <i class='bx bx-search-alt-2'></i>
