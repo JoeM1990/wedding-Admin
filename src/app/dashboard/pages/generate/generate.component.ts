@@ -163,19 +163,15 @@ export class GenerateComponent implements OnInit {
         this.uploadInvitation();
         //this.value=localStorage.getItem('urlInvitation');
 
+        
 
 
         
 
         //this.router.navigate(['/generate']);
 
-        this.downloadQr();
-        
-      } );
-
-      
-      
-      
+    
+      } );      
       //this.uploadInvitation();
     });
 
@@ -187,6 +183,7 @@ export class GenerateComponent implements OnInit {
   generateQr(){
     this.value=null;
     this.value=localStorage.getItem('urlInvitation');
+    this.downloadQr();
   }
 
   selectFile(event: any){
