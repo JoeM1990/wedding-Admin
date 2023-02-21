@@ -27,7 +27,7 @@ export class GenerateComponent implements OnInit {
   style:any;
 
   visible=true;
-  visibleQr=true;
+  visibleQr=false;
   
 
   @ViewChild('screen')
