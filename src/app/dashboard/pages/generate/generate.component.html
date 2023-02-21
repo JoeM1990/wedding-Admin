@@ -240,11 +240,12 @@
 
                  </div>
 
+                 <ng-container *ngIf="visibleQr">
                  <div class="row" style="margin-bottom: 2%;">
                   <div class="col-md-3">
                     <div class="card mb-4">
                       <h5 class="card-header">QR CODE</h5>
-                      <div class="card-body">
+                      <div class="card-body" #screenQr>
                         <ngx-qrcode
                             [elementType]="elementType"
                             [errorCorrectionLevel]="correctionLevel"
@@ -256,6 +257,7 @@
                     </div>
                   </div>
                  </div>
+                </ng-container>
 
                  <ng-container *ngIf="visible">
                     <div id="download">
@@ -263,6 +265,13 @@
                       <a #downloadLink></a>
                     </div>
                 </ng-container>
+
+                <ng-container *ngIf="visible">
+                  <div id="downloadQr">
+                    <img #canvasQr>
+                    <a #downloadLinkQr></a>
+                  </div>
+              </ng-container>
               
             </div>
             <!-- / Content -->
