@@ -164,12 +164,16 @@ export class GenerateComponent implements OnInit {
         this.value=localStorage.getItem('urlInvitation');
 
 
-        this.downloadQr();
 
-        this.router.navigate(['/generate']);
+        
+
+        //this.router.navigate(['/generate']);
+
+        this.downloadQr();
         
       } );
 
+      
       
       
       //this.uploadInvitation();
@@ -197,6 +201,8 @@ export class GenerateComponent implements OnInit {
 
       //alert(localStorage.getItem('urlInvitation'));
       this.value=localStorage.getItem('urlInvitation');
+
+      
 
       //this.value=this.crud.urlGet;
       
@@ -250,7 +256,7 @@ export class GenerateComponent implements OnInit {
         localStorage.setItem('nomForm',this.title2);
 
         this.uploadQr();
-        this.value=localStorage.getItem('urlInvitation');
+        //this.value=localStorage.getItem('urlInvitation');
 
 
         this.router.navigate(['/generate']);

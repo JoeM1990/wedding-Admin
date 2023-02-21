@@ -30,6 +30,8 @@ export class CrudService {
 
       item.description=downloadURL;
       item.name=localStorage.getItem('nomForm')?.toString();
+
+      localStorage.removeItem('urlInvitation');
       localStorage.setItem('urlInvitation',downloadURL);
       //item.email_user=localStorage.getItem('email_user')?.toString();
       this.addItem(item);
@@ -76,6 +78,8 @@ export class CrudService {
 
       item.description=downloadURL;
       item.name=localStorage.getItem('nomForm')?.toString();
+      
+      localStorage.removeItem('urlQr');
       localStorage.setItem('urlQr',downloadURL);
       //item.email_user=localStorage.getItem('email_user')?.toString();
       this.addQr(item);
