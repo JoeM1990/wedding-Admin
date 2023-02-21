@@ -223,5 +223,43 @@ export class GenerateComponent implements OnInit {
     
   }
 
+  downloadQr(){
+
+    html2canvas(this.screenQr.nativeElement).then(canvasQr => {
+      this.canvasQr.nativeElement.src = canvasQr.toDataURL();
+      this.downloadLinkQr.nativeElement.href = canvasQr.toDataURL('image/png');
+      this.downloadLinkQr.nativeElement.downloadQr = this.title2+'.png';
+      this.downloadLinkQr.nativeElement.click();
+      //this.selectedFiles=this.downloadLink.nativeElement.click();
+      
+      this.visible=false;
+
+      canvasQr.toBlob( (blob:any) => {
+        //let blobT = new Blob(blob, { type: "image/png" });
+        const file = new File( [ blob ],  this.title2+'.png',{ type: "image/png" });
+        const dT = new DataTransfer();
+        dT.items.add( file );
+
+        this.selectedFiles=file;
+
+        localStorage.setItem('nomForm',this.title2);
+
+        //this.uploadInvitation();
+        this.value=localStorage.getItem('urlInvitation');
+
+
+        this.router.navigate(['/generate']);
+        
+      } );
+
+      
+      
+      //this.uploadInvitation();
+    });
+
+    
+  }
+
+
 
 }

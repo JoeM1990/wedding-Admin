@@ -61,5 +61,51 @@ export class CrudService {
     .snapshotChanges();
   }
 
+  //Qr code Crud
+
+  addQrCode(fileUpload: FileUpload,item:Item){
+    const filePath = `${this.basePath}/${fileUpload.file.name}`;
+    const storageRef = this.storage.ref(filePath);
+    const uploadTask = this.storage.upload(filePath, fileUpload.file);
+
+    uploadTask.snapshotChanges().pipe(
+      finalize(() => {
+      storageRef.getDownloadURL().subscribe(downloadURL => {
+      fileUpload.url = downloadURL;
+      fileUpload.name = fileUpload.file.name;
+
+      item.description=downloadURL;
+      item.name=localStorage.getItem('nomForm')?.toString();
+      localStorage.setItem('urlInvitation',downloadURL);
+      //item.email_user=localStorage.getItem('email_user')?.toString();
+      this.addQr(item);
+      //alert('success');
+      
+      });
+        })
+      ).subscribe();
+     
+  }
+
+  private addQr(item:Item){
+    return new Promise<any>((resolve, reject) => {
+      this.angularFirestore.collection('item-qr')
+      .add(item)
+      .then(response => { }, error => reject(error))
+      ;
+      })
+  }
+
+  deleteQr(item: { id: string | undefined; }){
+    return this.angularFirestore.collection('item-qr')
+    .doc(item.id)
+    .delete();
+  }
+
+  getAllQr(){
+    return this.angularFirestore.collection('item-qr')
+    .snapshotChanges();
+  }
+
   
 }
