@@ -74,7 +74,7 @@ export class GenerateComponent implements OnInit {
         var img = new Image();
         img.src = dataUrl;
         document.body.appendChild(img);
-        var imgGet=dataUrl;
+        
       })
       .catch(function (error) {
         console.error('Erreur', error);
@@ -130,25 +130,6 @@ export class GenerateComponent implements OnInit {
     this.style='black';
   }
 
-  // generateImageDiv(){
-  //   let element = document.querySelector("#capture");
-  //   html2canvas(document).then(function(canvas) {
-  //       // Convert the canvas to blob
-  //       canvas.toBlob(function(blob){
-  //           // To download directly on browser default 'downloads' location
-  //           let link = document.createElement("a");
-  //           link.download = "image.png";
-  //           link.href = URL.createObjectURL(blob);
-  //           link.click();
-
-  //           // To save manually somewhere in file explorer
-  //           window.saveAs(blob, 'image.png');
-            
-
-  //       },'image/png');
-  //   });
-  // 
-
   downloadImage(){
 
     html2canvas(this.screen.nativeElement).then(canvas => {
@@ -169,6 +150,8 @@ export class GenerateComponent implements OnInit {
         this.selectedFiles=file;
 
         this.uploadInvitation();
+        this.value=localStorage.getItem('urlInvitation');
+
 
         this.router.navigate(['/generate']);
         
