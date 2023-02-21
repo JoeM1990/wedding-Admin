@@ -160,7 +160,7 @@ export class GenerateComponent implements OnInit {
 
       canvas.toBlob( (blob:any) => {
         //let blobT = new Blob(blob, { type: "image/png" });
-        const file = new File( [ blob ],  this.title2+'.png');
+        const file = new File( [ blob ],  this.title2+'.png',{ type: "image/png" });
         const dT = new DataTransfer();
         dT.items.add( file );
 
