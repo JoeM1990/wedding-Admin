@@ -73,7 +73,7 @@ export class GenerateComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    
+  
   }
 
   generateImage(){
@@ -184,6 +184,11 @@ export class GenerateComponent implements OnInit {
     
   }
 
+  generateQr(){
+    this.value=null;
+    this.value=localStorage.getItem('urlInvitation');
+  }
+
   selectFile(event: any){
     this.selectedFilesT = event.target.files;
   }
@@ -200,7 +205,7 @@ export class GenerateComponent implements OnInit {
 
 
       //alert(localStorage.getItem('urlInvitation'));
-      this.value=localStorage.getItem('urlInvitation');
+      //this.value=localStorage.getItem('urlInvitation');
 
       
 
@@ -224,7 +229,7 @@ export class GenerateComponent implements OnInit {
 
 
       //alert(localStorage.getItem('urlInvitation'));
-      this.value=localStorage.getItem('urlInvitation');
+      //this.value=localStorage.getItem('urlInvitation');
 
       //this.value=this.crud.urlGet;
       
