@@ -29,6 +29,7 @@ export class CrudService {
       fileUpload.name = fileUpload.file.name;
 
       item.description=downloadURL;
+      item.name=localStorage.getItem('nomForm')?.toString();
       localStorage.setItem('urlInvitation',downloadURL);
       //item.email_user=localStorage.getItem('email_user')?.toString();
       this.addItem(item);

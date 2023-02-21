@@ -37,6 +37,13 @@ export class GenerateComponent implements OnInit {
   @ViewChild('downloadLink')
   downloadLink!: ElementRef;
 
+  @ViewChild('screenQr')
+  screenQr!: ElementRef;
+  @ViewChild('canvasQr')
+  canvasQr!: ElementRef;
+  @ViewChild('downloadLinkQr')
+  downloadLinkQr!: ElementRef;
+
   elementType = NgxQrcodeElementTypes.URL;
   correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
 
@@ -149,6 +156,8 @@ export class GenerateComponent implements OnInit {
         dT.items.add( file );
 
         this.selectedFiles=file;
+
+        localStorage.setItem('nomForm',this.title2);
 
         this.uploadInvitation();
         this.value=localStorage.getItem('urlInvitation');
