@@ -73,8 +73,10 @@ export class GenerateComponent implements OnInit {
    }
 
   ngOnInit(): void {
-  
+    
   }
+
+  
 
   generateImage(){
     var node:any = document.getElementById('sectionImage');
@@ -141,13 +143,14 @@ export class GenerateComponent implements OnInit {
 
   downloadImage(){
 
+    this.value=null;
+
     html2canvas(this.screen.nativeElement).then(canvas => {
       this.canvas.nativeElement.src = canvas.toDataURL();
       this.downloadLink.nativeElement.href = canvas.toDataURL('image/png');
       this.downloadLink.nativeElement.download = this.title2+'.png';
       this.downloadLink.nativeElement.click();
-      //this.selectedFiles=this.downloadLink.nativeElement.click();
-      
+    
       this.visible=false;
 
       canvas.toBlob( (blob:any) => {
@@ -161,18 +164,9 @@ export class GenerateComponent implements OnInit {
         localStorage.setItem('nomForm',this.title2);
 
         this.uploadInvitation();
-        //this.value=localStorage.getItem('urlInvitation');
-
         
-
-
-        
-
-        //this.router.navigate(['/generate']);
-
-    
       } );      
-      //this.uploadInvitation();
+     
     });
 
     
@@ -181,10 +175,10 @@ export class GenerateComponent implements OnInit {
   }
 
   generateQr(){
-    this.value='';
+    this.value=null;
     this.value=localStorage.getItem('urlInvitation');
     this.visibleQr=true;
-    //this.downloadQr();
+   
   }
 
   selectFile(event: any){
@@ -192,9 +186,9 @@ export class GenerateComponent implements OnInit {
   }
 
   uploadInvitation(){
-    //let file= this.selectedFiles.item(0);
+   
     let file=this.selectedFiles;
-    //this.selectedFiles = undefined;
+  
 
     if(file){
       
@@ -202,36 +196,18 @@ export class GenerateComponent implements OnInit {
       this.crud.addInvitation(this.currentFileUpload,this.infosForm.value);
 
 
-      //alert(localStorage.getItem('urlInvitation'));
-      //this.value=localStorage.getItem('urlInvitation');
-
-      
-
-      //this.value=this.crud.urlGet;
-      
-      //alert('Effectuer avec success');
-      
     }
     
   }
 
   uploadInvitationFrom(){
     let file= this.selectedFilesT.item(0);
-    //let file=this.selectedFiles;
-    //this.selectedFiles = undefined;
 
     if(file){
       
       this.currentFileUpload = new FileUpload(file);
       this.crud.addInvitation(this.currentFileUpload,this.infosForm.value);
 
-
-      //alert(localStorage.getItem('urlInvitation'));
-      //this.value=localStorage.getItem('urlInvitation');
-
-      //this.value=this.crud.urlGet;
-      
-      //alert('Effectuer avec success');
       
     }
     
@@ -259,38 +235,25 @@ export class GenerateComponent implements OnInit {
         localStorage.setItem('nomForm',this.title2);
 
         this.uploadQr();
-        //this.value=localStorage.getItem('urlInvitation');
-
-
-        //this.router.navigate(['/generate']);
+       
         
       } );
 
       
-      
-      //this.uploadInvitation();
     });
 
     
   }
 
   uploadQr(){
-    //let file= this.selectedFiles.item(0);
+  
     let file=this.selectedQr;
-    //this.selectedFiles = undefined;
 
     if(file){
       
       this.currentFileUpload = new FileUpload(file);
       this.crud.addQrCode(this.currentFileUpload,this.infosForm.value);
 
-
-      //alert(localStorage.getItem('urlInvitation'));
-      //this.value=localStorage.getItem('urlInvitation');
-
-      //this.value=this.crud.urlGet;
-      
-      //alert('Effectuer avec success');
       
     }
     
