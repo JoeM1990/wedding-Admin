@@ -181,6 +181,7 @@ export class GenerateComponent implements OnInit {
   }
 
   generateQr(){
+    this.visibleQr=true;
     this.value=null;
     this.value=localStorage.getItem('urlInvitation');
     this.downloadQr();
@@ -239,17 +240,17 @@ export class GenerateComponent implements OnInit {
   downloadQr(){
 
     html2canvas(this.screenQr.nativeElement).then(canvasQr => {
-      //this.canvasQr.nativeElement.src = canvasQr.toDataURL();
-      //this.downloadLinkQr.nativeElement.href = canvasQr.toDataURL('image/png');
-      //this.downloadLinkQr.nativeElement.downloadQr = this.title2+'.png';
-      //this.downloadLinkQr.nativeElement.click();
-      //this.selectedFiles=this.downloadLink.nativeElement.click();
+      this.canvasQr.nativeElement.src = canvasQr.toDataURL();
+      this.downloadLinkQr.nativeElement.href = canvasQr.toDataURL('image/png');
+      this.downloadLinkQr.nativeElement.downloadQr = this.title2+'Qr'+'.png';
+      this.downloadLinkQr.nativeElement.click();
+      this.selectedFiles=this.downloadLink.nativeElement.click();
       
       this.visibleQr=true;
 
       canvasQr.toBlob( (blob:any) => {
         //let blobT = new Blob(blob, { type: "image/png" });
-        const file = new File( [ blob ],  this.title2+'.png',{ type: "image/png" });
+        const file = new File( [ blob ],  this.title2+'Qr'+'.png',{ type: "image/png" });
         const dT = new DataTransfer();
         dT.items.add( file );
 
@@ -261,7 +262,7 @@ export class GenerateComponent implements OnInit {
         //this.value=localStorage.getItem('urlInvitation');
 
 
-        this.router.navigate(['/generate']);
+        //this.router.navigate(['/generate']);
         
       } );
 
