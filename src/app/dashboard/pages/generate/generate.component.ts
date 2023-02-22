@@ -28,7 +28,7 @@ export class GenerateComponent implements OnInit {
 
   visible=true;
   visibleQr=false;
-  
+  visibleT=false;
 
   @ViewChild('screen')
   screen!: ElementRef;
@@ -246,7 +246,7 @@ export class GenerateComponent implements OnInit {
       this.downloadLinkQr.nativeElement.click();
       this.selectedFiles=this.downloadLink.nativeElement.click();
       
-      this.visibleQr=true;
+      //this.visibleT=false;
 
       canvasQr.toBlob( (blob:any) => {
         //let blobT = new Blob(blob, { type: "image/png" });
