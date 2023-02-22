@@ -31,6 +31,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

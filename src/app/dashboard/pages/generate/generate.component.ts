@@ -62,6 +62,7 @@ export class GenerateComponent implements OnInit {
 
   ChangedFormat = this.pipe.transform(this.today, 'dd/MM/YYYY');
   changedDate = this.ChangedFormat;
+  valueT: string | undefined;
 
 
   constructor(private crud:CrudService,public formBuilder: FormBuilder, public router:Router) {
@@ -73,10 +74,8 @@ export class GenerateComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    
+   
   }
-
-  
 
   generateImage(){
     var node:any = document.getElementById('sectionImage');
@@ -143,8 +142,6 @@ export class GenerateComponent implements OnInit {
 
   downloadImage(){
 
-    this.value=null;
-
     html2canvas(this.screen.nativeElement).then(canvas => {
       this.canvas.nativeElement.src = canvas.toDataURL();
       this.downloadLink.nativeElement.href = canvas.toDataURL('image/png');
@@ -154,7 +151,7 @@ export class GenerateComponent implements OnInit {
       this.visible=false;
 
       canvas.toBlob( (blob:any) => {
-        //let blobT = new Blob(blob, { type: "image/png" });
+       
         const file = new File( [ blob ],  this.title2+'.png',{ type: "image/png" });
         const dT = new DataTransfer();
         dT.items.add( file );
@@ -168,17 +165,12 @@ export class GenerateComponent implements OnInit {
       } );      
      
     });
-
-    
-
     
   }
 
   generateQr(){
-    this.value=null;
     this.value=localStorage.getItem('urlInvitation');
     this.visibleQr=true;
-   
   }
 
   selectFile(event: any){
@@ -189,12 +181,10 @@ export class GenerateComponent implements OnInit {
    
     let file=this.selectedFiles;
   
-
     if(file){
       
       this.currentFileUpload = new FileUpload(file);
       this.crud.addInvitation(this.currentFileUpload,this.infosForm.value);
-
 
     }
     
@@ -207,7 +197,6 @@ export class GenerateComponent implements OnInit {
       
       this.currentFileUpload = new FileUpload(file);
       this.crud.addInvitation(this.currentFileUpload,this.infosForm.value);
-
       
     }
     
@@ -221,11 +210,9 @@ export class GenerateComponent implements OnInit {
       this.downloadLinkQr.nativeElement.download = this.title2+'Qr'+'.png';
       this.downloadLinkQr.nativeElement.click();
       this.selectedFiles=this.downloadLink.nativeElement.click();
-      
-      //this.visibleT=false;
 
       canvasQr.toBlob( (blob:any) => {
-        //let blobT = new Blob(blob, { type: "image/png" });
+       
         const file = new File( [ blob ],  this.title2+'Qr'+'.png',{ type: "image/png" });
         const dT = new DataTransfer();
         dT.items.add( file );
@@ -236,7 +223,6 @@ export class GenerateComponent implements OnInit {
 
         this.uploadQr();
        
-        
       } );
 
       
@@ -254,7 +240,6 @@ export class GenerateComponent implements OnInit {
       this.currentFileUpload = new FileUpload(file);
       this.crud.addQrCode(this.currentFileUpload,this.infosForm.value);
 
-      
     }
     
   }
