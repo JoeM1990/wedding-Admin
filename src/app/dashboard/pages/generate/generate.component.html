@@ -197,10 +197,11 @@
                           <input type="text" class="form-control" id="defaultFormControlInput" placeholder="Kin Marche - 15h - 24/12/2023"
                             aria-describedby="defaultFormControlHelp" [(ngModel)]="title4" [maxLength]="60" />
                          
-                            <button type="button" class="btn btn-primary" style="margin-top: 10px;" (click)="downloadImage()">Download</button>
+                            <button type="button" class="btn btn-primary" style="margin-top: 10px;" (click)="downloadImage()">Down</button>
                             <button type="button" class="btn btn-primary" style="margin-top: 10px; margin-left: 5px;" data-bs-toggle="modal"
                             data-bs-target="#uploadModal">Upload</button>
                             <button type="button" class="btn btn-primary" style="margin-top: 10px; margin-left: 5px;" (click)="generateQr()">Qr</button>
+                            <button type="button" class="btn btn-primary" style="margin-top: 10px; margin-left: 5px;" (click)="downloadQr()">Down Qr</button>
                             <!-- <button type="button" class="btn btn-primary" style="margin-top: 10px; margin-left: 10px;">View</button> -->
                           <!-- <div id="defaultFormControlHelp" class="form-text">
                             We'll never share your details with anyone else.
@@ -242,7 +243,7 @@
                  </div>
 
                  <ng-container *ngIf="visibleQr">
-                 <div class="row" style="margin-bottom: 2%;">
+                 <div class="row" style="margin-bottom: 2%;" #screenQr>
                   <div class="col-md-3">
                     <div class="card mb-4">
                       <h5 class="card-header">QR CODE</h5>
@@ -252,7 +253,7 @@
                             [errorCorrectionLevel]="correctionLevel"
                             [value]="value"
                             [width]=200
-                            cssClass="bshadow" #screenQr>
+                            cssClass="bshadow" >
                         </ngx-qrcode>
                       </div>
                     </div>

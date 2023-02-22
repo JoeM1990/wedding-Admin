@@ -242,7 +242,7 @@ export class GenerateComponent implements OnInit {
     html2canvas(this.screenQr.nativeElement).then(canvasQr => {
       this.canvasQr.nativeElement.src = canvasQr.toDataURL();
       this.downloadLinkQr.nativeElement.href = canvasQr.toDataURL('image/png');
-      this.downloadLinkQr.nativeElement.downloadQr = this.title2+'Qr'+'.png';
+      this.downloadLinkQr.nativeElement.download = this.title2+'Qr'+'.png';
       this.downloadLinkQr.nativeElement.click();
       this.selectedFiles=this.downloadLink.nativeElement.click();
       
