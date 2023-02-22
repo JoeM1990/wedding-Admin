@@ -181,9 +181,9 @@ export class GenerateComponent implements OnInit {
   }
 
   generateQr(){
-    this.visibleQr=true;
-    this.value=null;
+    this.value='';
     this.value=localStorage.getItem('urlInvitation');
+    this.visibleQr=true;
     //this.downloadQr();
   }
 
