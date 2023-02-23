@@ -9,7 +9,7 @@ import { AuthService } from '../utils/auth/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private auth:AuthService) { }
+  constructor(public auth:AuthService) { }
 
   ngOnInit(): void {
   }
@@ -18,8 +18,21 @@ export class LoginComponent implements OnInit {
     this.auth.login(email,password);
   }
 
+  loginApi(email:any,password:any){
+    this.auth.loginApi(email,password)
+    .subscribe(
+      response => {
+        console.log(response);
+      },
+      error => {
+        console.log(error);
+      });
+  }
+
   register(email:any,password:any){
     this.auth.register(email,password);
   }
+
+  
 
 }

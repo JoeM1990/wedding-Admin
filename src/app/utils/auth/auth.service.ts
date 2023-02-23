@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { ErrorComponent } from 'src/app/dialog/error/error.component';
 import { SuccessComponent } from 'src/app/dialog/success/success.component';
 
@@ -29,6 +30,12 @@ export class AuthService {
     } ) 
 
   }
+
+  loginApi(email : string, password : string):Observable<any> {
+    return this.httpClient.post(baseUrl+'/login',{email: email, password: password});
+  }
+
+  
 
   register(email: string, password: string){
     this.fireauth.createUserWithEmailAndPassword(email,password).then( () => {
