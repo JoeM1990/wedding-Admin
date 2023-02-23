@@ -35,6 +35,11 @@ export class AuthService {
     return this.httpClient.post(baseUrl+'/login',{email: email, password: password});
   }
 
+  logoutApi(){
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
+  }
+
   
 
   register(email: string, password: string){
