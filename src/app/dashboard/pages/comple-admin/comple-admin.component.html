@@ -190,12 +190,13 @@
                         <th>Username</th>
                         <th>Email</th>
                         <th>Password</th>
+                        <th>Role</th>
                         <th>Status</th>
                         <th>Actions</th>
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                      <tr>
+                      <tr *ngFor="let user of user; let i = index">
                         <td>1</td>
                         <td>Joe Monkila</td>
                         <td>Jnkiwa25@gmail.com</td>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/utils/auth/auth.service';
+import { User } from 'src/app/utils/model/user';
 
 @Component({
   selector: 'app-comple-admin',
@@ -8,9 +9,19 @@ import { AuthService } from 'src/app/utils/auth/auth.service';
 })
 export class CompleAdminComponent implements OnInit {
 
+  user:any;
+
   constructor(public auth:AuthService) { }
 
   ngOnInit(): void {
+    this.auth.getAllUserApi()
+    .subscribe(
+      response => {
+        this.user=response['data'];
+      },
+      error => {
+        
+      });
   }
 
 }

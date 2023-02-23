@@ -96,7 +96,7 @@ export class AuthService {
         })
   }
 
-  getAllUserApi(){
+  getAllUserApi():Observable<any>{
 
     this.token=localStorage.getItem('token');
 
@@ -104,8 +104,8 @@ export class AuthService {
       headers: new HttpHeaders({
           'Content-type': 'application/json',
           'Autorization': this.token
-      })
-    };
+        })
+      };
     return this.httpClient.get(baseUrl+'/users',httpOptions);
   }
 
