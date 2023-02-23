@@ -20,7 +20,7 @@ export class CompleAdminComponent implements OnInit {
         this.user=response['data'];
       },
       error => {
-        
+        console.log(error)
       });
   }
 

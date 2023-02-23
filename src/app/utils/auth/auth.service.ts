@@ -106,7 +106,7 @@ export class AuthService {
           'Autorization': this.token
         })
       };
-    return this.httpClient.get(baseUrl+'/users',httpOptions);
+    return this.httpClient.get(baseUrl+'users',httpOptions);
   }
 
 
