@@ -29,6 +29,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
+import { QRCodeSVGModule } from 'ngx-qrcode-svg';
+
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -60,7 +63,9 @@ import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
     AngularFireModule.initializeApp(environment.firebase),
     BrowserAnimationsModule,
     MatDialogModule,
-    NgxQRCodeModule
+    NgxQRCodeModule,
+    QRCodeSVGModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

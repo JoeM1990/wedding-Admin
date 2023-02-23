@@ -47,7 +47,7 @@ export class GenerateComponent implements OnInit {
   elementType = NgxQrcodeElementTypes.URL;
   correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
 
-  value:any;
+  value!:string;
 
   selectedFiles!: File;
   selectedQr!: File;
@@ -169,7 +169,8 @@ export class GenerateComponent implements OnInit {
   }
 
   generateQr(){
-    this.value=localStorage.getItem('urlInvitation');
+    this.value=''+localStorage.getItem('urlInvitation');
+    //this.value=localStorage.getItem('urlInvitation')?.toString();
     this.visibleQr=true;
   }
 

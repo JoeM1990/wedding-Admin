@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { MatDialog } from '@angular/material/dialog';
@@ -5,12 +6,15 @@ import { Router } from '@angular/router';
 import { ErrorComponent } from 'src/app/dialog/error/error.component';
 import { SuccessComponent } from 'src/app/dialog/success/success.component';
 
+const baseUrl = 'http://localhost:8080/api/';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(public fireauth : AngularFireAuth, public router: Router,public dialog:MatDialog) { }
+  
+
+  constructor(public fireauth : AngularFireAuth, public router: Router,public dialog:MatDialog, public httpClient:HttpClient) { }
 
   login(email : string, password : string){
     this.fireauth.signInWithEmailAndPassword(email,password).then( () =>{
