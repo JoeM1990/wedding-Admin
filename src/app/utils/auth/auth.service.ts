@@ -100,13 +100,18 @@ export class AuthService {
 
     this.token=localStorage.getItem('token');
 
-    const httpOptions = {
-      headers: new HttpHeaders({
-          'Content-type': 'application/json',
-          'Autorization': this.token
-        })
-      };
-    return this.httpClient.get(baseUrl+'users',httpOptions);
+    //alert(this.token);
+
+    const headers = new Headers({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.token}`
+    })
+    return this.httpClient.get(baseUrl+'users',{
+      headers:{
+        'Content-type': 'application/json',
+        'Autorization': `Bearer ${this.token}`
+      }
+    });
   }
 
 

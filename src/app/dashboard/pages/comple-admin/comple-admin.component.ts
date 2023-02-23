@@ -17,7 +17,7 @@ export class CompleAdminComponent implements OnInit {
     this.auth.getAllUserApi()
     .subscribe(
       response => {
-        this.user=response['data'];
+        this.user=response;
       },
       error => {
         console.log(error)
