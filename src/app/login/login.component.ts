@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
     this.auth.loginApi(email,password)
     .subscribe(
       response => {
+        alert(response['message'])
         let token=response['token'];
         let data=response['data'];
 
@@ -36,6 +37,7 @@ export class LoginComponent implements OnInit {
       },
       error => {
         this.router.navigate(['/login']);
+        alert(error['message']);
         console.log(error);
       });
   }
