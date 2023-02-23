@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
         let token=response['token'];
         let data=response['data'];
 
-        if(token != null){
+        if(data != null){
           this.router.navigate(['/dashboard']);
         }else{
           this.router.navigate(['/login']);

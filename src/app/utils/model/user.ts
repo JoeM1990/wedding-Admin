@@ -1,7 +1,8 @@
 export class User {
-    id:string|undefined;
+    id:number|undefined;
     username:string|undefined;
     email:string|undefined;
     password:string|undefined;
-    status:string|undefined;
+    role:string|undefined;
+    isApproved:boolean|undefined;
 }

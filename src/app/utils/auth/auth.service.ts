@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { MatDialog } from '@angular/material/dialog';
@@ -13,6 +13,7 @@ const baseUrl = 'http://localhost:8080/api/';
 })
 export class AuthService {
 
+  token:any;
   
 
   constructor(public fireauth : AngularFireAuth, public router: Router,public dialog:MatDialog, public httpClient:HttpClient) { }
@@ -93,6 +94,19 @@ export class AuthService {
              dialogRef.close();
           }, timeout)
         })
+  }
+
+  getAllUserApi(){
+
+    this.token=localStorage.getItem('token');
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+          'Content-type': 'application/json',
+          'Autorization': this.token
+      })
+    };
+    return this.httpClient.get(baseUrl+'/users',httpOptions);
   }
 
 
