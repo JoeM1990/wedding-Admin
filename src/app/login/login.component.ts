@@ -22,7 +22,9 @@ export class LoginComponent implements OnInit {
     this.auth.loginApi(email,password)
     .subscribe(
       response => {
-        console.log(response);
+        let token=response['token'];
+        let data=response['data'];
+        //console.log(token);
       },
       error => {
         console.log(error);
