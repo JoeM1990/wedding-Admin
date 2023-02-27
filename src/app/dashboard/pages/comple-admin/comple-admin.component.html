@@ -202,21 +202,19 @@
                         <td>{{user.email}}</td>
                         <td>{{user.password}}</td>
                         <td>{{user.role}}</td>
-                        <td>{{user.isApproved}}</td>
-                        <td>
-                          <div class="dropdown">
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                              <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="javascript:void(0);"
-                                ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                              >
-                              <a class="dropdown-item" href="javascript:void(0);"
-                                ><i class="bx bx-trash me-1"></i> Delete</a
-                              >
-                            </div>
-                          </div>
+                        <td *ngIf="user.isApproved; then thenBlock else elseBlock">
+                          <ng-template #thenBlock>
+                            <span class="badge bg-label-primary me-1">Activer</span>
+                          </ng-template>
+                          <ng-template #elseBlock>
+                            <span class="badge bg-label-warning me-1">Desactiver</span>
+                          </ng-template>
+                        </td>
+                        <td >
+                    
+                            <i class='bx bx-search-alt-2'></i>
+                            <i class='bx bxs-trash primary'></i>
+                        
                         </td>
                       </tr>
                       

@@ -10,6 +10,8 @@ import { User } from 'src/app/utils/model/user';
 export class CompleAdminComponent implements OnInit {
 
   user:any;
+  elseBlock:any
+  thenBlock:any
 
   constructor(public auth:AuthService) { }
 
