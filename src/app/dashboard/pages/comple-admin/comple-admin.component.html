@@ -202,15 +202,15 @@
                         <td>{{user.email}}</td>
                         <td>{{user.password}}</td>
                         <td>{{user.role}}</td>
-                        <td>{{user.isApproved}}</td>
-                        <!-- <td *ngIf="status; then thenBlock else elseBlock">
-                          <ng-template #thenBlock>
+                        <!-- <td>{{user.isApproved}}</td> -->
+                        <td *ngIf="user.isApproved==true; then thenBlock else elseBlock">
+                          <ng-template>
                             <span class="badge bg-label-primary me-1">Activer</span>
                           </ng-template>
                           <ng-template #elseBlock>
                             <span class="badge bg-label-warning me-1">Desactiver</span>
                           </ng-template>
-                        </td> -->
+                        </td>
                         <td >
                     
                             <i class='bx bx-search-alt-2'></i>
