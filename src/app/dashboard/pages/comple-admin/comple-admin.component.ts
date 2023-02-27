@@ -13,6 +13,8 @@ export class CompleAdminComponent implements OnInit {
   elseBlock:any
   thenBlock:any
 
+ 
+
   constructor(public auth:AuthService) { }
 
   ngOnInit(): void {
