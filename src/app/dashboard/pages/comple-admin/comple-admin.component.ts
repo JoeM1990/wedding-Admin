@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { NgIfContext } from '@angular/common';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { AuthService } from 'src/app/utils/auth/auth.service';
 import { User } from 'src/app/utils/model/user';
 
@@ -10,8 +11,8 @@ import { User } from 'src/app/utils/model/user';
 export class CompleAdminComponent implements OnInit {
 
   user:any;
-  elseBlock:any
-  thenBlock:any
+  elseBlock:any;
+  // thenBlock:any
 
  
 
