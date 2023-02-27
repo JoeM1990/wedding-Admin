@@ -106,6 +106,7 @@ export class AuthService {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${this.token}`
     })
+    
     return this.httpClient.get(baseUrl+'users',{
       headers:{
         'Content-type': 'application/json',
