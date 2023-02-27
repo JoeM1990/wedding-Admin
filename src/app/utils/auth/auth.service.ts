@@ -13,9 +13,6 @@ const baseUrl = 'http://localhost:8080/api/';
 })
 export class AuthService {
 
-  token:any;
-  
-
   constructor(public fireauth : AngularFireAuth, public router: Router,public dialog:MatDialog, public httpClient:HttpClient) { }
 
   login(email : string, password : string){
@@ -98,21 +95,25 @@ export class AuthService {
 
   getAllUserApi():Observable<any>{
 
-    this.token=localStorage.getItem('token');
+    let token=localStorage.getItem('token');
 
     //alert(this.token);
 
-    const headers = new Headers({
+    const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${this.token}`
+      'Authorization': `Bearer ${token}`
     })
-    
-    return this.httpClient.get(baseUrl+'users',{
-      headers:{
-        'Content-type': 'application/json',
-        'Autorization': `Bearer ${this.token}`
-      }
-    });
+
+    const requestOptions = { headers: headers };
+
+    // return this.httpClient.get(baseUrl+'users',{
+    //   headers:{
+    //     'Content-type': 'application/json',
+    //     'Autorization': `Bearer ${this.token}`
+    //   }
+    // });
+
+    return this.httpClient.get(baseUrl+'users',requestOptions);
   }
 
 
