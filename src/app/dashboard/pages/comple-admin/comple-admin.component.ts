@@ -1,7 +1,10 @@
 import { NgIfContext } from '@angular/common';
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+
 import { AuthService } from 'src/app/utils/auth/auth.service';
+import { CrudService } from 'src/app/utils/crud/crud.service';
 import { User } from 'src/app/utils/model/user';
 
 @Component({
@@ -19,7 +22,7 @@ export class CompleAdminComponent implements OnInit {
 
  
 
-  constructor(public auth:AuthService,public formBuilder: FormBuilder) { 
+  constructor(public auth:AuthService,public formBuilder: FormBuilder, public crud:CrudService,public router:Router) { 
     this.adminForm = this.formBuilder.group({
       username: [''],
       email: [''],
@@ -40,6 +43,15 @@ export class CompleAdminComponent implements OnInit {
   }
 
   addUser(){
+    this.crud.addUser(this.adminForm.value)
+    .subscribe(
+      response =>{
+        this.router.navigate(['/compte-admin']);
+      },
+      error =>{
+        alert(error);
+      }
+    );
     
   }
 

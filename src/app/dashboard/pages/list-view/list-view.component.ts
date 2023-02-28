@@ -15,15 +15,15 @@ export class ListViewComponent implements OnInit {
   constructor(public crud:CrudService) { }
 
   ngOnInit(): void {
-    this.crud.getAllQr().subscribe(res => {
+    // this.crud.getAllQr().subscribe(res => {
       
-      this.ItemQr = res.map( e => {
-        return{
-          id: e.payload.doc.id,
-          ...e.payload.doc.data() as {}
-        } as unknown as ItemQr;
-      })
-     })
+    //   this.ItemQr = res.map( e => {
+    //     return{
+    //       id: e.payload.doc.id,
+    //       ...e.payload.doc.data() as {}
+    //     } as unknown as ItemQr;
+    //   })
+    //  })
   }
 
 }
