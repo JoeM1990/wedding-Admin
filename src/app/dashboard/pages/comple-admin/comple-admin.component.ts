@@ -1,7 +1,8 @@
-import { NgIfContext } from '@angular/common';
+import { NgIfContext, Time } from '@angular/common';
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 import { AuthService } from 'src/app/utils/auth/auth.service';
 import { CrudService } from 'src/app/utils/crud/crud.service';
@@ -19,10 +20,12 @@ export class CompleAdminComponent implements OnInit {
   // thenBlock:any
 
   adminForm:FormGroup;
+ 
 
  
 
-  constructor(public auth:AuthService,public formBuilder: FormBuilder, public crud:CrudService,public router:Router) { 
+  constructor(public auth:AuthService,public formBuilder: FormBuilder, 
+    public crud:CrudService,public router:Router) { 
     this.adminForm = this.formBuilder.group({
       username: [''],
       email: [''],
@@ -33,6 +36,11 @@ export class CompleAdminComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // this.timerSubscription = Observable.timer(5000)
+    //   .subscribe(() => {
+        
+    //   });
+
     this.auth.getAllUserApi()
     .subscribe(
       response => {
