@@ -15,19 +15,19 @@ export class AuthService {
 
   constructor(public fireauth : AngularFireAuth, public router: Router,public dialog:MatDialog, public httpClient:HttpClient) { }
 
-  login(email : string, password : string){
-    this.fireauth.signInWithEmailAndPassword(email,password).then( () =>{
-        localStorage.setItem('token','true');
-        localStorage.setItem('email_user',email);
-        this.router.navigate(['/dashboard']);
-        return true;
-    }, err => {
-        this.dialogError('Username ou password incorrect')
+  // login(email : string, password : string){
+  //   this.fireauth.signInWithEmailAndPassword(email,password).then( () =>{
+  //       localStorage.setItem('token','true');
+  //       localStorage.setItem('email_user',email);
+  //       this.router.navigate(['/dashboard']);
+  //       return true;
+  //   }, err => {
+  //       this.dialogError('Username ou password incorrect')
       
-        this.router.navigate(['/login']);
-    } ) 
+  //       this.router.navigate(['/login']);
+  //   } ) 
 
-  }
+  // }
 
   loginApi(email : string, password : string):Observable<any> {
     return this.httpClient.post(baseUrl+'/login',{email: email, password: password});
@@ -40,30 +40,30 @@ export class AuthService {
 
   
 
-  register(email: string, password: string){
-    this.fireauth.createUserWithEmailAndPassword(email,password).then( () => {
-      this.dialogSuccess('Enregistrement effectué avec succes')
-      //alert('Enregistrement effectue')
-      this.router.navigate(['/login']);
-    }, err => {
-      //alert(err.message);
-      this.dialogError('Echec d enregistrement');
-      this.router.navigate(['/login']);
-    }
+  // register(email: string, password: string){
+  //   this.fireauth.createUserWithEmailAndPassword(email,password).then( () => {
+  //     this.dialogSuccess('Enregistrement effectué avec succes')
+  //     //alert('Enregistrement effectue')
+  //     this.router.navigate(['/login']);
+  //   }, err => {
+  //     //alert(err.message);
+  //     this.dialogError('Echec d enregistrement');
+  //     this.router.navigate(['/login']);
+  //   }
 
-    )
+  //   )
 
    
-  }
+  // }
 
-  logout(){
-    this.fireauth.signOut().then( () => {
-      localStorage.removeItem('token');
-      this.router.navigate(['/login']);
-    }, err  => {
-      alert(err.message);
-    })
-  }
+  // logout(){
+  //   this.fireauth.signOut().then( () => {
+  //     localStorage.removeItem('token');
+  //     this.router.navigate(['/login']);
+  //   }, err  => {
+  //     alert(err.message);
+  //   })
+  // }
 
   checkLogin(){
     return !! localStorage.getItem('token');
@@ -97,21 +97,12 @@ export class AuthService {
 
     let token=localStorage.getItem('token');
 
-    //alert(this.token);
-
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     })
 
     const requestOptions = { headers: headers };
-
-    // return this.httpClient.get(baseUrl+'users',{
-    //   headers:{
-    //     'Content-type': 'application/json',
-    //     'Autorization': `Bearer ${this.token}`
-    //   }
-    // });
 
     return this.httpClient.get(baseUrl+'users',requestOptions);
   }
