@@ -28,6 +28,7 @@ export class CompleAdminComponent implements OnInit {
       email: [''],
       password: [''],
       role: [''],
+      isApproved: true
     })
   }
 
@@ -49,7 +50,7 @@ export class CompleAdminComponent implements OnInit {
         this.router.navigate(['/compte-admin']);
       },
       error =>{
-        alert(error);
+        alert(error['message']);
       }
     );
     

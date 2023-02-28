@@ -269,7 +269,7 @@
                       <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                         Close
                       </button>
-                      <button type="button" class="btn btn-primary" (click)="addUser()">Ajouter</button>
+                      <button type="button" class="btn btn-primary" (click)="addUser()" [disabled]="!adminForm.valid">Ajouter</button>
                     </div>
                   </form>
                     
