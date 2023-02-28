@@ -39,4 +39,8 @@ export class CompleAdminComponent implements OnInit {
       });
   }
 
+  addUser(){
+    
+  }
+
 }
