@@ -15,9 +15,9 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  login(email:any,password:any){
-    this.auth.login(email,password);
-  }
+  // login(email:any,password:any){
+  //   this.auth.login(email,password);
+  // }
 
   loginApi(email:any,password:any){
     this.auth.loginApi(email,password)
@@ -42,9 +42,9 @@ export class LoginComponent implements OnInit {
       });
   }
 
-  register(email:any,password:any){
-    this.auth.register(email,password);
-  }
+  // register(email:any,password:any){
+  //   this.auth.register(email,password);
+  // }
 
   
 
