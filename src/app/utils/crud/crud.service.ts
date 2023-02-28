@@ -3,11 +3,12 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
-import { finalize } from 'rxjs';
+import { finalize, Observable } from 'rxjs';
 import { FileUpload } from '../model/file-upload';
 import { Item } from '../model/item';
 import { User } from '../model/user';
 
+const baseUrl = 'http://localhost:8080/api/';
 @Injectable({
   providedIn: 'root'
 })
@@ -19,7 +20,7 @@ export class CrudService {
   constructor(private angularFirestore: AngularFirestore,private storage: AngularFireStorage,private db: AngularFireDatabase,public httpClient:HttpClient) { }
 
 
-  addUser(user:User){
+  addUser(user:User):Observable<any>{
     let token=localStorage.getItem('token');
 
     const headers = new HttpHeaders({
@@ -28,6 +29,8 @@ export class CrudService {
     })
 
     const requestOptions = { headers: headers };
+
+    return this.httpClient.post(baseUrl+'users',user,requestOptions)
   }
 
   // addInvitation(fileUpload: FileUpload,item:Item){
