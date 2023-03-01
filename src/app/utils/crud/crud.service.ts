@@ -76,6 +76,19 @@ export class CrudService {
     return this.httpClient.put(baseUrl+'users/'+id,user,requestOptions);
   }
 
+  deleteUserById(id:any){
+    let token=localStorage.getItem('token');
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+ 
+    const requestOptions = { headers: headers };
+
+    return this.httpClient.delete(baseUrl+'users/'+id,requestOptions);
+  }
+
 
 
   addInvitation(fileUpload: FileUpload,item:Item){

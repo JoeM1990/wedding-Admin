@@ -67,7 +67,7 @@ export class CompleClientComponent implements OnInit {
     .subscribe(
       response => {
         this.idUpdate=response['id']
-        
+
         this.updateForm = this.formBuilder.group({
           username: response['username'],
           email: response['email'],
@@ -83,6 +83,20 @@ export class CompleClientComponent implements OnInit {
 
   updateUserById(id:any){
     this.crud.updateUserById(id,this.updateForm.value)
+    .subscribe(
+      response => {
+        if(response){
+          this.router.navigate(['/compte-client']);
+        }
+        
+      },
+      error => {
+        console.log(error)
+      });
+  }
+
+  deleteUserById(id:any){
+    this.crud.deleteUserById(id)
     .subscribe(
       response => {
         if(response){
