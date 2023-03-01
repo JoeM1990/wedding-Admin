@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { AuthService } from 'src/app/utils/auth/auth.service';
 
 @Component({
@@ -9,8 +10,17 @@ import { AuthService } from 'src/app/utils/auth/auth.service';
 export class CompleClientComponent implements OnInit {
 
   user:any;
+  clientForm:FormGroup;
 
-  constructor(public auth:AuthService) { }
+  constructor(public auth:AuthService, public formBuilder:FormBuilder) {
+    this.clientForm = this.formBuilder.group({
+      username: [''],
+      email: [''],
+      password: [''],
+      role: [''],
+      isApproved: true
+    })
+   }
 
   ngOnInit(): void {
     this.auth.getAllUserApi()
@@ -21,6 +31,19 @@ export class CompleClientComponent implements OnInit {
       error => {
         console.log(error)
       });
+  }
+
+  addUser(){
+    this.crud.addUser(this.clientForm.value)
+    .subscribe(
+      response =>{
+        this.router.navigate(['/compte-client']);
+      },
+      error =>{
+        alert(error['message']);
+      }
+    );
+    
   }
 
 }
