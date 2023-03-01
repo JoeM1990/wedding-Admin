@@ -196,7 +196,7 @@
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                      <tr *ngFor="let user of user; let i = index">
+                      <tr *ngFor="let user of user; let i = index ">
                         <!-- <td *ngIf="user.role=='Admin' ">{{i+1}}</td> -->
                         <td *ngIf="user.role=='Admin' ">{{user.username}}</td>
                         <td *ngIf="user.role=='Admin' ">{{user.email}}</td>
