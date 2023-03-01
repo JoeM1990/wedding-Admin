@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/utils/auth/auth.service';
 import { CrudService } from 'src/app/utils/crud/crud.service';
@@ -20,19 +20,19 @@ export class CompleClientComponent implements OnInit {
   constructor(public auth:AuthService, public formBuilder:FormBuilder, 
     public crud:CrudService, public router:Router) {
     this.clientForm = this.formBuilder.group({
-      username: [''],
-      email: [''],
-      password: [''],
-      role: [''],
-      isApproved: ['']
+      username: ['',{validators: [Validators.required, ],}],
+      email: ['',{validators: [Validators.required, Validators.email],}],
+      password: ['',{validators: [Validators.required, Validators.maxLength(10) ], }],
+      role: ['',{validators: [ Validators.required, ], }],
+      isApproved: ['',{validators: [ Validators.required, ], }]
     })
 
     this.updateForm = this.formBuilder.group({
-      username: [''],
-      email: [''],
-      password: [''],
-      role: [''],
-      isApproved: ['']
+      username: ['',{validators: [Validators.required, ],}],
+      email: ['',{validators: [Validators.required, Validators.email],}],
+      password: ['',{validators: [Validators.required, Validators.maxLength(10) ], }],
+      role: ['',{validators: [ Validators.required, ], }],
+      isApproved: ['',{validators: [ Validators.required, ], }]
     })
    }
 
