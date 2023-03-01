@@ -211,8 +211,8 @@
                         </td>
                         <td *ngIf="user.role=='Admin' " >
                     
-                            <i class='bx bx-search-alt-2'></i>
-                            <i class='bx bxs-trash primary'></i>
+                            <i class='bx bx-search-alt-2' data-bs-toggle="modal" data-bs-target="#basicModalUpdate" (click)="getUserById(user.id)"></i>
+                            <i class='bx bxs-trash primary' (click)="deleteUserById(user.id)"></i>
                         
                         </td>
                       </tr>
@@ -324,7 +324,7 @@
                         <div class="col mb-3">
                           <label for="nameBasic" class="form-label">Role</label>
                           <select class="form-control" formControlName="role">
-                            <option>Client</option>
+                            <option>Admin</option>
                             <!-- <option>Client</option> -->
                           </select>
                           <!-- <input type="text" id="nameBasic" class="form-control" placeholder="Enter Username" /> -->

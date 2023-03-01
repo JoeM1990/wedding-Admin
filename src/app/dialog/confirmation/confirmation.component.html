@@ -1,18 +1,12 @@
-<div class="modal fade" id="confirmationModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-    
-      <div class="modal-body">
-            <label for="nameBasic" class="form-label" style="font-size: 23px;">Voulez-vous supprimer?</label>
+<p style="font-size: 32px;">{{data}}</p>
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-4 col-xlg-3">
+        <button type="button" class="btn btn-primary" mat-dialog-close="true" cl>Oui</button>
       </div>
-        
-      <div class="modal-footer">
-        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
-          Non
-        </button>
-        <button type="button" class="btn btn-danger">Oui</button>
+      <div class="col-md-6 col-lg-4 col-xlg-3">
+        <button type="button" class="btn btn-danger" mat-dialog-close="false">Non</button>
       </div>
-   
-      
     </div>
-</div>
+  </div>
+  
