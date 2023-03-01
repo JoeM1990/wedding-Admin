@@ -56,7 +56,14 @@ export class LoginComponent implements OnInit {
   }
 
   registerUser(){
-
+    this.auth.registerApi(this.registerForm.value)
+    .subscribe(
+      response => {
+        this.router.navigate(['/login']);
+      },
+      error => {
+        alert("Echec d'enregistrement");
+      });
   }
 
   // register(email:any,password:any){
