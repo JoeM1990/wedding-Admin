@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/utils/auth/auth.service';
+import { CrudService } from 'src/app/utils/crud/crud.service';
 
 @Component({
   selector: 'app-comple-client',
@@ -12,7 +14,8 @@ export class CompleClientComponent implements OnInit {
   user:any;
   clientForm:FormGroup;
 
-  constructor(public auth:AuthService, public formBuilder:FormBuilder) {
+  constructor(public auth:AuthService, public formBuilder:FormBuilder, 
+    public crud:CrudService, public router:Router) {
     this.clientForm = this.formBuilder.group({
       username: [''],
       email: [''],
