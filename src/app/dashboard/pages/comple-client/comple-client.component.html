@@ -196,11 +196,11 @@
                     </thead>
                     <tbody class="table-border-bottom-0">
                       <tr *ngFor="let user of user; let i = index">
-                        <td>{{user.id}}</td>
-                        <td>{{user.username}}</td>
-                        <td>{{user.email}}</td>
-                        <td>{{user.password}}</td>
-                        <td>{{user.role}}</td>
+                        <td *ngIf="user.role=='Client' ">{{user.id}}</td>
+                        <td *ngIf="user.role=='Client' ">{{user.username}}</td>
+                        <td *ngIf="user.role=='Client' ">{{user.email}}</td>
+                        <td *ngIf="user.role=='Client' ">{{user.password}}</td>
+                        <td *ngIf="user.role=='Client' ">{{user.role}}</td>
                        
                         <td>
                          
