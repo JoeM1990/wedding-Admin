@@ -195,26 +195,24 @@
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                      <tr>
-                        <td>1</td>
-                        <td>Joe Monkila</td>
-                        <td>Jnkiwa25@gmail.com</td>
-                        <td>xxxxxxxxx</td>
-                        <td><span class="badge bg-label-primary me-1">Active</span></td>
+                      <tr *ngFor="let user of user; let i = index">
+                        <td>{{user.id}}</td>
+                        <td>{{user.username}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.password}}</td>
+                        <td>{{user.role}}</td>
+                       
                         <td>
-                          <div class="dropdown">
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                              <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="javascript:void(0);"
-                                ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                              >
-                              <a class="dropdown-item" href="javascript:void(0);"
-                                ><i class="bx bx-trash me-1"></i> Delete</a
-                              >
-                            </div>
-                          </div>
+                         
+                          <span class="badge bg-label-primary me-1" *ngIf="user.isApproved==true">Activer</span>
+                          <span class="badge bg-label-warning me-1" *ngIf="user.isApproved==false">Desactiver</span>
+                        
+                        </td>
+                        <td >
+                    
+                            <i class='bx bx-search-alt-2'></i>
+                            <i class='bx bxs-trash primary'></i>
+                        
                         </td>
                       </tr>
                       

@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompleClientComponent implements OnInit {
 
+  user:any;
+  
   constructor() { }
 
   ngOnInit(): void {
