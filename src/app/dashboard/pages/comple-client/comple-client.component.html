@@ -186,17 +186,18 @@
                   <table class="table">
                     <thead>
                       <tr>
-                        <th>Id</th>
+                        <!-- <th>Id</th> -->
                         <th>Username</th>
                         <th>Email</th>
                         <th>Password</th>
+                        <th>Role</th>
                         <th>Status</th>
                         <th>Actions</th>
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
                       <tr *ngFor="let user of user; let i = index">
-                        <td *ngIf="user.role=='Client' ">{{user.id}}</td>
+                        <!-- <td *ngIf="user.role=='Client' ">{{i+1}}</td> -->
                         <td *ngIf="user.role=='Client' ">{{user.username}}</td>
                         <td *ngIf="user.role=='Client' ">{{user.email}}</td>
                         <td *ngIf="user.role=='Client' ">{{user.password}}</td>
@@ -208,7 +209,7 @@
                           <span class="badge bg-label-warning me-1" *ngIf="user.isApproved==false">Desactiver</span>
                         
                         </td>
-                        <td >
+                        <td *ngIf="user.role=='Client' ">
                     
                             <i class='bx bx-search-alt-2'></i>
                             <i class='bx bxs-trash primary'></i>
