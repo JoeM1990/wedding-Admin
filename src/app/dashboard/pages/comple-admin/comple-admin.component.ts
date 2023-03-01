@@ -20,6 +20,9 @@ export class CompleAdminComponent implements OnInit {
   // thenBlock:any
 
   adminForm:FormGroup;
+  updateForm:FormGroup;
+
+  idUpdate:any;
  
 
  
@@ -27,6 +30,14 @@ export class CompleAdminComponent implements OnInit {
   constructor(public auth:AuthService,public formBuilder: FormBuilder, 
     public crud:CrudService,public router:Router) { 
     this.adminForm = this.formBuilder.group({
+      username: [''],
+      email: [''],
+      password: [''],
+      role: [''],
+      isApproved: ['']
+    })
+
+    this.updateForm = this.formBuilder.group({
       username: [''],
       email: [''],
       password: [''],
@@ -52,15 +63,74 @@ export class CompleAdminComponent implements OnInit {
   }
 
   addUser(){
-    this.crud.addUser(this.adminForm.value)
+    if(confirm("Voulez vous ajouter cet utilisateur")){
+      this.crud.addUser(this.adminForm.value)
     .subscribe(
       response =>{
-        this.router.navigate(['/compte-admin']);
+        if(response){
+          window.location.reload();
+        }
+        
       },
       error =>{
         alert(error['message']);
       }
     );
+    }
+    
+    
+  }
+
+  getUserById(id:any){
+    this.crud.getUserById(id)
+    .subscribe(
+      response => {
+        this.idUpdate=response['id']
+
+        this.updateForm = this.formBuilder.group({
+          username: response['username'],
+          email: response['email'],
+          password: response['password'],
+          role: response['password'],
+          isApproved: response['isApproved']
+        })
+      },
+      error => {
+        console.log(error)
+      });
+  }
+
+  updateUserById(id:any){
+    if(confirm("Voulez vous modifier cet utilisateur")){
+      this.crud.updateUserById(id,this.updateForm.value)
+    .subscribe(
+      response => {
+        if(response){
+          window.location.reload();
+        }
+        
+      },
+      error => {
+        console.log(error)
+      });
+    }
+      
+  }
+
+  deleteUserById(id:any){
+    if(confirm("Voulez vous supprimer cet utilisateur")){
+      this.crud.deleteUserById(id)
+    .subscribe(
+      response => {
+        if(response){
+          window.location.reload();
+        }
+        
+      },
+      error => {
+        console.log(error)
+      });
+    }
     
   }
 
