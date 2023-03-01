@@ -1,6 +1,6 @@
 import { NgIfContext, Time } from '@angular/common';
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
@@ -30,19 +30,19 @@ export class CompleAdminComponent implements OnInit {
   constructor(public auth:AuthService,public formBuilder: FormBuilder, 
     public crud:CrudService,public router:Router) { 
     this.adminForm = this.formBuilder.group({
-      username: [''],
-      email: [''],
-      password: [''],
-      role: [''],
-      isApproved: ['']
+      username: ['',{validators: [Validators.required, ],}],
+      email: ['',{validators: [Validators.required, Validators.email],}],
+      password: ['',{validators: [Validators.required, Validators.maxLength(10) ], }],
+      role: ['',{validators: [ Validators.required, ], }],
+      isApproved: ['',{validators: [ Validators.required, ], }]
     })
 
     this.updateForm = this.formBuilder.group({
-      username: [''],
-      email: [''],
-      password: [''],
-      role: [''],
-      isApproved: ['']
+      username: ['',{validators: [Validators.required, ],}],
+      email: ['',{validators: [Validators.required, Validators.email],}],
+      password: ['',{validators: [Validators.required, Validators.maxLength(10) ], }],
+      role: ['',{validators: [ Validators.required, ], }],
+      isApproved: ['',{validators: [ Validators.required, ], }]
     })
   }
 

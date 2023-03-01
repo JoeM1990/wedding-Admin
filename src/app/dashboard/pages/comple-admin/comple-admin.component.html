@@ -346,7 +346,7 @@
                       <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                         Close
                       </button>
-                      <button type="button" class="btn btn-primary" (click)="updateUserById(idUpdate)">Modifier</button>
+                      <button type="button" class="btn btn-primary" [disabled]="!updateForm.valid" (click)="updateUserById(idUpdate)">Modifier</button>
                     </div>
                   </form>
                     
