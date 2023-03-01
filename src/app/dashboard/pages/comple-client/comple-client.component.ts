@@ -15,6 +15,8 @@ export class CompleClientComponent implements OnInit {
   clientForm:FormGroup;
   updateForm:FormGroup;
 
+  idUpdate:any;
+
   constructor(public auth:AuthService, public formBuilder:FormBuilder, 
     public crud:CrudService, public router:Router) {
     this.clientForm = this.formBuilder.group({
@@ -64,6 +66,8 @@ export class CompleClientComponent implements OnInit {
     this.crud.getUserById(id)
     .subscribe(
       response => {
+        this.idUpdate=response['id']
+        
         this.updateForm = this.formBuilder.group({
           username: response['username'],
           email: response['email'],
