@@ -48,7 +48,8 @@ export class CompleClientComponent implements OnInit {
   }
 
   addUser(){
-    this.crud.addUser(this.clientForm.value)
+    if(confirm("Voulez vous ajouter cet utilisateur")){
+      this.crud.addUser(this.clientForm.value)
     .subscribe(
       response =>{
         if(response){
@@ -59,6 +60,8 @@ export class CompleClientComponent implements OnInit {
         alert(error['message']);
       }
     );
+    }
+    
     
   }
 
