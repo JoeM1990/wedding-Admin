@@ -53,7 +53,7 @@ export class CompleClientComponent implements OnInit {
     .subscribe(
       response =>{
         if(response){
-          this.router.navigate(['/compte-client']);
+          window.location.reload();
         }
       },
       error =>{
@@ -85,17 +85,20 @@ export class CompleClientComponent implements OnInit {
   }
 
   updateUserById(id:any){
-    this.crud.updateUserById(id,this.updateForm.value)
+    if(confirm("Voulez vous modifier cet utilisateur")){
+      this.crud.updateUserById(id,this.updateForm.value)
     .subscribe(
       response => {
         if(response){
-          this.router.navigate(['/dashboard']);
+          window.location.reload();
         }
         
       },
       error => {
         console.log(error)
       });
+    }
+      
   }
 
   deleteUserById(id:any){
@@ -104,7 +107,7 @@ export class CompleClientComponent implements OnInit {
     .subscribe(
       response => {
         if(response){
-          this.router.navigate(['/dashboard']);
+          window.location.reload();
         }
         
       },
