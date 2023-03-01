@@ -62,8 +62,13 @@ export class CompleClientComponent implements OnInit {
     this.crud.getUserById(id)
     .subscribe(
       response => {
-        
-       
+        this.updateForm = this.formBuilder.group({
+          username: response['username'],
+          email: response['email'],
+          password: response['password'],
+          role: response['password'],
+          isApproved: response['isApproved']
+        })
       },
       error => {
         console.log(error)
