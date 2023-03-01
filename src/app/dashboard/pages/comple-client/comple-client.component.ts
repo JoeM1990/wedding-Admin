@@ -13,10 +13,19 @@ export class CompleClientComponent implements OnInit {
 
   user:any;
   clientForm:FormGroup;
+  updateForm:FormGroup;
 
   constructor(public auth:AuthService, public formBuilder:FormBuilder, 
     public crud:CrudService, public router:Router) {
     this.clientForm = this.formBuilder.group({
+      username: [''],
+      email: [''],
+      password: [''],
+      role: [''],
+      isApproved: true
+    })
+
+    this.updateForm = this.formBuilder.group({
       username: [''],
       email: [''],
       password: [''],
