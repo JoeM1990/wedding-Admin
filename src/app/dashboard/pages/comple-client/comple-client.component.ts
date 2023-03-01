@@ -22,7 +22,7 @@ export class CompleClientComponent implements OnInit {
       email: [''],
       password: [''],
       role: [''],
-      isApproved: true
+      isApproved: ['']
     })
 
     this.updateForm = this.formBuilder.group({
@@ -30,7 +30,7 @@ export class CompleClientComponent implements OnInit {
       email: [''],
       password: [''],
       role: [''],
-      isApproved: true
+      isApproved: ['']
     })
    }
 
