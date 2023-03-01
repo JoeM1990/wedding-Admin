@@ -77,7 +77,7 @@ export class CompleClientComponent implements OnInit {
       });
   }
 
-  updateUser(id:any){
+  updateUserById(id:any){
     this.crud.updateUserById(id,this.updateForm.value)
     .subscribe(
       response => {
