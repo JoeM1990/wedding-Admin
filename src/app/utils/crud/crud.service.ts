@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
@@ -46,6 +46,23 @@ export class CrudService {
     const requestOptions = { headers: headers };
 
     return this.httpClient.get(baseUrl+'users',requestOptions);
+  }
+
+  getUserById(id:any):Observable<any>{
+
+    let token=localStorage.getItem('token');
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    })
+
+    let params: HttpParams = new HttpParams();
+    params = params.set('id', id);
+
+    const requestOptions = { headers: headers };
+
+    return this.httpClient.get(baseUrl+'users/'+id,requestOptions);
   }
 
 

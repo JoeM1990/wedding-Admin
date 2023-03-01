@@ -58,4 +58,16 @@ export class CompleClientComponent implements OnInit {
     
   }
 
+  getUserById(id:any){
+    this.crud.getUserById(id)
+    .subscribe(
+      response => {
+        
+       
+      },
+      error => {
+        console.log(error)
+      });
+  }
+
 }

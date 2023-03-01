@@ -211,7 +211,7 @@
                         </td>
                         <td *ngIf="user.role=='Client' ">
                     
-                            <i class='bx bx-search-alt-2' data-bs-toggle="modal" data-bs-target="#basicModalUpdate"></i>
+                            <i class='bx bx-search-alt-2' data-bs-toggle="modal" data-bs-target="#basicModalUpdate" (click)="getUserById(user.id)"></i>
                             <i class='bx bxs-trash primary'></i>
                         
                         </td>
