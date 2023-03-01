@@ -86,7 +86,7 @@ export class CompleClientComponent implements OnInit {
     .subscribe(
       response => {
         if(response){
-          this.router.navigate(['/compte-client']);
+          this.router.navigate(['/dashboard']);
         }
         
       },
@@ -100,7 +100,7 @@ export class CompleClientComponent implements OnInit {
     .subscribe(
       response => {
         if(response){
-          this.router.navigate(['/compte-client']);
+          this.router.navigate(['/dashboard']);
         }
         
       },
