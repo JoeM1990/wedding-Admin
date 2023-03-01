@@ -96,7 +96,8 @@ export class CompleClientComponent implements OnInit {
   }
 
   deleteUserById(id:any){
-    this.crud.deleteUserById(id)
+    if(confirm("Voulez vous supprimer cet utilisateur")){
+      this.crud.deleteUserById(id)
     .subscribe(
       response => {
         if(response){
@@ -107,6 +108,8 @@ export class CompleClientComponent implements OnInit {
       error => {
         console.log(error)
       });
+    }
+    
   }
 
 }

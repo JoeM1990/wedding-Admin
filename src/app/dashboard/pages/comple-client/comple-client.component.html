@@ -212,7 +212,7 @@
                         <td *ngIf="user.role=='Client' ">
                     
                             <i class='bx bx-search-alt-2' data-bs-toggle="modal" data-bs-target="#basicModalUpdate" (click)="getUserById(user.id)"></i>
-                            <i class='bx bxs-trash primary' data-bs-toggle="modal" data-bs-target="#confirmationModal"></i>
+                            <i class='bx bxs-trash primary' (click)="deleteUserById(user.id)"></i>
                         
                         </td>
                       </tr>
@@ -356,7 +356,7 @@
               <!-- Modal -->
               
               
-              <!-- Modal confirmation -->
+              <!-- Modal confirmation suppression -->
                 <!-- <app-confirmation></app-confirmation> -->
                 <div class="modal fade" id="confirmationModal" tabindex="-1" aria-hidden="true">
                   <div class="modal-dialog" role="document">
@@ -370,7 +370,7 @@
                         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                           Non
                         </button>
-                        <button type="button" class="btn btn-danger">Oui</button>
+                        <button type="button" class="btn btn-danger" (click)="deleteUserById(idUpdate)">Oui</button>
                       </div>
                    
                       
