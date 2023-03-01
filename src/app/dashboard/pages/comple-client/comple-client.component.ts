@@ -49,7 +49,9 @@ export class CompleClientComponent implements OnInit {
     this.crud.addUser(this.clientForm.value)
     .subscribe(
       response =>{
-        this.router.navigate(['/compte-client']);
+        if(response){
+          this.router.navigate(['/compte-client']);
+        }
       },
       error =>{
         alert(error['message']);
@@ -69,6 +71,20 @@ export class CompleClientComponent implements OnInit {
           role: response['password'],
           isApproved: response['isApproved']
         })
+      },
+      error => {
+        console.log(error)
+      });
+  }
+
+  updateUser(id:any){
+    this.crud.updateUserById(id,this.updateForm.value)
+    .subscribe(
+      response => {
+        if(response){
+          this.router.navigate(['/compte-client']);
+        }
+        
       },
       error => {
         console.log(error)
