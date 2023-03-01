@@ -3,11 +3,11 @@
 		<input type="checkbox" id="chk" aria-hidden="true">
 
 			<div class="signup">
-				<form>
+				<form [formGroup]="registerForm">
 					<label for="chk" aria-hidden="true">Formulaire</label>
-					<input type="text" name="txt" placeholder="Username" required #username>
-					<input type="email" name="email" placeholder="Email" required #emailReg>
-					<input type="password" name="pswd" placeholder="Password" required #passwordReg>
+					<input type="text" name="txt" placeholder="Username" required formControlName="username">
+					<input type="email" name="email" placeholder="Email" required formControlName="email">
+					<input type="password" name="pswd" placeholder="Password" required formControlName="password">
 					<button >Valider</button>
 				</form>
 			</div>

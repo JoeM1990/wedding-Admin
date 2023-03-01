@@ -42,6 +42,10 @@ export class LoginComponent implements OnInit {
       });
   }
 
+  registerUser(){
+    
+  }
+
   // register(email:any,password:any){
   //   this.auth.register(email,password);
   // }

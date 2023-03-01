@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ErrorComponent } from 'src/app/dialog/error/error.component';
 import { SuccessComponent } from 'src/app/dialog/success/success.component';
+import { User } from '../model/user';
 
 const baseUrl = 'http://localhost:8080/api/';
 @Injectable({
@@ -36,6 +37,19 @@ export class AuthService {
   logoutApi(){
     localStorage.removeItem('token');
     this.router.navigate(['/login']);
+  }
+
+  registerApi(user:User){
+    let token=localStorage.getItem('token');
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    })
+
+    const requestOptions = { headers: headers };
+
+    return this.httpClient.post(baseUrl+'users',user,requestOptions);
   }
 
   
