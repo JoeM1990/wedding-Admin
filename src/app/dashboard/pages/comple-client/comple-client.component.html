@@ -235,21 +235,32 @@
                         aria-label="Close"
                       ></button>
                     </div>
+                    <form [formGroup]="adminForm">
                     <div class="modal-body">
                       <div class="row">
                         <div class="col mb-3">
                           <label for="nameBasic" class="form-label">Username</label>
-                          <input type="text" id="nameBasic" class="form-control" placeholder="Enter Username" />
+                          <input type="text" id="nameBasic" class="form-control" placeholder="Enter Username" formControlName="username"/>
                         </div>
                       </div>
                       <div class="row g-2">
                         <div class="col mb-0">
                           <label for="emailBasic" class="form-label">Email</label>
-                          <input type="text" id="emailBasic" class="form-control" placeholder="xxxx@xxx.xx" />
+                          <input type="text" id="emailBasic" class="form-control" placeholder="xxxx@xxx.xx" formControlName="email"/>
                         </div>
                         <div class="col mb-0">
                           <label for="dobBasic" class="form-label">Password</label>
-                          <input type="password" id="dobBasic" class="form-control" placeholder="xxxxxx" />
+                          <input type="password" id="dobBasic" class="form-control" placeholder="xxxxxx" formControlName="password"/>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col mb-3">
+                          <label for="nameBasic" class="form-label">Role</label>
+                          <select class="form-control" formControlName="role">
+                            <option>Client</option>
+                            <!-- <option>Client</option> -->
+                          </select>
+                          <!-- <input type="text" id="nameBasic" class="form-control" placeholder="Enter Username" /> -->
                         </div>
                       </div>
                     </div>
@@ -257,8 +268,10 @@
                       <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                         Close
                       </button>
-                      <button type="button" class="btn btn-primary">Ajouter</button>
+                      <button type="button" class="btn btn-primary" (click)="addUser()" [disabled]="!adminForm.valid">Ajouter</button>
                     </div>
+                  </form>
+                    
                   </div>
                 </div>
               </div>
