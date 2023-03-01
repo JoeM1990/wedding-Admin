@@ -203,7 +203,7 @@
                         <td *ngIf="user.role=='Admin' ">{{user.password}}</td>
                         <td *ngIf="user.role=='Admin' ">{{user.role}}</td>
                        
-                        <td>
+                        <td *ngIf="user.role=='Admin' ">
                          
                           <span class="badge bg-label-primary me-1" *ngIf="user.isApproved==true">Activer</span>
                           <span class="badge bg-label-warning me-1" *ngIf="user.isApproved==false">Desactiver</span>
