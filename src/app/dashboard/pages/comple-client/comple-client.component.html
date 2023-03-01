@@ -235,7 +235,7 @@
                         aria-label="Close"
                       ></button>
                     </div>
-                    <form [formGroup]="adminForm">
+                    <form [formGroup]="clientForm">
                     <div class="modal-body">
                       <div class="row">
                         <div class="col mb-3">
@@ -268,7 +268,7 @@
                       <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                         Close
                       </button>
-                      <button type="button" class="btn btn-primary" (click)="addUser()" [disabled]="!adminForm.valid">Ajouter</button>
+                      <button type="button" class="btn btn-primary" (click)="addUser()" [disabled]="!clientForm.valid">Ajouter</button>
                     </div>
                   </form>
                     
