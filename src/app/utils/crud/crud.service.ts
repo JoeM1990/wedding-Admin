@@ -57,9 +57,6 @@ export class CrudService {
       'Authorization': `Bearer ${token}`
     })
 
-    let params: HttpParams = new HttpParams();
-    params = params.set('id', id);
-
     const requestOptions = { headers: headers };
 
     return this.httpClient.get(baseUrl+'users/'+id,requestOptions);
