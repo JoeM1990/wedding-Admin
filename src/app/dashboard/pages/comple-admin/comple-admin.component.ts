@@ -41,7 +41,7 @@ export class CompleAdminComponent implements OnInit {
         
     //   });
 
-    this.auth.getAllUserApi()
+    this.crud.getAllUserApi()
     .subscribe(
       response => {
         this.user=response;

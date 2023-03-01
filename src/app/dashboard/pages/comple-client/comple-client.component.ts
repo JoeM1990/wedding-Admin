@@ -35,7 +35,7 @@ export class CompleClientComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.auth.getAllUserApi()
+    this.crud.getAllUserApi()
     .subscribe(
       response => {
         this.user=response;

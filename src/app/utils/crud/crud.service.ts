@@ -34,6 +34,22 @@ export class CrudService {
     return this.httpClient.post(baseUrl+'users',user,requestOptions);
   }
 
+  getAllUserApi():Observable<any>{
+
+    let token=localStorage.getItem('token');
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    })
+
+    const requestOptions = { headers: headers };
+
+    return this.httpClient.get(baseUrl+'users',requestOptions);
+  }
+
+
+
   addInvitation(fileUpload: FileUpload,item:Item){
     const filePath = `${this.basePath2}/${fileUpload.file.name}`;
     const storageRef = this.storage.ref(filePath);

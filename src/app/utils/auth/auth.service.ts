@@ -107,19 +107,7 @@ export class AuthService {
         })
   }
 
-  getAllUserApi():Observable<any>{
-
-    let token=localStorage.getItem('token');
-
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    })
-
-    const requestOptions = { headers: headers };
-
-    return this.httpClient.get(baseUrl+'users',requestOptions);
-  }
+  
 
 
 }
