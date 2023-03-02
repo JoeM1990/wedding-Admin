@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit {
     this.crud.getAllUserApi()
     .subscribe(
       response => {
-        this.countUser=response.lenght()
+        
       },
       error => {
         console.log(error)

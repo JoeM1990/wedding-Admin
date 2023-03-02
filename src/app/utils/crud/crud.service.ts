@@ -89,6 +89,48 @@ export class CrudService {
     return this.httpClient.delete(baseUrl+'users/'+id,requestOptions);
   }
 
+  countUser():Observable<any>{
+
+    let token=localStorage.getItem('token');
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    })
+
+    const requestOptions = { headers: headers };
+
+    return this.httpClient.get(baseUrl+'usersCount',requestOptions);
+  }
+
+  countUserActive():Observable<any>{
+
+    let token=localStorage.getItem('token');
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    })
+
+    const requestOptions = { headers: headers };
+
+    return this.httpClient.get(baseUrl+'usersCountActive',requestOptions);
+  }
+
+  countUserDesactive():Observable<any>{
+
+    let token=localStorage.getItem('token');
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    })
+
+    const requestOptions = { headers: headers };
+
+    return this.httpClient.get(baseUrl+'usersCountDesactive',requestOptions);
+  }
+
 
 
   addInvitation(fileUpload: FileUpload,item:Item){
