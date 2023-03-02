@@ -17,6 +17,14 @@ export class DashboardComponent implements OnInit {
   constructor(public auth:AuthService,public crud:CrudService) { }
 
   ngOnInit(): void {
+    this.crud.getAllUserApi()
+    .subscribe(
+      response => {
+        this.countUser=response.lenght()
+      },
+      error => {
+        console.log(error)
+      });
   }
 
 }
