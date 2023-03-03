@@ -36,21 +36,25 @@ export class LoginComponent implements OnInit {
     this.auth.loginApi(email,password)
     .subscribe(
       response => {
-        alert(response['message'])
+       // alert(response['message'])
         let token=response['token'];
         let data=response['data'];
 
-        if(data != null){
+        if(token){
           this.router.navigate(['/dashboard']);
-        }else{
-          this.router.navigate(['/login']);
         }
+
+        // if(data != null){
+        //   this.router.navigate(['/dashboard']);
+        // }else{
+        //   this.router.navigate(['/login']);
+        // }
         localStorage.setItem('token',token);
         localStorage.setItem('email_user',email);
       },
       error => {
         this.router.navigate(['/login']);
-        alert(error['message']);
+        //alert(error['message']);
         console.log(error);
       });
   }
