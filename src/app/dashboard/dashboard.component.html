@@ -209,8 +209,9 @@
                 <div class="col">
                   <div class="card">
                     <h5 class="card-header" style="font-size: 22px;">Operations</h5>
-                    <span style="margin-top: -20px;">
-                      <i class='bx bxs-filter-alt'></i>
+                    <span style="margin-top: -35px; margin-left: 22px;">
+                      <i class='bx bxs-filter-alt' data-bs-toggle="modal"
+                      data-bs-target="#modalFiltre"></i>
                     </span>
                     <div class="card-body">
                       <div class="table-responsive text-nowrap">
@@ -399,6 +400,57 @@
                 </div>
               </div>
             </div>
+
+            <!-- ModalFiltre -->
+            <div class="modal fade" id="modalFiltre" tabindex="-1" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <form >
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="col mb-3">
+                        <label for="nameBasic" class="form-label">Date</label>
+                        <input type="Date" id="nameBasic" class="form-control" placeholder="Enter Username" formControlName="username"/>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col mb-3">
+                        <label for="nameBasic" class="form-label">Operateur</label>
+                        <select class="form-control">
+                          <option>Operateur</option>
+                          <option>Mpesa</option>
+                          <option>Orange Money</option>
+                          <option>Airtel Money</option>
+                          <option>Afri Money</option>
+                        </select>
+                       
+                      </div>
+                    </div>
+                   
+                    
+                   
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                      Close
+                    </button>
+                    <button type="button" class="btn btn-primary">Filtrer</button>
+                  </div>
+                </form>
+                  
+                </div>
+              </div>
+            </div>
+            <!-- Modal -->
             
 
                 
