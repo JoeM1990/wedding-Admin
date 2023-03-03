@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
       response => {
        // alert(response['message'])
         let token=response['token'];
-        let data=response['data'];
+        //let data=response['data'];
 
         if(token){
           this.router.navigate(['/dashboard']);
