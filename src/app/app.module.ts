@@ -33,7 +33,7 @@ import { QRCodeSVGModule } from 'ngx-qrcode-svg';
 
 import { HttpClientModule } from '@angular/common/http';
 
-import { DataTablesModule } from "angular-datatables";
+//import { DataTablesModule } from "angular-datatables";
 
 
 
@@ -68,7 +68,7 @@ import { DataTablesModule } from "angular-datatables";
     NgxQRCodeModule,
     QRCodeSVGModule,
     HttpClientModule,
-    DataTablesModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
