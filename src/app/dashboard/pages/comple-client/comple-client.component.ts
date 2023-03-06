@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
 import { AuthService } from 'src/app/utils/auth/auth.service';
 import { CrudService } from 'src/app/utils/crud/crud.service';
 
@@ -10,7 +11,7 @@ import { CrudService } from 'src/app/utils/crud/crud.service';
   styleUrls: ['./comple-client.component.css']
 })
 export class CompleClientComponent implements OnInit {
-
+  
   user:any;
   clientForm:FormGroup;
   updateForm:FormGroup;
@@ -37,10 +38,14 @@ export class CompleClientComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    
+
+
     this.crud.getAllUserApi()
     .subscribe(
       response => {
         this.user=response;
+        
       },
       error => {
         console.log(error)
