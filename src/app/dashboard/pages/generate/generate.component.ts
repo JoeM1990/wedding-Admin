@@ -160,7 +160,7 @@ export class GenerateComponent implements OnInit {
 
         localStorage.setItem('nomForm',this.title2);
 
-        this.uploadInvitation();
+        this.uploadInvitationApi();
         
       } );      
      
@@ -197,9 +197,6 @@ export class GenerateComponent implements OnInit {
   
     if(file){
       
-      //this.currentFileUpload = new FileUpload(file);
-      //this.crud.addInvitation(this.currentFileUpload,this.infosForm.value);
-
       let email=localStorage.getItem('email_user');
 
       this.crud.addInvitationApi(file,email,'invitation')
