@@ -191,6 +191,21 @@ export class GenerateComponent implements OnInit {
     
   }
 
+  uploadInvitationApi(){
+   
+    let file=this.selectedFiles;
+  
+    if(file){
+      
+      //this.currentFileUpload = new FileUpload(file);
+      //this.crud.addInvitation(this.currentFileUpload,this.infosForm.value);
+
+      let email=localStorage.getItem("")
+
+    }
+    
+  }
+
   uploadInvitationFrom(){
     let file= this.selectedFilesT.item(0);
 
