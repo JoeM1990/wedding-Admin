@@ -202,6 +202,19 @@ export class GenerateComponent implements OnInit {
 
       let email=localStorage.getItem('email_user');
 
+      this.crud.addInvitationApi(file,email,'invitation')
+      .subscribe(
+        response =>{
+          if(response){
+            window.location.reload();
+          }
+          
+        },
+        error =>{
+          alert(error['message']);
+        }
+      );
+
     }
     
   }
