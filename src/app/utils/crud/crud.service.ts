@@ -135,8 +135,9 @@ export class CrudService {
     let token=localStorage.getItem('token');
 
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
+      'Content-Type': 'multipart/form-data',
+     
+      //'Authorization': `Bearer ${token}`
     })
 
     const requestOptions = { headers: headers };
