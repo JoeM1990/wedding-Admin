@@ -131,6 +131,10 @@ export class CrudService {
     return this.httpClient.get(baseUrl+'usersCountDesactive',requestOptions);
   }
 
+  addInvitationApi():Observable<any>{
+    return null;
+  }
+
 
 
   addInvitation(fileUpload: FileUpload,item:Item){
