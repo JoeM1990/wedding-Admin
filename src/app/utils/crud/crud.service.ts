@@ -131,8 +131,22 @@ export class CrudService {
     return this.httpClient.get(baseUrl+'usersCountDesactive',requestOptions);
   }
 
-  addInvitationApi():Observable<any>{
-    return null;
+  addInvitationApi(file:File,email:any,type:any):Observable<any>{
+    let token=localStorage.getItem('token');
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    })
+
+    const requestOptions = { headers: headers };
+
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("email",email);
+    formData.append("type",type);
+
+    return this.httpClient.post(baseUrl+'upload',formData,requestOptions);
   }
 
 
