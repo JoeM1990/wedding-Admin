@@ -200,7 +200,7 @@ export class GenerateComponent implements OnInit {
       //this.currentFileUpload = new FileUpload(file);
       //this.crud.addInvitation(this.currentFileUpload,this.infosForm.value);
 
-      let email=localStorage.getItem("")
+      let email=localStorage.getItem('email_user');
 
     }
     
