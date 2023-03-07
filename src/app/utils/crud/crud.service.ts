@@ -142,9 +142,9 @@ export class CrudService {
     const requestOptions = { headers: headers };
 
     const formData = new FormData();
-    formData.append("file", file);
-    formData.append("email",email);
-    formData.append("type",type);
+    formData.append('file', file);
+    formData.append('email', email);
+    formData.append('type', type);
 
     return this.httpClient.post(baseUrl+'upload',formData,requestOptions);
   }
