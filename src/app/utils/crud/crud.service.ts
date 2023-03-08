@@ -197,6 +197,12 @@ export class CrudService {
     .snapshotChanges();
   }
 
+  getItemById(id:any){
+    return this.angularFirestore.collection('item-invitation')
+    .ref.where('id','==',id)
+    .get()
+  }
+
   //Qr code Crud
 
   addQrCode(fileUpload: FileUpload,item:Item){
