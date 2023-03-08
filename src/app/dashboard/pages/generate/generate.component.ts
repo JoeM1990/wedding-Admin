@@ -64,6 +64,8 @@ export class GenerateComponent implements OnInit {
   changedDate = this.ChangedFormat;
   valueT: string | undefined;
 
+  image64Get:any;
+
 
   constructor(private crud:CrudService,public formBuilder: FormBuilder, public router:Router) {
     this.infosForm = this.formBuilder.group({
@@ -234,8 +236,8 @@ export class GenerateComponent implements OnInit {
       .subscribe(
         response =>{
           if(response){
-            alert(response['message'])
-            window.location.reload();
+            //alert(response['message'])
+            //window.location.reload();
           }
           
         },
@@ -296,11 +298,19 @@ export class GenerateComponent implements OnInit {
     //let file = event.target.files[0];
     let file=this.selectedFilesT[0];
     let reader = new FileReader();
+    
     reader.readAsDataURL(file);
     reader.onload = function () {
       //me.modelvalue = reader.result;
-      console.log(reader.result);
+      //console.log(reader.result);
+      //return 
+      
+      //imgData=reader.result.;
     };
+
+    this.image64Get=reader.result?.toString();
+    console.log(this.image64Get)
+    
     reader.onerror = function (error) {
       console.log('Error: ', error);
     };
