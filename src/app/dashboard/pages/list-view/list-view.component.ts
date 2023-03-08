@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 import { CrudService } from 'src/app/utils/crud/crud.service';
@@ -18,7 +19,7 @@ export class ListViewComponent implements OnInit {
   elementType = NgxQrcodeElementTypes.URL;
   correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
 
-  constructor(public crud:CrudService) { }
+  constructor(public crud:CrudService, public httpClient:HttpClient) { }
 
   ngOnInit(): void {
     this.crud.getAllItem().subscribe(res => {
@@ -55,6 +56,12 @@ export class ListViewComponent implements OnInit {
           console.log(err)
           
         })
+  }
+
+  sendWhatsapp(urlData:any){
+    const url='https://whatsapp://send?text=';
+    const image=encodeURIComponent(urlData);
+    this.httpClient.post(url,image);
   }
 
 }
