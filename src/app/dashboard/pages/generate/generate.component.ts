@@ -167,7 +167,7 @@ export class GenerateComponent implements OnInit {
       } );      
      
     });
-    
+    //this.uploadInvitation();
   }
 
   generateQr(){
