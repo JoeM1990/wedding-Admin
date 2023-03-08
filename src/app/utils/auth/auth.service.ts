@@ -31,7 +31,7 @@ export class AuthService {
   // }
 
   loginApi(email : string, password : string):Observable<any> {
-    return this.httpClient.post(baseUrl+'/login',{email: email, password: password});
+    return this.httpClient.post(baseUrl+'login',{email: email, password: password});
   }
 
   logoutApi(){

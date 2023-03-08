@@ -217,6 +217,9 @@ export class GenerateComponent implements OnInit {
   }
 
   uploadInvitationFrom(){
+    
+    this.getBase64();
+
     let file= this.selectedFilesT.item(0);
 
     if(file){
@@ -231,6 +234,7 @@ export class GenerateComponent implements OnInit {
       .subscribe(
         response =>{
           if(response){
+            alert(response['message'])
             window.location.reload();
           }
           
@@ -286,6 +290,21 @@ export class GenerateComponent implements OnInit {
     }
     
   }
+
+    getBase64() {
+    let me = this;
+    //let file = event.target.files[0];
+    let file=this.selectedFilesT[0];
+    let reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = function () {
+      //me.modelvalue = reader.result;
+      console.log(reader.result);
+    };
+    reader.onerror = function (error) {
+      console.log('Error: ', error);
+    };
+ }
 
 
 
