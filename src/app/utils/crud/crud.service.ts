@@ -197,9 +197,9 @@ export class CrudService {
     .snapshotChanges();
   }
 
-  getItemById(id:any){
+  getItemByDesc(desc:any){
     return this.angularFirestore.collection('item-invitation')
-    .ref.where('id','==',id)
+    .ref.where('description','==',desc)
     .get()
   }
 

@@ -13,6 +13,8 @@ export class ListViewComponent implements OnInit {
 
   ItemQr!:Item[];
 
+  Item2!:Item[];
+
   elementType = NgxQrcodeElementTypes.URL;
   correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
 
@@ -34,6 +36,25 @@ export class ListViewComponent implements OnInit {
     if(confirm("Voulez vous supprimer cette invitation")){
       this.crud.deleteItem(Item)
     }
+  }
+
+  getItemByDesc(desc:any){
+    this.crud.getItemByDesc(desc).then( res=>{
+  
+      console.log(res.size);
+  
+      this.Item2=res.docs.map( e => {
+        return{
+          id: e.id,
+          ...e.data() as {}
+        }as Item;
+      })
+      
+        })
+        .catch(err =>{
+          console.log(err)
+          
+        })
   }
 
 }

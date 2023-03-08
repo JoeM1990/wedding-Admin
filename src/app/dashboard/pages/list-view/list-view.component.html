@@ -213,7 +213,7 @@
                         </td>
                         <td>
                             <!-- <i class='bx bxs-send'></i> -->
-                            <i class='bx bxs-send'  data-bs-toggle="modal" data-bs-target="#detailModal" ></i>
+                            <i class='bx bxs-send'  data-bs-toggle="modal" data-bs-target="#detailModal" (click)="getItemByDesc(item.description)"></i>
                             <i class='bx bxs-trash primary' (click)="deleteItem(item)"></i>
                         </td>
                       </tr>
@@ -287,25 +287,34 @@
                         </div>
                       </div> -->
 
-                      <div class="row">
+                      <div class="row " *ngFor="let item of Item2; let i = index">
+                        <label for="nameBasic" class="form-label" style="font-size: 20px;">{{item.name}}</label>
                         <div class="col ">
                           <ngx-qrcode
                             [elementType]="elementType"
                             [errorCorrectionLevel]="correctionLevel"
-                            value="papa"
+                            value="{{item.description}}"
                             [width]=350
                             cssClass="bshadow" >
                         </ngx-qrcode>
                         </div>
+                        <div class="col">
+                         
+                        </div>
                       </div>
+
+                      
 
                       <div class="container">
                         <div class="row">
                           <div class="col-sm">
-                            <img width="110" height="110" src="https://cdn.freebiesupply.com/images/thumbs/2x/whatsapp-logo.png">
+                            <button type="button" class="btn btn-outline-primary">WhatsApp</button>
                           </div>
                           <div class="col-sm">
-                            <img width="110" height="110" src="https://cdn.freebiesupply.com/images/thumbs/2x/whatsapp-logo.png">
+                            <button type="button" class="btn btn-outline-primary">Facebook</button>
+                          </div>
+                          <div class="col-sm">
+                            <button type="button" class="btn btn-outline-primary">Download</button>
                           </div>
                          
                         </div>
