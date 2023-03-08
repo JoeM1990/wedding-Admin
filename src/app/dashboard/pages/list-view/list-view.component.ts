@@ -10,20 +10,20 @@ import { ItemQr } from 'src/app/utils/model/item-qr';
 })
 export class ListViewComponent implements OnInit {
 
-  ItemQr!:ItemQr[];
+  ItemQr!:Item[];
 
   constructor(public crud:CrudService) { }
 
   ngOnInit(): void {
-    // this.crud.getAllQr().subscribe(res => {
+    this.crud.getAllItem().subscribe(res => {
       
-    //   this.ItemQr = res.map( e => {
-    //     return{
-    //       id: e.payload.doc.id,
-    //       ...e.payload.doc.data() as {}
-    //     } as unknown as ItemQr;
-    //   })
-    //  })
+      this.ItemQr = res.map( e => {
+        return{
+          id: e.payload.doc.id,
+          ...e.payload.doc.data() as {}
+        } as unknown as ItemQr;
+      })
+     })
   }
 
 }
