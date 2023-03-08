@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 import { CrudService } from 'src/app/utils/crud/crud.service';
 import { Item } from 'src/app/utils/model/item';
 import { ItemQr } from 'src/app/utils/model/item-qr';
@@ -11,6 +12,9 @@ import { ItemQr } from 'src/app/utils/model/item-qr';
 export class ListViewComponent implements OnInit {
 
   ItemQr!:Item[];
+
+  elementType = NgxQrcodeElementTypes.URL;
+  correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
 
   constructor(public crud:CrudService) { }
 
