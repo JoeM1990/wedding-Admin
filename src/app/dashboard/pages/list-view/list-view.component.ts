@@ -30,4 +30,10 @@ export class ListViewComponent implements OnInit {
      })
   }
 
+  deleteItem(Item: { id: string | undefined; }){
+    if(confirm("Voulez vous supprimer cette invitation")){
+      this.crud.deleteItem(Item)
+    }
+  }
+
 }

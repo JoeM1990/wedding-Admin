@@ -213,8 +213,8 @@
                         </td>
                         <td>
                             <i class='bx bxs-send'></i>
-                            <i class='bx bx-search-alt-2'></i>
-                            <i class='bx bxs-trash primary'></i>
+                            <i class='bx bx-search-alt-2'  data-bs-toggle="modal" data-bs-target="#detailModal" ></i>
+                            <i class='bx bxs-trash primary' (click)="deleteItem(item)"></i>
                         </td>
                       </tr>
                       
@@ -261,6 +261,51 @@
                       </button>
                       <button type="button" class="btn btn-primary">Ajouter</button>
                     </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Modal -->
+
+              <!-- ModalDetail -->
+              <div class="modal fade" id="detailModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row">
+                        <div class="col mb-3">
+                          <label for="nameBasic" class="form-label">Username</label>
+                          <input type="text" id="nameBasic" class="form-control" placeholder="Enter Username" />
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col mb-3">
+                          <ngx-qrcode
+                            [elementType]="elementType"
+                            [errorCorrectionLevel]="correctionLevel"
+                            value="papa"
+                            [width]=250
+                            cssClass="bshadow" >
+                        </ngx-qrcode>
+                        </div>
+                      </div>
+                      
+                    </div>
+                    <!-- <div class="modal-footer">
+                      <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                        Close
+                      </button>
+                      <button type="button" class="btn btn-primary">Ajouter</button>
+                    </div> -->
                   </div>
                 </div>
               </div>
