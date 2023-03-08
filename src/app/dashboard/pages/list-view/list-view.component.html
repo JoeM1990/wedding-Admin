@@ -203,7 +203,13 @@
                             <img src={{item.description}} width="100px">
                         </td>
                         <td>
-                          <img src={{item.description}} width="100px">
+                          <ngx-qrcode
+                            [elementType]="elementType"
+                            [errorCorrectionLevel]="correctionLevel"
+                            value="{{item.description}}"
+                            [width]=150
+                            cssClass="bshadow" >
+                        </ngx-qrcode>
                         </td>
                         <td>
                             <i class='bx bxs-send'></i>
