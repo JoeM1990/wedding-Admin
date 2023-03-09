@@ -162,7 +162,7 @@ export class GenerateComponent implements OnInit {
 
         localStorage.setItem('nomForm',this.title2);
 
-        this.uploadInvitation();
+        //this.uploadInvitation();
         
       } );      
      
