@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 import { CrudService } from 'src/app/utils/crud/crud.service';
 import { Item } from 'src/app/utils/model/item';
@@ -20,6 +20,13 @@ export class ListViewComponent implements OnInit {
   correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
 
   visible=false;
+
+  @ViewChild('screen')
+  screen!: ElementRef;
+  @ViewChild('canvas')
+  canvas!: ElementRef;
+  @ViewChild('downloadLink')
+  downloadLink!: ElementRef;
 
   constructor(public crud:CrudService, public httpClient:HttpClient) { }
 
