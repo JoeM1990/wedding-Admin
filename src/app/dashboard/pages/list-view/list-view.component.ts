@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
+import * as htmlToImage from 'html-to-image';
 import html2canvas from 'html2canvas';
 import { CrudService } from 'src/app/utils/crud/crud.service';
 import { Item } from 'src/app/utils/model/item';
@@ -88,16 +89,15 @@ export class ListViewComponent implements OnInit {
       this.downloadLink.nativeElement.download = this.title2+'.png';
       this.downloadLink.nativeElement.click();
     
-      this.visible=false;
+      this.visible=true;
 
-      canvas.toBlob( (blob:any) => {
+      // canvas.toBlob( (blob:any) => {
        
-        const file = new File( [ blob ],  this.title2+'.png',{ type: "image/png" });
-        const dT = new DataTransfer();
-        dT.items.add( file );
+      //   const file = new File( [ blob ],  this.title2+'.png',{ type: "image/png" });
+      //   const dT = new DataTransfer();
+      //   dT.items.add( file );
 
-        
-      } );      
+      // } );      
      
     });
    

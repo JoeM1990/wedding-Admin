@@ -203,16 +203,19 @@
                             <img src={{item.description}} width="100px">
                         </td>
                         <td>
-                          <ngx-qrcode
+                          <div #screen>
+                            <ngx-qrcode
                             [elementType]="elementType"
                             [errorCorrectionLevel]="correctionLevel"
                             value="{{item.description}}"
                             [width]=150
                             cssClass="bshadow" >
                         </ngx-qrcode>
+                          </div>
+                          
                         </td>
                         <td>
-                            <i class='bx bxs-download'></i>
+                            <i class='bx bxs-download' (click)="downloadQr()"></i>
                             <i class='bx bxs-send'  data-bs-toggle="modal" data-bs-target="#detailModal" (click)="getItemByDesc(item.description)"></i>
                             <i class='bx bxs-trash primary' (click)="deleteItem(item)"></i>
                         </td>
@@ -287,21 +290,24 @@
                         </div>
                       </div> -->
 
-                      <div class="row justify-content-center " *ngFor="let item of Item2; let i = index" #screen>
-                        <label for="nameBasic" class="form-label" style="font-size: 20px;">{{item.name}}</label>
-                        <div class="col ">
-                          <ngx-qrcode
-                            [elementType]="elementType"
-                            [errorCorrectionLevel]="correctionLevel"
-                            value="{{item.description}}"
-                            [width]=350
-                            cssClass="bshadow" >
-                        </ngx-qrcode>
-                        </div>
-                        <div class="col">
-                         
+                      <div >
+                        <div class="row justify-content-center " *ngFor="let item of Item2; let i = index" >
+                          <label for="nameBasic" class="form-label" style="font-size: 20px;">{{item.name}}</label>
+                          <div class="col ">
+                            <ngx-qrcode
+                              [elementType]="elementType"
+                              [errorCorrectionLevel]="correctionLevel"
+                              value="{{item.description}}"
+                              [width]=350
+                              cssClass="bshadow" >
+                          </ngx-qrcode>
+                          </div>
+                          <div class="col">
+                           
+                          </div>
                         </div>
                       </div>
+                      
 
                       
 
@@ -314,8 +320,9 @@
                             <button type="button" class="btn btn-outline-primary">Facebook</button>
                           </div>
                           <div class="col-sm">
-                            <button type="button" class="btn btn-outline-primary">Download</button>
+                              <!-- <i class='bx bxs-download' (click)="downloadQr()"></i> -->
                           </div>
+                         
                          
                         </div>
                       </div>
