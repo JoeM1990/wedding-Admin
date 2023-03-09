@@ -19,6 +19,8 @@ export class ListViewComponent implements OnInit {
   elementType = NgxQrcodeElementTypes.URL;
   correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
 
+  visible=false;
+
   constructor(public crud:CrudService, public httpClient:HttpClient) { }
 
   ngOnInit(): void {
