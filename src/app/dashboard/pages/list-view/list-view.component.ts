@@ -105,8 +105,14 @@ export class ListViewComponent implements OnInit {
    
   }
 
-  downloadFile(url:any){		
-		return this.httpClient.get(url);
-   }
+ 
+
+   downloadFile(url:any): any {
+
+    let urlOk="'"+url+"'";
+    //console.log(url);
+    
+		return this.httpClient.get(urlOk, {responseType: 'blob'});
+  }
 
 }

@@ -8,6 +8,7 @@ import { FileUpload } from '../model/file-upload';
 import { Item } from '../model/item';
 import { User } from '../model/user';
 
+
 const baseUrl = 'http://localhost:8080/api/';
 @Injectable({
   providedIn: 'root'
@@ -250,6 +251,10 @@ export class CrudService {
     return this.angularFirestore.collection('item-qr')
     .snapshotChanges();
   }
+
+  // downloadFile(): Observable<HttpResponse<Blob>>{		
+	// 	return this.httpClient.get('http://localhost:8080/employees/download', { responseType: ResponseContentType.Blob });
+  //  }
 
   
 }
