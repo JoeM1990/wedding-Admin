@@ -23,12 +23,12 @@ export class ListViewComponent implements OnInit {
 
   visible=false;
 
-  @ViewChild('screen')
-  screen!: ElementRef;
-  @ViewChild('canvas')
-  canvas!: ElementRef;
-  @ViewChild('downloadLink')
-  downloadLink!: ElementRef;
+  @ViewChild('screenGet')
+  screenGet!: ElementRef;
+  @ViewChild('canvasGet')
+  canvasGet!: ElementRef;
+  @ViewChild('downloadLinkGet')
+  downloadLinkGet!: ElementRef;
 
   title2:any;
 
@@ -83,11 +83,11 @@ export class ListViewComponent implements OnInit {
 
   downloadQr(){
 
-    html2canvas(this.screen.nativeElement).then(canvas => {
-      this.canvas.nativeElement.src = canvas.toDataURL();
-      this.downloadLink.nativeElement.href = canvas.toDataURL('image/png');
-      this.downloadLink.nativeElement.download = this.title2+'.png';
-      this.downloadLink.nativeElement.click();
+    html2canvas(this.screenGet.nativeElement).then(canvasGet => {
+      this.canvasGet.nativeElement.src = canvasGet.toDataURL();
+      this.downloadLinkGet.nativeElement.href = canvasGet.toDataURL('image/png');
+      this.downloadLinkGet.nativeElement.download = this.title2+'.png';
+      this.downloadLinkGet.nativeElement.click();
     
       this.visible=true;
 

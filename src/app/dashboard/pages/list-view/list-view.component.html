@@ -203,7 +203,7 @@
                             <img src={{item.description}} width="100px">
                         </td>
                         <td>
-                          <div #screen>
+                          <div >
                             <ngx-qrcode
                             [elementType]="elementType"
                             [errorCorrectionLevel]="correctionLevel"
@@ -215,7 +215,9 @@
                           
                         </td>
                         <td>
-                            <i class='bx bxs-download' (click)="downloadQr()"></i>
+                          <!-- <a href={{item.description}} download="{{item.name}}"></a> -->
+                         
+                            <i class='bx bxs-download' ></i>
                             <i class='bx bxs-send'  data-bs-toggle="modal" data-bs-target="#detailModal" (click)="getItemByDesc(item.description)"></i>
                             <i class='bx bxs-trash primary' (click)="deleteItem(item)"></i>
                         </td>
@@ -290,7 +292,7 @@
                         </div>
                       </div> -->
 
-                      <div >
+                      <div #screenGet>
                         <div class="row justify-content-center " *ngFor="let item of Item2; let i = index" >
                           <label for="nameBasic" class="form-label" style="font-size: 20px;">{{item.name}}</label>
                           <div class="col ">
@@ -320,7 +322,7 @@
                             <button type="button" class="btn btn-outline-primary">Facebook</button>
                           </div>
                           <div class="col-sm">
-                              <!-- <i class='bx bxs-download' (click)="downloadQr()"></i> -->
+                              <i class='bx bxs-download' (click)="downloadQr()"></i>
                           </div>
                          
                          
@@ -340,9 +342,9 @@
               <!-- Modal -->
 
               <ng-container *ngIf="visible">
-                <div id="download">
-                  <img #canvas>
-                  <a #downloadLink></a>
+                <div id="downloadGet">
+                  <img #canvasGet>
+                  <a #downloadLinkGet></a>
                 </div>
             </ng-container>
               
