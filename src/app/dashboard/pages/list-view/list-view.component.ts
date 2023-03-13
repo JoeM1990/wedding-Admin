@@ -133,4 +133,55 @@ export class ListViewComponent implements OnInit {
     // xhr.send();
   }
 
+  download(url:any,name:any) {
+    // const url =
+      //"https://firebasestorage.googleapis.com/v0/b/datosstalin.appspot.com/o/Libro%20de%20chistes%2Cchorradas_derivados.pdf?alt=media&token=2a23a9f0-3512-4a2f-94a7-b0a0a631b41e";
+    this.httpClient.get(url, {
+      headers: {
+        "Accept": "application/pdf"
+      },
+      responseType: "blob"
+    }).subscribe(
+      (x: any) => {
+        console.log("x", x);
+        // It is necessary to create a new blob object with mime-type explicitly set
+        // otherwise only Chrome works like it should
+        var newBlob = new Blob([x], { type: "image/png" });
+
+        // IE doesn't allow using a blob object directly as link href
+        // instead it is necessary to use msSaveOrOpenBlob
+
+        // if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+        //   window.navigator.msSaveOrOpenBlob(newBlob);
+        //   return;
+        // }
+
+        // For other browsers:
+        // Create a link pointing to the ObjectURL containing the blob.
+        const data = window.URL.createObjectURL(newBlob);
+
+        var link = document.createElement("a");
+        link.href = data;
+        link.download = name+".png";
+        // this is necessary as link.click() does not work on the latest firefox
+        link.dispatchEvent(
+          new MouseEvent("click", {
+            bubbles: true,
+            cancelable: true,
+            view: window
+          })
+        );
+
+        setTimeout(function() {
+          // For Firefox it is necessary to delay revoking the ObjectURL
+          window.URL.revokeObjectURL(data);
+          link.remove();
+        }, 100);
+      },
+      err => {
+        console.log("ERR", err);
+      }
+    );
+  }
+
 }
