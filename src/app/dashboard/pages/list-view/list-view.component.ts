@@ -116,13 +116,13 @@ export class ListViewComponent implements OnInit {
     console.log(nameOk)
     console.log(urlOk)
     
-		// const link = document.createElement('a');
-    // link.setAttribute('target', '_blank');
-    // link.setAttribute('href', urlOk);
-    // link.setAttribute('download', nameOk);
-    // document.body.appendChild(link);
-    // link.click();
-    // link.remove();
+		const link = document.createElement('a');
+    //link.setAttribute('target', '_blank');
+    link.setAttribute('href', url);
+    link.setAttribute('download', nameOk);
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
 
     // const xhr = new XMLHttpRequest();
     // xhr.responseType = 'blob';
