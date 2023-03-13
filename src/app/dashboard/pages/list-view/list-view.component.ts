@@ -3,9 +3,11 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 import * as htmlToImage from 'html-to-image';
 import html2canvas from 'html2canvas';
+import { Observable } from 'rxjs';
 import { CrudService } from 'src/app/utils/crud/crud.service';
 import { Item } from 'src/app/utils/model/item';
 import { ItemQr } from 'src/app/utils/model/item-qr';
+
 
 @Component({
   selector: 'app-list-view',
@@ -102,5 +104,9 @@ export class ListViewComponent implements OnInit {
     });
    
   }
+
+  downloadFile(url:any){		
+		return this.httpClient.get(url);
+   }
 
 }

@@ -217,7 +217,7 @@
                         <td>
                           <!-- <a href={{item.description}} download="{{item.name}}"></a> -->
                          
-                            <i class='bx bxs-download' ></i>
+                            <i class='bx bxs-download' (click)="downloadFile(item.description)" ></i>
                             <i class='bx bxs-send'  data-bs-toggle="modal" data-bs-target="#detailModal" (click)="getItemByDesc(item.description)"></i>
                             <i class='bx bxs-trash primary' (click)="deleteItem(item)"></i>
                         </td>
