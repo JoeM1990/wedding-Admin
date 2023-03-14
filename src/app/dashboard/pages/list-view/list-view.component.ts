@@ -36,6 +36,9 @@ export class ListViewComponent implements OnInit {
 
   title2:any;
 
+  visibleListe=false;
+  visibleMessage=false;
+
   constructor(public crud:CrudService, public httpClient:HttpClient) { }
 
   ngOnInit(): void {

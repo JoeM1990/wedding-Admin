@@ -179,6 +179,9 @@
                  <!-- Basic Bootstrap Table -->
                  <!-- <button type="button" class="btn btn-primary" style="margin-bottom: 10px;" data-bs-toggle="modal" -->
                  <!-- data-bs-target="#basicModal">+</button> -->
+              
+              <ng-container *ngIf="visibleListe" >
+
               <div class="card">
                 <!-- <h5 class="card-header">Table Basic</h5> -->
                 
@@ -227,6 +230,16 @@
                   </table>
                 </div>
               </div>
+
+            </ng-container>
+
+            <ng-container *ngIf="visibleMessage" >
+                
+              <div class="card">
+                <h5 class="card-header">Aucune Invitation</h5>
+              </div>
+
+            </ng-container>
               <!--/ Basic Bootstrap Table -->
 
               <!-- Modal -->
