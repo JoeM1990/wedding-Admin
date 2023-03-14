@@ -193,6 +193,10 @@
                         <label for="defaultFormControlInput" class="form-label">Table</label>
                           <input type="text" class="form-control" id="defaultFormControlInput" placeholder="Empereur"
                             aria-describedby="defaultFormControlHelp" [(ngModel)]="title3" [maxLength]="20"/>
+
+                            <label for="defaultFormControlInput" class="form-label">Date</label>
+                          <input type="text" class="form-control" id="defaultFormControlInput" placeholder="24-12-2023"
+                            aria-describedby="defaultFormControlHelp" [(ngModel)]="title6" [maxLength]="10"/>
                         <label for="defaultFormControlInput" class="form-label">Lieu | Heure | Date</label>
                           <input type="text" class="form-control" id="defaultFormControlInput" placeholder="Kin Marche - 15h - 24/12/2023"
                             aria-describedby="defaultFormControlHelp" [(ngModel)]="title4" [maxLength]="50" />
@@ -230,7 +234,8 @@
 
                       <div class="card mb-4 fondChange" id="sectionImage" [ngStyle]="{'background-image': 'url(' + photo + ')'}" style="height: 600px; " #screen>
                         <label class="" style="text-transform: capitalize; font-family: 'Acme', serif; font-size: 20px; margin-top: 10px; margin-left: 350px;" [ngStyle]="{'color': style }">Table : {{title3}}</label><br>
-                        <h5 class="card-header" style="align-items: center;  margin-left: 25%; font-family: 'Julee', serif; font-size: 50px; margin-top: 58px;" [ngStyle]="{'color': style }" >INVITATION</h5>
+                        <h5 class="card-header" style="align-items: center;  margin-left: 25%; font-family: 'Julee', serif; font-size: 50px; margin-top: 58px;" [ngStyle]="{'color': style }" >SAVE THE DATE</h5>
+                        <h5 class="card-header" style="align-items: center;  margin-left: 25%; font-family: 'Julee', serif; font-size: 30px; margin-top: 58px;" [ngStyle]="{'color': style }" >{{title6}}</h5>
                         <div class="card-body" >
                           <!-- <label class="" style="text-transform: uppercase; font-family: 'Acme', serif;" [ngStyle]="{'color': style }">{{title1}}</label><br> -->
                           <label class="" style="text-transform: capitalize; font-family: 'Acme', serif; font-size: 20px; margin-top: 50px; margin-left: 35%;" [ngStyle]="{'color': style }">{{title2}}</label><br>
