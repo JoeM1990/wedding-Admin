@@ -195,7 +195,7 @@
                             aria-describedby="defaultFormControlHelp" [(ngModel)]="title3" [maxLength]="20"/>
                         <label for="defaultFormControlInput" class="form-label">Lieu | Heure | Date</label>
                           <input type="text" class="form-control" id="defaultFormControlInput" placeholder="Kin Marche - 15h - 24/12/2023"
-                            aria-describedby="defaultFormControlHelp" [(ngModel)]="title4" [maxLength]="60" />
+                            aria-describedby="defaultFormControlHelp" [(ngModel)]="title4" [maxLength]="50" />
                          
                             <button type="button" class="btn btn-primary" style="margin-top: 10px;" (click)="downloadImage()">Down</button>
                             <button type="button" class="btn btn-primary" style="margin-top: 10px; margin-left: 10px;" (click)="uploadInvitation()">Qr</button>
@@ -211,7 +211,7 @@
                       </div>
                     </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6" style="margin-bottom: 30px;">
                       <!-- <button type="button" class="btn btn-primary" style="margin-bottom: 10px;" data-bs-toggle="modal"
                  data-bs-target="#basicModal">Background</button> -->
 
@@ -228,15 +228,17 @@
                         <button type="button" class="btn btn-secondary" (click)="changeBack10()">10</button>
                       </div>
 
-                      <div class="card mb-4 fondChange" id="sectionImage" [ngStyle]="{'background-image': 'url(' + photo + ')'}" #screen>
-                        <h5 class="card-header" style="align-items: center;  margin-left: 30%; font-family: 'Julee', serif; font-size: 40px;" [ngStyle]="{'color': style }" >INVITATION</h5>
-                        <div class="card-body">
+                      <div class="card mb-4 fondChange" id="sectionImage" [ngStyle]="{'background-image': 'url(' + photo + ')'}" style="height: 600px; " #screen>
+                        <label class="" style="text-transform: capitalize; font-family: 'Acme', serif; font-size: 20px; margin-top: 10px; margin-left: 350px;" [ngStyle]="{'color': style }">Table : {{title3}}</label><br>
+                        <h5 class="card-header" style="align-items: center;  margin-left: 25%; font-family: 'Julee', serif; font-size: 50px; margin-top: 58px;" [ngStyle]="{'color': style }" >INVITATION</h5>
+                        <div class="card-body" >
                           <!-- <label class="" style="text-transform: uppercase; font-family: 'Acme', serif;" [ngStyle]="{'color': style }">{{title1}}</label><br> -->
-                          <label class="" style="text-transform: capitalize; font-family: 'Acme', serif; font-size: 20px;" [ngStyle]="{'color': style }">Pour : {{title2}}</label><br>
-                          <label class="" style="text-transform: capitalize; font-family: 'Acme', serif; font-size: 20px; text-align: right;" [ngStyle]="{'color': style }">Table : {{title3}}</label><br>
-                          <label class="" style="text-transform: capitalize; margin-left: 40%; font-family: 'Acme', serif;" [ngStyle]="{'color': style }">----------------------</label><br>
+                          <label class="" style="text-transform: capitalize; font-family: 'Acme', serif; font-size: 20px; margin-top: 50px; margin-left: 35%;" [ngStyle]="{'color': style }">{{title2}}</label><br>
+                          <label class="" style="text-transform: capitalize; font-family: 'Acme', serif; font-size: 20px; margin-top: -20px; margin-left: 25%;" [ngStyle]="{'color': style }">..............................................................</label><br>
+                         
+                          <!-- <label class="" style="text-transform: capitalize; margin-left: 40%; font-family: 'Acme', serif;" [ngStyle]="{'color': style }">----------------------</label><br> -->
                           <label class="" style="text-transform: capitalize; font-family: 'Acme', serif;" [ngStyle]="{'color': style }">{{title4}}</label><br>
-                          <label class="form-label" style="margin-left: 45%; font-family: 'Acme', serif;" [ngStyle]="{'color': style }">Bienvenue</label>
+                          <label class="form-label" style="margin-left: 44%; font-family: 'Acme', serif; margin-top: 250px; font-size: 20px;" [ngStyle]="{'color': style }">Bienvenue</label>
                         </div>
                       </div>
                     </div>
