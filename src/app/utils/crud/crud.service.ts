@@ -204,6 +204,12 @@ export class CrudService {
     .get()
   }
 
+  getItemByEmail(email:any){
+    return this.angularFirestore.collection('item-invitation')
+    .ref.where('email','==',email)
+    .get()
+  }
+
   //Qr code Crud
 
   addQrCode(fileUpload: FileUpload,item:Item){
