@@ -69,7 +69,7 @@ export class GenerateComponent implements OnInit {
 
   constructor(private crud:CrudService,public formBuilder: FormBuilder, public router:Router) {
     this.infosForm = this.formBuilder.group({
-      name: this.title2,
+      //name: this.title2,
       email_user: localStorage.getItem('email_user'),
       date:this.changedDate,
     })
@@ -181,7 +181,7 @@ export class GenerateComponent implements OnInit {
   }
 
   uploadInvitation(){
-    
+
     localStorage.setItem('nomForm',this.title2);
    
     let file=this.selectedFiles;
