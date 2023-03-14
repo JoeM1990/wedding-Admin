@@ -178,7 +178,7 @@ export class ListViewComponent implements OnInit {
     var node:any = document.getElementById('imgDown');
 
 
-    htmlToImage.toJpeg(node, { quality: 0.95 })
+    htmlToImage.toJpeg(node)
       .then(function (dataUrl) {
     var link = document.createElement('a');
     link.download = name+".jpeg";
