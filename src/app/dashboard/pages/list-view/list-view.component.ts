@@ -53,8 +53,10 @@ export class ListViewComponent implements OnInit {
 
       if(res.length>0){
         this.visibleListe=true;
+        this.visibleMessage=false;
       }else{
         this.visibleMessage=true;
+        this.visibleListe=false;
       }
 
      })

@@ -162,7 +162,7 @@ export class GenerateComponent implements OnInit {
 
         
 
-        //this.uploadInvitation();
+       //window.location.reload();
         
       } );      
      
@@ -190,6 +190,8 @@ export class GenerateComponent implements OnInit {
       
       this.currentFileUpload = new FileUpload(file);
       this.crud.addInvitation(this.currentFileUpload,this.infosForm.value);
+
+      window.location.reload()
 
     }
     
