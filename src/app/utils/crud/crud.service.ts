@@ -252,6 +252,10 @@ export class CrudService {
     .snapshotChanges();
   }
 
+  deleteFile(url:any){
+    return this.storage.storage.refFromURL(url).delete();
+  }
+
   // downloadFile(): Observable<HttpResponse<Blob>>{		
 	// 	return this.httpClient.get('http://localhost:8080/employees/download', { responseType: ResponseContentType.Blob });
   //  }

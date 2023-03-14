@@ -64,9 +64,10 @@ export class ListViewComponent implements OnInit {
       
   }
 
-  deleteItem(Item: { id: string | undefined; }){
+  deleteItem(Item: { id: string | undefined; },url:any){
     if(confirm("Voulez vous supprimer cette invitation")){
-      this.crud.deleteItem(Item)
+      this.crud.deleteItem(Item);
+      this.crud.deleteFile(url);
     }
   }
 
