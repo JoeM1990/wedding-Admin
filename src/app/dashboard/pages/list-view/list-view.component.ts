@@ -37,20 +37,31 @@ export class ListViewComponent implements OnInit {
   title2:any;
 
   visibleListe=false;
-  visibleMessage=true;
+  visibleMessage=false;
 
   constructor(public crud:CrudService, public httpClient:HttpClient) { }
 
   ngOnInit(): void {
     this.crud.getAllItem().subscribe(res => {
-      
+
       this.ItemQr = res.map( e => {
         return{
           id: e.payload.doc.id,
           ...e.payload.doc.data() as {}
         } as unknown as ItemQr;
       })
+
+      if(res.length>0){
+        this.visibleListe=true;
+      }else{
+        this.visibleMessage=true;
+      }
+
      })
+
+      
+      
+      
   }
 
   deleteItem(Item: { id: string | undefined; }){

@@ -160,7 +160,7 @@ export class GenerateComponent implements OnInit {
 
         this.selectedFiles=file;
 
-        localStorage.setItem('nomForm',this.title2);
+        
 
         //this.uploadInvitation();
         
@@ -181,6 +181,8 @@ export class GenerateComponent implements OnInit {
   }
 
   uploadInvitation(){
+    
+    localStorage.setItem('nomForm',this.title2);
    
     let file=this.selectedFiles;
   
