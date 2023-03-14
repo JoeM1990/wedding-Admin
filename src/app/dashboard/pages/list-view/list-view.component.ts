@@ -8,6 +8,8 @@ import { CrudService } from 'src/app/utils/crud/crud.service';
 import { Item } from 'src/app/utils/model/item';
 import { ItemQr } from 'src/app/utils/model/item-qr';
 
+import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
+
 
 @Component({
   selector: 'app-list-view',
@@ -169,6 +171,20 @@ export class ListViewComponent implements OnInit {
         console.log("ERR", err);
       }
     );
+  }
+
+  downloadImage(name:any){
+
+    var node:any = document.getElementById('imgDown');
+
+
+    htmlToImage.toJpeg(node, { quality: 0.95 })
+      .then(function (dataUrl) {
+    var link = document.createElement('a');
+    link.download = name+".jpeg";
+    link.href = dataUrl;
+    link.click();
+  });
   }
 
 }

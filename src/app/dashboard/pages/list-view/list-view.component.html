@@ -203,7 +203,7 @@
                             <img src={{item.description}} width="100px">
                         </td>
                         <td>
-                          <div >
+                          <div id="imgDown">
                             <ngx-qrcode
                             [elementType]="elementType"
                             [errorCorrectionLevel]="correctionLevel"
@@ -217,7 +217,7 @@
                         <td>
                           <!-- <a href={{item.description}} target="_blank" download="{{item.name}}.png">hh</a> -->
                          
-                            <i class='bx bxs-download' (click)="download(item.description,item.name)" ></i>
+                            <i class='bx bxs-download' (click)="downloadImage(item.name)" ></i>
                             <i class='bx bxs-send'  data-bs-toggle="modal" data-bs-target="#detailModal" (click)="getItemByDesc(item.description)"></i>
                             <i class='bx bxs-trash primary' (click)="deleteItem(item)"></i>
                         </td>
