@@ -182,7 +182,11 @@ export class CrudService {
     return new Promise<any>((resolve, reject) => {
       this.angularFirestore.collection('item-invitation')
       .add(item)
-      .then(response => { }, error => reject(error))
+      .then(response => { 
+        if(response){
+          window.location.reload();
+        }
+      }, error => reject(error))
       ;
       })
   }
