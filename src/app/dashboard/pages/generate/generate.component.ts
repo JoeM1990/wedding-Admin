@@ -327,22 +327,18 @@ export class GenerateComponent implements OnInit {
 
  checkCheckBoxvalue(event: any ){
   this.check= event.target.checked;
-  console.log(this.check);
 }
 
 checkCheckBoxvalue2(event: any ){
   this.check2= event.target.checked;
-  console.log(this.check);
 }
 
 checkCheckBoxvalue3(event: any ){
   this.check3= event.target.checked;
-  console.log(this.check);
 }
 
 checkCheckBoxvalue4(event: any ){
   this.check4= event.target.checked;
-  console.log(this.check);
 }
 
 
