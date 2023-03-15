@@ -225,9 +225,9 @@
 
                             </div>
                             
-                        <label for="defaultFormControlInput" class="form-label">Lieu | Heure </label>
-                          <input type="text" class="form-control" id="defaultFormControlInput" placeholder="Kin Marche - 15h - 24/12/2023"
-                            aria-describedby="defaultFormControlHelp" [(ngModel)]="title4" [maxLength]="50" />
+                        <label for="defaultFormControlInput" class="form-label">Lieu </label>
+                          <input type="text" class="form-control" id="defaultFormControlInput" placeholder="Kin Marche "
+                            aria-describedby="defaultFormControlHelp" [(ngModel)]="title4" [maxLength]="20" />
                          
                             <button type="button" class="btn btn-primary" style="margin-top: 10px;" (click)="downloadImage()">Down</button>
                             <button type="button" class="btn btn-primary" style="margin-top: 10px; margin-left: 10px;" (click)="uploadInvitation()">Qr</button>
@@ -264,6 +264,7 @@
                         <label class="" style="text-transform: capitalize; font-family: 'Acme', serif; font-size: 20px; margin-top: 10px; text-align: right; margin-right: 3px;" [ngStyle]="{'color': style }">Table : {{title3}}</label><br>
                         <h5 class="card-header" style="align-items: center;  text-align: center; font-family: 'Julee', serif; font-size: 50px; margin-top: 58px;" [ngStyle]="{'color': style }" >SAVE THE DATE</h5>
                         <h5 class="card-header" style="align-items: center;  text-align: center; font-family: 'Julee', serif; font-size: 30px; margin-top: 5px;" [ngStyle]="{'color': style }" >{{title6}}|{{title7}}</h5>
+                        <label class="" style="text-transform: capitalize; font-family: 'Acme', serif; text-align: center;" [ngStyle]="{'color': style }">{{title4}}</label><br>
                         <!-- <div class="card-body justify-content-center" > -->
                           <!-- <label class="" style="text-transform: uppercase; font-family: 'Acme', serif;" [ngStyle]="{'color': style }">{{title1}}</label><br> -->
                           
@@ -272,8 +273,9 @@
                           <label class="" style="text-transform: capitalize; font-family: 'Acme', serif; font-size: 20px; margin-top: -48px; text-align: center;" [ngStyle]="{'color': style }">..............................................................</label><br>
                          
                           <!-- <label class="" style="text-transform: capitalize; margin-left: 40%; font-family: 'Acme', serif;" [ngStyle]="{'color': style }">----------------------</label><br> -->
-                          <label class="" style="text-transform: capitalize; font-family: 'Acme', serif;" [ngStyle]="{'color': style }">{{title4}}</label><br>
-                          <label class="form-label" style=" align-items: center; text-align: center; font-family: 'Acme', serif; margin-top: 80px; font-size: 20px;" [ngStyle]="{'color': style }">Bienvenue</label>
+                          
+                          <label class="" style="text-transform: capitalize; font-family: 'Acme', serif; text-align: center; margin-top: 80px;" [ngStyle]="{'color': style }">{{title1}}</label><br>
+                          <label class="form-label" style=" align-items: center; text-align: center; font-family: 'Acme', serif; margin-top: 70px; font-size: 20px;" [ngStyle]="{'color': style }">Bienvenue</label>
                       </div>
                     </div>
 
