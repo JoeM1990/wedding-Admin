@@ -191,7 +191,7 @@
                       <tr>
                         <th>Id</th>
                         <th>Invité</th>
-                        <th>Email</th>
+                        <th>CRée PAR</th>
                         <th>Invitation</th>
                         <th>Qr</th>
                         <th>Actions</th>
@@ -208,12 +208,12 @@
                         <td>
                           <div >
                             <ngx-qrcode
-                            [elementType]="elementType"
-                            [errorCorrectionLevel]="correctionLevel"
-                            value="{{item.description}}"
-                            [width]=150
-                            cssClass="bshadow" >
-                        </ngx-qrcode>
+                              [elementType]="elementType"
+                              [errorCorrectionLevel]="correctionLevel"
+                              value="{{item.description}}"
+                              [width]=150
+                              cssClass="bshadow" >
+                            </ngx-qrcode>
                           </div>
                           
                         </td>
