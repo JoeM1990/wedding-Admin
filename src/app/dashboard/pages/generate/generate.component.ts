@@ -67,6 +67,8 @@ export class GenerateComponent implements OnInit {
 
   image64Get:any;
 
+  check=false;
+
 
   constructor(private crud:CrudService,public formBuilder: FormBuilder, public router:Router) {
     this.infosForm = this.formBuilder.group({
@@ -320,6 +322,11 @@ export class GenerateComponent implements OnInit {
       console.log('Error: ', error);
     };
  }
+
+ checkCheckBoxvalue(event: any ){
+  this.check= event.target.checked;
+  console.log(this.check);
+}
 
 
 
