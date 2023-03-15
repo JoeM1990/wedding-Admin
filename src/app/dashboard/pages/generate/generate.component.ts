@@ -68,7 +68,7 @@ export class GenerateComponent implements OnInit {
   image64Get:any;
 
   check=false;
-  check2=false;
+  check2=true;
   check3=false;
   check4=false;
 
@@ -81,7 +81,7 @@ export class GenerateComponent implements OnInit {
    }
 
   ngOnInit(): void {
-   
+    
   }
 
   generateImage(){
@@ -341,6 +341,13 @@ checkCheckBoxvalue4(event: any ){
   this.check4= event.target.checked;
 }
 
+checkMariage(){
+  if(this.check==true){
+    this.check2=false;
+    this.check3=false;
+    this.check4=false;
+  }
+}
 
 
 }
