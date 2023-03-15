@@ -21,6 +21,7 @@ export class GenerateComponent implements OnInit {
   title3:any;
   title4:any;
   title6:any;
+  title7:any;
 
   imgGet:any;
 
