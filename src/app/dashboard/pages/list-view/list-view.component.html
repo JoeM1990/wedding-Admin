@@ -206,7 +206,7 @@
                             <img src={{item.description}} width="100px">
                         </td>
                         <td>
-                          <div id="imgDown">
+                          <div >
                             <ngx-qrcode
                             [elementType]="elementType"
                             [errorCorrectionLevel]="correctionLevel"
@@ -220,7 +220,7 @@
                         <td>
                           <!-- <a href={{item.description}} target="_blank" download="{{item.name}}.png">hh</a> -->
                          
-                            <i class='bx bxs-download' (click)="downloadImage(item.name)" ></i>
+                            
                             <i class='bx bxs-send'  data-bs-toggle="modal" data-bs-target="#detailModal" (click)="getItemByDesc(item.description)"></i>
                             <i class='bx bxs-trash primary' (click)="deleteItem(item,item.description)"></i>
                         </td>
@@ -305,8 +305,8 @@
                         </div>
                       </div> -->
 
-                      <div #screenGet>
-                        <div class="row justify-content-center " *ngFor="let item of Item2; let i = index" >
+                      <div #screenGet *ngFor="let item of Item2; let i = index">
+                        <div class="row justify-content-center "  id="imgDown">
                           <label for="nameBasic" class="form-label" style="font-size: 20px;">{{item.name}}</label>
                           <div class="col ">
                             <ngx-qrcode
@@ -321,26 +321,28 @@
                            
                           </div>
                         </div>
-                      </div>
-                      
 
-                      
-
-                      <div class="container">
-                        <div class="row">
-                          <div class="col-sm">
-                            <button type="button" class="btn btn-outline-primary">WhatsApp</button>
+                        <div class="container">
+                          <div class="row">
+                            <div class="col-sm">
+                              <button type="button" class="btn btn-outline-primary">WhatsApp</button>
+                            </div>
+                            <div class="col-sm">
+                              <button type="button" class="btn btn-outline-primary">Facebook</button>
+                            </div>
+                            <div class="col-sm">
+                              <i class='bx bxs-download' (click)="downloadImage(item.name)" ></i>
+                            </div>
+                           
+                           
                           </div>
-                          <div class="col-sm">
-                            <button type="button" class="btn btn-outline-primary">Facebook</button>
-                          </div>
-                          <!-- <div class="col-sm">
-                              <i class='bx bxs-download' (click)="downloadQr()"></i>
-                          </div> -->
-                         
-                         
                         </div>
                       </div>
+                      
+
+                      
+
+                      
                       
                     </div>
                     <!-- <div class="modal-footer">
