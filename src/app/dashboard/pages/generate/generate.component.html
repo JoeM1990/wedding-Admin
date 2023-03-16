@@ -195,13 +195,28 @@
 
                 <div class="row">
 
+
+                    <ng-container  *ngIf="visibleWedding">
                     <div class="col-md-6">
                     <div class="card mb-4">
                       <!-- <h5 class="card-header">Informations</h5> -->
                       <div class="card-body">
                         <div>
                          
-                          <label for="defaultFormControlInput" class="form-label">Titre evenement</label>
+                          <label for="defaultFormControlInput" class="form-label">Mariage de</label>
+                          <div class="row">
+                            <div class="col">
+                              <label for="defaultFormControlInput" class="form-label">Homme</label>
+                              <input type="date" class="form-control" id="defaultFormControlInput" placeholder="24-12-2023"
+                                   aria-describedby="defaultFormControlHelp" [(ngModel)]="title66" [maxLength]="10"/>
+                            </div>
+                            <div class="col">
+                              <label for="defaultFormControlInput" class="form-label">Femme</label>
+                              <input type="time" class="form-control" id="defaultFormControlInput" placeholder="17:00"
+                                  aria-describedby="defaultFormControlHelp" [(ngModel)]="title77" [maxLength]="5"/>
+                            </div>
+
+                          </div>
                           <input type="text" class="form-control" id="defaultFormControlInput" placeholder="Festival"
                             aria-describedby="defaultFormControlHelp" [(ngModel)]="title1" [maxLength]="50" pattern="[A-Za-z]"/>
                         <label for="defaultFormControlInput" class="form-label">Nom Invite</label>
@@ -243,6 +258,7 @@
                       </div>
                     </div>
                     </div>
+                  </ng-container>
                     <div class="col-md-6" style="margin-bottom: 30px;">
                       <!-- <button type="button" class="btn btn-primary" style="margin-bottom: 10px;" data-bs-toggle="modal"
                  data-bs-target="#basicModal">Background</button> -->
@@ -262,6 +278,8 @@
 
                       <div class="card mb-4 fondChange" id="sectionImage" [ngStyle]="{'background-image': 'url(' + photo + ')'}" style="height: 600px; " #screen>
                         <label class="" style="text-transform: capitalize; font-family: 'Acme', serif; font-size: 20px; margin-top: 10px; text-align: right; margin-right: 3px;" [ngStyle]="{'color': style }">Table : {{title3}}</label><br>
+                        <h5 class="card-header" style="align-items: center;  text-align: center; font-family: 'Playball', serif; font-size: 50px; margin-top: 58px;" [ngStyle]="{'color': style }" >{{title77}} &</h5>
+                        <h5 class="card-header" style="align-items: center;  text-align: center; font-family: 'Playball', serif; font-size: 50px; margin-top: 58px;" [ngStyle]="{'color': style }" >{{title66}}</h5>
                         <h5 class="card-header" style="align-items: center;  text-align: center; font-family: 'Playball', serif; font-size: 50px; margin-top: 58px;" [ngStyle]="{'color': style }" >SAVE THE DATE</h5>
                         <h5 class="card-header" style="align-items: center;  text-align: center; font-family: 'Julee', serif; font-size: 30px; margin-top: 5px;" [ngStyle]="{'color': style }" >{{title6}}|{{title7}}</h5>
                         <label class="" style="text-transform: capitalize; font-family: 'Acme', serif; text-align: center;" [ngStyle]="{'color': style }">{{title4}}</label><br>
