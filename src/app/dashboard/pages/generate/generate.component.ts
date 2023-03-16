@@ -75,7 +75,7 @@ export class GenerateComponent implements OnInit {
   check3=false;
   check4=false;
 
-  visibleWedding=true;
+  visibleWedding=false;
   visibleAutres=false;
 
   constructor(private crud:CrudService,public formBuilder: FormBuilder, public router:Router) {
@@ -87,7 +87,7 @@ export class GenerateComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.title6=this.title66+" "+"&";
+    
   }
 
   generateImage(){
@@ -333,10 +333,23 @@ export class GenerateComponent implements OnInit {
 
  checkCheckBoxvalue(event: any ){
   this.check= event.target.checked;
+  if(this.check==true){
+    this.title77=" "+"&";
+    this.visibleWedding=true;
+  }else{
+    this.title77="";
+    this.visibleWedding=false;
+  }
+  
 }
 
 checkCheckBoxvalue2(event: any ){
   this.check2= event.target.checked;
+  if(this.check2==true){
+    this.visibleAutres=true;
+  }else{
+    this.visibleAutres=false;
+  }
 }
 
 checkCheckBoxvalue3(event: any ){
