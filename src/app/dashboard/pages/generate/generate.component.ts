@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 import * as htmlToImage from 'html-to-image';
 import html2canvas from 'html2canvas';
+import { AppModule } from 'src/app/app.module';
 import { CrudService } from 'src/app/utils/crud/crud.service';
 import { FileUpload } from 'src/app/utils/model/file-upload';
 import { Item } from 'src/app/utils/model/item';
@@ -24,6 +25,7 @@ export class GenerateComponent implements OnInit {
   title66:any;
   title7:any;
   title77:any;
+  title88:any;
 
   imgGet:any;
 
@@ -334,10 +336,11 @@ export class GenerateComponent implements OnInit {
  checkCheckBoxvalue(event: any ){
   this.check= event.target.checked;
   if(this.check==true){
-    this.title77=" "+"&";
+    this.title88=" & ";
     this.visibleWedding=true;
     this.visibleAutres=false;
   }else{
+    this.title88="";
     this.title77="";
     this.title1="";
     this.title2="";
@@ -355,9 +358,11 @@ export class GenerateComponent implements OnInit {
 checkCheckBoxvalue2(event: any ){
   this.check2= event.target.checked;
   if(this.check2==true){
+    this.title88="";
     this.visibleAutres=true;
     this.visibleWedding=false;
   }else{
+    this.title88="";
     this.visibleAutres=false;
     this.title77="";
     this.title1="";
