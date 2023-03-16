@@ -76,6 +76,7 @@ export class GenerateComponent implements OnInit {
   check4=false;
 
   visibleWedding=true;
+  visibleAutres=false;
 
   constructor(private crud:CrudService,public formBuilder: FormBuilder, public router:Router) {
     this.infosForm = this.formBuilder.group({
@@ -86,7 +87,7 @@ export class GenerateComponent implements OnInit {
    }
 
   ngOnInit(): void {
-   
+    this.title6=this.title66+" "+"&";
   }
 
   generateImage(){
