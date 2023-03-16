@@ -336,8 +336,17 @@ export class GenerateComponent implements OnInit {
   if(this.check==true){
     this.title77=" "+"&";
     this.visibleWedding=true;
+    this.visibleAutres=false;
   }else{
     this.title77="";
+    this.title1="";
+    this.title2="";
+    this.title3="";
+    this.title4="";
+    this.title6="";
+    this.title66="";
+    this.title7="";
+  
     this.visibleWedding=false;
   }
   
@@ -347,8 +356,17 @@ checkCheckBoxvalue2(event: any ){
   this.check2= event.target.checked;
   if(this.check2==true){
     this.visibleAutres=true;
+    this.visibleWedding=false;
   }else{
     this.visibleAutres=false;
+    this.title77="";
+    this.title1="";
+    this.title2="";
+    this.title3="";
+    this.title4="";
+    this.title6="";
+    this.title66="";
+    this.title7="";
   }
 }
 
