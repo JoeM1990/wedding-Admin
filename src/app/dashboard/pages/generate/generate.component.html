@@ -464,9 +464,18 @@
                     <div class="row">
                       
                       <div class="col mb-3">
+                        <label for="nameBasic" class="form-label">Nom invite</label>
+                        
+                          <input type="text" id="nameBasic" class="form-control" placeholder="Joe" maxlength="10"/>
+                       
+                      </div>
+                    </div>
+                    <div class="row">
+                      
+                      <div class="col mb-3">
                         <label for="nameBasic" class="form-label">Image</label>
                         
-                          <input type="file" id="nameBasic" class="form-control" (change)="selectFile($event)" multiple/>
+                          <input type="file" id="nameBasic" class="form-control" (change)="selectFile($event)" />
                        
                       </div>
                     </div>

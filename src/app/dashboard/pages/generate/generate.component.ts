@@ -26,6 +26,7 @@ export class GenerateComponent implements OnInit {
   title7:any;
   title77:any;
   title88:any;
+  title90:any;
 
   imgGet:any;
 
@@ -238,6 +239,9 @@ export class GenerateComponent implements OnInit {
   uploadInvitationFrom(){
     
     this.getBase64();
+
+
+    localStorage.setItem('nomForm',this.title2);
 
     let file= this.selectedFilesT.item(0);
 
