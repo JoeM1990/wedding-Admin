@@ -186,12 +186,12 @@ export class GenerateComponent implements OnInit {
      
     });
 
-    ok.then(res=>{
-      console.log('success');
-       this.uploadInvitation();
-    }).catch(error=>{
-      console.log('error');
-    })
+    // ok.then(res=>{
+    //   console.log('success');
+    //    this.uploadInvitation();
+    // }).catch(error=>{
+    //   console.log('error');
+    // })
     //this.uploadInvitation();
   }
 
