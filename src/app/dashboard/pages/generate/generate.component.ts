@@ -117,8 +117,8 @@ export class GenerateComponent implements OnInit {
   }
 
   changeBack3(){   
-    this.photo='../../../../assets/templates/b4.jpg';
-    this.style='white';
+    this.photo='../../../../assets/templates/b10.png';
+    this.style='black';
   }
 
   changeBack4(){   
@@ -132,7 +132,7 @@ export class GenerateComponent implements OnInit {
   }
 
   changeBack6(){   
-    this.photo='../../../../assets/templates/img6.jpg';
+    this.photo='../../../../assets/templates/b7.png';
     this.style='black';
   }
 
@@ -151,7 +151,7 @@ export class GenerateComponent implements OnInit {
   }
 
   changeBack10(){   
-    this.photo='../../../../assets/templates/c6.avif';
+    this.photo='../../../../assets/templates/b8.png';
     this.style='black';
   }
 
