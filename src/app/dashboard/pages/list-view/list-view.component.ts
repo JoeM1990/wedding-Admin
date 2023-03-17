@@ -97,9 +97,9 @@ export class ListViewComponent implements OnInit {
   }
 
   sendWhatsapp(urlData:any){
-    const url='https://whatsapp://send?text=';
+    //const url='https://api.whatsapp.com/send?text=';
     const image=encodeURIComponent(urlData);
-    this.httpClient.post(url,image);
+    this.httpClient.post('https://api.whatsapp.com/send?text='+image,'');
   }
 
   downloadQr(){
@@ -199,10 +199,14 @@ export class ListViewComponent implements OnInit {
       .then(function (dataUrl) {
     var link = document.createElement('a');
     link.download = name+".jpeg";
-    
+
     link.href = dataUrl;
     link.click();
   });
+  }
+
+  sendToWhatsapp(url:any){
+
   }
 
 }

@@ -218,7 +218,7 @@
                           
                         </td>
                         <td>
-                          <!-- <a href={{item.description}} target="_blank" download="{{item.name}}.png">hh</a> -->
+                          <!-- <a href="https://api.whatsapp.com/send?text=encodeURIComponent({{item.description}})" target="_blank">hh</a> -->
                          
                             
                             <i class='bx bxs-send'  data-bs-toggle="modal" data-bs-target="#detailModal" (click)="getItemByDesc(item.description)"></i>
@@ -325,7 +325,7 @@
                         <div class="container">
                           <div class="row">
                             <div class="col-sm">
-                              <button type="button" class="btn btn-outline-primary">WhatsApp</button>
+                              <button type="button" class="btn btn-outline-primary" (click)="sendWhatsapp(item.description)">WhatsApp</button>
                             </div>
                             <div class="col-sm">
                               <button type="button" class="btn btn-outline-primary">Facebook</button>

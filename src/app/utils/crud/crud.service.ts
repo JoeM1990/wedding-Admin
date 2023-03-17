@@ -174,7 +174,11 @@ export class CrudService {
       
       });
         })
-      ).subscribe();
+      ).subscribe(res=>{
+        if(res){
+          //window.location.reload();
+        }
+      })
      
   }
 

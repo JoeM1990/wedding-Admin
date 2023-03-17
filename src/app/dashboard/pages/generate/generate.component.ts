@@ -241,7 +241,7 @@ export class GenerateComponent implements OnInit {
     this.getBase64();
 
 
-    localStorage.setItem('nomForm',this.title2);
+    localStorage.setItem('nomForm',this.title90);
 
     let file= this.selectedFilesT.item(0);
 
