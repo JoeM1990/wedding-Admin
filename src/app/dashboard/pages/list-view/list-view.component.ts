@@ -199,6 +199,7 @@ export class ListViewComponent implements OnInit {
       .then(function (dataUrl) {
     var link = document.createElement('a');
     link.download = name+".jpeg";
+    
     link.href = dataUrl;
     link.click();
   });
