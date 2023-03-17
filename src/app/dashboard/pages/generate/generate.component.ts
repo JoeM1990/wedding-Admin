@@ -1,5 +1,5 @@
 import { DatePipe } from '@angular/common';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
@@ -117,8 +117,8 @@ export class GenerateComponent implements OnInit {
   }
 
   changeBack3(){   
-    this.photo='../../../../assets/templates/c2.jpg';
-    this.style='black';
+    this.photo='../../../../assets/templates/b4.jpg';
+    this.style='white';
   }
 
   changeBack4(){   
@@ -338,7 +338,7 @@ export class GenerateComponent implements OnInit {
   if(this.check==true){
     this.title88=" & ";
     this.visibleWedding=true;
-    this.visibleAutres=false;
+    this.visibleAutres=false;  
   }else{
     this.title88="";
     this.title77="";
