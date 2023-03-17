@@ -158,7 +158,7 @@ export class GenerateComponent implements OnInit {
 
   downloadImage(){
 
-    html2canvas(this.screen.nativeElement).then(canvas => {
+    const ok= html2canvas(this.screen.nativeElement).then(canvas => {
       this.canvas.nativeElement.src = canvas.toDataURL();
       this.downloadLink.nativeElement.href = canvas.toDataURL('image/png');
       this.downloadLink.nativeElement.download = this.title2+'.png';
@@ -177,10 +177,21 @@ export class GenerateComponent implements OnInit {
         
 
        //window.location.reload();
+
+      
         
       } );      
+
+      
      
     });
+
+    ok.then(res=>{
+      console.log('success');
+       this.uploadInvitation();
+    }).catch(error=>{
+      console.log('error');
+    })
     //this.uploadInvitation();
   }
 
