@@ -108,7 +108,7 @@ export class ListViewComponent implements OnInit {
     this.urlData=localStorage.getItem('urlToSend');
     const image=encodeURIComponent(this.urlData);
 
-    window.open('https://whatsapp.com/send?phone='+phoneNumber+'&text='+this.urlData, "popup");
+    window.open('https://api.whatsapp.com/send?phone='+phoneNumber+'&text='+image, "popup");
 
     //this.httpClient.post('https://api.whatsapp.com/send?phone='+phoneNumber+'&text='+image,'')
     

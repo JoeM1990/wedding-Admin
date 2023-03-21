@@ -16,19 +16,19 @@ export class AuthService {
 
   constructor(public fireauth : AngularFireAuth, public router: Router,public dialog:MatDialog, public httpClient:HttpClient) { }
 
-  // login(email : string, password : string){
-  //   this.fireauth.signInWithEmailAndPassword(email,password).then( () =>{
-  //       localStorage.setItem('token','true');
-  //       localStorage.setItem('email_user',email);
-  //       this.router.navigate(['/dashboard']);
-  //       return true;
-  //   }, err => {
-  //       this.dialogError('Username ou password incorrect')
+  login(email : string, password : string){
+    this.fireauth.signInWithEmailAndPassword(email,password).then( () =>{
+        localStorage.setItem('token','true');
+        localStorage.setItem('email_user',email);
+        this.router.navigate(['/dashboard']);
+        return true;
+    }, err => {
+        this.dialogError('Username ou password incorrect')
       
-  //       this.router.navigate(['/login']);
-  //   } ) 
+        this.router.navigate(['/login']);
+    } ) 
 
-  // }
+  }
 
   loginApi(email : string, password : string):Observable<any> {
     return this.httpClient.post(baseUrl+'login',{email: email, password: password});
