@@ -40,6 +40,10 @@ export class ListViewComponent implements OnInit {
   visibleListe=false;
   visibleMessage=false;
 
+  phonePartage:any;
+
+  urlData:any;
+
   constructor(public crud:CrudService, public httpClient:HttpClient) { }
 
   ngOnInit(): void {
@@ -97,10 +101,13 @@ export class ListViewComponent implements OnInit {
         })
   }
 
-  sendWhatsapp(urlData:any){
+  sendWhatsapp(phoneNumber:any){
     //const url='https://api.whatsapp.com/send?text=';
-    const image=encodeURIComponent(urlData);
-    this.httpClient.post('https://api.whatsapp.com/send?text='+image,'');
+    //let urlData=localStorage.getItem('urlToSend')?.toString;
+    
+    this.urlData=localStorage.getItem('urlToSend')?.toString;
+    const image=encodeURIComponent(this.urlData);
+    this.httpClient.post('https://api.whatsapp.com/send?phone='+phoneNumber+'&text='+image,'');
     
   }
 
