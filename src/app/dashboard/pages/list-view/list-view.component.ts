@@ -104,10 +104,14 @@ export class ListViewComponent implements OnInit {
   sendWhatsapp(phoneNumber:any){
     //const url='https://api.whatsapp.com/send?text=';
     //let urlData=localStorage.getItem('urlToSend')?.toString;
-    
-    this.urlData=localStorage.getItem('urlToSend')?.toString;
+
+    this.urlData=localStorage.getItem('urlToSend');
     const image=encodeURIComponent(this.urlData);
-    this.httpClient.post('https://api.whatsapp.com/send?phone='+phoneNumber+'&text='+image,'');
+
+    window.open('https://api.whatsapp.com/send?phone='+phoneNumber+'&text='+image, "popup");
+
+    //this.httpClient.post('https://api.whatsapp.com/send?phone='+phoneNumber+'&text='+image,'')
+    
     
   }
 
@@ -219,7 +223,7 @@ export class ListViewComponent implements OnInit {
   }
 
   saveData(url:any) {
-    localStorage.removeItem('urlToSend');
+    //localStorage.removeItem('urlToSend');
     localStorage.setItem('urlToSend',url);
   }
 
