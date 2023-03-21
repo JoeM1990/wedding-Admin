@@ -18,6 +18,7 @@ import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
 })
 export class ListViewComponent implements OnInit {
 
+
   ItemQr!:Item[];
 
   Item2!:Item[];
@@ -100,6 +101,7 @@ export class ListViewComponent implements OnInit {
     //const url='https://api.whatsapp.com/send?text=';
     const image=encodeURIComponent(urlData);
     this.httpClient.post('https://api.whatsapp.com/send?text='+image,'');
+    
   }
 
   downloadQr(){
@@ -207,6 +209,11 @@ export class ListViewComponent implements OnInit {
 
   sendToWhatsapp(url:any){
 
+  }
+
+  saveData(url:any) {
+    localStorage.removeItem('urlToSend');
+    localStorage.setItem('urlToSend',url);
   }
 
 }

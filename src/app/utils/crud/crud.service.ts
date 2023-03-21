@@ -176,7 +176,7 @@ export class CrudService {
         })
       ).subscribe(res=>{
         if(res){
-          //window.location.reload();
+          window.location.reload();
         }
       })
      
