@@ -189,27 +189,21 @@ export class CrudService {
       localStorage.setItem('urlInvitation',downloadURL);
       //item.email_user=localStorage.getItem('email_user')?.toString();
       this.addItem(item);
+
+      //this.dialogSuccess("L'invitation a été generer avec success");
       //alert('success');
       
       });
         })
-      ).subscribe(res=>{
-        if(res){
-          window.location.reload();
-        }
-      })
-     
+      )
   }
 
   private addItem(item:Item){
     return new Promise<any>((resolve, reject) => {
       this.angularFirestore.collection('item-invitation')
       .add(item)
-      .then(response => { 
-        if(response){
-          this.dialogSuccess("L'invitation a été generer avec success")
-          //window.location.reload();
-        }
+      .then((result) => { 
+        this.dialogSuccess('Success');
       }, error => reject(error))
       ;
       })
@@ -287,7 +281,12 @@ export class CrudService {
   }
 
   deleteFile(url:any){
-    return this.storage.storage.refFromURL(url).delete();
+    return this.storage.storage.refFromURL(url).delete()
+    .then(
+      (result)=>{
+        this.dialogSuccess2("L'invitation a été supprimer avec success");
+      }
+    );
   }
 
   // downloadFile(): Observable<HttpResponse<Blob>>{		
@@ -303,6 +302,19 @@ export class CrudService {
           setTimeout(() => {
              dialogRef.close();
              window.location.reload();
+          }, timeout)
+        })
+  }
+
+  dialogSuccess2(message:any){
+    const timeout=1400;
+
+      let dialogRef=this.dialog.open(SuccessComponent,{data:message});
+
+        dialogRef.afterOpened().subscribe(_ => {
+          setTimeout(() => {
+             dialogRef.close();
+             //window.location.reload();
           }, timeout)
         })
   }
