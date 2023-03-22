@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ErrorComponent } from '../dialog/error/error.component';
+import { SuccessComponent } from '../dialog/success/success.component';
 import { AuthService } from '../utils/auth/auth.service';
 
 
@@ -42,6 +43,8 @@ export class LoginComponent implements OnInit {
         let token=response['token'];
         //let data=response['data'];
 
+        this.dialogSuccess('Bienvenue')
+
         if(token){
           this.router.navigate(['/dashboard']);
         }
@@ -77,6 +80,18 @@ export class LoginComponent implements OnInit {
     const timeout=1200;
 
         let dialogRef=this.dialog.open(ErrorComponent,{data:message});
+
+        dialogRef.afterOpened().subscribe(_ => {
+          setTimeout(() => {
+             dialogRef.close();
+          }, timeout)
+        })
+  }
+
+  dialogSuccess(message:any){
+    const timeout=1200;
+
+      let dialogRef=this.dialog.open(SuccessComponent,{data:message});
 
         dialogRef.afterOpened().subscribe(_ => {
           setTimeout(() => {
