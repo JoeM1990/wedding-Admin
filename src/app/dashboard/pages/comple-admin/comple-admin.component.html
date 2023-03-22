@@ -287,7 +287,7 @@
                       <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                         Close
                       </button>
-                      <button type="button" class="btn btn-primary" (click)="addUser()" [disabled]="!adminForm.valid">Ajouter</button>
+                      <button type="button" class="btn btn-primary" (click)="addUser()" [disabled]="!adminForm.valid" data-bs-dismiss="modal">Ajouter</button>
                     </div>
                   </form>
                     
@@ -322,10 +322,10 @@
                           <label for="emailBasic" class="form-label">Email</label>
                           <input type="text" id="emailBasic" class="form-control" placeholder="xxxx@xxx.xx" formControlName="email"/>
                         </div>
-                        <div class="col mb-0">
+                        <!-- <div class="col mb-0">
                           <label for="dobBasic" class="form-label">Password</label>
                           <input type="password" id="dobBasic" class="form-control" placeholder="xxxxxx" formControlName="password"/>
-                        </div>
+                        </div> -->
                       </div>
                       <div class="row">
                         <div class="col mb-3">
@@ -353,7 +353,7 @@
                       <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                         Close
                       </button>
-                      <button type="button" class="btn btn-primary" [disabled]="!updateForm.valid" (click)="updateUserById(idUpdate)">Modifier</button>
+                      <button type="button" class="btn btn-primary" [disabled]="!updateForm.valid" (click)="updateUserById(idUpdate)" data-bs-dismiss="modal">Modifier</button>
                     </div>
                   </form>
                     

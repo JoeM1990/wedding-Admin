@@ -25,6 +25,8 @@ export class CompleAdminComponent implements OnInit {
   updateForm:FormGroup;
 
   idUpdate:any;
+
+  isDisabled=true;
  
 
  
@@ -32,7 +34,7 @@ export class CompleAdminComponent implements OnInit {
   constructor(public auth:AuthService,public formBuilder: FormBuilder, 
     public crud:CrudService,public router:Router, public dialog:MatDialog) { 
     this.adminForm = this.formBuilder.group({
-      username: ['',{validators: [Validators.required, ],}],
+      username: ['',{validators: [Validators.required, ], }],
       email: ['',{validators: [Validators.required, Validators.email],}],
       password: ['',{validators: [Validators.required, Validators.maxLength(10) ], }],
       role: ['',{validators: [ Validators.required, ], }],
