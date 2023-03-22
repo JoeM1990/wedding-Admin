@@ -64,14 +64,6 @@ export class CompleAdminComponent implements OnInit {
       });
   }
 
- 
-
-  
-
- 
- 
-
-
   addUser(){
 
     let refDialog=this.dialog.open(ConfirmationComponent,{data:'Voulez-vous ajouter cet utilisateur ?'});
@@ -83,11 +75,11 @@ export class CompleAdminComponent implements OnInit {
         .subscribe(
           response =>{
             if(response){
-              window.location.reload();
+              //window.location.reload();
             }
           },
           error =>{
-            alert(error['message']);
+            //alert(error['message']);
           }
         );
       }
@@ -125,7 +117,7 @@ export class CompleAdminComponent implements OnInit {
         .subscribe(
             response => {
               if(response){
-                window.location.reload();
+                //window.location.reload();
               }
         
             },
@@ -148,7 +140,7 @@ export class CompleAdminComponent implements OnInit {
       .subscribe(
         response => {
           if(response){
-            window.location.reload();
+           // window.location.reload();
           }
           
         },

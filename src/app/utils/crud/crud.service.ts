@@ -3,7 +3,9 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { MatDialog } from '@angular/material/dialog';
 import { finalize, Observable } from 'rxjs';
+import { SuccessComponent } from 'src/app/dialog/success/success.component';
 import { FileUpload } from '../model/file-upload';
 import { Item } from '../model/item';
 import { User } from '../model/user';
@@ -18,7 +20,8 @@ export class CrudService {
   private basePath = '/uploadQr';
   private basePath2 = '/uploadInvitation';
 
-  constructor(private angularFirestore: AngularFirestore,private storage: AngularFireStorage,private db: AngularFireDatabase,public httpClient:HttpClient) { }
+  constructor(private angularFirestore: AngularFirestore,private storage: AngularFireStorage,
+    private db: AngularFireDatabase,public httpClient:HttpClient, public dialog:MatDialog) { }
 
 
   addUser(user:User):Observable<any>{
@@ -32,7 +35,12 @@ export class CrudService {
 
     const requestOptions = { headers: headers };
 
-    return this.httpClient.post(baseUrl+'users',user,requestOptions);
+    return this.httpClient.post(baseUrl+'users',user,requestOptions)
+    .pipe( finalize(()=>{
+      this.dialogSuccess("L'utilisateur a été ajouter avec success");
+      //window.location.reload();
+    })
+    )
   }
 
   getAllUserApi():Observable<any>{
@@ -273,6 +281,19 @@ export class CrudService {
   // downloadFile(): Observable<HttpResponse<Blob>>{		
 	// 	return this.httpClient.get('http://localhost:8080/employees/download', { responseType: ResponseContentType.Blob });
   //  }
+
+  dialogSuccess(message:any){
+    const timeout=1400;
+
+      let dialogRef=this.dialog.open(SuccessComponent,{data:message});
+
+        dialogRef.afterOpened().subscribe(_ => {
+          setTimeout(() => {
+             dialogRef.close();
+             window.location.reload();
+          }, timeout)
+        })
+  }
 
   
 }

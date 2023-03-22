@@ -56,7 +56,7 @@ export class CompleClientComponent implements OnInit {
 
   addUser(){
 
-    let refDialog=this.dialog.open(ConfirmationComponent,{data:'Voulez-vous modifier cet utilisateur ?'});
+    let refDialog=this.dialog.open(ConfirmationComponent,{data:'Voulez-vous ajouter cet utilisateur ?'});
 
 
     refDialog.afterClosed().subscribe(res=>{
@@ -65,11 +65,12 @@ export class CompleClientComponent implements OnInit {
         .subscribe(
           response =>{
             if(response){
-              window.location.reload();
+              //window.location.reload();
+              
             }
           },
           error =>{
-            alert(error['message']);
+            //alert(error['message']);
           }
         );
       }
@@ -107,7 +108,7 @@ export class CompleClientComponent implements OnInit {
         .subscribe(
             response => {
               if(response){
-                window.location.reload();
+                //window.location.reload();
               }
         
             },
@@ -130,7 +131,7 @@ export class CompleClientComponent implements OnInit {
       .subscribe(
         response => {
           if(response){
-            window.location.reload();
+            //window.location.reload();
           }
           
         },
