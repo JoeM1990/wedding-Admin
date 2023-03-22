@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { ErrorComponent } from '../dialog/error/error.component';
 import { AuthService } from '../utils/auth/auth.service';
 
 
@@ -13,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   registerForm:FormGroup;
 
-  constructor(public auth:AuthService, public router:Router, public formBuilder:FormBuilder) {
+  constructor(public auth:AuthService, public router:Router, public formBuilder:FormBuilder, public dialog:MatDialog) {
     this.registerForm=this.formBuilder.group(
       {
       username: [''],
@@ -68,6 +70,18 @@ export class LoginComponent implements OnInit {
       error => {
         alert("Echec d'enregistrement");
       });
+  }
+
+  dialogError(message:any){
+    const timeout=1200;
+
+        let dialogRef=this.dialog.open(ErrorComponent,{data:message});
+
+        dialogRef.afterOpened().subscribe(_ => {
+          setTimeout(() => {
+             dialogRef.close();
+          }, timeout)
+        })
   }
 
   // register(email:any,password:any){

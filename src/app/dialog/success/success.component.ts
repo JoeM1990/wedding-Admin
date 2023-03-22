@@ -9,7 +9,7 @@ import { ErrorComponent } from '../error/error.component';
 })
 export class SuccessComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data:string, private matDialogRef: MatDialogRef<ErrorComponent>) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data:string, private matDialogRef: MatDialogRef<SuccessComponent>) { }
 
 
   ngOnInit(): void {
