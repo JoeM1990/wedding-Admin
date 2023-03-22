@@ -9,6 +9,9 @@ import { Item } from 'src/app/utils/model/item';
 import { ItemQr } from 'src/app/utils/model/item-qr';
 
 import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
+import { ConfirmationComponent } from 'src/app/dialog/confirmation/confirmation.component';
+import { MatDialog } from '@angular/material/dialog';
+import { AuthService } from 'src/app/utils/auth/auth.service';
 
 
 @Component({
@@ -44,7 +47,8 @@ export class ListViewComponent implements OnInit {
 
   urlData:any;
 
-  constructor(public crud:CrudService, public httpClient:HttpClient) { }
+  constructor(public crud:CrudService, public httpClient:HttpClient, public dialog:MatDialog,
+    public auth:AuthService) { }
 
   ngOnInit(): void {
     this.crud.getAllItem().subscribe(res => {
@@ -225,6 +229,18 @@ export class ListViewComponent implements OnInit {
   saveData(url:any) {
     //localStorage.removeItem('urlToSend');
     localStorage.setItem('urlToSend',url);
+  }
+
+  onConfirmation(){
+    
+    let refDialog=this.dialog.open(ConfirmationComponent,{data:'Voulez-vous vous Deconnecter ?'});
+
+
+    refDialog.afterClosed().subscribe(res=>{
+      if(res == 'true'){
+        this.auth.logoutApi();
+      }
+    })
   }
 
 }

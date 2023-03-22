@@ -1,11 +1,14 @@
 import { DatePipe } from '@angular/common';
 import { Component, ElementRef, EventEmitter, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 import * as htmlToImage from 'html-to-image';
 import html2canvas from 'html2canvas';
 import { AppModule } from 'src/app/app.module';
+import { ConfirmationComponent } from 'src/app/dialog/confirmation/confirmation.component';
+import { AuthService } from 'src/app/utils/auth/auth.service';
 import { CrudService } from 'src/app/utils/crud/crud.service';
 import { FileUpload } from 'src/app/utils/model/file-upload';
 import { Item } from 'src/app/utils/model/item';
@@ -81,7 +84,8 @@ export class GenerateComponent implements OnInit {
   visibleWedding=false;
   visibleAutres=false;
 
-  constructor(private crud:CrudService,public formBuilder: FormBuilder, public router:Router) {
+  constructor(private crud:CrudService,public formBuilder: FormBuilder, public router:Router, 
+    public dialog:MatDialog, public auth:AuthService) {
     this.infosForm = this.formBuilder.group({
       //name: this.title2,
       email_user: localStorage.getItem('email_user'),
@@ -404,6 +408,18 @@ checkMariage(){
     this.check3=false;
     this.check4=false;
   }
+}
+
+onConfirmation(){
+    
+  let refDialog=this.dialog.open(ConfirmationComponent,{data:'Voulez-vous vous Deconnecter ?'});
+
+
+  refDialog.afterClosed().subscribe(res=>{
+    if(res == 'true'){
+      this.auth.logoutApi();
+    }
+  })
 }
 
 

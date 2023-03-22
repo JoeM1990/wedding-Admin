@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
+import { ConfirmationComponent } from 'src/app/dialog/confirmation/confirmation.component';
 import { AuthService } from 'src/app/utils/auth/auth.service';
 import { CrudService } from 'src/app/utils/crud/crud.service';
 
@@ -19,7 +21,7 @@ export class CompleClientComponent implements OnInit {
   idUpdate:any;
 
   constructor(public auth:AuthService, public formBuilder:FormBuilder, 
-    public crud:CrudService, public router:Router) {
+    public crud:CrudService, public router:Router, public dialog:MatDialog) {
     this.clientForm = this.formBuilder.group({
       username: ['',{validators: [Validators.required, ],}],
       email: ['',{validators: [Validators.required, Validators.email],}],
@@ -53,20 +55,25 @@ export class CompleClientComponent implements OnInit {
   }
 
   addUser(){
-    if(confirm("Voulez vous ajouter cet utilisateur")){
-      this.crud.addUser(this.clientForm.value)
-    .subscribe(
-      response =>{
-        if(response){
-          window.location.reload();
-        }
-      },
-      error =>{
-        alert(error['message']);
+
+    let refDialog=this.dialog.open(ConfirmationComponent,{data:'Voulez-vous modifier cet utilisateur ?'});
+
+
+    refDialog.afterClosed().subscribe(res=>{
+      if(res == 'true'){
+            this.crud.addUser(this.clientForm.value)
+        .subscribe(
+          response =>{
+            if(response){
+              window.location.reload();
+            }
+          },
+          error =>{
+            alert(error['message']);
+          }
+        );
       }
-    );
-    }
-    
+    })
     
   }
 
@@ -90,37 +97,61 @@ export class CompleClientComponent implements OnInit {
   }
 
   updateUserById(id:any){
-    if(confirm("Voulez vous modifier cet utilisateur")){
-      this.crud.updateUserById(id,this.updateForm.value)
-    .subscribe(
-      response => {
-        if(response){
-          window.location.reload();
-        }
+
+    let refDialog=this.dialog.open(ConfirmationComponent,{data:'Voulez-vous modifier cet utilisateur ?'});
+
+
+    refDialog.afterClosed().subscribe(res=>{
+      if(res == 'true'){
+        this.crud.updateUserById(id,this.updateForm.value)
+        .subscribe(
+            response => {
+              if(response){
+                window.location.reload();
+              }
         
-      },
-      error => {
-        console.log(error)
-      });
-    }
+            },
+              error => {
+                console.log(error)
+              });
+      }
+    })
       
   }
 
   deleteUserById(id:any){
-    if(confirm("Voulez vous supprimer cet utilisateur")){
-      this.crud.deleteUserById(id)
-    .subscribe(
-      response => {
-        if(response){
-          window.location.reload();
-        }
-        
-      },
-      error => {
-        console.log(error)
-      });
-    }
+
+    let refDialog=this.dialog.open(ConfirmationComponent,{data:'Voulez-vous supprimer cet utilisateur ?'});
+
+
+    refDialog.afterClosed().subscribe(res=>{
+      if(res == 'true'){
+          this.crud.deleteUserById(id)
+      .subscribe(
+        response => {
+          if(response){
+            window.location.reload();
+          }
+          
+        },
+        error => {
+          console.log(error)
+        });
+      }
+    })
+
+  }
+
+  onConfirmation(){
     
+    let refDialog=this.dialog.open(ConfirmationComponent,{data:'Voulez-vous vous Deconnecter ?'});
+
+
+    refDialog.afterClosed().subscribe(res=>{
+      if(res == 'true'){
+        this.auth.logoutApi();
+      }
+    })
   }
 
 }
