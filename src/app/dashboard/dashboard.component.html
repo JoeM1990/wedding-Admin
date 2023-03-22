@@ -62,12 +62,12 @@
                   </g>
                 </svg>
               </span>
-              <span class="app-brand-text demo menu-text fw-bolder ms-2" (click)="onConfirmation()">W ADMIN</span>
+              <span class="app-brand-text demo menu-text fw-bolder ms-2">W ADMIN</span>
             </a>
 
-            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+            <!-- <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
               <i class="bx bx-chevron-left bx-sm align-middle"></i>
-            </a>
+            </a> -->
           </div>
 
           <div class="menu-inner-shadow"></div>
@@ -150,6 +150,13 @@
                 <div data-i18n="Form Elements">Notifications</div>
               </a>
             </li>
+
+            <li class="menu-item">
+              <a class="menu-link " (click)="onConfirmation()">
+                <i class="menu-icon tf-icons"></i>
+                <div data-i18n="Form Elements">Deconnexion</div>
+              </a>
+            </li>
             <!-- <li class="menu-item">
               <a href="" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-detail"></i>
@@ -180,7 +187,7 @@
                     <!-- <p class="fa-solid fa-users-line"></p> -->
                     <div class="card-body">
                       <h1 class="card-title h12" style="color: white;">{{countUserActive}}</h1>
-                      <h2 class="card-text p12" style="color: white;">Comptes Activés</h2>
+                      <h2 class="card-text p12" style="color: white;" >Comptes Activés</h2>
                       <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                     </div>
                 </div>
