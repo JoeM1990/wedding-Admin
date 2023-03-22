@@ -69,10 +69,12 @@ export class LoginComponent implements OnInit {
     this.auth.registerApi(this.registerForm.value)
     .subscribe(
       response => {
+        this.dialogSuccess('Enregistrement effectué avec success');
         this.router.navigate(['/login']);
       },
       error => {
-        alert("Echec d'enregistrement");
+        this.dialogError("Echec d'enregistrement");
+        //alert("Echec d'enregistrement");
       });
   }
 
@@ -89,7 +91,7 @@ export class LoginComponent implements OnInit {
   }
 
   dialogSuccess(message:any){
-    const timeout=1200;
+    const timeout=1400;
 
       let dialogRef=this.dialog.open(SuccessComponent,{data:message});
 
