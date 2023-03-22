@@ -59,7 +59,7 @@ export class GenerateComponent implements OnInit {
 
   value!:string;
 
-  selectedFiles!: File;
+  selectedFilesOk!: File;
   selectedQr!: File;
   selectedFilesT!: FileList;
   currentFileUpload!: FileUpload;
@@ -176,7 +176,7 @@ export class GenerateComponent implements OnInit {
         const dT = new DataTransfer();
         dT.items.add( file );
 
-        this.selectedFiles=file;
+        this.selectedFilesOk=file;
 
         
 
@@ -213,7 +213,7 @@ export class GenerateComponent implements OnInit {
 
     localStorage.setItem('nomForm',this.title2);
    
-    let file=this.selectedFiles;
+    let file=this.selectedFilesOk;
   
     if(file){
       
@@ -228,7 +228,7 @@ export class GenerateComponent implements OnInit {
 
   uploadInvitationApi(){
    
-    let file=this.selectedFiles;
+    let file
   
     if(file){
       
@@ -294,7 +294,7 @@ export class GenerateComponent implements OnInit {
       this.downloadLinkQr.nativeElement.href = canvasQr.toDataURL('image/png');
       this.downloadLinkQr.nativeElement.download = this.title2+'Qr'+'.png';
       this.downloadLinkQr.nativeElement.click();
-      this.selectedFiles=this.downloadLink.nativeElement.click();
+      //this.selectedFiles=this.downloadLink.nativeElement.click();
 
       canvasQr.toBlob( (blob:any) => {
        
