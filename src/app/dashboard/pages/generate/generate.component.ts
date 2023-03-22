@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
+import * as e from 'express';
 import * as htmlToImage from 'html-to-image';
 import html2canvas from 'html2canvas';
 import { AppModule } from 'src/app/app.module';
@@ -60,8 +61,9 @@ export class GenerateComponent implements OnInit {
   value!:string;
 
   selectedFilesOk!: File;
+  selectedFilesApi!: File;
   selectedQr!: File;
-  selectedFilesT!: FileList;
+  selectedFilesT!: File;
   currentFileUpload!: FileUpload;
   item!: Item;
 
@@ -177,6 +179,7 @@ export class GenerateComponent implements OnInit {
         dT.items.add( file );
 
         this.selectedFilesOk=file;
+        this.selectedFilesApi=file;
 
         
 
@@ -228,7 +231,8 @@ export class GenerateComponent implements OnInit {
 
   uploadInvitationApi(){
    
-    let file
+    let file=this.selectedFilesApi;
+    let fileT=this.selectedFilesT;
   
     if(file){
       
@@ -238,18 +242,70 @@ export class GenerateComponent implements OnInit {
       .subscribe(
         response =>{
           if(response){
-            window.location.reload();
+           //console.log(response['message']);
+           //alert(response)
           }
           
         },
         error =>{
-          alert(error['message']);
+          //alert(error)
+          //console.log(error['message']);
+        }
+      );
+
+    }
+
+    if(fileT){
+      
+      let email=localStorage.getItem('email_user');
+
+      this.crud.addInvitationApi(fileT,email,'invitation')
+      .subscribe(
+        response =>{
+          if(response){
+           //console.log(response['message']);
+           //alert(response)
+          }
+          
+        },
+        error =>{
+          //alert(error)
+          //console.log(error['message']);
         }
       );
 
     }
     
   }
+
+  uploadInvitationApi2(){
+     
+    let fileT=this.selectedFilesT;
+  
+    if(fileT){
+      
+      let email=localStorage.getItem('email_user');
+
+      this.crud.addInvitationApi(fileT,email,'invitation')
+      .subscribe(
+        response =>{
+          if(response){
+           //console.log(response['message']);
+           //alert(response)
+          }
+          
+        },
+        error =>{
+          //alert(error)
+          //console.log(error['message']);
+        }
+      );
+
+    }
+    
+  }
+
+  
 
   uploadInvitationFrom(){
     
@@ -258,7 +314,7 @@ export class GenerateComponent implements OnInit {
 
     localStorage.setItem('nomForm',this.title90);
 
-    let file= this.selectedFilesT.item(0);
+    let file= this.selectedFilesT;
 
     if(file){
       
@@ -332,7 +388,7 @@ export class GenerateComponent implements OnInit {
     getBase64() {
     let me = this;
     //let file = event.target.files[0];
-    let file=this.selectedFilesT[0];
+    let file=this.selectedFilesT;
     let reader = new FileReader();
     
     reader.readAsDataURL(file);

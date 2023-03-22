@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams , HttpRequest} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
@@ -19,6 +19,8 @@ export class CrudService {
 
   private basePath = '/uploadQr';
   private basePath2 = '/uploadInvitation';
+
+  private baseApi='http://localhost:8080/api/';
 
   constructor(private angularFirestore: AngularFirestore,private storage: AngularFireStorage,
     private db: AngularFireDatabase,public httpClient:HttpClient, public dialog:MatDialog) { }
@@ -165,8 +167,22 @@ export class CrudService {
     formData.append('file', file);
     formData.append('email', email);
     formData.append('type', type);
+    
+   
 
-    return this.httpClient.post(baseUrl+'upload',formData,requestOptions);
+    const req = new HttpRequest('POST', `${this.baseApi}/upload`, formData, {
+      reportProgress: true,
+      responseType: 'json'
+    });
+
+    return this.httpClient.request(req)
+    .pipe( finalize(()=>{
+      this.dialogSuccess("L'invitation a été generer avec success");
+      //window.location.reload();
+    })
+    );
+
+    //return this.httpClient.post(baseUrl+'upload',formData,requestOptions);
   }
 
 
