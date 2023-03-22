@@ -63,7 +63,7 @@ export class GenerateComponent implements OnInit {
   selectedFilesOk!: File;
   selectedFilesApi!: File;
   selectedQr!: File;
-  selectedFilesT!: File;
+  selectedFilesT!: FileList;
   currentFileUpload!: FileUpload;
   item!: Item;
 
@@ -232,7 +232,7 @@ export class GenerateComponent implements OnInit {
   uploadInvitationApi(){
    
     let file=this.selectedFilesApi;
-    let fileT=this.selectedFilesT;
+    let fileT=this.selectedFilesT.item(0);
   
     if(file){
       
@@ -280,7 +280,7 @@ export class GenerateComponent implements OnInit {
 
   uploadInvitationApi2(){
      
-    let fileT=this.selectedFilesT;
+    let fileT=this.selectedFilesT.item(0);
   
     if(fileT){
       
@@ -309,12 +309,9 @@ export class GenerateComponent implements OnInit {
 
   uploadInvitationFrom(){
     
-    this.getBase64();
-
-
     localStorage.setItem('nomForm',this.title90);
 
-    let file= this.selectedFilesT;
+    let file= this.selectedFilesT.item(0);
 
     if(file){
       
@@ -385,29 +382,7 @@ export class GenerateComponent implements OnInit {
     
   }
 
-    getBase64() {
-    let me = this;
-    //let file = event.target.files[0];
-    let file=this.selectedFilesT;
-    let reader = new FileReader();
-    
-    reader.readAsDataURL(file);
-    reader.onload = function () {
-      //me.modelvalue = reader.result;
-      //console.log(reader.result);
-      //return 
-      
-      //imgData=reader.result.;
-    };
-
-    this.image64Get=reader.result?.toString();
-    console.log(this.image64Get)
-    
-    reader.onerror = function (error) {
-      console.log('Error: ', error);
-    };
- }
-
+  
  checkCheckBoxvalue(event: any ){
   this.check= event.target.checked;
   if(this.check==true){
