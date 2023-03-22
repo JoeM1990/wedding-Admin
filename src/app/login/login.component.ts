@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('email_user',email);
       },
       error => {
-        this.dialogError('Erreur de connexion');
+        this.dialogError(error['error']);
         this.router.navigate(['/login']);
         ///alert(error);
         console.log(error);
@@ -77,7 +77,7 @@ export class LoginComponent implements OnInit {
   }
 
   dialogError(message:any){
-    const timeout=1200;
+    const timeout=1400;
 
         let dialogRef=this.dialog.open(ErrorComponent,{data:message});
 
