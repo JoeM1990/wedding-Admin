@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmationComponent } from '../dialog/confirmation/confirmation.component';
 import { AuthService } from '../utils/auth/auth.service';
 import { CrudService } from '../utils/crud/crud.service';
 
@@ -14,7 +16,7 @@ export class DashboardComponent implements OnInit {
   countUserActive:any;
   countUserDesactive:any;
 
-  constructor(public auth:AuthService,public crud:CrudService) { }
+  constructor(public auth:AuthService,public crud:CrudService, public dialog:MatDialog) { }
 
   ngOnInit(): void {
     this.crud.countUser()
@@ -44,6 +46,18 @@ export class DashboardComponent implements OnInit {
         console.log(error)
       });
 
+  }
+
+  onConfirmation(){
+    
+    let refDialog=this.dialog.open(ConfirmationComponent,{data:'Voulez-vous vous Deconnecter ?'});
+
+
+    refDialog.afterClosed().subscribe(res=>{
+      if(res == 'true'){
+        this.auth.logoutApi();
+      }
+    })
   }
 
 }
