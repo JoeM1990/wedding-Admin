@@ -18,7 +18,7 @@
 					<input type="email" name="email" placeholder="Email" required #emailLog pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
 					<input type="password" name="pswd" placeholder="Password" required #passwordLog>
           <!-- <input type="checkbox" placeholder="Password" required> Se souvenir -->
-					<button (click)="login(emailLog.value,passwordLog.value)">Se connecter</button>
+					<button (click)="loginApi(emailLog.value,passwordLog.value)">Se connecter</button>
 				</form>
 			</div>
 	</div>

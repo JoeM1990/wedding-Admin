@@ -55,6 +55,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('email_user',email);
       },
       error => {
+        this.dialogError('Erreur de connexion');
         this.router.navigate(['/login']);
         ///alert(error);
         console.log(error);
