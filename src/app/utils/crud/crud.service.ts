@@ -82,7 +82,13 @@ export class CrudService {
  
     const requestOptions = { headers: headers };
 
-    return this.httpClient.put(baseUrl+'users/'+id,user,requestOptions);
+    return this.httpClient.put(baseUrl+'users/'+id,user,requestOptions)
+    .pipe( finalize(()=>{
+      this.dialogSuccess("L'utilisateur a été modifier avec success");
+      //window.location.reload();
+    })
+    );
+    
   }
 
   deleteUserById(id:any){
@@ -95,7 +101,12 @@ export class CrudService {
  
     const requestOptions = { headers: headers };
 
-    return this.httpClient.delete(baseUrl+'users/'+id,requestOptions);
+    return this.httpClient.delete(baseUrl+'users/'+id,requestOptions)
+    .pipe( finalize(()=>{
+      this.dialogSuccess("L'utilisateur a été supprimer avec success");
+      //window.location.reload();
+    })
+    )
   }
 
   countUser():Observable<any>{
@@ -196,7 +207,8 @@ export class CrudService {
       .add(item)
       .then(response => { 
         if(response){
-          window.location.reload();
+          this.dialogSuccess("L'invitation a été generer avec success")
+          //window.location.reload();
         }
       }, error => reject(error))
       ;
