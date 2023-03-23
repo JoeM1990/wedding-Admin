@@ -32,6 +32,8 @@ import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 import { QRCodeSVGModule } from 'ngx-qrcode-svg';
 
 import { HttpClientModule } from '@angular/common/http';
+import { PaiementForfaitComponent } from './ui/paiement-forfait/paiement-forfait.component';
+import { PaiementFormComponent } from './ui/paiement-form/paiement-form.component';
 
 
 
@@ -51,7 +53,9 @@ import { HttpClientModule } from '@angular/common/http';
     ErrorComponent,
     SuccessComponent,
     ConfirmationComponent,
-    WaitingComponent
+    WaitingComponent,
+    PaiementForfaitComponent,
+    PaiementFormComponent
   ],
   imports: [
     BrowserModule,

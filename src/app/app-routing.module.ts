@@ -8,6 +8,8 @@ import { ListViewComponent } from './dashboard/pages/list-view/list-view.compone
 import { NotificationComponent } from './dashboard/pages/notification/notification.component';
 import { PaiementComponent } from './dashboard/pages/paiement/paiement.component';
 import { LoginComponent } from './login/login.component';
+import { PaiementForfaitComponent } from './ui/paiement-forfait/paiement-forfait.component';
+import { PaiementFormComponent } from './ui/paiement-form/paiement-form.component';
 import { AuthGuard } from './utils/guard/auth.guard';
 
 const routes: Routes = [
@@ -20,6 +22,8 @@ const routes: Routes = [
   { path: 'generate', component:GenerateComponent,canActivate:[AuthGuard]},
   { path: 'listes', component:ListViewComponent,canActivate:[AuthGuard]},
   { path: 'notifications', component:NotificationComponent,canActivate:[AuthGuard]},
+  { path: 'paiement-form', component:PaiementFormComponent,canActivate:[AuthGuard]},
+  { path: 'paiement-forfait', component:PaiementForfaitComponent,canActivate:[AuthGuard]},
 ];
 
 @NgModule({
