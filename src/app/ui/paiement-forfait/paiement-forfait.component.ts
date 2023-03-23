@@ -12,4 +12,9 @@ export class PaiementForfaitComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  setAmount(montant:any,forfait:any){
+    localStorage.setItem('mt-a-payer',montant);
+    localStorage.setItem('forfait-a-payer',forfait);
+  }
+
 }
