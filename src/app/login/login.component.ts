@@ -16,6 +16,11 @@ export class LoginComponent implements OnInit {
 
   registerForm:FormGroup;
 
+
+  password:any;
+
+  show = false;
+
   constructor(public auth:AuthService, public router:Router, public formBuilder:FormBuilder, public dialog:MatDialog) {
     this.registerForm=this.formBuilder.group(
       {
@@ -106,6 +111,15 @@ export class LoginComponent implements OnInit {
   //   this.auth.register(email,password);
   // }
 
+  onClick() {
+    if (this.password === 'password') {
+      this.password = 'text';
+      this.show = true;
+    } else {
+      this.password = 'password';
+      this.show = false;
+    }
+  }
   
 
 }
