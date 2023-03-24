@@ -213,126 +213,156 @@
 
             <div class="container">
               <div class="row">
-                <div class="col-6 mb-4">
-                  <div class="card">
-                    <div class="card-body">
-                      <div class="card-title d-flex align-items-start justify-content-between">
-                        <div class="avatar flex-shrink-0">
-                          <img src="https://zoom-eco.net/wp-content/uploads/2021/09/M-Pesa-charges-for-sending-money-abroad.jpg" alt="Credit Card" class="rounded" />
+                <div class="col">
+                  <div class="card-group">
+                    <div class="card  text-white bg-primary mb-3" style="width: 18rem;">
+                        <!-- <img src="..." class="card-img-top" alt="..."> -->
+                        <!-- <p class="fa-solid fa-users-line"></p> -->
+                        <div class="card-body">
+                          <h1 class="card-title h12" style="color: white;">{{countUserActive}}</h1>
+                          <h2 class="card-text p12" style="color: white;" >Transactions Valivés</h2>
+                          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                         </div>
-                        <div class="dropdown">
-                          <button
-                            class="btn p-0"
-                            type="button"
-                            id="cardOpt4"
-                            data-bs-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                          >
-                            <i class="bx bx-dots-vertical-rounded"></i>
-                          </button>
-                          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt4">
-                            <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                            
+                    </div>
+        
+                    <div class="card text-dark bg-warning mb-3" style="width: 18rem;">
+                 
+                        <div class="card-body">
+                          <h1 class="card-title h12" style="color: white;">{{countUser}}</h1>
+                          <h2 class="card-text p12" style="color: white;">Transactions En attente</h2>
+                         
+                        </div>
+                    </div>
+        
+                </div>
+                </div>
+                <div class="row" style="margin-bottom: 20px;">
+                  <div class="col-sm">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="card-title d-flex align-items-start justify-content-between">
+                          <div class="avatar flex-shrink-0">
+                            <img src="https://zoom-eco.net/wp-content/uploads/2021/09/M-Pesa-charges-for-sending-money-abroad.jpg" alt="Credit Card" class="rounded" />
+                          </div>
+                          <div class="dropdown">
+                            <button
+                              class="btn p-0"
+                              type="button"
+                              id="cardOpt4"
+                              data-bs-toggle="dropdown"
+                              aria-haspopup="true"
+                              aria-expanded="false"
+                            >
+                              <i class="bx bx-dots-vertical-rounded"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt4">
+                              <a class="dropdown-item" href="javascript:void(0);">View More</a>
+                              
+                            </div>
                           </div>
                         </div>
+                        <span class="d-block mb-1">M pesa</span>
+                        <h3 class="card-title text-nowrap mb-2">$2,456</h3>
+                        <!-- <small class="text-danger fw-semibold"><i class="bx bx-down-arrow-alt"></i> -14.82%</small> -->
                       </div>
-                      <span class="d-block mb-1">M pesa</span>
-                      <h3 class="card-title text-nowrap mb-2">$2,456</h3>
-                      <!-- <small class="text-danger fw-semibold"><i class="bx bx-down-arrow-alt"></i> -14.82%</small> -->
+                    </div>
+                  </div>
+                  <div class="col-sm">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="card-title d-flex align-items-start justify-content-between">
+                          <div class="avatar flex-shrink-0">
+                            <img src="https://www.orange.cd/particuliers/resources/img/Orange_Money.jpg" alt="Credit Card" class="rounded" />
+                          </div>
+                          <div class="dropdown">
+                            <button
+                              class="btn p-0"
+                              type="button"
+                              id="cardOpt4"
+                              data-bs-toggle="dropdown"
+                              aria-haspopup="true"
+                              aria-expanded="false"
+                            >
+                              <i class="bx bx-dots-vertical-rounded"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt4">
+                              <a class="dropdown-item" href="javascript:void(0);">View More</a>
+                              
+                            </div>
+                          </div>
+                        </div>
+                        <span class="d-block mb-1">Orange</span>
+                        <h3 class="card-title text-nowrap mb-2">$2,456</h3>
+                        <!-- <small class="text-danger fw-semibold"><i class="bx bx-down-arrow-alt"></i> -14.82%</small> -->
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="card-title d-flex align-items-start justify-content-between">
+                          <div class="avatar flex-shrink-0">
+                            <img src="https://sierraleonenews.files.wordpress.com/2022/04/afrimoney-1.jpg" alt="Credit Card" class="rounded" />
+                          </div>
+                          <div class="dropdown">
+                            <button
+                              class="btn p-0"
+                              type="button"
+                              id="cardOpt4"
+                              data-bs-toggle="dropdown"
+                              aria-haspopup="true"
+                              aria-expanded="false"
+                            >
+                              <i class="bx bx-dots-vertical-rounded"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt4">
+                              <a class="dropdown-item" href="javascript:void(0);">View More</a>
+                              
+                            </div>
+                          </div>
+                        </div>
+                        <span class="d-block mb-1">Africell</span>
+                        <h3 class="card-title text-nowrap mb-2">$2,456</h3>
+                        <!-- <small class="text-danger fw-semibold"><i class="bx bx-down-arrow-alt"></i> -14.82%</small> -->
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="card-title d-flex align-items-start justify-content-between">
+                          <div class="avatar flex-shrink-0">
+                            <img src="https://flashugnews.com/wp-content/uploads/2022/07/Airtel-Money-Rates-in-Uganda-2022-1200x801.jpeg" alt="Credit Card" class="rounded" />
+                          </div>
+                          <div class="dropdown">
+                            <button
+                              class="btn p-0"
+                              type="button"
+                              id="cardOpt4"
+                              data-bs-toggle="dropdown"
+                              aria-haspopup="true"
+                              aria-expanded="false"
+                            >
+                              <i class="bx bx-dots-vertical-rounded"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt4">
+                              <a class="dropdown-item" href="javascript:void(0);">View More</a>
+                              
+                            </div>
+                          </div>
+                        </div>
+                        <span class="d-block mb-1">Airtel</span>
+                        <h3 class="card-title text-nowrap mb-2">$2,456</h3>
+                        <!-- <small class="text-danger fw-semibold"><i class="bx bx-down-arrow-alt"></i> -14.82%</small> -->
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="col-6 mb-4">
-                  <div class="card">
-                    <div class="card-body">
-                      <div class="card-title d-flex align-items-start justify-content-between">
-                        <div class="avatar flex-shrink-0">
-                          <img src="https://www.orange.cd/particuliers/resources/img/Orange_Money.jpg" alt="Credit Card" class="rounded" />
-                        </div>
-                        <div class="dropdown">
-                          <button
-                            class="btn p-0"
-                            type="button"
-                            id="cardOpt4"
-                            data-bs-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                          >
-                            <i class="bx bx-dots-vertical-rounded"></i>
-                          </button>
-                          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt4">
-                            <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                            
-                          </div>
-                        </div>
-                      </div>
-                      <span class="d-block mb-1">Orange</span>
-                      <h3 class="card-title text-nowrap mb-2">$2,456</h3>
-                      <!-- <small class="text-danger fw-semibold"><i class="bx bx-down-arrow-alt"></i> -14.82%</small> -->
-                    </div>
-                  </div>
-                </div>
-                <div class="col-6 mb-4">
-                  <div class="card">
-                    <div class="card-body">
-                      <div class="card-title d-flex align-items-start justify-content-between">
-                        <div class="avatar flex-shrink-0">
-                          <img src="https://sierraleonenews.files.wordpress.com/2022/04/afrimoney-1.jpg" alt="Credit Card" class="rounded" />
-                        </div>
-                        <div class="dropdown">
-                          <button
-                            class="btn p-0"
-                            type="button"
-                            id="cardOpt4"
-                            data-bs-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                          >
-                            <i class="bx bx-dots-vertical-rounded"></i>
-                          </button>
-                          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt4">
-                            <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                            
-                          </div>
-                        </div>
-                      </div>
-                      <span class="d-block mb-1">Africell</span>
-                      <h3 class="card-title text-nowrap mb-2">$2,456</h3>
-                      <!-- <small class="text-danger fw-semibold"><i class="bx bx-down-arrow-alt"></i> -14.82%</small> -->
-                    </div>
-                  </div>
-                </div>
-                <div class="col-6 mb-4">
-                  <div class="card">
-                    <div class="card-body">
-                      <div class="card-title d-flex align-items-start justify-content-between">
-                        <div class="avatar flex-shrink-0">
-                          <img src="https://flashugnews.com/wp-content/uploads/2022/07/Airtel-Money-Rates-in-Uganda-2022-1200x801.jpeg" alt="Credit Card" class="rounded" />
-                        </div>
-                        <div class="dropdown">
-                          <button
-                            class="btn p-0"
-                            type="button"
-                            id="cardOpt4"
-                            data-bs-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                          >
-                            <i class="bx bx-dots-vertical-rounded"></i>
-                          </button>
-                          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt4">
-                            <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                            
-                          </div>
-                        </div>
-                      </div>
-                      <span class="d-block mb-1">Airtel</span>
-                      <h3 class="card-title text-nowrap mb-2">$2,456</h3>
-                      <!-- <small class="text-danger fw-semibold"><i class="bx bx-down-arrow-alt"></i> -14.82%</small> -->
-                    </div>
-                  </div>
-                </div>
+
+                
+
+                
+                
               </div>
             </div>
 
