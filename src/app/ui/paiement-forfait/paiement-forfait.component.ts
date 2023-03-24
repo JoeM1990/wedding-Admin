@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-paiement-forfait',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaiementForfaitComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router:Router) { }
 
   ngOnInit(): void {
   }
@@ -15,6 +16,10 @@ export class PaiementForfaitComponent implements OnInit {
   setAmount(montant:any,forfait:any){
     localStorage.setItem('mt-a-payer',montant);
     localStorage.setItem('forfait-a-payer',forfait);
+  }
+
+  goToHome(){
+    this.router.navigate(['/dashboard']);
   }
 
 }
