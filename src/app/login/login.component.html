@@ -5,19 +5,33 @@
 			<div class="signup">
 				<form [formGroup]="registerForm">
 					<label for="chk" aria-hidden="true">Formulaire</label>
-					<input type="text" name="txt" placeholder="Username" required formControlName="username">
+					<input type="text" name="txt" placeholder="Username" required formControlName="username" >
+          <!-- <div class="form-control-feedback"
+            *ngIf="registerForm.controls['username'].errors && (registerForm.controls['username'].dirty || registerForm.controls['username'].touched)">
+            <p *ngIf="registerForm.controls['username'].errors" style="color: red; text-align: center;">Username est obligatoire</p>
+           </div> -->
 					<input type="email" name="email" placeholder="Email" required formControlName="email">
-					<input type="password" name="pswd" placeholder="Password" required formControlName="password">
+          <!-- <div class="form-control-feedback"
+            *ngIf="registerForm.controls['email'].errors && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)">
+            <p *ngIf="registerForm.controls['email'].errors" style="color: red; text-align: center;">Email incorrect</p>
+           </div> -->
+					<input type="password" name="pswd" placeholder="Password" required formControlName="password" maxlength="6">
+          <!-- <div class="form-control-feedback"
+            *ngIf="registerForm.controls['password'].errors && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)">
+            <p *ngIf="registerForm.controls['email'].errors" style="color: red; text-align: center;">Email incorrect</p>
+           </div> -->
 					<button (click)="registerUser()">Valider</button>
 				</form>
+
+        
+        
 			</div>
 
 			<div class="login">
 				<form>
 					<label for="chk" aria-hidden="true">Connexion</label>
 					<input type="email" name="email" placeholder="Email" required #emailLog pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
-          <input type="password" placeholder="Password"  #passwordLog/>
-          
+          <input type="password" placeholder="Password"  #passwordLog required/>
 
           <!-- <div class="input-box">
             <span class="prefix">
@@ -29,7 +43,7 @@
           
             
           <!-- <input type="checkbox" placeholder="Password" required> Se souvenir -->
-					<button (click)="loginApi(emailLog.value,passwordLog.value)">Se connecter</button>
+					<button  [disabled]="emailLog.checkValidity && passwordLog.checkValidity"  (click)="loginApi(emailLog.value,passwordLog.value)">Se connecter</button>
 				</form>
 			</div>
 	</div>

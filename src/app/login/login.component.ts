@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ErrorComponent } from '../dialog/error/error.component';
@@ -19,14 +19,16 @@ export class LoginComponent implements OnInit {
 
   password:any;
 
+  //email:any
+
   show = false;
 
   constructor(public auth:AuthService, public router:Router, public formBuilder:FormBuilder, public dialog:MatDialog) {
     this.registerForm=this.formBuilder.group(
       {
-      username: [''],
-      email: [''],
-      password: [''],
+      username: ['',[Validators.required]],
+      email: ['',[Validators.required,Validators.pattern("[^ @]*@[^ @]*"),]],
+      password: ['',[Validators.required,Validators.maxLength(6)]],
       role: 'Client',
       isApproved: true
       }
@@ -34,6 +36,7 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    
   }
 
   login(email:any,password:any){
@@ -71,16 +74,22 @@ export class LoginComponent implements OnInit {
   }
 
   registerUser(){
-    this.auth.registerApi(this.registerForm.value)
+    if(this.registerForm.valid){
+      this.auth.registerApi(this.registerForm.value)
     .subscribe(
       response => {
         this.dialogSuccess('Enregistrement effectué avec success');
+        this.registerForm.reset();
         this.router.navigate(['/login']);
       },
       error => {
         this.dialogError("Echec d'enregistrement");
         //alert("Echec d'enregistrement");
       });
+    }else{
+      this.dialogError("Le formulaire est vide ou mal rempli");
+    }
+    
   }
 
   dialogError(message:any){
