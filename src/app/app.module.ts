@@ -35,9 +35,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PaiementForfaitComponent } from './ui/paiement-forfait/paiement-forfait.component';
 import { PaiementFormComponent } from './ui/paiement-form/paiement-form.component';
 
-
-
-
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -72,7 +70,7 @@ import { PaiementFormComponent } from './ui/paiement-form/paiement-form.componen
     NgxQRCodeModule,
     QRCodeSVGModule,
     HttpClientModule,
-   
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
