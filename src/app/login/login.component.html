@@ -43,7 +43,12 @@
           
             
           <!-- <input type="checkbox" placeholder="Password" required> Se souvenir -->
-					<button  [disabled]="emailLog.checkValidity && passwordLog.checkValidity"  (click)="loginApi(emailLog.value,passwordLog.value)">Se connecter</button>
+
+          
+              <button (click)="loginApi(emailLog.value,passwordLog.value)">Se connecter</button>
+          
+          
+					
 				</form>
 			</div>
 	</div>

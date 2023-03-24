@@ -44,7 +44,10 @@ export class LoginComponent implements OnInit {
   }
 
   loginApi(email:any,password:any){
-    this.auth.loginApi(email,password)
+    if(!email && !password){
+      this.dialogError('Veuillez remplir le formulaire');
+    }else{
+      this.auth.loginApi(email,password)
     .subscribe(
       response => {
        // alert(response['message'])
@@ -71,6 +74,8 @@ export class LoginComponent implements OnInit {
         ///alert(error);
         console.log(error);
       });
+    }
+    
   }
 
   registerUser(){
