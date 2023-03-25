@@ -86,7 +86,7 @@ export class GenerateComponent implements OnInit {
   visibleWedding=false;
   visibleAutres=false;
 
-  valueCount:any;
+  valueCount!:number;
   valueCredit:any;
 
   constructor(private crud:CrudService,public formBuilder: FormBuilder, public router:Router, 
@@ -102,16 +102,20 @@ export class GenerateComponent implements OnInit {
     let email=localStorage.getItem('email_user');
     
     this.crud.countUpload(email).subscribe(res=>{
-      this.valueCount=Number(res['value']);
+      this.valueCount=res['value'];
+      //console.log('papa'+this.valueCount);
     }, error=>{
 
     })
 
     this.crud.verifyForfait(email).subscribe(res=>{
-      this.valueCredit=Number(res['value']);
+      this.valueCredit=res['credit'];
     }, error=>{
 
     })
+
+    console.log(this.valueCount);
+    console.log('countcre'+ this.valueCredit )
   }
 
   generateImage(){
@@ -180,37 +184,46 @@ export class GenerateComponent implements OnInit {
   downloadImage(){
 
     if(this.valueCount>9){
-      this.router.navigate(['/paiement-forfait'])
+      if(this.valueCredit>0){
+
+
+        const ok= html2canvas(this.screen.nativeElement).then(canvas => {
+          this.canvas.nativeElement.src = canvas.toDataURL();
+          this.downloadLink.nativeElement.href = canvas.toDataURL('image/png');
+          this.downloadLink.nativeElement.download = this.title2+'.png';
+          this.downloadLink.nativeElement.click();
+        
+          this.visible=false;
+    
+          canvas.toBlob( (blob:any) => {
+           
+            const file = new File( [ blob ],  this.title2+'.png',{ type: "image/png" });
+            const dT = new DataTransfer();
+            dT.items.add( file );
+    
+            this.selectedFilesOk=file;
+            this.selectedFilesApi=file;
+    
+            
+    
+           //window.location.reload();
+    
+          
+            
+          } );      
+    
+          
+         
+        });
+
+
+      }else{
+        this.router.navigate(['/paiement-forfait'])
+      }
+      
     }else{
 
-    const ok= html2canvas(this.screen.nativeElement).then(canvas => {
-      this.canvas.nativeElement.src = canvas.toDataURL();
-      this.downloadLink.nativeElement.href = canvas.toDataURL('image/png');
-      this.downloadLink.nativeElement.download = this.title2+'.png';
-      this.downloadLink.nativeElement.click();
     
-      this.visible=false;
-
-      canvas.toBlob( (blob:any) => {
-       
-        const file = new File( [ blob ],  this.title2+'.png',{ type: "image/png" });
-        const dT = new DataTransfer();
-        dT.items.add( file );
-
-        this.selectedFilesOk=file;
-        this.selectedFilesApi=file;
-
-        
-
-       //window.location.reload();
-
-      
-        
-      } );      
-
-      
-     
-    });
     }
 
     
@@ -256,52 +269,60 @@ export class GenerateComponent implements OnInit {
   uploadInvitationApi(){
 
     if(this.valueCount>9){
-      this.router.navigate(['/paiement-forfait'])
+      if(this.valueCredit>0){
+
+        let file=this.selectedFilesApi;
+        let fileT=this.selectedFilesT.item(0);
+      
+        if(file){
+          
+          let email=localStorage.getItem('email_user');
+    
+          this.crud.addInvitationApi(file,email,'invitation')
+          .subscribe(
+            response =>{
+              if(response){
+               //console.log(response['message']);
+               //alert(response)
+              }
+              
+            },
+            error =>{
+              //alert(error)
+              //console.log(error['message']);
+            }
+          );
+    
+        }
+    
+        if(fileT){
+          
+          let email=localStorage.getItem('email_user');
+    
+          this.crud.addInvitationApi(fileT,email,'invitation')
+          .subscribe(
+            response =>{
+              if(response){
+               //console.log(response['message']);
+               //alert(response)
+              }
+              
+            },
+            error =>{
+              //alert(error)
+              //console.log(error['message']);
+            }
+          );
+    
+        }
+
+
+      }else{
+        this.router.navigate(['/paiement-forfait'])
+      }
+      
     }else{
-      let file=this.selectedFilesApi;
-    let fileT=this.selectedFilesT.item(0);
-  
-    if(file){
-      
-      let email=localStorage.getItem('email_user');
-
-      this.crud.addInvitationApi(file,email,'invitation')
-      .subscribe(
-        response =>{
-          if(response){
-           //console.log(response['message']);
-           //alert(response)
-          }
-          
-        },
-        error =>{
-          //alert(error)
-          //console.log(error['message']);
-        }
-      );
-
-    }
-
-    if(fileT){
-      
-      let email=localStorage.getItem('email_user');
-
-      this.crud.addInvitationApi(fileT,email,'invitation')
-      .subscribe(
-        response =>{
-          if(response){
-           //console.log(response['message']);
-           //alert(response)
-          }
-          
-        },
-        error =>{
-          //alert(error)
-          //console.log(error['message']);
-        }
-      );
-
-    }
+     
     }
    
     
