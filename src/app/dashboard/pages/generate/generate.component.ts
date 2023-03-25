@@ -87,7 +87,7 @@ export class GenerateComponent implements OnInit {
   visibleAutres=false;
 
   valueCount!:number;
-  valueCredit:any;
+  valueCredit!:number;
 
   constructor(private crud:CrudService,public formBuilder: FormBuilder, public router:Router, 
     public dialog:MatDialog, public auth:AuthService) {
@@ -109,13 +109,12 @@ export class GenerateComponent implements OnInit {
     })
 
     this.crud.verifyForfait(email).subscribe(res=>{
-      this.valueCredit=res['credit'];
+      this.valueCredit=Number(res['credit']);
     }, error=>{
 
     })
 
-    console.log(this.valueCount);
-    console.log('countcre'+ this.valueCredit )
+    
   }
 
   generateImage(){
@@ -182,6 +181,10 @@ export class GenerateComponent implements OnInit {
   }
 
   downloadImage(){
+
+    console.log(this.valueCount)
+    console.log(this.valueCredit);
+
 
     if(this.valueCount>9){
       if(this.valueCredit>0){
