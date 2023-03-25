@@ -86,6 +86,9 @@ export class GenerateComponent implements OnInit {
   visibleWedding=false;
   visibleAutres=false;
 
+  valueCount:any;
+  valueCredit:any;
+
   constructor(private crud:CrudService,public formBuilder: FormBuilder, public router:Router, 
     public dialog:MatDialog, public auth:AuthService) {
     this.infosForm = this.formBuilder.group({
@@ -96,7 +99,19 @@ export class GenerateComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    let email=localStorage.getItem('email_user');
     
+    this.crud.countUpload(email).subscribe(res=>{
+      this.valueCount=Number(res['value']);
+    }, error=>{
+
+    })
+
+    this.crud.verifyForfait(email).subscribe(res=>{
+      this.valueCredit=Number(res['value']);
+    }, error=>{
+
+    })
   }
 
   generateImage(){
@@ -164,6 +179,10 @@ export class GenerateComponent implements OnInit {
 
   downloadImage(){
 
+    if(this.valueCount>9){
+      this.router.navigate(['/paiement-forfait'])
+    }else{
+
     const ok= html2canvas(this.screen.nativeElement).then(canvas => {
       this.canvas.nativeElement.src = canvas.toDataURL();
       this.downloadLink.nativeElement.href = canvas.toDataURL('image/png');
@@ -192,6 +211,11 @@ export class GenerateComponent implements OnInit {
       
      
     });
+    }
+
+    
+    
+
 
     // ok.then(res=>{
     //   console.log('success');
@@ -230,8 +254,11 @@ export class GenerateComponent implements OnInit {
   }
 
   uploadInvitationApi(){
-   
-    let file=this.selectedFilesApi;
+
+    if(this.valueCount>9){
+      this.router.navigate(['/paiement-forfait'])
+    }else{
+      let file=this.selectedFilesApi;
     let fileT=this.selectedFilesT.item(0);
   
     if(file){
@@ -275,6 +302,9 @@ export class GenerateComponent implements OnInit {
       );
 
     }
+    }
+   
+    
     
   }
 

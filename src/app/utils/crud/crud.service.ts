@@ -185,6 +185,32 @@ export class CrudService {
     //return this.httpClient.post(baseUrl+'upload',formData,requestOptions);
   }
 
+  verifyForfait(email:any):Observable<any>{
+    let token=localStorage.getItem('token');
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    })
+
+    const requestOptions = { headers: headers };
+
+    return this.httpClient.get(baseUrl+'/paiements/'+email,requestOptions);
+  }
+
+  countUpload(email:any):Observable<any>{
+    let token=localStorage.getItem('token');
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    })
+
+    const requestOptions = { headers: headers };
+
+    return this.httpClient.get(baseUrl+'/upload/'+email,requestOptions);
+  }
+
 
 
   addInvitation(fileUpload: FileUpload,item:Item){
