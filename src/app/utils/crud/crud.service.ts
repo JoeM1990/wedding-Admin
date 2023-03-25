@@ -195,7 +195,7 @@ export class CrudService {
 
     const requestOptions = { headers: headers };
 
-    return this.httpClient.get(baseUrl+'/paiements/'+email,requestOptions);
+    return this.httpClient.get(baseUrl+'paiementsMail/'+email,requestOptions);
   }
 
   countUpload(email:any):Observable<any>{

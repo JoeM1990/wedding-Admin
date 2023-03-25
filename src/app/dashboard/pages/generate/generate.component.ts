@@ -106,13 +106,14 @@ export class GenerateComponent implements OnInit {
       //console.log('papa'+this.valueCount);
     }, error=>{
 
-    })
+    });
 
     this.crud.verifyForfait(email).subscribe(res=>{
-      this.valueCredit=Number(res['credit']);
+      this.valueCredit=Number(res["credit"]);
+      console.log('papa'+res["credit"]);
     }, error=>{
 
-    })
+    });
 
     
   }
