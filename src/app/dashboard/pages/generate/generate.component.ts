@@ -280,16 +280,16 @@ export class GenerateComponent implements OnInit {
           
           let email=localStorage.getItem('email_user');
     
-          this.crud.addInvitationApi(file,email,'invitation');
-          // .subscribe(
-          //   response =>{
-          //     this.dialogSuccess("Success");
-          //   },
-          //   error =>{
-          //     //alert(error)
-          //     //console.log(error['message']);
-          //   }
-          // );
+          this.crud.addInvitationApi(file,email,'invitation')
+          .subscribe(
+            response =>{
+              //this.dialogSuccess("Success");
+            },
+            error =>{
+              //alert(error)
+              console.log(error['message']);
+            }
+          );
     
         }
 
@@ -320,17 +320,17 @@ export class GenerateComponent implements OnInit {
           
           let email=localStorage.getItem('email_user');
     
-          this.crud.addInvitationApi(fileT,email,'invitation');
-          // .subscribe(
-          //   response =>{
-          //     this.dialogSuccess("Success");
+          this.crud.addInvitationApi(fileT,email,'invitation')
+          .subscribe(
+            response =>{
+              //this.dialogSuccess("Success");
               
-          //   },
-          //   error =>{
-          //     //alert(error)
-          //     //console.log(error['message']);
-          //   }
-          // );
+            },
+            error =>{
+              //alert(error)
+              console.log(error['message']);
+            }
+          );
     
         }
 
