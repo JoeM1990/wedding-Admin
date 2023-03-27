@@ -13,6 +13,8 @@ export class PaiementComponent implements OnInit {
 
   paiement:any;
 
+  user:any;
+
   constructor(public dialog:MatDialog, public auth:AuthService, public crud:CrudService) { }
 
   ngOnInit(): void {
@@ -20,6 +22,15 @@ export class PaiementComponent implements OnInit {
     .subscribe(
       response => {
         this.paiement=response;
+      },
+      error => {
+        //console.log(error)
+      });
+
+      this.crud.getAllUserApi()
+    .subscribe(
+      response => {
+        this.user=response;
       },
       error => {
         //console.log(error)
@@ -37,5 +48,30 @@ export class PaiementComponent implements OnInit {
       }
     })
   }
+
+  deleteCreditById(id:any){
+
+    let refDialog=this.dialog.open(ConfirmationComponent,{data:'Voulez-vous supprimer ce credit ?'});
+
+
+    refDialog.afterClosed().subscribe(res=>{
+      if(res == 'true'){
+          this.crud.deletePaiementById(id)
+      .subscribe(
+        response => {
+          if(response){
+           // window.location.reload();
+          }
+          
+        },
+        error => {
+          //console.log(error)
+        });
+      }
+    })
+
+  }
+
+  
 
 }

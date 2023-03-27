@@ -206,7 +206,7 @@
                         <td><span class="badge bg-label-primary me-1">{{paiement.credit}}</span></td>
                         <td>
                           <!-- <i class='bx bx-search-alt-2' data-bs-toggle="modal"></i> -->
-                          <i class='bx bxs-trash primary'></i>
+                          <i class='bx bxs-trash primary' (click)="deleteCreditById(paiement.id)"></i>
                         </td>
                       </tr>
                       
@@ -233,9 +233,8 @@
                       <div class="row">
                         <div class="col mb-3">
                           <label for="nameBasic" class="form-label">Email</label>
-                          <select class="form-control">
-                            <option></option>
-                            <option>xxx.xx@.xx</option>
+                          <select class="form-control" *ngFor="let user of user; let i = index ">
+                            <option>{{user.email}}</option>
                         </select>
                         </div>
                       </div>
@@ -243,9 +242,9 @@
                         <div class="col mb-3">
                             <label for="nameBasic" class="form-label">Type Forfait</label>
                             <select class="form-control">
-                                <option></option>
-                                <option>Basic</option>
-                                <option>Full</option>
+                                <!-- <option></option> -->
+                                <option>BASIC</option>
+                                <option>PRO</option>
                             </select>
                           </div>
                       </div>
@@ -254,7 +253,7 @@
                       <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                         Close
                       </button>
-                      <button type="button" class="btn btn-primary">Ajouter</button>
+                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ajouter</button>
                     </div>
                   </div>
                 </div>
