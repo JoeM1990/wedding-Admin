@@ -154,11 +154,12 @@ export class CrudService {
   }
 
   addInvitationApi(file:File,email:any,type:any):Observable<any>{
+
     let token=localStorage.getItem('token');
 
     const headers = new HttpHeaders({
       'Content-Type': 'multipart/form-data',
-      //'Authorization': `Bearer ${token}`
+      'Authorization': `Bearer ${token}`
     })
 
     const requestOptions = { headers: headers };

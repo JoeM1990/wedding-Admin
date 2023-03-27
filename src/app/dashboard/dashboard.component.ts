@@ -25,7 +25,7 @@ export class DashboardComponent implements OnInit {
         this.countUser=response["value"]
       },
       error => {
-        console.log(error)
+        //console.log(error)
       });
 
       this.crud.countUserActive()
@@ -34,7 +34,7 @@ export class DashboardComponent implements OnInit {
         this.countUserActive=response["value"]
       },
       error => {
-        console.log(error)
+        //console.log(error)
       });
 
       this.crud.countUserDesactive()
@@ -43,7 +43,7 @@ export class DashboardComponent implements OnInit {
         this.countUserDesactive=response["value"]
       },
       error => {
-        console.log(error)
+        //console.log(error)
       });
 
   }

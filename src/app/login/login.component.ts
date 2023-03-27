@@ -72,7 +72,7 @@ export class LoginComponent implements OnInit {
         this.dialogError(error['error']);
         this.router.navigate(['/login']);
         ///alert(error);
-        console.log(error);
+        //console.log(error);
       });
     }
     

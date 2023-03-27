@@ -111,7 +111,7 @@ export class GenerateComponent implements OnInit {
 
     this.crud.verifyForfait(email).subscribe(res=>{
       this.valueCredit=Number(res["credit"]);
-      console.log('papa'+res["credit"]);
+      //console.log('papa'+res["credit"]);
     }, error=>{
 
     });
@@ -184,8 +184,8 @@ export class GenerateComponent implements OnInit {
 
   downloadImage(){
 
-    console.log(this.valueCount)
-    console.log(this.valueCredit);
+    //console.log(this.valueCount)
+    //console.log(this.valueCredit);
 
 
     if(this.valueCount>9){
@@ -210,7 +210,7 @@ export class GenerateComponent implements OnInit {
               const dT = new DataTransfer();
               dT.items.add( file );
       
-              this.selectedFilesOk=file;
+              //this.selectedFilesOk=file;
               this.selectedFilesApi=file;
       
               
@@ -240,17 +240,6 @@ export class GenerateComponent implements OnInit {
     
     }
 
-    
-    
-
-
-    // ok.then(res=>{
-    //   console.log('success');
-    //    this.uploadInvitation();
-    // }).catch(error=>{
-    //   console.log('error');
-    // })
-    //this.uploadInvitation();
   }
 
   generateQr(){
@@ -286,40 +275,21 @@ export class GenerateComponent implements OnInit {
       if(this.valueCredit>0){
 
         let file=this.selectedFilesApi;
-        let fileT=this.selectedFilesT.item(0);
       
         if(file){
           
           let email=localStorage.getItem('email_user');
     
-          this.crud.addInvitationApi(file,email,'invitation')
-          .subscribe(
-            response =>{
-              this.dialogSuccess("Success");
-            },
-            error =>{
-              //alert(error)
-              //console.log(error['message']);
-            }
-          );
-    
-        }
-    
-        if(fileT){
-          
-          let email=localStorage.getItem('email_user');
-    
-          this.crud.addInvitationApi(fileT,email,'invitation')
-          .subscribe(
-            response =>{
-              this.dialogSuccess("Success");
-              
-            },
-            error =>{
-              //alert(error)
-              //console.log(error['message']);
-            }
-          );
+          this.crud.addInvitationApi(file,email,'invitation');
+          // .subscribe(
+          //   response =>{
+          //     this.dialogSuccess("Success");
+          //   },
+          //   error =>{
+          //     //alert(error)
+          //     //console.log(error['message']);
+          //   }
+          // );
     
         }
 
@@ -338,29 +308,41 @@ export class GenerateComponent implements OnInit {
 
   uploadInvitationApi2(){
      
-    let fileT=this.selectedFilesT.item(0);
+    //let fileT=this.selectedFilesT.item(0);
   
-    if(fileT){
+    if(this.valueCount>9){
+      if(this.valueCredit>0){
+
+       
+        let fileT=this.selectedFilesT.item(0);
       
-      let email=localStorage.getItem('email_user');
-
-      this.crud.addInvitationApi(fileT,email,'invitation')
-      .subscribe(
-        response =>{
-          if(response){
-           //console.log(response['message']);
-           //alert(response)
-           this.dialogSuccess("Success");
-          }
+        if(fileT){
           
-        },
-        error =>{
-          //alert(error)
-          //console.log(error['message']);
+          let email=localStorage.getItem('email_user');
+    
+          this.crud.addInvitationApi(fileT,email,'invitation');
+          // .subscribe(
+          //   response =>{
+          //     this.dialogSuccess("Success");
+              
+          //   },
+          //   error =>{
+          //     //alert(error)
+          //     //console.log(error['message']);
+          //   }
+          // );
+    
         }
-      );
 
+
+      }else{
+        this.router.navigate(['/paiement-forfait'])
+      }
+      
+    }else{
+     
     }
+   
     
   }
 

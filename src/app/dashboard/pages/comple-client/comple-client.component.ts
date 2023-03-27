@@ -50,7 +50,7 @@ export class CompleClientComponent implements OnInit {
         
       },
       error => {
-        console.log(error)
+        //console.log(error)
       });
   }
 
@@ -93,7 +93,7 @@ export class CompleClientComponent implements OnInit {
         })
       },
       error => {
-        console.log(error)
+        //console.log(error)
       });
   }
 
@@ -113,7 +113,7 @@ export class CompleClientComponent implements OnInit {
         
             },
               error => {
-                console.log(error)
+            //    console.log(error)
               });
       }
     })
@@ -136,7 +136,7 @@ export class CompleClientComponent implements OnInit {
           
         },
         error => {
-          console.log(error)
+          //console.log(error)
         });
       }
     })
