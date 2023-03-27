@@ -42,17 +42,33 @@
 </div> 
 
 
-<div class="container">
+<div class="container" style="margin-bottom: 20px;">
     <div class="card text-center " style="width: 800px; margin-top: 20px;">
         <div class="card-header">
           <!-- Featured -->
         </div>
         <div class="card-body">
-          <h5 class="card-title" style="font-size: 30px;">Forfait : {{forfait}}</h5>
-          <h5 class="card-title" style="font-size: 30px; margin-top: 30px;">Montant A Payer : {{montant}}</h5>
-          <input class="form-control container" placeholder="Numero de Transaction" style="width: 300px; margin-top: 40px;">
+          <form [formGroup]="transactionForm">
+
           
-          <a class="btn btn-primary" style="margin-top: 20px;">Valider</a>
+          <h5 class="card-title" style="font-size: 30px;">Forfait : {{forfaitt}}</h5>
+          <h5 class="card-title" style="font-size: 30px; margin-top: 30px;">Montant A Payer : {{montant}}</h5>
+          <select class="form-control container" style="width: 300px; margin-top: 40px;" formControlName="forfait" placeholder="Forfait">
+            <!-- <option>FORFAIT</option> -->
+            <option>BASIC</option>
+            <option>PRO</option>
+          </select>
+          <select class="form-control container" style="width: 300px; margin-top: 10px;" formControlName="operateur" placeholder="Operateur">
+            <!-- <option>OPERATEUR</option> -->
+            <option>M-PESA</option>
+            <option>ORANGE MONEY</option>
+            <option>AIRTEL MONEY</option>
+            <option>AFRI MONEY</option>
+          </select>
+          <input class="form-control container" placeholder="Numero de Transaction" style="width: 300px; margin-top: 10px;" formControlName="reference">
+          
+          <button class="btn btn-primary" style="margin-top: 20px;" (click)="addTransaction()">Valider</button>
+        </form>
         </div>
     </div>
 </div>

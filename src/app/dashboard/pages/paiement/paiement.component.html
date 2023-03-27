@@ -233,7 +233,7 @@
                       <div class="row">
                         <div class="col mb-3">
                           <label for="nameBasic" class="form-label">Email</label>
-                          <select class="form-control" >
+                          <select class="form-control" #email >
                             <option></option>
                             <option *ngFor="let user of user; let i = index ">{{user.email}}</option>
                         </select>
@@ -242,7 +242,7 @@
                       <div class="row">
                         <div class="col mb-3">
                             <label for="nameBasic" class="form-label">Type Forfait</label>
-                            <select class="form-control">
+                            <select class="form-control" #forfait>
                                 <!-- <option></option> -->
                                 <option>BASIC</option>
                                 <option>PRO</option>
@@ -254,7 +254,7 @@
                       <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                         Close
                       </button>
-                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ajouter</button>
+                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="addForfait(email.value,forfait.value)">Ajouter</button>
                     </div>
                   </div>
                 </div>

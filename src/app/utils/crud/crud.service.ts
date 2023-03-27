@@ -8,6 +8,7 @@ import { finalize, Observable } from 'rxjs';
 import { SuccessComponent } from 'src/app/dialog/success/success.component';
 import { FileUpload } from '../model/file-upload';
 import { Item } from '../model/item';
+import { Transaction } from '../model/transaction';
 import { User } from '../model/user';
 
 
@@ -40,6 +41,44 @@ export class CrudService {
     return this.httpClient.post(baseUrl+'users',user,requestOptions)
     .pipe( finalize(()=>{
       this.dialogSuccess("L'utilisateur a été ajouter avec success");
+      //window.location.reload();
+    })
+    )
+  }
+
+  addTransaction(transaction:Transaction):Observable<any>{
+
+    let token=localStorage.getItem('token');
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    })
+
+    const requestOptions = { headers: headers };
+
+    return this.httpClient.post(baseUrl+'transactions',transaction,requestOptions)
+    .pipe( finalize(()=>{
+      this.dialogSuccess("La reference a été ajouter avec success");
+      //window.location.reload();
+    })
+    )
+  }
+
+  addPaiement(email:any,forfait:any):Observable<any>{
+
+    let token=localStorage.getItem('token');
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    })
+
+    const requestOptions = { headers: headers };
+
+    return this.httpClient.post(baseUrl+'paiements',{'email':email,'forfait':forfait},requestOptions)
+    .pipe( finalize(()=>{
+      this.dialogSuccess("Le forfait a été ajouter avec success");
       //window.location.reload();
     })
     )

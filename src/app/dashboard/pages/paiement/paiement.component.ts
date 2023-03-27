@@ -72,6 +72,27 @@ export class PaiementComponent implements OnInit {
 
   }
 
+  addForfait(email:any,forfait:any){
+    let refDialog=this.dialog.open(ConfirmationComponent,{data:'Voulez-vous ajouter ce credit?'});
+
+
+    refDialog.afterClosed().subscribe(res=>{
+      if(res == 'true'){
+            this.crud.addPaiement(email,forfait)
+        .subscribe(
+          response =>{
+            if(response){
+              //window.location.reload();
+            }
+          },
+          error =>{
+            console.log(error['message']);
+          }
+        );
+      }
+    })
+  }
+
   
 
 }
