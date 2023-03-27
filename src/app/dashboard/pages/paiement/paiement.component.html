@@ -203,7 +203,7 @@
                       <tr *ngFor="let paiement of paiement; let i = index ">
                         <!-- <td>1</td> -->
                         <td>{{paiement.email}}</td>
-                        <td><span class="badge bg-label-primary me-1">{{paiement.credit}}</span></td>
+                        <td><span class="badge bg-label-primary me-1">{{paiement.creditt}}</span></td>
                         <td>
                           <!-- <i class='bx bx-search-alt-2' data-bs-toggle="modal"></i> -->
                           <i class='bx bxs-trash primary' (click)="deleteCreditById(paiement.id)"></i>
@@ -233,8 +233,9 @@
                       <div class="row">
                         <div class="col mb-3">
                           <label for="nameBasic" class="form-label">Email</label>
-                          <select class="form-control" *ngFor="let user of user; let i = index ">
-                            <option>{{user.email}}</option>
+                          <select class="form-control" >
+                            <option></option>
+                            <option *ngFor="let user of user; let i = index ">{{user.email}}</option>
                         </select>
                         </div>
                       </div>
