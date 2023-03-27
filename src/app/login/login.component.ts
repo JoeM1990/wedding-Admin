@@ -52,21 +52,19 @@ export class LoginComponent implements OnInit {
       response => {
        // alert(response['message'])
         let token=response['token'];
+        let role=response['role'];
         //let data=response['data'];
 
         this.dialogSuccess('Bienvenue')
 
         if(token){
+          localStorage.setItem('token',token);
+          localStorage.setItem('email_user',email);
+          localStorage.setItem('role',role);
           this.router.navigate(['/dashboard']);
         }
 
-        // if(data != null){
-        //   this.router.navigate(['/dashboard']);
-        // }else{
-        //   this.router.navigate(['/login']);
-        // }
-        localStorage.setItem('token',token);
-        localStorage.setItem('email_user',email);
+        
       },
       error => {
         this.dialogError(error['error']);
