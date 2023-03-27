@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationComponent } from 'src/app/dialog/confirmation/confirmation.component';
 import { AuthService } from 'src/app/utils/auth/auth.service';
+import { CrudService } from 'src/app/utils/crud/crud.service';
 
 @Component({
   selector: 'app-paiement',
@@ -10,9 +11,19 @@ import { AuthService } from 'src/app/utils/auth/auth.service';
 })
 export class PaiementComponent implements OnInit {
 
-  constructor(public dialog:MatDialog, public auth:AuthService) { }
+  paiement:any;
+
+  constructor(public dialog:MatDialog, public auth:AuthService, public crud:CrudService) { }
 
   ngOnInit(): void {
+    this.crud.getAllPaiementApi()
+    .subscribe(
+      response => {
+        this.paiement=response;
+      },
+      error => {
+        //console.log(error)
+      });
   }
 
   onConfirmation(){

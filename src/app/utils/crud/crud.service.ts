@@ -59,6 +59,20 @@ export class CrudService {
     return this.httpClient.get(baseUrl+'users',requestOptions);
   }
 
+  getAllPaiementApi():Observable<any>{
+
+    let token=localStorage.getItem('token');
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    })
+
+    const requestOptions = { headers: headers };
+
+    return this.httpClient.get(baseUrl+'paiements',requestOptions);
+  }
+
   getUserById(id:any):Observable<any>{
 
     let token=localStorage.getItem('token');
@@ -106,6 +120,24 @@ export class CrudService {
     return this.httpClient.delete(baseUrl+'users/'+id,requestOptions)
     .pipe( finalize(()=>{
       this.dialogSuccess("L'utilisateur a été supprimer avec success");
+      //window.location.reload();
+    })
+    )
+  }
+
+  deletePaiementById(id:any){
+    let token=localStorage.getItem('token');
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+ 
+    const requestOptions = { headers: headers };
+
+    return this.httpClient.delete(baseUrl+'paiements/'+id,requestOptions)
+    .pipe( finalize(()=>{
+      this.dialogSuccess("Le credit a été supprimer avec success");
       //window.location.reload();
     })
     )
