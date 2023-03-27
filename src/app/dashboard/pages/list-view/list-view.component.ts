@@ -47,10 +47,15 @@ export class ListViewComponent implements OnInit {
 
   urlData:any;
 
+  checkingRole=true;
+
   constructor(public crud:CrudService, public httpClient:HttpClient, public dialog:MatDialog,
     public auth:AuthService) { }
 
   ngOnInit(): void {
+
+    this.checkRole();
+
     this.crud.getAllItem().subscribe(res => {
 
       this.ItemQr = res.map( e => {
@@ -250,5 +255,12 @@ export class ListViewComponent implements OnInit {
       }
     })
   }
+
+  checkRole(){
+    if(localStorage.getItem('role')=='Client'){
+      this.checkingRole=false;
+    }
+  }
+
 
 }

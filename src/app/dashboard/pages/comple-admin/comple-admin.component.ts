@@ -28,8 +28,7 @@ export class CompleAdminComponent implements OnInit {
 
   isDisabled=true;
  
-
- 
+  checkingRole=true;
 
   constructor(public auth:AuthService,public formBuilder: FormBuilder, 
     public crud:CrudService,public router:Router, public dialog:MatDialog) { 
@@ -55,6 +54,8 @@ export class CompleAdminComponent implements OnInit {
     //   .subscribe(() => {
         
     //   });
+
+    this.checkRole();
 
     this.crud.getAllUserApi()
     .subscribe(
@@ -164,6 +165,12 @@ export class CompleAdminComponent implements OnInit {
         this.auth.logoutApi();
       }
     })
+  }
+
+  checkRole(){
+    if(localStorage.getItem('role')=='Client'){
+      this.checkingRole=false;
+    }
   }
 
 

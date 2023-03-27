@@ -93,20 +93,29 @@
             <li class="menu-header small text-uppercase">
               <span class="menu-header-text">Comptes</span>
             </li>
-            <li class="menu-item">
-              <a href="/compte-clients" class="menu-link ">
-                <i class="menu-icon tf-icons bx bx-dock-top"></i>
-                <div data-i18n="Account Settings">Compte Clients</div>
-              </a>
-              
-            </li>
-            <li class="menu-item">
-                <a href="/compte-admin" class="menu-link ">
+
+            <ng-container *ngIf="checkingRole">
+              <li class="menu-item">
+                <a href="/compte-clients" class="menu-link ">
                   <i class="menu-icon tf-icons bx bx-dock-top"></i>
-                  <div data-i18n="Account Settings">Compte Admin</div>
+                  <div data-i18n="Account Settings">Compte Clients</div>
                 </a>
                 
               </li>
+              <li class="menu-item">
+                  <a href="/compte-admin" class="menu-link ">
+                    <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                    <div data-i18n="Account Settings">Compte Admin</div>
+                  </a>
+                  
+                </li>
+            </ng-container>
+
+
+            <ng-container *ngIf="checkingRole">
+
+            </ng-container>
+            
             <li class="menu-item">
               <a href="/paiement" class="menu-link ">
                 <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
@@ -178,6 +187,8 @@
           <!-- Content wrapper -->
           <div class="content-wrapper">
             <!-- Content -->
+
+            <ng-container *ngIf="checkingRole">
 
             <div class="container-xxl flex-grow-1 container-p-y">
 
@@ -472,6 +483,28 @@
                 
               
             </div>
+
+          </ng-container>
+
+          <ng-container *ngIf="checkingRole2">
+            <div class="container-xxl flex-grow-1 container-p-y">
+
+              <h1 style="font-size: 102px; margin-top: 70px; text-align: center;">
+                Bienvenue
+              </h1>
+
+              <h1 style="font-size: 102px; margin-top: 70px; text-align: center;">
+                chez
+              </h1>
+
+              <h1 style="font-size: 102px; margin-top: 70px; text-align: center;">
+                WeddingApp
+              </h1>
+  
+            </div>
+          </ng-container>
+
+          
             <!-- / Content -->
 
             <!-- Footer -->

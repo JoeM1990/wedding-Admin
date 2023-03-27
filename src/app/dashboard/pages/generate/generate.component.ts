@@ -90,6 +90,8 @@ export class GenerateComponent implements OnInit {
   valueCount!:number;
   valueCredit!:number;
 
+  checkingRole=true;
+
   constructor(private crud:CrudService,public formBuilder: FormBuilder, public router:Router, 
     public dialog:MatDialog, public auth:AuthService) {
     this.infosForm = this.formBuilder.group({
@@ -100,12 +102,15 @@ export class GenerateComponent implements OnInit {
    }
 
   ngOnInit(): void {
+
+    this.checkRole();
+
     let email=localStorage.getItem('email_user');
     
     this.crud.countUpload(email).subscribe(res=>{
       this.valueCount=res['value'];
       //console.log('papa'+this.valueCount);
-      
+
     }, error=>{
     });
 
@@ -568,6 +573,12 @@ dialogSuccess(message:any){
            window.location.reload();
         }, timeout)
       })
+}
+
+checkRole(){
+  if(localStorage.getItem('role')=='Client'){
+    this.checkingRole=false;
+  }
 }
 
 

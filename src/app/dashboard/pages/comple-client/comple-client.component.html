@@ -93,20 +93,22 @@
             <li class="menu-header small text-uppercase">
               <span class="menu-header-text">Comptes</span>
             </li>
-            <li class="menu-item active">
-              <a href="/compte-clients" class="menu-link ">
-                <i class="menu-icon tf-icons bx bx-dock-top"></i>
-                <div data-i18n="Account Settings">Compte Clients</div>
-              </a>
-              
-            </li>
-            <li class="menu-item">
-                <a href="/compte-admin" class="menu-link ">
+            <ng-container *ngIf="checkingRole">
+              <li class="menu-item">
+                <a href="/compte-clients" class="menu-link ">
                   <i class="menu-icon tf-icons bx bx-dock-top"></i>
-                  <div data-i18n="Account Settings">Compte Admin</div>
+                  <div data-i18n="Account Settings">Compte Clients</div>
                 </a>
                 
               </li>
+              <li class="menu-item">
+                  <a href="/compte-admin" class="menu-link ">
+                    <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                    <div data-i18n="Account Settings">Compte Admin</div>
+                  </a>
+                  
+                </li>
+            </ng-container>
             <li class="menu-item">
               <a href="/paiement" class="menu-link ">
                 <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>

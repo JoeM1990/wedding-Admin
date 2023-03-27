@@ -16,9 +16,15 @@ export class DashboardComponent implements OnInit {
   countUserActive:any;
   countUserDesactive:any;
 
+  checkingRole=true;
+  checkingRole2=true;
+
   constructor(public auth:AuthService,public crud:CrudService, public dialog:MatDialog) { }
 
   ngOnInit(): void {
+
+    this.checkRole();
+
     this.crud.countUser()
     .subscribe(
       response => {
@@ -58,6 +64,14 @@ export class DashboardComponent implements OnInit {
         this.auth.logoutApi();
       }
     })
+  }
+
+  checkRole(){
+    if(localStorage.getItem('role')=='Client'){
+      this.checkingRole=false;
+    }else if(localStorage.getItem('role')=='Admin'){
+      this.checkingRole2=false;
+    }
   }
 
 }

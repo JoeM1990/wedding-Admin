@@ -20,6 +20,8 @@ export class CompleClientComponent implements OnInit {
 
   idUpdate:any;
 
+  checkingRole=true;
+
   constructor(public auth:AuthService, public formBuilder:FormBuilder, 
     public crud:CrudService, public router:Router, public dialog:MatDialog) {
     this.clientForm = this.formBuilder.group({
@@ -41,6 +43,7 @@ export class CompleClientComponent implements OnInit {
 
   ngOnInit(): void {
     
+    this.checkRole();
 
 
     this.crud.getAllUserApi()
@@ -153,6 +156,12 @@ export class CompleClientComponent implements OnInit {
         this.auth.logoutApi();
       }
     })
+  }
+
+  checkRole(){
+    if(localStorage.getItem('role')=='Client'){
+      this.checkingRole=false;
+    }
   }
 
 }

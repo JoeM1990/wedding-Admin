@@ -93,20 +93,22 @@
             <li class="menu-header small text-uppercase">
               <span class="menu-header-text">Comptes</span>
             </li>
-            <li class="menu-item">
-              <a href="/compte-clients" class="menu-link ">
-                <i class="menu-icon tf-icons bx bx-dock-top"></i>
-                <div data-i18n="Account Settings">Compte Clients</div>
-              </a>
-              
-            </li>
-            <li class="menu-item">
-                <a href="/compte-admin" class="menu-link ">
+            <ng-container *ngIf="checkingRole">
+              <li class="menu-item">
+                <a href="/compte-clients" class="menu-link ">
                   <i class="menu-icon tf-icons bx bx-dock-top"></i>
-                  <div data-i18n="Account Settings">Compte Admin</div>
+                  <div data-i18n="Account Settings">Compte Clients</div>
                 </a>
                 
               </li>
+              <li class="menu-item">
+                  <a href="/compte-admin" class="menu-link ">
+                    <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                    <div data-i18n="Account Settings">Compte Admin</div>
+                  </a>
+                  
+                </li>
+            </ng-container>
             <li class="menu-item active">
               <a href="/paiement" class="menu-link ">
                 <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
@@ -183,10 +185,55 @@
 
                 <h2>Paiement</h2>
 
-                <button type="button" class="btn btn-primary" style="margin-bottom: 10px;" data-bs-toggle="modal"
+                <ng-container  *ngIf="checkingRole">
+                  <button type="button" class="btn btn-primary" style="margin-bottom: 10px;" data-bs-toggle="modal"
                 data-bs-target="#basicModal">+</button>
+                </ng-container>
+                
                   <!-- Basic Bootstrap Table -->
-              <div class="card">
+
+              <ng-container *ngIf="checkingRole">
+                <div class="card">
+                  <!-- <h5 class="card-header">Table Basic</h5> -->
+                  <div class="table-responsive text-nowrap">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <!-- <th>Id</th> -->
+                          <th>Email</th>
+                          <!-- <th>Type Forfait</th> -->
+                          <th>Unité restantes</th>
+                         
+                            <th>Actions</th>
+                          
+                         
+                        </tr>
+                      </thead>
+                      <tbody class="table-border-bottom-0">
+                        <tr *ngFor="let paiement of paiement; let i = index ">
+                          <!-- <td>1</td> -->
+                          <td>{{paiement.email}}</td>
+                          <td><span class="badge bg-label-primary me-1">{{paiement.creditt}}</span></td>
+  
+                          
+                            <td>
+                              <!-- <i class='bx bx-search-alt-2' data-bs-toggle="modal"></i> -->
+                              <i class='bx bxs-trash primary' (click)="deleteCreditById(paiement.id)"></i>
+                            </td>
+                         
+                          
+                        </tr>
+                        
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </ng-container>
+
+              <ng-container *ngIf="checkingRole2">
+
+              
+              <div class="card" >
                 <!-- <h5 class="card-header">Table Basic</h5> -->
                 <div class="table-responsive text-nowrap">
                   <table class="table">
@@ -196,24 +243,35 @@
                         <th>Email</th>
                         <!-- <th>Type Forfait</th> -->
                         <th>Unité restantes</th>
-                        <th>Actions</th>
+                        <ng-container *ngIf="checkingRole">
+                          <th>Actions</th>
+                        </ng-container>
+                       
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
                       <tr *ngFor="let paiement of paiement; let i = index ">
                         <!-- <td>1</td> -->
-                        <td>{{paiement.email}}</td>
-                        <td><span class="badge bg-label-primary me-1">{{paiement.creditt}}</span></td>
-                        <td>
-                          <!-- <i class='bx bx-search-alt-2' data-bs-toggle="modal"></i> -->
-                          <i class='bx bxs-trash primary' (click)="deleteCreditById(paiement.id)"></i>
-                        </td>
+                        <td *ngIf="paiement.email==getEmail">{{paiement.email}}</td>
+                        <td *ngIf="paiement.email==getEmail"><span class="badge bg-label-primary me-1">{{paiement.creditt}}</span></td>
+
+                        <ng-container *ngIf="checkingRole">
+                          <td>
+                            <!-- <i class='bx bx-search-alt-2' data-bs-toggle="modal"></i> -->
+                            <i class='bx bxs-trash primary' (click)="deleteCreditById(paiement.id)"></i>
+                          </td>
+                        </ng-container>
+                        
                       </tr>
                       
                     </tbody>
                   </table>
                 </div>
               </div>
+
+            </ng-container>
+
+             
               <!--/ Basic Bootstrap Table -->
 
               <!-- Modal -->

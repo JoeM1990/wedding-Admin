@@ -15,9 +15,20 @@ export class PaiementComponent implements OnInit {
 
   user:any;
 
+  checkingRole=true;
+  checkingRole2=true;
+  
+
+  getEmail:any;
+
   constructor(public dialog:MatDialog, public auth:AuthService, public crud:CrudService) { }
 
   ngOnInit(): void {
+
+    this.getEmail=localStorage.getItem('email_user');
+
+    this.checkRole();
+
     this.crud.getAllPaiementApi()
     .subscribe(
       response => {
@@ -91,6 +102,14 @@ export class PaiementComponent implements OnInit {
         );
       }
     })
+  }
+
+  checkRole(){
+    if(localStorage.getItem('role')=='Client'){
+      this.checkingRole=false;
+    }else if(localStorage.getItem('role')=='Admin'){
+      this.checkingRole2=false;
+    }
   }
 
   
