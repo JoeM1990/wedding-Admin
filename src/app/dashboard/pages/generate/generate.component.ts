@@ -295,7 +295,7 @@ export class GenerateComponent implements OnInit {
           this.crud.addInvitationApi(file,email,'invitation')
           .subscribe(
             response =>{
-             
+              this.dialogSuccess("Success");
             },
             error =>{
               //alert(error)
@@ -312,10 +312,7 @@ export class GenerateComponent implements OnInit {
           this.crud.addInvitationApi(fileT,email,'invitation')
           .subscribe(
             response =>{
-              if(response){
-               //console.log(response['message']);
-               //alert(response)
-              }
+              this.dialogSuccess("Success");
               
             },
             error =>{
