@@ -62,7 +62,7 @@ export class CompleAdminComponent implements OnInit {
         this.user=response;
       },
       error => {
-        console.log(error)
+        //console.log(error)
       });
   }
 
@@ -104,7 +104,7 @@ export class CompleAdminComponent implements OnInit {
         })
       },
       error => {
-        console.log(error)
+        //console.log(error)
       });
   }
 
@@ -124,7 +124,7 @@ export class CompleAdminComponent implements OnInit {
         
             },
               error => {
-                console.log(error)
+          //      console.log(error)
               });
       }
     })
@@ -147,7 +147,7 @@ export class CompleAdminComponent implements OnInit {
           
         },
         error => {
-          console.log(error)
+          //console.log(error)
         });
       }
     })

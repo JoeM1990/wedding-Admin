@@ -292,8 +292,8 @@ export class CrudService {
     });
  
     const requestOptions = { headers: headers };
-
-    return this.httpClient.put(baseUrl+'paiements/'+email,{'credit':credit},requestOptions)
+    
+    return this.httpClient.put(baseUrl+'paiements/'+email,{'creditt':credit},requestOptions)
     .pipe( finalize(()=>{
       this.dialogSuccess3("Success");
       //window.location.reload();

@@ -22,4 +22,5 @@ export class PaiementForfaitComponent implements OnInit {
     this.router.navigate(['/dashboard']);
   }
 
+
 }

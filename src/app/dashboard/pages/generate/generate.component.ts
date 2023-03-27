@@ -105,13 +105,13 @@ export class GenerateComponent implements OnInit {
     this.crud.countUpload(email).subscribe(res=>{
       this.valueCount=res['value'];
       //console.log('papa'+this.valueCount);
+      
     }, error=>{
-
     });
 
     this.crud.verifyForfait(email).subscribe(res=>{
-      this.valueCredit=Number(res["credit"]);
-      //console.log('papa'+res["credit"]);
+      this.valueCredit=Number(res["creditt"]);
+      //console.log('papa'+res["creditt"]);
     }, error=>{
 
     });
@@ -237,6 +237,34 @@ export class GenerateComponent implements OnInit {
       
     }else{
 
+      const ok= html2canvas(this.screen.nativeElement).then(canvas => {
+        this.canvas.nativeElement.src = canvas.toDataURL();
+        this.downloadLink.nativeElement.href = canvas.toDataURL('image/png');
+        this.downloadLink.nativeElement.download = this.title2+'.png';
+        this.downloadLink.nativeElement.click();
+      
+        this.visible=false;
+  
+        canvas.toBlob( (blob:any) => {
+         
+          const file = new File( [ blob ],  this.title2+'.png',{ type: "image/png" });
+          const dT = new DataTransfer();
+          dT.items.add( file );
+  
+          //this.selectedFilesOk=file;
+          this.selectedFilesApi=file;
+  
+          
+  
+        //window.location.reload();
+  
+        
+          
+        } );      
+  
+        
+       
+      });
     
     }
 
@@ -299,7 +327,24 @@ export class GenerateComponent implements OnInit {
       }
       
     }else{
-     
+      let file=this.selectedFilesApi;
+      
+        if(file){
+          
+          let email=localStorage.getItem('email_user');
+    
+          this.crud.addInvitationApi(file,email,'invitation')
+          .subscribe(
+            response =>{
+              //this.dialogSuccess("Success");
+            },
+            error =>{
+              //alert(error)
+              console.log(error['message']);
+            }
+          );
+    
+        }
     }
    
     
@@ -340,7 +385,25 @@ export class GenerateComponent implements OnInit {
       }
       
     }else{
-     
+      let fileT=this.selectedFilesT.item(0);
+      
+      if(fileT){
+        
+        let email=localStorage.getItem('email_user');
+  
+        this.crud.addInvitationApi(fileT,email,'invitation')
+        .subscribe(
+          response =>{
+            //this.dialogSuccess("Success");
+            
+          },
+          error =>{
+            //alert(error)
+            console.log(error['message']);
+          }
+        );
+  
+      }
     }
    
     
