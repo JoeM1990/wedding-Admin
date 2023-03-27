@@ -211,6 +211,23 @@ export class CrudService {
     return this.httpClient.get(baseUrl+'/upload/'+email,requestOptions);
   }
 
+  updateCredit(email:any,credit:any):Observable<any>{
+    let token=localStorage.getItem('token');
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+ 
+    const requestOptions = { headers: headers };
+
+    return this.httpClient.put(baseUrl+'paiements/'+email,{'credit':credit},requestOptions)
+    .pipe( finalize(()=>{
+      this.dialogSuccess("Success");
+      //window.location.reload();
+    })
+    );
+  }
 
 
   addInvitation(fileUpload: FileUpload,item:Item){
@@ -273,6 +290,8 @@ export class CrudService {
     .ref.where('email','==',email)
     .get()
   }
+
+  
 
   //Qr code Crud
 

@@ -190,35 +190,44 @@ export class GenerateComponent implements OnInit {
     if(this.valueCount>9){
       if(this.valueCredit>0){
 
+        let email=localStorage.getItem('email_user');
+        let newCredit=this.valueCredit-1;
 
-        const ok= html2canvas(this.screen.nativeElement).then(canvas => {
-          this.canvas.nativeElement.src = canvas.toDataURL();
-          this.downloadLink.nativeElement.href = canvas.toDataURL('image/png');
-          this.downloadLink.nativeElement.download = this.title2+'.png';
-          this.downloadLink.nativeElement.click();
-        
-          this.visible=false;
-    
-          canvas.toBlob( (blob:any) => {
+        this.crud.updateCredit(email,newCredit).subscribe(res=>{
+
+          const ok= html2canvas(this.screen.nativeElement).then(canvas => {
+            this.canvas.nativeElement.src = canvas.toDataURL();
+            this.downloadLink.nativeElement.href = canvas.toDataURL('image/png');
+            this.downloadLink.nativeElement.download = this.title2+'.png';
+            this.downloadLink.nativeElement.click();
+          
+            this.visible=false;
+      
+            canvas.toBlob( (blob:any) => {
+             
+              const file = new File( [ blob ],  this.title2+'.png',{ type: "image/png" });
+              const dT = new DataTransfer();
+              dT.items.add( file );
+      
+              this.selectedFilesOk=file;
+              this.selectedFilesApi=file;
+      
+              
+      
+            //window.location.reload();
+      
+            
+              
+            } );      
+      
+            
            
-            const file = new File( [ blob ],  this.title2+'.png',{ type: "image/png" });
-            const dT = new DataTransfer();
-            dT.items.add( file );
-    
-            this.selectedFilesOk=file;
-            this.selectedFilesApi=file;
-    
-            
-    
-           //window.location.reload();
-    
-          
-            
-          } );      
-    
-          
-         
+          });
+
         });
+
+
+        
 
 
       }else{
