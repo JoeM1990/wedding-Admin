@@ -9,6 +9,7 @@ import * as htmlToImage from 'html-to-image';
 import html2canvas from 'html2canvas';
 import { AppModule } from 'src/app/app.module';
 import { ConfirmationComponent } from 'src/app/dialog/confirmation/confirmation.component';
+import { SuccessComponent } from 'src/app/dialog/success/success.component';
 import { AuthService } from 'src/app/utils/auth/auth.service';
 import { CrudService } from 'src/app/utils/crud/crud.service';
 import { FileUpload } from 'src/app/utils/model/file-upload';
@@ -294,11 +295,7 @@ export class GenerateComponent implements OnInit {
           this.crud.addInvitationApi(file,email,'invitation')
           .subscribe(
             response =>{
-              if(response){
-               //console.log(response['message']);
-               //alert(response)
-              }
-              
+             
             },
             error =>{
               //alert(error)
@@ -356,6 +353,7 @@ export class GenerateComponent implements OnInit {
           if(response){
            //console.log(response['message']);
            //alert(response)
+           this.dialogSuccess("Success");
           }
           
         },
@@ -515,6 +513,19 @@ onConfirmation(){
       this.auth.logoutApi();
     }
   })
+}
+
+dialogSuccess(message:any){
+  const timeout=1400;
+
+    let dialogRef=this.dialog.open(SuccessComponent,{data:message});
+
+      dialogRef.afterOpened().subscribe(_ => {
+        setTimeout(() => {
+           dialogRef.close();
+           window.location.reload();
+        }, timeout)
+      })
 }
 
 

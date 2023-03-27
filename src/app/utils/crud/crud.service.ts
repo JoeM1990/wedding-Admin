@@ -223,7 +223,7 @@ export class CrudService {
 
     return this.httpClient.put(baseUrl+'paiements/'+email,{'credit':credit},requestOptions)
     .pipe( finalize(()=>{
-      this.dialogSuccess("Success");
+      this.dialogSuccess3("Success");
       //window.location.reload();
     })
     );
@@ -363,6 +363,19 @@ export class CrudService {
           setTimeout(() => {
              dialogRef.close();
              window.location.reload();
+          }, timeout)
+        })
+  }
+
+  dialogSuccess3(message:any){
+    const timeout=1400;
+
+      let dialogRef=this.dialog.open(SuccessComponent,{data:message});
+
+        dialogRef.afterOpened().subscribe(_ => {
+          setTimeout(() => {
+             dialogRef.close();
+             //window.location.reload();
           }, timeout)
         })
   }
