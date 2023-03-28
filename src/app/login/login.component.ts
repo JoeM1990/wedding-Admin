@@ -60,7 +60,9 @@ export class LoginComponent implements OnInit {
         this.dialogSuccess('Bienvenue')
 
         if(token){
-          this.cookieService.set('token',token);
+          this.cookieService.set('token',token,{
+            //httpOnly: true,
+            secure: true});
           this.cookieService.set('role',role)
           //localStorage.setItem('token',token);
           localStorage.setItem('email_user',email);
