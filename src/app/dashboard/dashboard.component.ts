@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { CookieService } from 'ngx-cookie-service';
 import { ConfirmationComponent } from '../dialog/confirmation/confirmation.component';
 import { AuthService } from '../utils/auth/auth.service';
 import { CrudService } from '../utils/crud/crud.service';
@@ -19,7 +20,8 @@ export class DashboardComponent implements OnInit {
   checkingRole=true;
   checkingRole2=true;
 
-  constructor(public auth:AuthService,public crud:CrudService, public dialog:MatDialog) { }
+  constructor(public auth:AuthService,public crud:CrudService, public dialog:MatDialog,
+    private cookieService: CookieService) { }
 
   ngOnInit(): void {
 
@@ -67,9 +69,9 @@ export class DashboardComponent implements OnInit {
   }
 
   checkRole(){
-    if(localStorage.getItem('role')=='Client'){
+    if(this.cookieService.get('role')=='Client'){
       this.checkingRole=false;
-    }else if(localStorage.getItem('role')=='Admin'){
+    }else if(this.cookieService.get('role')=='Admin'){
       this.checkingRole2=false;
     }
   }

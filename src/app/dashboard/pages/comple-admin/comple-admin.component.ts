@@ -3,6 +3,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
 import { ConfirmationComponent } from 'src/app/dialog/confirmation/confirmation.component';
 
@@ -31,7 +32,7 @@ export class CompleAdminComponent implements OnInit {
   checkingRole=true;
 
   constructor(public auth:AuthService,public formBuilder: FormBuilder, 
-    public crud:CrudService,public router:Router, public dialog:MatDialog) { 
+    public crud:CrudService,public router:Router, public dialog:MatDialog,private cookieService: CookieService) { 
     this.adminForm = this.formBuilder.group({
       username: ['',{validators: [Validators.required, ], }],
       email: ['',{validators: [Validators.required, Validators.email],}],
@@ -168,7 +169,7 @@ export class CompleAdminComponent implements OnInit {
   }
 
   checkRole(){
-    if(localStorage.getItem('role')=='Client'){
+    if(this.cookieService.get('role')=='Client'){
       this.checkingRole=false;
     }
   }

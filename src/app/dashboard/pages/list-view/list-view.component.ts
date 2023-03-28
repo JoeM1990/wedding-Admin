@@ -12,6 +12,7 @@ import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
 import { ConfirmationComponent } from 'src/app/dialog/confirmation/confirmation.component';
 import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from 'src/app/utils/auth/auth.service';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @Component({
@@ -50,7 +51,7 @@ export class ListViewComponent implements OnInit {
   checkingRole=true;
 
   constructor(public crud:CrudService, public httpClient:HttpClient, public dialog:MatDialog,
-    public auth:AuthService) { }
+    public auth:AuthService, private cookieService: CookieService) { }
 
   ngOnInit(): void {
 
@@ -257,7 +258,7 @@ export class ListViewComponent implements OnInit {
   }
 
   checkRole(){
-    if(localStorage.getItem('role')=='Client'){
+    if(this.cookieService.get('role')=='Client'){
       this.checkingRole=false;
     }
   }

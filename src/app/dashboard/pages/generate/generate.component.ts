@@ -7,6 +7,7 @@ import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiedi
 import * as e from 'express';
 import * as htmlToImage from 'html-to-image';
 import html2canvas from 'html2canvas';
+import { CookieService } from 'ngx-cookie-service';
 import { AppModule } from 'src/app/app.module';
 import { ConfirmationComponent } from 'src/app/dialog/confirmation/confirmation.component';
 import { SuccessComponent } from 'src/app/dialog/success/success.component';
@@ -93,7 +94,7 @@ export class GenerateComponent implements OnInit {
   checkingRole=true;
 
   constructor(private crud:CrudService,public formBuilder: FormBuilder, public router:Router, 
-    public dialog:MatDialog, public auth:AuthService) {
+    public dialog:MatDialog, public auth:AuthService, private cookieService: CookieService) {
     this.infosForm = this.formBuilder.group({
       //name: this.title2,
       email_user: localStorage.getItem('email_user'),
@@ -576,7 +577,7 @@ dialogSuccess(message:any){
 }
 
 checkRole(){
-  if(localStorage.getItem('role')=='Client'){
+  if(this.cookieService.get('role')=='Client'){
     this.checkingRole=false;
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { CookieService } from 'ngx-cookie-service';
 import { ConfirmationComponent } from 'src/app/dialog/confirmation/confirmation.component';
 import { AuthService } from 'src/app/utils/auth/auth.service';
 import { CrudService } from 'src/app/utils/crud/crud.service';
@@ -21,7 +22,8 @@ export class PaiementComponent implements OnInit {
 
   getEmail:any;
 
-  constructor(public dialog:MatDialog, public auth:AuthService, public crud:CrudService) { }
+  constructor(public dialog:MatDialog, public auth:AuthService, public crud:CrudService,
+    private cookieService: CookieService) { }
 
   ngOnInit(): void {
 
@@ -105,9 +107,9 @@ export class PaiementComponent implements OnInit {
   }
 
   checkRole(){
-    if(localStorage.getItem('role')=='Client'){
+    if(this.cookieService.get('role')=='Client'){
       this.checkingRole=false;
-    }else if(localStorage.getItem('role')=='Admin'){
+    }else if(this.cookieService.get('role')=='Admin'){
       this.checkingRole2=false;
     }
   }
