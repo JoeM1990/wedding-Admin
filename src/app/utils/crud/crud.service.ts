@@ -4,6 +4,7 @@ import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { MatDialog } from '@angular/material/dialog';
+import { CookieService } from 'ngx-cookie-service';
 import { finalize, Observable } from 'rxjs';
 import { SuccessComponent } from 'src/app/dialog/success/success.component';
 import { FileUpload } from '../model/file-upload';
@@ -24,12 +25,13 @@ export class CrudService {
   private baseApi='http://localhost:8080/api/';
 
   constructor(private angularFirestore: AngularFirestore,private storage: AngularFireStorage,
-    private db: AngularFireDatabase,public httpClient:HttpClient, public dialog:MatDialog) { }
+    private db: AngularFireDatabase,public httpClient:HttpClient, public dialog:MatDialog
+    ,private cookieService: CookieService) { }
 
 
   addUser(user:User):Observable<any>{
 
-    let token=localStorage.getItem('token');
+    let token=this.cookieService.get('token');
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -48,7 +50,7 @@ export class CrudService {
 
   addTransaction(transaction:Transaction):Observable<any>{
 
-    let token=localStorage.getItem('token');
+    let token=this.cookieService.get('token');
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -67,7 +69,7 @@ export class CrudService {
 
   addPaiement(email:any,forfait:any):Observable<any>{
 
-    let token=localStorage.getItem('token');
+    let token=this.cookieService.get('token');
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -86,7 +88,7 @@ export class CrudService {
 
   getAllUserApi():Observable<any>{
 
-    let token=localStorage.getItem('token');
+    let token=this.cookieService.get('token');
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -100,7 +102,7 @@ export class CrudService {
 
   getAllPaiementApi():Observable<any>{
 
-    let token=localStorage.getItem('token');
+    let token=this.cookieService.get('token');
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -114,7 +116,7 @@ export class CrudService {
 
   getUserById(id:any):Observable<any>{
 
-    let token=localStorage.getItem('token');
+    let token=this.cookieService.get('token');
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -128,7 +130,7 @@ export class CrudService {
 
   updateUserById(id:any,user:User):Observable<any>{
 
-    let token=localStorage.getItem('token');
+    let token=this.cookieService.get('token');
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -147,7 +149,7 @@ export class CrudService {
   }
 
   deleteUserById(id:any){
-    let token=localStorage.getItem('token');
+    let token=this.cookieService.get('token');
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -165,7 +167,7 @@ export class CrudService {
   }
 
   deletePaiementById(id:any){
-    let token=localStorage.getItem('token');
+    let token=this.cookieService.get('token');
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -184,7 +186,7 @@ export class CrudService {
 
   countUser():Observable<any>{
 
-    let token=localStorage.getItem('token');
+    let token=this.cookieService.get('token');
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -198,7 +200,7 @@ export class CrudService {
 
   countUserActive():Observable<any>{
 
-    let token=localStorage.getItem('token');
+    let token=this.cookieService.get('token');
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -212,7 +214,7 @@ export class CrudService {
 
   countUserDesactive():Observable<any>{
 
-    let token=localStorage.getItem('token');
+    let token=this.cookieService.get('token');
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -226,7 +228,7 @@ export class CrudService {
 
   addInvitationApi(file:File,email:any,type:any):Observable<any>{
 
-    let token=localStorage.getItem('token');
+    let token=this.cookieService.get('token');
 
     const headers = new HttpHeaders({
       'Content-Type': 'multipart/form-data',
@@ -258,7 +260,7 @@ export class CrudService {
   }
 
   verifyForfait(email:any):Observable<any>{
-    let token=localStorage.getItem('token');
+    let token=this.cookieService.get('token');
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -271,7 +273,7 @@ export class CrudService {
   }
 
   countUpload(email:any):Observable<any>{
-    let token=localStorage.getItem('token');
+    let token=this.cookieService.get('token');
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -284,7 +286,7 @@ export class CrudService {
   }
 
   updateCredit(email:any,credit:any):Observable<any>{
-    let token=localStorage.getItem('token');
+    let token=this.cookieService.get('token');
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -292,7 +294,7 @@ export class CrudService {
     });
  
     const requestOptions = { headers: headers };
-    
+
     return this.httpClient.put(baseUrl+'paiements/'+email,{'creditt':credit},requestOptions)
     .pipe( finalize(()=>{
       this.dialogSuccess3("Success");
@@ -317,7 +319,7 @@ export class CrudService {
       item.name=localStorage.getItem('nomForm')?.toString();
 
       //localStorage.removeItem('urlInvitation');
-      localStorage.setItem('urlInvitation',downloadURL);
+      //localStorage.setItem('urlInvitation',downloadURL);
       //item.email_user=localStorage.getItem('email_user')?.toString();
       this.addItem(item);
 

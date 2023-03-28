@@ -13,6 +13,8 @@ import { CrudService } from 'src/app/utils/crud/crud.service';
   styleUrls: ['./comple-client.component.css']
 })
 export class CompleClientComponent implements OnInit {
+
+  //dtOptions: DataTables.Settings={};
   
   user:any;
   clientForm:FormGroup;
@@ -42,6 +44,14 @@ export class CompleClientComponent implements OnInit {
    }
 
   ngOnInit(): void {
+
+    // this.dtOptions = {
+    //   pagingType: 'full_numbers',
+    //   pageLength:5,
+    //   autoWidth:true,
+
+    // }
+
     
     this.checkRole();
 

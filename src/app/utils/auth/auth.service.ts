@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
 import { ErrorComponent } from 'src/app/dialog/error/error.component';
 import { SuccessComponent } from 'src/app/dialog/success/success.component';
@@ -14,7 +15,8 @@ const baseUrl = 'http://localhost:8080/api/';
 })
 export class AuthService {
 
-  constructor(public fireauth : AngularFireAuth, public router: Router,public dialog:MatDialog, public httpClient:HttpClient) { }
+  constructor(public fireauth : AngularFireAuth, public router: Router,public dialog:MatDialog
+    , public httpClient:HttpClient, private cookieService: CookieService) { }
 
   login(email : string, password : string){
     this.fireauth.signInWithEmailAndPassword(email,password).then( () =>{
@@ -35,12 +37,15 @@ export class AuthService {
   }
 
   logoutApi(){
-    localStorage.removeItem('token');
+    //localStorage.removeItem('token');
+    this.cookieService.deleteAll();
     this.router.navigate(['/login']);
   }
 
   registerApi(user:User){
-    let token=localStorage.getItem('token');
+    //let token=localStorage.getItem('token');
+
+    let token=this.cookieService.get('token');
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -80,7 +85,8 @@ export class AuthService {
   // }
 
   checkLogin(){
-    return !! localStorage.getItem('token');
+    return !! this.cookieService.get('token');
+
   }
 
   dialogSuccess(message:any){

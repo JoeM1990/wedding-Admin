@@ -37,6 +37,8 @@ import { PaiementFormComponent } from './ui/paiement-form/paiement-form.componen
 
 import {MatPaginatorModule} from '@angular/material/paginator';
 
+//import { DataTablesModule } from 'angular-datatables';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,7 +72,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     NgxQRCodeModule,
     QRCodeSVGModule,
     HttpClientModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

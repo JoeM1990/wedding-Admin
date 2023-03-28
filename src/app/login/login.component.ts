@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { ErrorComponent } from '../dialog/error/error.component';
 import { SuccessComponent } from '../dialog/success/success.component';
 import { AuthService } from '../utils/auth/auth.service';
@@ -23,7 +24,8 @@ export class LoginComponent implements OnInit {
 
   show = false;
 
-  constructor(public auth:AuthService, public router:Router, public formBuilder:FormBuilder, public dialog:MatDialog) {
+  constructor(public auth:AuthService, public router:Router, public formBuilder:FormBuilder
+    , public dialog:MatDialog, private cookieService: CookieService) {
     this.registerForm=this.formBuilder.group(
       {
       username: ['',[Validators.required]],
@@ -58,9 +60,11 @@ export class LoginComponent implements OnInit {
         this.dialogSuccess('Bienvenue')
 
         if(token){
-          localStorage.setItem('token',token);
+          this.cookieService.set('token',token);
+          this.cookieService.set('role',role)
+          //localStorage.setItem('token',token);
           localStorage.setItem('email_user',email);
-          localStorage.setItem('role',role);
+          //localStorage.setItem('role',role);
           this.router.navigate(['/dashboard']);
         }
 
