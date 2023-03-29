@@ -208,9 +208,9 @@
                   </ngx-datatable>
                 </div> -->
 
-                <div class="table-responsive text-nowrap">
+                <!-- <div class="table-responsive text-nowrap">
                   <table mat-table [dataSource]="dataSource" matSort>
-                    <!-- Id Column -->
+                    
                     <ng-container matColumnDef="username">
                       <th mat-header-cell *matHeaderCellDef mat-sort-header> Username </th>
                       <td mat-cell *matCellDef="let element" > {{element.username}} </td>
@@ -233,7 +233,14 @@
 
                     <ng-container matColumnDef="actions">
                       <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
-                      <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+                      <td mat-cell *matCellDef="let element">
+                        <i class='bx bx-search-alt-2' data-bs-toggle="modal" data-bs-target="#basicModalUpdate" (click)="getUserById(user.id)"></i>
+                              
+                         </td>
+                         <td mat-cell *matCellDef="let element">
+                         
+                                    <i class='bx bxs-trash primary' (click)="deleteUserById(user.id)"></i>
+                           </td>
                     </ng-container>
                   
                     
@@ -247,7 +254,7 @@
                      [pageSizeOptions]="[5]"                  
                      (page)="onChangePage($event)">
                   </mat-paginator>
-                </div>
+                </div> -->
 
                 <div class="table-responsive text-nowrap">
 
