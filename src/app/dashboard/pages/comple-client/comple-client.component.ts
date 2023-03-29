@@ -1,12 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { Subject } from 'rxjs';
 import { ConfirmationComponent } from 'src/app/dialog/confirmation/confirmation.component';
 import { AuthService } from 'src/app/utils/auth/auth.service';
 import { CrudService } from 'src/app/utils/crud/crud.service';
+import { User } from 'src/app/utils/model/user';
+
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-comple-client',
@@ -14,6 +18,10 @@ import { CrudService } from 'src/app/utils/crud/crud.service';
   styleUrls: ['./comple-client.component.css']
 })
 export class CompleClientComponent implements OnInit {
+
+  //@ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;    
 
   //dtOptions: DataTables.Settings={};
 
@@ -23,6 +31,7 @@ export class CompleClientComponent implements OnInit {
   // };  
   
   user:any;
+  user2:[]=[];
   clientForm:FormGroup;
   updateForm:FormGroup;
 
@@ -34,6 +43,16 @@ export class CompleClientComponent implements OnInit {
   // data = [];
   // columns: any = {};
   // rows={};
+
+  pgIndex= 2;
+  firstLastButtons= true;
+  pnDisabled= true;
+  hdPageSize= true;
+
+  displayedColumns: string[] = ['username', 'email', 'role', 'status'];
+  dataSource = new MatTableDataSource<User> ();
+
+  //dataSource;
 
   constructor(public auth:AuthService, public formBuilder:FormBuilder, 
     public crud:CrudService, public router:Router, public dialog:MatDialog, private cookieService: CookieService) {
@@ -80,11 +99,18 @@ export class CompleClientComponent implements OnInit {
     .subscribe(
       response => {
         this.user=response;
+        this.dataSource=new MatTableDataSource<User>(response);
+        this.dataSource.paginator = this.paginator;
       },
       error => {
         //console.log(error)
       });
   }
+
+  ngAfterViewInit() {
+    //this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
+  }   
 
   addUser(){
 
@@ -191,6 +217,11 @@ export class CompleClientComponent implements OnInit {
     if(this.cookieService.get('role')=='Client'){
       this.checkingRole=false;
     }
+  }
+
+  onChangePage(pe:PageEvent) {
+    console.log(pe.pageIndex);
+    console.log(pe.pageSize);
   }
 
 }

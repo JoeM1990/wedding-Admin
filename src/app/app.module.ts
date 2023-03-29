@@ -41,6 +41,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
+import {MatTableModule} from '@angular/material/table';
+//import { SimpleMatTableComponent } from './simple-mat-table/simple-mat-table.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,7 +78,8 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     QRCodeSVGModule,
     HttpClientModule,
     MatPaginatorModule,
-    NgxDatatableModule
+    NgxDatatableModule,
+    MatTableModule
     //DataTablesModule
     //Ng2TableModule
   ],
