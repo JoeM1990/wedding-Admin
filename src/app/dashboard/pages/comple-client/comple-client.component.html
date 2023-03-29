@@ -94,7 +94,7 @@
               <span class="menu-header-text">Comptes</span>
             </li>
             <ng-container *ngIf="checkingRole">
-              <li class="menu-item">
+              <li class="menu-item active">
                 <a href="/compte-clients" class="menu-link ">
                   <i class="menu-icon tf-icons bx bx-dock-top"></i>
                   <div data-i18n="Account Settings">Compte Clients</div>
@@ -191,18 +191,33 @@
                  <!-- Basic Bootstrap Table -->
               <div class="card">
                 <!-- <h5 class="card-header">Table Basic</h5> -->
+
+                <!-- <div class="table-responsive text-nowrap">
+                  <ngx-datatable tableClass="table" [rows]="rows"
+                     [columns]="columns" [limit]="dataParams.page_size">
+                     <ngx-datatable-column name="Username" [flexGrow]="2">
+                      <ng-template let-row="row" ngx-datatable-cell-template>
+                          {{ row?.username}}
+                      </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="Email" [flexGrow]="2">
+                      <ng-template let-row="row" ngx-datatable-cell-template>
+                          {{ row?.email}}
+                      </ng-template>
+                    </ngx-datatable-column>
+                  </ngx-datatable>
+                </div> -->
+
                 <div class="table-responsive text-nowrap">
 
-                  <!-- <mat-paginator [length]="100"
-                        [pageSize]="3"
-                        aria-label="Select page"> -->
+                
                         <table  class="table" >
                           <thead>
                             <tr>
-                              <!-- <th>Id</th> -->
+                            
                               <th>Username</th>
                               <th>Email</th>
-                              <!-- <th>Password</th> -->
+                            
                               <th>Role</th>
                               <th>Status</th>
                               <th>Actions</th>
@@ -210,10 +225,10 @@
                           </thead>
                           <tbody class="table-border-bottom-0">
                             <tr *ngFor="let user of user; let i = index">
-                              <!-- <td *ngIf="user.role=='Client' ">{{i+1}}</td> -->
+                             
                               <td *ngIf="user.role=='Client' ">{{user.username}}</td>
                               <td *ngIf="user.role=='Client' ">{{user.email}}</td>
-                              <!-- <td *ngIf="user.role=='Client' ">{{user.password}}</td> -->
+                             
                               <td *ngIf="user.role=='Client' ">{{user.role}}</td>
                              
                               <td *ngIf="user.role=='Client' ">
@@ -232,7 +247,7 @@
                             
                           </tbody>
                         </table>
-                  <!-- </mat-paginator> -->
+                
                   
                 </div>
               </div>

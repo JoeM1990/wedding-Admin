@@ -16,6 +16,11 @@ import { CrudService } from 'src/app/utils/crud/crud.service';
 export class CompleClientComponent implements OnInit {
 
   //dtOptions: DataTables.Settings={};
+
+  // dataParams: any = {  
+  //   page_num: '',  
+  //   page_size: ''  
+  // };  
   
   user:any;
   clientForm:FormGroup;
@@ -24,6 +29,11 @@ export class CompleClientComponent implements OnInit {
   idUpdate:any;
 
   checkingRole=true;
+
+  // options = {}
+  // data = [];
+  // columns: any = {};
+  // rows={};
 
   constructor(public auth:AuthService, public formBuilder:FormBuilder, 
     public crud:CrudService, public router:Router, public dialog:MatDialog, private cookieService: CookieService) {
@@ -46,13 +56,22 @@ export class CompleClientComponent implements OnInit {
 
   ngOnInit(): void {
 
+    // this.dataParams.page_num = 1;  
+    // this.dataParams.page_size = 5;  
+
     // this.dtOptions = {
     //   pagingType: 'full_numbers',
     //   pageLength:5,
-    //   autoWidth:true,
-
+    //   processing:true
     // }
 
+  //     this.columns = [
+  //     { key: 'username', title: "Username" },
+  //     { key: 'email', title: 'Email' },
+  //     { key: 'role', title: 'Role' },
+  //     { key: 'status', title: 'Status'},
+  //     { key: 'actions', title: 'Actions' }
+  // ]
     
     this.checkRole();
 
@@ -61,7 +80,6 @@ export class CompleClientComponent implements OnInit {
     .subscribe(
       response => {
         this.user=response;
-        
       },
       error => {
         //console.log(error)

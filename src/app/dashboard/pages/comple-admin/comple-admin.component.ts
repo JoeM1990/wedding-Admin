@@ -56,12 +56,15 @@ export class CompleAdminComponent implements OnInit {
         
     //   });
 
+  
+
     this.checkRole();
 
     this.crud.getAllUserApi()
     .subscribe(
       response => {
         this.user=response;
+        //this.data=response;
       },
       error => {
         //console.log(error)
