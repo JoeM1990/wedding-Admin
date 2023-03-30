@@ -377,10 +377,10 @@
               </div>
             </div>
 
-            <div class="container" style="margin-bottom: 500px">
+            <div class="container" style="margin-bottom: 100px">
               <div class="row">
                 <div class="col">
-                  <div class="card">
+                  <div class="card" style="height: 500px;">
                     <h5 class="card-header" style="font-size: 22px;">Operations</h5>
                     <!-- <span style="margin-top: -35px; margin-left: 22px;">
                       <i class='bx bxs-filter-alt' data-bs-toggle="modal"
@@ -391,8 +391,8 @@
                         <table class="table table-bordered">
                           <thead>
                             <tr>
-                              <th>From</th>
-                              <th>Operateur</th>
+                              <th >From</th>
+                              <th >Operateur</th>
                               <th>Forfait</th>
                               <th>Reference</th>
                               <th>Date</th>
@@ -400,17 +400,17 @@
                               <th>Actions</th>
                             </tr>
                           </thead>
-                          <tbody>
+                          <tbody style="position:absolute; max-height:55vh; overflow-y: scroll;">
                             <tr *ngFor="let transaction of transactions; let i = index ">
                               <td>{{transaction.email}}</td>
-                              <td>{{transaction.operateur}}</td>
-                              <td>{{transaction.forfait}}</td>
+                              <td >{{transaction.operateur}}</td>
+                              <td >{{transaction.forfait}}</td>
                               <td>{{transaction.reference}}</td>
                               <td>{{transaction.createdAt}}</td>
                               <td>
                                 <span class="badge bg-label-primary me-1" *ngIf="transaction.status=='Valide' ">Approuvée</span>
                                 <span class="badge bg-label-warning me-1" *ngIf="transaction.status=='NonValide' ">En attente</span>
-                              <td>
+                              <td >
                                 <i class='bx bx-search-alt-2' data-bs-toggle="modal" data-bs-target="#basicModalUpdate" (click)="getTransactionById(transaction.id)"></i>
                                 <i class='bx bxs-trash primary' (click)="deleteTransactionById(transaction.id)"></i>
                               </td>

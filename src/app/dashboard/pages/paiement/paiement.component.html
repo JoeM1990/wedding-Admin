@@ -197,7 +197,7 @@
                   <!-- Basic Bootstrap Table -->
 
               <ng-container *ngIf="checkingRole">
-                <div class="card">
+                <div class="card" style="height: 400px;">
                   <!-- <h5 class="card-header">Table Basic</h5> -->
                   <div class="table-responsive text-nowrap">
                     <table class="table">
@@ -213,18 +213,18 @@
                          
                         </tr>
                       </thead>
-                      <tbody class="table-border-bottom-0">
+                      <tbody class="table-border-bottom-0" style="position:absolute; max-height:50vh; overflow-y: scroll;">
                         <tr *ngFor="let paiement of paiement; let i = index ">
                           <!-- <td>1</td> -->
-                          <td>{{paiement.email}}</td>
-                          <td>
+                          <td style="width: 400px; ">{{paiement.email}}</td>
+                          <td style="width: 300px; ">
                             <span class="badge bg-label-primary me-1" *ngIf="paiement.creditt>15">{{paiement.creditt}}</span>
                             <span class="badge bg-label-danger me-1" *ngIf="paiement.creditt<15">{{paiement.creditt}}</span>
                           </td>
 
   
                           
-                            <td>
+                            <td style="width: 300px; text-align: center;">
                               <!-- <i class='bx bx-search-alt-2' data-bs-toggle="modal"></i> -->
                               <i class='bx bxs-trash primary' (click)="deleteCreditById(paiement.id)"></i>
                             </td>
