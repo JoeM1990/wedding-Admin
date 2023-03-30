@@ -19,46 +19,14 @@ import { DataTableDirective } from 'angular-datatables';
   styleUrls: ['./comple-client.component.css']
 })
 export class CompleClientComponent implements OnInit {
-
-  //@ViewChild(MatSort) sort: MatSort;
-  @ViewChild(MatPaginator)
-  paginator!: MatPaginator;    
-
-  @ViewChild(DataTableDirective, { static: false })
-  dtElement!: DataTableDirective;
-
-  // dtOptions: DataTables.Settings={};
-  // dtTrigger: Subject<any> = new Subject<any>();
-
-  // dataParams: any = {  
-  //   page_num: '',  
-  //   page_size: ''  
-  // };  
-
   
   user:any;
-  user2:[]=[];
   clientForm:FormGroup;
   updateForm:FormGroup;
 
   idUpdate:any;
 
   checkingRole=true;
-
-  // options = {}
-  // data = [];
-  // columns: any = {};
-  // rows={};
-
-  pgIndex= 2;
-  firstLastButtons= true;
-  pnDisabled= true;
-  hdPageSize= true;
-
-  displayedColumns: string[] = ['username', 'email', 'role', 'status'];
-  dataSource = new MatTableDataSource<User> ();
-
-  //dataSource;
 
   constructor(public auth:AuthService, public formBuilder:FormBuilder, 
     public crud:CrudService, public router:Router, public dialog:MatDialog, private cookieService: CookieService) {
@@ -81,16 +49,7 @@ export class CompleClientComponent implements OnInit {
 
   ngOnInit(): void {
 
-    // this.dataParams.page_num = 1;  
-    // this.dataParams.page_size = 5;  
-
-    // this.dtOptions = {
-    //   pagingType: 'full_numbers',
-    //   pageLength:5,
-    // }
-
-    //this.initDataTable();
-    
+  
     this.checkRole();
 
 
@@ -98,38 +57,11 @@ export class CompleClientComponent implements OnInit {
     .subscribe(
       response => {
         this.user=response;
-
-        // $('#dataExampleTable').DataTable( {
-        //       pagingType: 'full_numbers',
-        //       pageLength: 5,
-        //       processing: true,
-        //       lengthMenu: [5,10,20],
-        //       data:response
-        //   } );
-
-        // setTimeout(()=>{
-        //   $('#dataExampleTable').DataTable( {
-        //     pagingType: 'full_numbers',
-        //     pageLength: 5,
-        //     processing: true,
-        //     lengthMenu: [5,10,20],
-        // } );
-        // })
-
-        
-
-        //this.initDataTable(response);
-
-        
-
-        this.dataSource=new MatTableDataSource<User>(response);
-        this.dataSource.paginator = this.paginator;
       },
       error => {
         //console.log(error)
       });
 
-      this.initDataTable2();
   }
 
   // ngAfterViewInit() {
@@ -248,20 +180,6 @@ export class CompleClientComponent implements OnInit {
       this.checkingRole=false;
     }
   }
-
-  onChangePage(pe:PageEvent) {
-    console.log(pe.pageIndex);
-    console.log(pe.pageSize);
-  }
-
-  // rerender(): void {
-  //   this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
-  //     // Destroy the table first
-  //     dtInstance.destroy();
-  //     // Call the dtTrigger to rerender again
-  //     this.dtTrigger.next(null);
-  //   });
-  // }
 
   initDataTable(){
     $(document).ready(function() {
