@@ -17,6 +17,9 @@ export class DashboardComponent implements OnInit {
   countUserActive:any;
   countUserDesactive:any;
 
+  countTransactionActive:any;
+  countTransactionDesactive:any;
+
   checkingRole=true;
   checkingRole2=true;
 
@@ -49,6 +52,24 @@ export class DashboardComponent implements OnInit {
     .subscribe(
       response => {
         this.countUserDesactive=response["value"]
+      },
+      error => {
+        //console.log(error)
+      });
+
+      this.crud.countTransactionActive()
+    .subscribe(
+      response => {
+        this.countTransactionActive=response["value"]
+      },
+      error => {
+        //console.log(error)
+      });
+
+      this.crud.countTransactionDesactive()
+    .subscribe(
+      response => {
+        this.countTransactionDesactive=response["value"]
       },
       error => {
         //console.log(error)
