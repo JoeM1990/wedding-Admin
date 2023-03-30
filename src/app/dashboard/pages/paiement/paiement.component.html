@@ -217,7 +217,11 @@
                         <tr *ngFor="let paiement of paiement; let i = index ">
                           <!-- <td>1</td> -->
                           <td>{{paiement.email}}</td>
-                          <td><span class="badge bg-label-primary me-1">{{paiement.creditt}}</span></td>
+                          <td>
+                            <span class="badge bg-label-primary me-1" *ngIf="paiement.creditt>15">{{paiement.creditt}}</span>
+                            <span class="badge bg-label-danger me-1" *ngIf="paiement.creditt<15">{{paiement.creditt}}</span>
+                          </td>
+
   
                           
                             <td>
