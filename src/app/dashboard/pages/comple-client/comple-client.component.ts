@@ -11,6 +11,7 @@ import { CrudService } from 'src/app/utils/crud/crud.service';
 import { User } from 'src/app/utils/model/user';
 
 import { MatTableDataSource } from '@angular/material/table';
+import { DataTableDirective } from 'angular-datatables';
 
 @Component({
   selector: 'app-comple-client',
@@ -23,12 +24,17 @@ export class CompleClientComponent implements OnInit {
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;    
 
-  //dtOptions: DataTables.Settings={};
+  @ViewChild(DataTableDirective, { static: false })
+  dtElement!: DataTableDirective;
+
+  // dtOptions: DataTables.Settings={};
+  // dtTrigger: Subject<any> = new Subject<any>();
 
   // dataParams: any = {  
   //   page_num: '',  
   //   page_size: ''  
   // };  
+
   
   user:any;
   user2:[]=[];
@@ -81,16 +87,9 @@ export class CompleClientComponent implements OnInit {
     // this.dtOptions = {
     //   pagingType: 'full_numbers',
     //   pageLength:5,
-    //   processing:true
     // }
 
-  //     this.columns = [
-  //     { key: 'username', title: "Username" },
-  //     { key: 'email', title: 'Email' },
-  //     { key: 'role', title: 'Role' },
-  //     { key: 'status', title: 'Status'},
-  //     { key: 'actions', title: 'Actions' }
-  // ]
+    //this.initDataTable();
     
     this.checkRole();
 
@@ -99,18 +98,49 @@ export class CompleClientComponent implements OnInit {
     .subscribe(
       response => {
         this.user=response;
+
+        // $('#dataExampleTable').DataTable( {
+        //       pagingType: 'full_numbers',
+        //       pageLength: 5,
+        //       processing: true,
+        //       lengthMenu: [5,10,20],
+        //       data:response
+        //   } );
+
+        // setTimeout(()=>{
+        //   $('#dataExampleTable').DataTable( {
+        //     pagingType: 'full_numbers',
+        //     pageLength: 5,
+        //     processing: true,
+        //     lengthMenu: [5,10,20],
+        // } );
+        // })
+
+        
+
+        //this.initDataTable(response);
+
+        
+
         this.dataSource=new MatTableDataSource<User>(response);
         this.dataSource.paginator = this.paginator;
       },
       error => {
         //console.log(error)
       });
+
+      this.initDataTable2();
   }
 
-  ngAfterViewInit() {
-    //this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
-  }   
+  // ngAfterViewInit() {
+  //   //this.dataSource.sort = this.sort;
+  //   this.dataSource.paginator = this.paginator;
+  //   this.dtTrigger.next()
+  // }   
+
+  // ngAfterViewInit(): void {
+  //   this.dtTrigger.next(null);
+  // }
 
   addUser(){
 
@@ -224,4 +254,43 @@ export class CompleClientComponent implements OnInit {
     console.log(pe.pageSize);
   }
 
+  // rerender(): void {
+  //   this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
+  //     // Destroy the table first
+  //     dtInstance.destroy();
+  //     // Call the dtTrigger to rerender again
+  //     this.dtTrigger.next(null);
+  //   });
+  // }
+
+  initDataTable(){
+    $(document).ready(function() {
+      var table = $('#dataExampleTable').DataTable( {
+        pagingType: 'full_numbers',
+        pageLength: 5,
+        processing: true,
+        lengthMenu: [5],
+      } );
+  } );
+  }
+
+  initDataTable2(){
+    $(document).ready(function(){
+      $("#dataExampleTable #checkall").click(function () {
+              if ($("#dataExampleTable #checkall").is(':checked')) {
+                  $("#dataExampleTable input[type=checkbox]").each(function () {
+                      $(this).prop("checked", true);
+                  });
+      
+              } else {
+                  $("#mytable input[type=checkbox]").each(function () {
+                      $(this).prop("checked", false);
+                  });
+              }
+          });
+          
+          //$("[data-toggle=tooltip]").tooltip();
+      });
+      
+  }
 }

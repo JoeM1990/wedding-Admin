@@ -37,7 +37,7 @@ import { PaiementFormComponent } from './ui/paiement-form/paiement-form.componen
 
 import {MatPaginatorModule} from '@angular/material/paginator';
 
-//import { DataTablesModule } from 'angular-datatables';
+import { DataTablesModule } from 'angular-datatables';
 
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
@@ -79,8 +79,8 @@ import {MatTableModule} from '@angular/material/table';
     HttpClientModule,
     MatPaginatorModule,
     NgxDatatableModule,
-    MatTableModule
-    //DataTablesModule
+    MatTableModule,
+    DataTablesModule
     //Ng2TableModule
   ],
   providers: [],
