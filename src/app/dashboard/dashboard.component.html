@@ -401,13 +401,13 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <tr>
-                              <td>Joe Monkila</td>
-                              <td>Mpesa</td>
-                              <td>200 USD</td>
-                              <td>frkfkjfrkfr</td>
-                              <td>02/03/2023</td>
-                              <td>Attente</td>
+                            <tr *ngFor="let transaction of transactions; let i = index ">
+                              <td>{{transactions.email}}</td>
+                              <td>{{transactions.operateur}}</td>
+                              <td>{{transactions.forfait}}</td>
+                              <td>{{transactions.reference}}</td>
+                              <td>{{transactions.createdAt}}</td>
+                              <td>{{transactions.status}}</td>
                               <td>
                                 <i class='bx bx-search-alt-2' data-bs-toggle="modal" data-bs-target="#basicModalUpdate" ></i>
                                 <i class='bx bxs-trash primary'></i>
@@ -471,6 +471,47 @@
                       Close
                     </button>
                     <button type="button" class="btn btn-primary">Filtrer</button>
+                  </div>
+                </form>
+                  
+                </div>
+              </div>
+            </div>
+            <!-- Modal -->
+
+            <!-- ModalUpdate -->
+            <div class="modal fade" id="basicModalUpdate" tabindex="-1" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel1">Informations</h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <form [formGroup]="updateForm">
+                  <div class="modal-body">
+                  
+                    <div class="row">
+                      <div class="col mb-3">
+                        <label for="nameBasic" class="form-label">Status</label>
+                        <select class="form-control" formControlName="status">
+                          <option>Valide</option>
+                          <option>NonValide</option>
+                          <!-- <option>Client</option> -->
+                        </select>
+                        <!-- <input type="text" id="nameBasic" class="form-control" placeholder="Enter Username" /> -->
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                      Close
+                    </button>
+                    <button type="button" class="btn btn-primary" (click)="updateUserById(idUpdate)" [disabled]="!updateForm.valid" data-bs-dismiss="modal">Modifier</button>
                   </div>
                 </form>
                   

@@ -23,6 +23,8 @@ export class DashboardComponent implements OnInit {
   checkingRole=true;
   checkingRole2=true;
 
+  transactions:any;
+
   constructor(public auth:AuthService,public crud:CrudService, public dialog:MatDialog,
     private cookieService: CookieService) { }
 
@@ -75,6 +77,16 @@ export class DashboardComponent implements OnInit {
         //console.log(error)
       });
 
+      this.crud.getAllTransactionApi()
+      .subscribe(
+        response => {
+          this.transactions=response;
+        },
+        error => {
+          //console.log(error)
+        });
+  
+
   }
 
   onConfirmation(){
@@ -96,5 +108,31 @@ export class DashboardComponent implements OnInit {
       this.checkingRole2=false;
     }
   }
+
+
+
+  updateTransaction(id:any){
+
+    let refDialog=this.dialog.open(ConfirmationComponent,{data:'Voulez-vous modifier cette transaction ?'});
+
+
+    refDialog.afterClosed().subscribe(res=>{
+      if(res == 'true'){
+        this.crud.updateUserById(id,this.updateForm.value)
+        .subscribe(
+            response => {
+              if(response){
+                //window.location.reload();
+              }
+        
+            },
+              error => {
+          //      console.log(error)
+              });
+      }
+    })
+      
+  }
+
 
 }
