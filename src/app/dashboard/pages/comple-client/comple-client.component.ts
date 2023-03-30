@@ -28,6 +28,8 @@ export class CompleClientComponent implements OnInit {
 
   checkingRole=true;
 
+  status:any;
+
   constructor(public auth:AuthService, public formBuilder:FormBuilder, 
     public crud:CrudService, public router:Router, public dialog:MatDialog, private cookieService: CookieService) {
     this.clientForm = this.formBuilder.group({
@@ -102,14 +104,20 @@ export class CompleClientComponent implements OnInit {
     this.crud.getUserById(id)
     .subscribe(
       response => {
-        this.idUpdate=response['id']
+        this.idUpdate=response['id'];
+
+        if(response['isApproved']==1){
+          this.status="Activer"
+        }else if(response['isApproved']==0){
+          this.status="Desactiver";
+        }
 
         this.updateForm = this.formBuilder.group({
           username: response['username'],
           email: response['email'],
           password: response['password'],
-          role: response['password'],
-          isApproved: response['isApproved']
+          role: response['role'],
+          isApproved: this.status
         })
       },
       error => {

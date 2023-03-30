@@ -409,7 +409,7 @@
                               <td>{{transaction.createdAt}}</td>
                               <td>{{transaction.status}}</td>
                               <td>
-                                <i class='bx bx-search-alt-2' data-bs-toggle="modal" data-bs-target="#basicModalUpdate" (click)="getTransactionById(transactions.id)"></i>
+                                <i class='bx bx-search-alt-2' data-bs-toggle="modal" data-bs-target="#basicModalUpdate" (click)="getTransactionById(transaction.id)"></i>
                                 <i class='bx bxs-trash primary' (click)="deleteTransactionById(transaction.id)"></i>
                               </td>
                             </tr>
