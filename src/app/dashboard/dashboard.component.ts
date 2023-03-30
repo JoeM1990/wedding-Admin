@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { CookieService } from 'ngx-cookie-service';
 import { ConfirmationComponent } from '../dialog/confirmation/confirmation.component';
@@ -25,8 +26,14 @@ export class DashboardComponent implements OnInit {
 
   transactions:any;
 
+  updateForm:FormGroup;
+
   constructor(public auth:AuthService,public crud:CrudService, public dialog:MatDialog,
-    private cookieService: CookieService) { }
+    private cookieService: CookieService, private formBuilder:FormBuilder) { 
+      this.updateForm = this.formBuilder.group({
+        status: ['',{validators: [Validators.required, ],}],
+      })
+    }
 
   ngOnInit(): void {
 

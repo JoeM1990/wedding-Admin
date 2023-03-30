@@ -162,6 +162,26 @@ export class CrudService {
     
   }
 
+  updateTransactionById(id:any,transaction:Transaction):Observable<any>{
+
+    let token=this.cookieService.get('token');
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+ 
+    const requestOptions = { headers: headers };
+
+    return this.httpClient.put(baseUrl+'transactions/'+id,transaction,requestOptions)
+    .pipe( finalize(()=>{
+      this.dialogSuccess("La transaction a été modifier avec success");
+      //window.location.reload();
+    })
+    );
+    
+  }
+
   deleteUserById(id:any){
     let token=this.cookieService.get('token');
 
