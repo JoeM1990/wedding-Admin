@@ -206,15 +206,15 @@
                         <th>Actions</th>
                       </tr>
                     </thead>
-                    <tbody class="table-border-bottom-0">
+                    <tbody class="table-border-bottom-0"  style="position:absolute; max-height:50vh; overflow-y: scroll;">
                       <tr *ngFor="let item of ItemQr; let i = index">
-                        <td>{{i+1}}</td>
-                        <td>{{item.name}}</td>
-                        <td>{{item.email_user}}</td>
-                        <td>
+                        <td style="width: 90px;">{{i+1}}</td>
+                        <td style="width: 150px;">{{item.name}}</td>
+                        <td style="width: 150px;">{{item.email_user}}</td>
+                        <td style="width: 250px;">
                             <img src={{item.description}} width="100px">
                         </td>
-                        <td>
+                        <td style="width: 250px;">
                           <div >
                             <ngx-qrcode
                               [elementType]="elementType"
