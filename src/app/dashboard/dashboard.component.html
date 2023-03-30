@@ -407,7 +407,9 @@
                               <td>{{transaction.forfait}}</td>
                               <td>{{transaction.reference}}</td>
                               <td>{{transaction.createdAt}}</td>
-                              <td>{{transaction.status}}</td>
+                              <td>
+                                <span class="badge bg-label-primary me-1" *ngIf="transaction.status=='Valide' ">Approuvée</span>
+                                <span class="badge bg-label-warning me-1" *ngIf="transaction.status=='NonValide' ">En attente</span>
                               <td>
                                 <i class='bx bx-search-alt-2' data-bs-toggle="modal" data-bs-target="#basicModalUpdate" (click)="getTransactionById(transaction.id)"></i>
                                 <i class='bx bxs-trash primary' (click)="deleteTransactionById(transaction.id)"></i>
