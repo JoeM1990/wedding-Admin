@@ -409,7 +409,7 @@
                               <td>{{transactions.createdAt}}</td>
                               <td>{{transactions.status}}</td>
                               <td>
-                                <i class='bx bx-search-alt-2' data-bs-toggle="modal" data-bs-target="#basicModalUpdate" ></i>
+                                <i class='bx bx-search-alt-2' data-bs-toggle="modal" data-bs-target="#basicModalUpdate" (click)="getTransactionById(transactions.id)"></i>
                                 <i class='bx bxs-trash primary'></i>
                               </td>
                             </tr>
@@ -511,7 +511,7 @@
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                       Close
                     </button>
-                    <button type="button" class="btn btn-primary" (click)="updateUserById(idUpdate)" [disabled]="!updateForm.valid" data-bs-dismiss="modal">Modifier</button>
+                    <button type="button" class="btn btn-primary" (click)="updateTransaction(idUpdate)" [disabled]="!updateForm.valid" data-bs-dismiss="modal">Modifier</button>
                   </div>
                 </form>
                   

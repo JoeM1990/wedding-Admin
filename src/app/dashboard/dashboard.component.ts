@@ -27,6 +27,7 @@ export class DashboardComponent implements OnInit {
   transactions:any;
 
   updateForm:FormGroup;
+  idUpdate:any;
 
   constructor(public auth:AuthService,public crud:CrudService, public dialog:MatDialog,
     private cookieService: CookieService, private formBuilder:FormBuilder) { 
@@ -139,6 +140,21 @@ export class DashboardComponent implements OnInit {
       }
     })
       
+  }
+
+  getTransactionById(id:any){
+    this.crud.getTransactionById(id)
+    .subscribe(
+      response => {
+        this.idUpdate=response['id']
+
+        this.updateForm = this.formBuilder.group({
+          status: response['status'],
+        })
+      },
+      error => {
+        //console.log(error)
+      });
   }
 
 
