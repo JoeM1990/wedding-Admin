@@ -233,6 +233,24 @@ export class CrudService {
     )
   }
 
+  deleteTransactionById(id:any){
+    let token=this.cookieService.get('token');
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+ 
+    const requestOptions = { headers: headers };
+
+    return this.httpClient.delete(baseUrl+'transactions/'+id,requestOptions)
+    .pipe( finalize(()=>{
+      this.dialogSuccess("La transaction a été supprimer avec success");
+      //window.location.reload();
+    })
+    )
+  }
+
   countUser():Observable<any>{
 
     let token=this.cookieService.get('token');

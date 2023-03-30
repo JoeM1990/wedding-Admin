@@ -126,7 +126,7 @@ export class DashboardComponent implements OnInit {
 
     refDialog.afterClosed().subscribe(res=>{
       if(res == 'true'){
-        this.crud.updateUserById(id,this.updateForm.value)
+        this.crud.updateTransactionById(id,this.updateForm.value)
         .subscribe(
             response => {
               if(response){
@@ -155,6 +155,29 @@ export class DashboardComponent implements OnInit {
       error => {
         //console.log(error)
       });
+  }
+
+  deleteTransactionById(id:any){
+
+    let refDialog=this.dialog.open(ConfirmationComponent,{data:'Voulez-vous supprimer cette transaction ?'});
+
+
+    refDialog.afterClosed().subscribe(res=>{
+      if(res == 'true'){
+          this.crud.deleteTransactionById(id)
+      .subscribe(
+        response => {
+          if(response){
+           // window.location.reload();
+          }
+          
+        },
+        error => {
+          //console.log(error)
+        });
+      }
+    })
+
   }
 
 

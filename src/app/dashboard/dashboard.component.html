@@ -382,10 +382,10 @@
                 <div class="col">
                   <div class="card">
                     <h5 class="card-header" style="font-size: 22px;">Operations</h5>
-                    <span style="margin-top: -35px; margin-left: 22px;">
+                    <!-- <span style="margin-top: -35px; margin-left: 22px;">
                       <i class='bx bxs-filter-alt' data-bs-toggle="modal"
                       data-bs-target="#modalFiltre"></i>
-                    </span>
+                    </span> -->
                     <div class="card-body">
                       <div class="table-responsive text-nowrap">
                         <table class="table table-bordered">
@@ -402,15 +402,15 @@
                           </thead>
                           <tbody>
                             <tr *ngFor="let transaction of transactions; let i = index ">
-                              <td>{{transactions.email}}</td>
-                              <td>{{transactions.operateur}}</td>
-                              <td>{{transactions.forfait}}</td>
-                              <td>{{transactions.reference}}</td>
-                              <td>{{transactions.createdAt}}</td>
-                              <td>{{transactions.status}}</td>
+                              <td>{{transaction.email}}</td>
+                              <td>{{transaction.operateur}}</td>
+                              <td>{{transaction.forfait}}</td>
+                              <td>{{transaction.reference}}</td>
+                              <td>{{transaction.createdAt}}</td>
+                              <td>{{transaction.status}}</td>
                               <td>
                                 <i class='bx bx-search-alt-2' data-bs-toggle="modal" data-bs-target="#basicModalUpdate" (click)="getTransactionById(transactions.id)"></i>
-                                <i class='bx bxs-trash primary'></i>
+                                <i class='bx bxs-trash primary' (click)="deleteTransactionById(transaction.id)"></i>
                               </td>
                             </tr>
                           </tbody>
