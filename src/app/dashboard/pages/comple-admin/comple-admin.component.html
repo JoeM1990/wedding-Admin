@@ -208,28 +208,25 @@
                         <th>Actions</th>
                       </tr>
                     </thead>
-                    <tbody class="table-border-bottom-0">
+                    <tbody class="table-border-bottom-0" style="position:absolute; max-height:50vh; overflow-y: scroll;">
                       <tr *ngFor="let user of user; let i = index ">
-                        <!-- <td *ngIf="user.role=='Admin' ">{{i+1}}</td> -->
-                        <td *ngIf="user.role=='Admin' ">{{user.username}}</td>
-                        <td *ngIf="user.role=='Admin' ">{{user.email}}</td>
-                        <!-- <td *ngIf="user.role=='Admin' ">{{user.password}}</td> -->
-                        <td *ngIf="user.role=='Admin' ">{{user.role}}</td>
-                        
-                        
-                        <td *ngIf="user.role=='Admin' ">
-                         
-                          <span class="badge bg-label-primary me-1" *ngIf="user.isApproved==true">Activer</span>
-                          <span class="badge bg-label-warning me-1" *ngIf="user.isApproved==false">Desactiver</span>
-                        
-                        </td>
-                        <td *ngIf="user.role=='Admin' ">{{user.createdAt}}</td>
-                        <td *ngIf="user.role=='Admin' " >
-                    
-                            <i class='bx bx-search-alt-2' data-bs-toggle="modal" data-bs-target="#basicModalUpdate" (click)="getUserById(user.id)"></i>
-                            <i class='bx bxs-trash primary' (click)="deleteUserById(user.id)"></i>
-                        
-                        </td>
+                        <td *ngIf="user.role=='Admin' " style="width: 200px;">{{user.username}}</td>
+                              <td *ngIf="user.role=='Admin' " style="width: 200px;">{{user.email}}</td>
+                             
+                              <td *ngIf="user.role=='Admin' " style="width: 100px;">{{user.role}}</td>
+                             
+                              <td *ngIf="user.role=='Admin' " style="width: 200px; text-align: center;">
+                               
+                                <span class="badge bg-label-primary me-1" *ngIf="user.isApproved==true">Activer</span>
+                                <span class="badge bg-label-warning me-1" *ngIf="user.isApproved==false">Desactiver</span>
+                              
+                              </td>
+                              <td *ngIf="user.role=='Admin' " >{{user.createdAt}}</td>
+                              
+                              <td *ngIf="user.role=='Admin' ">
+                                  <i class='bx bx-search-alt-2' data-bs-toggle="modal" data-bs-target="#basicModalUpdate" (click)="getUserById(user.id)"></i>
+                                  <i class='bx bxs-trash primary' (click)="deleteUserById(user.id)"></i>
+                              </td>
                       </tr>
                       
                     </tbody>
