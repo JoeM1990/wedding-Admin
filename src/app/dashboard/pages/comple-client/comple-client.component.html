@@ -284,7 +284,7 @@
                               <td *ngIf="user.role=='Client' " style="width: 200px; text-align: center;">
                                
                                 <span class="badge bg-label-primary me-1" *ngIf="user.isApproved==true">Activer</span>
-                                <span class="badge bg-label-warning me-1" *ngIf="user.isApproved==false">Desactiver</span>
+                                <span class="badge bg-label-danger me-1" *ngIf="user.isApproved==false">Desactiver</span>
                               
                               </td>
                               <td *ngIf="user.role=='Client' " >{{user.createdAt}}</td>
