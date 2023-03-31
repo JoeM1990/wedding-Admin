@@ -29,6 +29,9 @@ export class DashboardComponent implements OnInit {
   updateForm:FormGroup;
   idUpdate:any;
 
+  forfaitUser:any;
+  emailUser:any;
+
   constructor(public auth:AuthService,public crud:CrudService, public dialog:MatDialog,
     private cookieService: CookieService, private formBuilder:FormBuilder) { 
       this.updateForm = this.formBuilder.group({
@@ -129,10 +132,19 @@ export class DashboardComponent implements OnInit {
         this.crud.updateTransactionById(id,this.updateForm.value)
         .subscribe(
             response => {
-              if(response){
-                //window.location.reload();
+
+              if(this.updateForm.controls['status'].value=="Valide"){
+                this.crud.addPaiement(this.emailUser,this.forfaitUser).subscribe(res=>{
+
+                });
+              }else if(this.updateForm.controls['status'].value=="NonValide"){
+                this.crud.desapprouvePaiement(this.emailUser,this.forfaitUser).subscribe(res=>{
+
+                });
               }
-        
+
+              
+              
             },
               error => {
           //      console.log(error)
@@ -147,6 +159,8 @@ export class DashboardComponent implements OnInit {
     .subscribe(
       response => {
         this.idUpdate=response['id']
+        this.forfaitUser=response['forfait']
+        this.emailUser=response['email'];
 
         this.updateForm = this.formBuilder.group({
           status: response['status'],

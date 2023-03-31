@@ -86,6 +86,25 @@ export class CrudService {
     )
   }
 
+  desapprouvePaiement(email:any,forfait:any):Observable<any>{
+
+    let token=this.cookieService.get('token');
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    })
+
+    const requestOptions = { headers: headers };
+
+    return this.httpClient.post(baseUrl+'paiementss',{'email':email,'forfait':forfait},requestOptions)
+    .pipe( finalize(()=>{
+      this.dialogSuccess("Le forfait a été retirer avec success");
+      //window.location.reload();
+    })
+    )
+  }
+
   getAllUserApi():Observable<any>{
 
     let token=this.cookieService.get('token');
