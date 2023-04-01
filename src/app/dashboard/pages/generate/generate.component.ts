@@ -92,6 +92,7 @@ export class GenerateComponent implements OnInit {
   valueCredit!:number;
 
   checkingRole=true;
+  checkingRole2=true;
 
   constructor(private crud:CrudService,public formBuilder: FormBuilder, public router:Router, 
     public dialog:MatDialog, public auth:AuthService, private cookieService: CookieService) {
@@ -579,6 +580,8 @@ dialogSuccess(message:any){
 checkRole(){
   if(this.cookieService.get('role')=='Client'){
     this.checkingRole=false;
+  }else if(this.cookieService.get('role')=='Admin'){
+    this.checkingRole2=false;
   }
 }
 

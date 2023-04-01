@@ -27,6 +27,7 @@ export class CompleClientComponent implements OnInit {
   idUpdate:any;
 
   checkingRole=true;
+  checkingRole2=true;
 
   status:any;
 
@@ -186,6 +187,8 @@ export class CompleClientComponent implements OnInit {
   checkRole(){
     if(this.cookieService.get('role')=='Client'){
       this.checkingRole=false;
+    }else if(this.cookieService.get('role')=='Admin'){
+      this.checkingRole2=false;
     }
   }
 
