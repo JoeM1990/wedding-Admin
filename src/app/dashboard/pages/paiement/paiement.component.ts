@@ -17,7 +17,8 @@ export class PaiementComponent implements OnInit {
   user:any;
 
   checkingRole=true;
-  checkingRole2=false;
+  checkingRole2=true;
+  checkingRole3=false;
   
 
   getEmail:any;
@@ -111,6 +112,7 @@ export class PaiementComponent implements OnInit {
       this.checkingRole=false;
     }else if(this.cookieService.get('role')=='Admin'){
       this.checkingRole2=true;
+      this.checkingRole3=true;
     }
   }
 
