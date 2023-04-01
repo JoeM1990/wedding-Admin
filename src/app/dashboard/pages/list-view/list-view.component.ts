@@ -49,7 +49,7 @@ export class ListViewComponent implements OnInit {
   urlData:any;
 
   checkingRole=true;
-  checkingRole2=true;
+  checkingRole2=false;
 
   constructor(public crud:CrudService, public httpClient:HttpClient, public dialog:MatDialog,
     public auth:AuthService, private cookieService: CookieService) { }
@@ -262,7 +262,7 @@ export class ListViewComponent implements OnInit {
     if(this.cookieService.get('role')=='Client'){
       this.checkingRole=false;
     }else if(this.cookieService.get('role')=='Admin'){
-      this.checkingRole2=false;
+      this.checkingRole2=true;
     }
   }
 
