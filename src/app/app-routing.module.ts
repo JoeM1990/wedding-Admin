@@ -14,7 +14,7 @@ import { PaiementFormComponent } from './ui/paiement-form/paiement-form.componen
 import { AuthGuard } from './utils/guard/auth.guard';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'login' },
+  { path: '', pathMatch: 'full', redirectTo: 'splash-screen' },
   { path: 'login', component:LoginComponent},
   { path: 'splash-screen', component:SplashScreenComponent},
   { path: 'dashboard', component:DashboardComponent,canActivate:[AuthGuard]},
