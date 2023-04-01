@@ -8,6 +8,7 @@ import { ListViewComponent } from './dashboard/pages/list-view/list-view.compone
 import { NotificationComponent } from './dashboard/pages/notification/notification.component';
 import { PaiementComponent } from './dashboard/pages/paiement/paiement.component';
 import { LoginComponent } from './login/login.component';
+import { SplashScreenComponent } from './splash-screen/splash-screen.component';
 import { PaiementForfaitComponent } from './ui/paiement-forfait/paiement-forfait.component';
 import { PaiementFormComponent } from './ui/paiement-form/paiement-form.component';
 import { AuthGuard } from './utils/guard/auth.guard';
@@ -15,6 +16,7 @@ import { AuthGuard } from './utils/guard/auth.guard';
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: 'login', component:LoginComponent},
+  { path: 'splash-screen', component:SplashScreenComponent},
   { path: 'dashboard', component:DashboardComponent,canActivate:[AuthGuard]},
   { path: 'compte-admin', component:CompleAdminComponent,canActivate:[AuthGuard]},
   { path: 'compte-clients', component:CompleClientComponent,canActivate:[AuthGuard]},
