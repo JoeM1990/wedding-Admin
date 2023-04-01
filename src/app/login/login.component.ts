@@ -1,3 +1,4 @@
+import { ConstantPool } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -90,8 +91,10 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/login']);
       },
       error => {
-        this.dialogError("Echec d'enregistrement");
+        this.dialogError(error['error']);
+        this.registerForm.reset();
         //alert("Echec d'enregistrement");
+        //console.log(error)
       });
     }else{
       this.dialogError("Le formulaire est vide ou mal rempli");
