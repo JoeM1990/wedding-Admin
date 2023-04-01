@@ -116,7 +116,7 @@ export class DashboardComponent implements OnInit {
   checkRole(){
     if(this.cookieService.get('role')=='Client'){
       this.checkingRole=false;
-      this.checkingRole3=false;
+      //this.checkingRole3=false;
     }else if(this.cookieService.get('role')=='Admin'){
       this.checkingRole2=false;
       this.checkingRole3=true;
