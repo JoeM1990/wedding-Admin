@@ -29,7 +29,7 @@ export class PaiementComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.getEmail=localStorage.getItem('email_user');
+    this.getEmail=this.getDataEmail('email_user');
 
     this.checkRole();
 
@@ -129,6 +129,15 @@ export class PaiementComponent implements OnInit {
   public getData(key: string) {
     let data = this.cookieService.get(key)|| "";
     return this.decryptRole(data);
+  }
+
+  private decryptEmail(txtToDecrypt: string) {
+    return CryptoJS.AES.decrypt(txtToDecrypt, 'email_user').toString(CryptoJS.enc.Utf8);
+  }
+  
+  public getDataEmail(key: string) {
+    let data = localStorage.getItem(key)|| "";
+    return this.decryptEmail(data);
   }
 
   
