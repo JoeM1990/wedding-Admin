@@ -109,12 +109,27 @@ export class PaiementComponent implements OnInit {
   }
 
   checkRole(){
-    if(this.cookieService.get('role')=='Client'){
+
+    let role=this.cookieService.get('role');
+    let roleCheck=this.getData(role);
+
+    if(roleCheck=='Client'){
       this.checkingRole=false;
-    }else if(this.cookieService.get('role')=='Admin'){
-      this.checkingRole2=true;
+      //this.checkingRole3=false;
+    }else if(roleCheck=='Admin'){
+      this.checkingRole2=false;
       this.checkingRole3=true;
+      //this.checkingRole3=true;
     }
+  }
+
+  private decryptRole(txtToDecrypt: string) {
+    return CryptoJS.AES.decrypt(txtToDecrypt, 'Role').toString(CryptoJS.enc.Utf8);
+  }
+  
+  public getData(key: string) {
+    let data = localStorage.getItem(key)|| "";
+    return this.decryptRole(data);
   }
 
   

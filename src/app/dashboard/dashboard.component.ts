@@ -5,6 +5,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { ConfirmationComponent } from '../dialog/confirmation/confirmation.component';
 import { AuthService } from '../utils/auth/auth.service';
 import { CrudService } from '../utils/crud/crud.service';
+import  *  as CryptoJS from  'crypto-js';
 
 @Component({
   selector: 'app-dashboard',
@@ -116,10 +117,14 @@ export class DashboardComponent implements OnInit {
   }
 
   checkRole(){
-    if(this.cookieService.get('role')=='Client'){
+
+    let role=this.cookieService.get('role');
+    let roleCheck=this.getData(role);
+
+    if(roleCheck=='Client'){
       this.checkingRole=false;
       //this.checkingRole3=false;
-    }else if(this.cookieService.get('role')=='Admin'){
+    }else if(roleCheck=='Admin'){
       this.checkingRole2=false;
       this.checkingRole3=true;
       //this.checkingRole3=true;
@@ -198,6 +203,15 @@ export class DashboardComponent implements OnInit {
       }
     })
 
+  }
+
+  private decryptRole(txtToDecrypt: string) {
+    return CryptoJS.AES.decrypt(txtToDecrypt, 'Role').toString(CryptoJS.enc.Utf8);
+  }
+
+  public getData(key: string) {
+    let data = localStorage.getItem(key)|| "";
+    return this.decryptRole(data);
   }
 
 

@@ -260,12 +260,26 @@ export class ListViewComponent implements OnInit {
   }
 
   checkRole(){
-    if(this.cookieService.get('role')=='Client'){
+
+    let role=this.cookieService.get('role');
+    let roleCheck=this.getData(role);
+
+    if(roleCheck=='Client'){
       this.checkingRole=false;
-    }else if(this.cookieService.get('role')=='Admin'){
+    }else if(roleCheck=='Admin'){
       this.checkingRole2=true;
     }
   }
+
+  private decryptRole(txtToDecrypt: string) {
+    return CryptoJS.AES.decrypt(txtToDecrypt, 'Role').toString(CryptoJS.enc.Utf8);
+  }
+
+  public getData(key: string) {
+    let data = localStorage.getItem(key)|| "";
+    return this.decryptRole(data);
+  }
+
 
 
 }
