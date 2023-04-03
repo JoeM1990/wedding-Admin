@@ -591,11 +591,11 @@ checkRole(){
 }
 
 private decryptRole(txtToDecrypt: string) {
-  return CryptoJS.AES.decrypt(txtToDecrypt, 'Role').toString(CryptoJS.enc.Utf8);
+  return CryptoJS.AES.decrypt(txtToDecrypt, 'role').toString(CryptoJS.enc.Utf8);
 }
 
 public getData(key: string) {
-  let data = localStorage.getItem(key)|| "";
+  let data = this.cookieService.get(key)|| "";
   return this.decryptRole(data);
 }
 
