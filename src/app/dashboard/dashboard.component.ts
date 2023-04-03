@@ -118,7 +118,6 @@ export class DashboardComponent implements OnInit {
 
   checkRole(){
 
-    let role=this.cookieService.get('role');
     let roleCheck=this.getData('role');
 
     if(roleCheck=='Client'){

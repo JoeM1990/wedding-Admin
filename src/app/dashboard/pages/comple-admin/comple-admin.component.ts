@@ -183,8 +183,7 @@ export class CompleAdminComponent implements OnInit {
 
   checkRole(){
 
-    let role=this.cookieService.get('role');
-    let roleCheck=this.getData(role);
+    let roleCheck=this.getData('role');
 
     if(roleCheck=='Client'){
       this.checkingRole=false;
@@ -198,7 +197,7 @@ export class CompleAdminComponent implements OnInit {
   }
 
   public getData(key: string) {
-    let data = localStorage.getItem(key)|| "";
+    let data = this.cookieService.get(key)|| "";
     return this.decryptRole(data);
   }
 

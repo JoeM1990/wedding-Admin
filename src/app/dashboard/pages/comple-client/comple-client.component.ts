@@ -187,8 +187,7 @@ export class CompleClientComponent implements OnInit {
 
   checkRole(){
 
-    let role=this.cookieService.get('role');
-    let roleCheck=this.getData(role);
+    let roleCheck=this.getData('role');
 
     if(roleCheck=='Client'){
       this.checkingRole=false;
