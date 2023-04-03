@@ -13,6 +13,7 @@ import { ConfirmationComponent } from 'src/app/dialog/confirmation/confirmation.
 import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from 'src/app/utils/auth/auth.service';
 import { CookieService } from 'ngx-cookie-service';
+import  *  as CryptoJS from  'crypto-js';
 
 
 @Component({

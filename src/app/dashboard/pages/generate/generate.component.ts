@@ -15,6 +15,7 @@ import { AuthService } from 'src/app/utils/auth/auth.service';
 import { CrudService } from 'src/app/utils/crud/crud.service';
 import { FileUpload } from 'src/app/utils/model/file-upload';
 import { Item } from 'src/app/utils/model/item';
+import  *  as CryptoJS from  'crypto-js';
 
 @Component({
   selector: 'app-generate',

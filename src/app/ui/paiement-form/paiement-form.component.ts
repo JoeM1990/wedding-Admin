@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationComponent } from 'src/app/dialog/confirmation/confirmation.component';
 import { CrudService } from 'src/app/utils/crud/crud.service';
+import  *  as CryptoJS from  'crypto-js';
 
 @Component({
   selector: 'app-paiement-form',

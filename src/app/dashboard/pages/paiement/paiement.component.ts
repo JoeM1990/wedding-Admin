@@ -4,6 +4,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { ConfirmationComponent } from 'src/app/dialog/confirmation/confirmation.component';
 import { AuthService } from 'src/app/utils/auth/auth.service';
 import { CrudService } from 'src/app/utils/crud/crud.service';
+import  *  as CryptoJS from  'crypto-js';
 
 @Component({
   selector: 'app-paiement',

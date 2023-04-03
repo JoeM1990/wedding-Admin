@@ -10,6 +10,7 @@ import { ConfirmationComponent } from 'src/app/dialog/confirmation/confirmation.
 import { AuthService } from 'src/app/utils/auth/auth.service';
 import { CrudService } from 'src/app/utils/crud/crud.service';
 import { User } from 'src/app/utils/model/user';
+import  *  as CryptoJS from  'crypto-js';
 
 @Component({
   selector: 'app-comple-admin',

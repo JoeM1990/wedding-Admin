@@ -60,16 +60,16 @@ export class LoginComponent implements OnInit {
 
         this.dialogSuccess('Bienvenue')
 
-        this.getData('Papa');
+        //this.getData('Papa');
         if(token){
 
           
           this.cookieService.set('token',token,{secure:true});
-          this.cookieService.set('role',role,{secure:true})
+          this.cookieService.set('role',this.encryptRole(role),{secure:true})
           //localStorage.setItem('token',token);
           localStorage.setItem('email_user',email);
 
-          localStorage.setItem('Papa', this.encryptRole(role));
+          //localStorage.setItem('Papa', this.encryptRole(role));
           //localStorage.setItem('role',role);
           this.router.navigate(['/dashboard']);
         }
@@ -155,7 +155,7 @@ export class LoginComponent implements OnInit {
 
   public getData(key: string) {
     let data = localStorage.getItem(key)|| "";
-    return alert(this.decryptRole(data));
+    return this.decryptRole(data);
   }
 
 

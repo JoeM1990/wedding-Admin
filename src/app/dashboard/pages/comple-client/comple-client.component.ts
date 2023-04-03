@@ -12,6 +12,7 @@ import { User } from 'src/app/utils/model/user';
 
 import { MatTableDataSource } from '@angular/material/table';
 import { DataTableDirective } from 'angular-datatables';
+import  *  as CryptoJS from  'crypto-js';
 
 @Component({
   selector: 'app-comple-client',
