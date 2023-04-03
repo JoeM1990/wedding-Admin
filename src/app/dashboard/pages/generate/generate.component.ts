@@ -203,7 +203,8 @@ export class GenerateComponent implements OnInit {
 
         let newCredit=this.valueCredit-1;
 
-        localStorage.setItem('nomInvite',this.title2);
+        //localStorage.removeItem('nomInvite');
+        //localStorage.setItem('nomInvite',this.title2);
 
         this.crud.updateCredit(email,newCredit).subscribe(res=>{
 
@@ -325,7 +326,7 @@ export class GenerateComponent implements OnInit {
 
           let name=localStorage.getItem('nomInvite');
 
-          this.crud.addInvitationApi(file,email,'invitation',name)
+          this.crud.addInvitationApi(file,email,'invitation',this.title2)
           .subscribe(
             response =>{
               //this.dialogSuccess("Success");
@@ -351,7 +352,7 @@ export class GenerateComponent implements OnInit {
           let email=this.getDataEmail('email_user');
           let name=localStorage.getItem('nomInvite');
     
-          this.crud.addInvitationApi(file,email,'invitation',name)
+          this.crud.addInvitationApi(file,email,'invitation',this.title2)
           .subscribe(
             response =>{
               //this.dialogSuccess("Success");

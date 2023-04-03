@@ -580,6 +580,7 @@ export class CrudService {
           setTimeout(() => {
              dialogRef.close();
              window.location.reload();
+             //localStorage.removeItem('nomInvite')
           }, timeout)
         })
   }
