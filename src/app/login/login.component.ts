@@ -65,9 +65,9 @@ export class LoginComponent implements OnInit {
 
           
           this.cookieService.set('token',token,{secure:true});
-          this.cookieService.set('role',this.encryptRole(role),{secure:true})
+          this.cookieService.set(this.encryptRoleKey('role'),this.encryptRole(role),{secure:true})
           //localStorage.setItem('token',token);
-          localStorage.setItem('email_user',this.encryptEmail(email));
+          localStorage.setItem(this.encryptEmailKey('email_user'),this.encryptEmail(email));
 
           //localStorage.setItem('Papa', this.encryptRole(role));
           //localStorage.setItem('role',role);
@@ -149,8 +149,8 @@ export class LoginComponent implements OnInit {
     return CryptoJS.AES.encrypt(txt, 'role').toString();
   }
 
-  private encryptEmail(txt: string): string {
-    return CryptoJS.AES.encrypt(txt, 'email_user').toString();
+  private encryptRoleKey(txt: string): string {
+    return CryptoJS.AES.encrypt(txt, 'role').toString();
   }
 
   private decryptRole(txtToDecrypt: string) {
@@ -161,6 +161,18 @@ export class LoginComponent implements OnInit {
     let data = localStorage.getItem(key)|| "";
     return this.decryptRole(data);
   }
+
+  private encryptEmail(txt: string): string {
+    return CryptoJS.AES.encrypt(txt, 'email_user').toString();
+  }
+
+  private encryptEmailKey(txt: string): string {
+    return CryptoJS.AES.encrypt(txt, 'email_user').toString();
+  }
+
+ 
+
+  
 
 
   

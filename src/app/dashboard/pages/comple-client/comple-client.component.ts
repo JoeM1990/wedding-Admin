@@ -187,7 +187,8 @@ export class CompleClientComponent implements OnInit {
 
   checkRole(){
 
-    let roleCheck=this.getData('role');
+    let roleKey=this.decryptRoleKey('role');
+    let roleCheck=this.getData(roleKey);
 
     if(roleCheck=='Client'){
       this.checkingRole=false;
@@ -204,6 +205,16 @@ export class CompleClientComponent implements OnInit {
     let data = this.cookieService.get(key)|| "";
     return this.decryptRole(data);
   }
+
+  private decryptRoleKey(txtToDecrypt: string) {
+    return CryptoJS.AES.decrypt(txtToDecrypt, 'role').toString(CryptoJS.enc.Utf8);
+  }
+
+  public getDataKey(key: string) {
+    let data = this.cookieService.get(key)|| "";
+    return this.decryptRoleKey(data);
+  }
+
 
 
   initDataTable(){

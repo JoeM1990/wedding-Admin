@@ -39,6 +39,7 @@ export class AuthService {
   logoutApi(){
     //localStorage.removeItem('token');
     this.cookieService.deleteAll();
+    localStorage.clear();
     this.router.navigate(['/login']);
   }
 
