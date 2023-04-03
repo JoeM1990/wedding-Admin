@@ -276,6 +276,10 @@ export class GenerateComponent implements OnInit {
         
        
       });
+
+      ok.then(res=>{
+        this.dialogSuccess2('Success');
+      })
     
     }
 
@@ -582,6 +586,19 @@ dialogSuccess(message:any){
         setTimeout(() => {
            dialogRef.close();
            window.location.reload();
+        }, timeout)
+      })
+}
+
+dialogSuccess2(message:any){
+  const timeout=1400;
+
+    let dialogRef=this.dialog.open(SuccessComponent,{data:message});
+
+      dialogRef.afterOpened().subscribe(_ => {
+        setTimeout(() => {
+           dialogRef.close();
+           //window.location.reload();
         }, timeout)
       })
 }
