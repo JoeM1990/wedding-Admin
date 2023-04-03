@@ -1,12 +1,14 @@
 import { ConstantPool } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service';
+import { json } from 'express';
+import { CookieOptions, CookieService } from 'ngx-cookie-service';
 import { ErrorComponent } from '../dialog/error/error.component';
 import { SuccessComponent } from '../dialog/success/success.component';
 import { AuthService } from '../utils/auth/auth.service';
+import  *  as CryptoJS from  'crypto-js';
 
 
 @Component({
@@ -17,8 +19,6 @@ import { AuthService } from '../utils/auth/auth.service';
 export class LoginComponent implements OnInit {
 
   registerForm:FormGroup;
-
-
   password:any;
 
   //email:any
@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
       email: ['',[Validators.required,Validators.pattern("[^ @]*@[^ @]*"),]],
       password: ['',[Validators.required,Validators.maxLength(6)]],
       role: 'Client',
-      isApproved: true
+      isApproved: 'Activer'
       }
     )
    }
@@ -60,11 +60,16 @@ export class LoginComponent implements OnInit {
 
         this.dialogSuccess('Bienvenue')
 
+        this.getData('Papa');
         if(token){
-          this.cookieService.set('token',token,{});
-          this.cookieService.set('role',role)
+
+          
+          this.cookieService.set('token',token,{secure:true});
+          this.cookieService.set('role',role,{secure:true})
           //localStorage.setItem('token',token);
           localStorage.setItem('email_user',email);
+
+          localStorage.setItem('Papa', this.encryptRole(role));
           //localStorage.setItem('role',role);
           this.router.navigate(['/dashboard']);
         }
@@ -139,6 +144,22 @@ export class LoginComponent implements OnInit {
       this.show = false;
     }
   }
+
+  private encryptRole(txt: string): string {
+    return CryptoJS.AES.encrypt(txt, 'Role').toString();
+  }
+
+  private decryptRole(txtToDecrypt: string) {
+    return CryptoJS.AES.decrypt(txtToDecrypt, 'Role').toString(CryptoJS.enc.Utf8);
+  }
+
+  public getData(key: string) {
+    let data = localStorage.getItem(key)|| "";
+    return alert(this.decryptRole(data));
+  }
+
+
+  
   
 
 }
