@@ -380,13 +380,13 @@ export class CrudService {
     const requestOptions = { headers: headers };
 
     const formData = new FormData();
+
+    formData.append('name', name);
     formData.append('file', file);
     formData.append('email', email);
     formData.append('type', type);
-    formData.append('name', name);
     
-   
-
+    
     const req = new HttpRequest('POST', `${this.baseApi}/upload`, formData, {
       reportProgress: true,
       responseType: 'json'

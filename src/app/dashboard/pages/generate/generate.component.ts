@@ -377,7 +377,7 @@ export class GenerateComponent implements OnInit {
       
         if(fileT){
           
-          let name=localStorage.getItem('nomInvite');
+          let name=this.title90;
           let email=this.getDataEmail('email_user');
     
           this.crud.addInvitationApi(fileT,email,'invitation',name)
