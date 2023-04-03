@@ -33,6 +33,9 @@ export class ListViewComponent implements OnInit {
 
   visible=false;
 
+  dataUser:any;
+  dataAdmin:any;
+
   @ViewChild('screenGet')
   screenGet!: ElementRef;
   @ViewChild('canvasGet')
@@ -58,6 +61,19 @@ export class ListViewComponent implements OnInit {
   ngOnInit(): void {
 
     this.checkRole();
+
+    let email=this.getDataEmail('email_user');
+    
+
+    this.crud.getAllUplaodApi()
+    .subscribe(response=>{
+      this.dataAdmin=response;
+    })
+
+    this.crud.getAllUplaodByEmailApi(email)
+    .subscribe(response=>{
+      this.dataUser=response;
+    })
 
     this.crud.getAllItem().subscribe(res => {
 
@@ -289,6 +305,15 @@ export class ListViewComponent implements OnInit {
     return this.decryptRoleKey(data);
   }
 
+
+  private decryptEmail(txtToDecrypt: string) {
+    return CryptoJS.AES.decrypt(txtToDecrypt, 'email_user').toString(CryptoJS.enc.Utf8);
+  }
+    
+  public getDataEmail(key: string) {
+    let data = localStorage.getItem(key)|| "";
+    return this.decryptEmail(data);
+  }
 
 
 }

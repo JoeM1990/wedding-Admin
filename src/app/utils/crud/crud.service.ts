@@ -147,6 +147,34 @@ export class CrudService {
     return this.httpClient.get(baseUrl+'transactions',requestOptions);
   }
 
+  getAllUplaodApi():Observable<any>{
+
+    let token=this.cookieService.get('token');
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    })
+
+    const requestOptions = { headers: headers };
+
+    return this.httpClient.get(baseUrl+'upload',requestOptions);
+  }
+
+  getAllUplaodByEmailApi(email:any):Observable<any>{
+
+    let token=this.cookieService.get('token');
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    })
+
+    const requestOptions = { headers: headers };
+
+    return this.httpClient.get(baseUrl+'upload/'+email,requestOptions);
+  }
+
   getUserById(id:any):Observable<any>{
 
     let token=this.cookieService.get('token');
