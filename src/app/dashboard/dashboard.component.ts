@@ -119,7 +119,7 @@ export class DashboardComponent implements OnInit {
   checkRole(){
 
     let roleKey=this.decryptRoleKey('role');
-    let roleCheck=this.getData(roleKey);
+    let roleCheck=this.getData('role');
 
     if(roleCheck=='Client'){
       this.checkingRole=false;

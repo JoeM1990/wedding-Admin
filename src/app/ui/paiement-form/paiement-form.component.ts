@@ -19,7 +19,7 @@ export class PaiementFormComponent implements OnInit {
 
   constructor(public crud:CrudService,public dialog:MatDialog,public formBuilder: FormBuilder) { 
     this.transactionForm = this.formBuilder.group({
-      email: localStorage.getItem('email_user'),
+      email: this.decryptEmail('email_user'),
       forfait:[''],
       operateur:[''],
       reference:[''],
@@ -55,6 +55,15 @@ export class PaiementFormComponent implements OnInit {
         );
       }
     })
+  }
+
+  private decryptEmail(txtToDecrypt: string) {
+    return CryptoJS.AES.decrypt(txtToDecrypt, 'email_user').toString(CryptoJS.enc.Utf8);
+  }
+  
+  public getDataEmail(key: string) {
+    let data = localStorage.getItem(key)|| "";
+    return this.decryptEmail(data);
   }
 
 }
