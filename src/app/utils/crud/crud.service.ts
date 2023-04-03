@@ -368,7 +368,7 @@ export class CrudService {
     return this.httpClient.get(baseUrl+'usersCountDesactive',requestOptions);
   }
 
-  addInvitationApi(file:File,email:any,type:any):Observable<any>{
+  addInvitationApi(file:File,email:any,type:any,name:any):Observable<any>{
 
     let token=this.cookieService.get('token');
 
@@ -383,6 +383,7 @@ export class CrudService {
     formData.append('file', file);
     formData.append('email', email);
     formData.append('type', type);
+    formData.append('name', name);
     
    
 

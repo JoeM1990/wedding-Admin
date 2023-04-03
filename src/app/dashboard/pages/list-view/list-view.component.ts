@@ -48,6 +48,9 @@ export class ListViewComponent implements OnInit {
   visibleListe=false;
   visibleMessage=false;
 
+  visibleAdmin=false;
+  visibleUser=false;
+
   phonePartage:any;
 
   urlData:any;

@@ -203,6 +203,8 @@ export class GenerateComponent implements OnInit {
 
         let newCredit=this.valueCredit-1;
 
+        localStorage.setItem('nomInvite',this.title2);
+
         this.crud.updateCredit(email,newCredit).subscribe(res=>{
 
           const ok= html2canvas(this.screen.nativeElement).then(canvas => {
@@ -317,7 +319,9 @@ export class GenerateComponent implements OnInit {
           
           let email=this.getDataEmail('email_user');
 
-          this.crud.addInvitationApi(file,email,'invitation')
+          let name=localStorage.getItem('nomInvite');
+
+          this.crud.addInvitationApi(file,email,'invitation',name)
           .subscribe(
             response =>{
               //this.dialogSuccess("Success");
@@ -341,8 +345,9 @@ export class GenerateComponent implements OnInit {
         if(file){
           
           let email=this.getDataEmail('email_user');
+          let name=localStorage.getItem('nomInvite');
     
-          this.crud.addInvitationApi(file,email,'invitation')
+          this.crud.addInvitationApi(file,email,'invitation',name)
           .subscribe(
             response =>{
               //this.dialogSuccess("Success");
@@ -372,9 +377,10 @@ export class GenerateComponent implements OnInit {
       
         if(fileT){
           
+          let name=localStorage.getItem('nomInvite');
           let email=this.getDataEmail('email_user');
     
-          this.crud.addInvitationApi(fileT,email,'invitation')
+          this.crud.addInvitationApi(fileT,email,'invitation',name)
           .subscribe(
             response =>{
               //this.dialogSuccess("Success");
@@ -398,9 +404,10 @@ export class GenerateComponent implements OnInit {
       
       if(fileT){
         
+        let name=localStorage.getItem('nomInvite');
         let email=this.getDataEmail('email_user');
   
-        this.crud.addInvitationApi(fileT,email,'invitation')
+        this.crud.addInvitationApi(fileT,email,'invitation',name)
         .subscribe(
           response =>{
             //this.dialogSuccess("Success");
