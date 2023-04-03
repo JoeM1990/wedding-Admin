@@ -536,6 +536,7 @@ checkCheckBoxvalue2(event: any ){
     this.title88="";
     this.visibleAutres=true;
     this.visibleWedding=false;
+   
   }else{
     this.title88="";
     this.visibleAutres=false;
@@ -550,21 +551,7 @@ checkCheckBoxvalue2(event: any ){
   }
 }
 
-checkCheckBoxvalue3(event: any ){
-  this.check3= event.target.checked;
-}
 
-checkCheckBoxvalue4(event: any ){
-  this.check4= event.target.checked;
-}
-
-checkMariage(){
-  if(this.check==true){
-    this.check2=false;
-    this.check3=false;
-    this.check4=false;
-  }
-}
 
 onConfirmation(){
     
