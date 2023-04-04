@@ -11,6 +11,7 @@ import { AuthService } from '../utils/auth/auth.service';
 import  *  as CryptoJS from  'crypto-js';
 
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -47,6 +48,8 @@ export class LoginComponent implements OnInit {
   }
 
   loginApi(email:any,password:any){
+    
+
     if(!email && !password){
       this.dialogError('Veuillez remplir le formulaire');
     }else{
@@ -74,6 +77,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/dashboard']);
         }
 
+        
         
       },
       error => {

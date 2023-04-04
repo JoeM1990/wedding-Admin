@@ -45,6 +45,9 @@ import {MatTableModule} from '@angular/material/table';
 import { SplashScreenComponent } from './splash-screen/splash-screen.component';
 //import { SimpleMatTableComponent } from './simple-mat-table/simple-mat-table.component';
 
+//import { NgxSpinnerModule } from "ngx-spinner";
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -82,8 +85,9 @@ import { SplashScreenComponent } from './splash-screen/splash-screen.component';
     MatPaginatorModule,
     NgxDatatableModule,
     MatTableModule,
-    DataTablesModule
+    DataTablesModule,
     //Ng2TableModule
+    //NgxSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
