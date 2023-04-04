@@ -91,9 +91,8 @@ export class LoginComponent implements OnInit {
         
       },
       error => {
-        setTimeout(()=>{
-          this.progressBar=false;
-        });
+       this.progressBar=false;
+       
         this.dialogError(error['error']);
         this.router.navigate(['/login']);
         ///alert(error);
