@@ -232,8 +232,8 @@
                           <!-- <a href="https://api.whatsapp.com/send?text=encodeURIComponent({{item.description}})" target="_blank">hh</a> -->
                          
                             
-                            <i class='bx bxs-send'  data-bs-toggle="modal" data-bs-target="#detailModal" (click)="getItemByDesc(item.description)"></i>
-                            <i class='bx bxs-trash primary' (click)="deleteItem(item,item.description)" data-bs-dismiss="modal"></i>
+                            <i class='bx bxs-send'  data-bs-toggle="modal" data-bs-target="#detailModal"  (click)="getUploadById(item.id)"></i>
+                            <i class='bx bxs-trash primary' (click)="deleteFileItem(item.id,item.description)" data-bs-dismiss="modal"></i>
                         </td>
                       </tr>
                       
@@ -369,14 +369,14 @@
                         </div>
                       </div> -->
 
-                      <div #screenGet *ngFor="let item of dataId; let i = index">
+                      <div #screenGet >
                         <div class="row justify-content-center "  id="imgDown">
-                          <label for="nameBasic" class="form-label" style="font-size: 20px;">{{item.name}}</label>
+                          <label for="nameBasic" class="form-label" style="font-size: 20px;">{{nameGetId}}</label>
                           <div class="col ">
                             <ngx-qrcode
                               [elementType]="elementType"
                               [errorCorrectionLevel]="correctionLevel"
-                              value="{{item.description}}"
+                              value="{{descriptionGetId}}"
                               [width]=350
                               cssClass="bshadow" >
                           </ngx-qrcode>
@@ -389,13 +389,13 @@
                         <div class="container">
                           <div class="row">
                             <div class="col-sm">
-                              <button type="button" class="btn btn-outline-primary" (click)="saveData(item.description)" data-bs-toggle="modal" data-bs-target="#whatsappModal">WhatsApp</button>
+                              <button type="button" class="btn btn-outline-primary" (click)="saveData(idGetId)" data-bs-toggle="modal" data-bs-target="#whatsappModal">WhatsApp</button>
                             </div>
                             <!-- <div class="col-sm">
                               <button type="button" class="btn btn-outline-primary">Facebook</button>
                             </div> -->
                             <div class="col-sm">
-                              <button type="button" class="btn btn-outline-primary" (click)="downloadImage(item.name)">Telecharger</button>
+                              <button type="button" class="btn btn-outline-primary" (click)="downloadImage(nameGetId)">Telecharger</button>
                               <!-- <i class='bx bxs-download'  ></i> -->
                             </div>
                            

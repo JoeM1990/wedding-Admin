@@ -59,6 +59,10 @@ export class ListViewComponent implements OnInit {
   checkingRole=true;
   checkingRole2=false;
 
+  nameGetId:any;
+  descriptionGetId:any;
+  idGetId:any;
+
   constructor(public crud:CrudService, public httpClient:HttpClient, public dialog:MatDialog,
     public auth:AuthService, private cookieService: CookieService) { }
 
@@ -166,6 +170,12 @@ export class ListViewComponent implements OnInit {
     this.crud.getUplaodByIdApi(id)
     .subscribe(response=>{
       this.dataId=response;
+
+      this.nameGetId=response['name'];
+      this.descriptionGetId=response['description'];
+      this.idGetId=response['id'];
+
+      console.log(response['description']);
     })
   }
 
