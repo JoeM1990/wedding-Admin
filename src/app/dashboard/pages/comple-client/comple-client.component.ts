@@ -135,6 +135,20 @@ export class CompleClientComponent implements OnInit {
 
     refDialog.afterClosed().subscribe(res=>{
       if(res == 'true'){
+
+
+        let dialogRef=this.dialog.open(WaitingComponent);
+
+        dialogRef.afterOpened().subscribe(_ => {
+          setTimeout(() => {
+         dialogRef.close();
+
+         
+         }, 1400)
+        })
+
+
+
         this.crud.updateUserById(id,this.updateForm.value)
         .subscribe(
             response => {
@@ -153,30 +167,34 @@ export class CompleClientComponent implements OnInit {
 
   deleteUserById(id:any){
 
-    let dialogRef=this.dialog.open(WaitingComponent,{data:'Voulez-vous vous Deconnecter ?'});
-
-    dialogRef.afterOpened().subscribe(_ => {
-      setTimeout(() => {
-         dialogRef.close();
-      }, 1400)
-    })
-
     let refDialog=this.dialog.open(ConfirmationComponent,{data:'Voulez-vous supprimer cet utilisateur ?'});
 
 
     refDialog.afterClosed().subscribe(res=>{
       if(res == 'true'){
-          this.crud.deleteUserById(id)
-      .subscribe(
-        response => {
-          if(response){
-            //window.location.reload();
-          }
-          
-        },
-        error => {
-          //console.log(error)
-        });
+
+
+        let dialogRef=this.dialog.open(WaitingComponent);
+
+        dialogRef.afterOpened().subscribe(_ => {
+          setTimeout(() => {
+         dialogRef.close();
+
+         this.crud.deleteUserById(id)
+         .subscribe(
+           response => {
+             if(response){
+               //window.location.reload();
+             }
+             
+           },
+           error => {
+             //console.log(error)
+           });
+         
+         }, 1400)
+        })
+
       }
     })
 
