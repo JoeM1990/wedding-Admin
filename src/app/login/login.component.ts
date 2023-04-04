@@ -111,21 +111,25 @@ export class LoginComponent implements OnInit {
     .subscribe(
       response => {
 
+        setTimeout(()=>{
+          this.progressBar=false;
+        },1500);
+
         this.dialogSuccess('Enregistrement effectué avec success');
         this.registerForm.reset();
         this.router.navigate(['/login']);
 
-        setTimeout(()=>{
-          this.progressBar=false;
-        },3500);
+        
       },
       error => {
+        this.progressBar=false;
         this.dialogError(error['error']);
         this.registerForm.reset();
         //alert("Echec d'enregistrement");
         //console.log(error)
       });
     }else{
+      this.progressBar=false;
       this.dialogError("Le formulaire est vide ou mal rempli");
     }
     
