@@ -118,6 +118,23 @@ export class ListViewComponent implements OnInit {
     
   }
 
+  deleteFileItem(id:any,name:any){
+
+    let refDialog=this.dialog.open(ConfirmationComponent,{data:'Voulez-vous supprimer cette invitation ?'});
+
+
+    refDialog.afterClosed().subscribe(res=>{
+      if(res == 'true'){
+        //this.crud.deleteItem(Item);
+        //this.crud.deleteFile(url);
+        this.crud.deleteFileByName(name);
+        this.crud.deleteUploadById(id);
+      }
+    })
+
+    
+  }
+
   getItemByDesc(desc:any){
     this.crud.getItemByDesc(desc).then( res=>{
   

@@ -312,6 +312,42 @@ export class CrudService {
     )
   }
 
+  deleteUploadById(id:any){
+    let token=this.cookieService.get('token');
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+ 
+    const requestOptions = { headers: headers };
+
+    return this.httpClient.delete(baseUrl+'uploadById/'+id,requestOptions)
+    .pipe( finalize(()=>{
+      this.dialogSuccess("L'invitation a été supprimer avec success");
+      //window.location.reload();
+    })
+    )
+  }
+
+  deleteFileByName(name:any){
+    let token=this.cookieService.get('token');
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+ 
+    const requestOptions = { headers: headers };
+
+    return this.httpClient.delete(baseUrl+'upload/'+name,requestOptions)
+    .pipe( finalize(()=>{
+      this.dialogSuccess("L'invitation a été supprimer avec success");
+      //window.location.reload();
+    })
+    )
+  }
+
   countUser():Observable<any>{
 
     let token=this.cookieService.get('token');
