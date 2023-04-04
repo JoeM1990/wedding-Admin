@@ -191,7 +191,7 @@
                  <!-- <button type="button" class="btn btn-primary" style="margin-bottom: 10px;" data-bs-toggle="modal" -->
                  <!-- data-bs-target="#basicModal">+</button> -->
               
-              <ng-container *ngIf="visibleListe" >
+              <ng-container *ngIf="visibleAdmin" >
 
               <div class="card" style="height: 400px;">
                 <!-- <h5 class="card-header">Table Basic</h5> -->
@@ -209,10 +209,10 @@
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0"  style="position:absolute; max-height:50vh; overflow-y: scroll;">
-                      <tr *ngFor="let item of ItemQr; let i = index">
-                        <td style="width: 90px;">{{i+1}}</td>
+                      <tr *ngFor="let item of dataAdmin; let i = index">
+                        <td style="width: 90px;">{{item.id}}</td>
                         <td style="width: 150px;">{{item.name}}</td>
-                        <td style="width: 150px;">{{item.email_user}}</td>
+                        <td style="width: 150px;">{{item.email}}</td>
                         <td style="width: 250px;">
                             <img src={{item.description}} width="100px">
                         </td>
@@ -233,6 +233,59 @@
                          
                             
                             <i class='bx bxs-send'  data-bs-toggle="modal" data-bs-target="#detailModal" (click)="getItemByDesc(item.description)"></i>
+                            <i class='bx bxs-trash primary' (click)="deleteItem(item,item.description)" data-bs-dismiss="modal"></i>
+                        </td>
+                      </tr>
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+            </ng-container>
+
+            <ng-container *ngIf="visibleUser" >
+
+              <div class="card" style="height: 400px;">
+                <!-- <h5 class="card-header">Table Basic</h5> -->
+                
+                <div class="table-responsive text-nowrap">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Id</th>
+                        <th>Invité</th>
+                        <th>CRée PAR</th>
+                        <th>Invitation</th>
+                        <th>Qr</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0"  style="position:absolute; max-height:50vh; overflow-y: scroll;">
+                      <tr *ngFor="let item of dataUser; let i = index">
+                        <td style="width: 90px;">{{item.id}}</td>
+                        <td style="width: 150px;">{{item.name}}</td>
+                        <td style="width: 150px;">{{item.email}}</td>
+                        <td style="width: 250px;">
+                            <img src={{item.description}} width="100px">
+                        </td>
+                        <td style="width: 250px;">
+                          <div >
+                            <ngx-qrcode
+                              [elementType]="elementType"
+                              [errorCorrectionLevel]="correctionLevel"
+                              value="{{item.description}}"
+                              [width]=150
+                              cssClass="bshadow" >
+                            </ngx-qrcode>
+                          </div>
+                          
+                        </td>
+                        <td>
+                          <!-- <a href="https://api.whatsapp.com/send?text=encodeURIComponent({{item.description}})" target="_blank">hh</a> -->
+                         
+                            
+                            <i class='bx bxs-send'  data-bs-toggle="modal" data-bs-target="#detailModal" (click)="getUploadById(item.id)"></i>
                             <i class='bx bxs-trash primary' (click)="deleteItem(item,item.description)" data-bs-dismiss="modal"></i>
                         </td>
                       </tr>
@@ -316,7 +369,7 @@
                         </div>
                       </div> -->
 
-                      <div #screenGet *ngFor="let item of Item2; let i = index">
+                      <div #screenGet *ngFor="let item of dataId; let i = index">
                         <div class="row justify-content-center "  id="imgDown">
                           <label for="nameBasic" class="form-label" style="font-size: 20px;">{{item.name}}</label>
                           <div class="col ">

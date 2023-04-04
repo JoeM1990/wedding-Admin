@@ -35,6 +35,7 @@ export class ListViewComponent implements OnInit {
 
   dataUser:any;
   dataAdmin:any;
+  dataId:any;
 
   @ViewChild('screenGet')
   screenGet!: ElementRef;
@@ -138,6 +139,13 @@ export class ListViewComponent implements OnInit {
         this.Item2.forEach(e=>{
           this.title2=e.name;
         })
+  }
+
+  getUploadById(id:any){
+    this.crud.getUplaodByIdApi(id)
+    .subscribe(response=>{
+      this.dataId=response;
+    })
   }
 
   sendWhatsapp(phoneNumber:any){
@@ -285,8 +293,12 @@ export class ListViewComponent implements OnInit {
 
     if(roleCheck=='Client'){
       this.checkingRole=false;
+      this.visibleUser=true;
+      this.visibleAdmin=false;
     }else if(roleCheck=='Admin'){
       this.checkingRole2=true;
+      this.visibleAdmin=true;
+      this.visibleUser=false;
     }
   }
 
