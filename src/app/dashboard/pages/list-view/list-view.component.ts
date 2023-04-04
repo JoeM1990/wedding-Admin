@@ -132,9 +132,11 @@ export class ListViewComponent implements OnInit {
         //this.crud.deleteItem(Item);
         //this.crud.deleteFile(url);
         this.crud.deleteFileByName(name).subscribe(res=>{
-          this.crud.deleteUploadById(id).subscribe(res=>{
           
-          });
+        });
+
+        this.crud.deleteUploadById(id).subscribe(res=>{
+          
         });
         
       }
