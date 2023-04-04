@@ -51,12 +51,7 @@ export class PaiementFormComponent implements OnInit {
           setTimeout(() => {
          dialogRef.close();
 
-         
-         }, 1700)
-        })
-
-        
-            this.crud.addTransaction(this.transactionForm.value)
+         this.crud.addTransaction(this.transactionForm.value)
         .subscribe(
           response =>{
             if(response){
@@ -67,6 +62,12 @@ export class PaiementFormComponent implements OnInit {
             console.log(error['message']);
           }
         );
+         
+         }, 1700)
+        })
+
+        
+            
       }
     })
   }

@@ -138,18 +138,19 @@ export class ListViewComponent implements OnInit {
           setTimeout(() => {
          dialogRef.close();
 
+         this.crud.deleteFileByName(name).subscribe(res=>{
+          
+         });
+ 
+         this.crud.deleteUploadById(id).subscribe(res=>{
+           
+         });
          
          }, 1700)
         })
         //this.crud.deleteItem(Item);
         //this.crud.deleteFile(url);
-        this.crud.deleteFileByName(name).subscribe(res=>{
-          
-        });
-
-        this.crud.deleteUploadById(id).subscribe(res=>{
-          
-        });
+        
         
       }
     })

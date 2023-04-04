@@ -149,12 +149,8 @@ export class DashboardComponent implements OnInit {
           setTimeout(() => {
          dialogRef.close();
 
-         
-         }, 1700)
-        })
 
-
-        this.crud.updateTransactionById(id,this.updateForm.value)
+         this.crud.updateTransactionById(id,this.updateForm.value)
         .subscribe(
             response => {
 
@@ -174,6 +170,12 @@ export class DashboardComponent implements OnInit {
               error => {
           //      console.log(error)
               });
+         
+         }, 1700)
+        })
+
+
+        
       }
     })
       
@@ -211,12 +213,7 @@ export class DashboardComponent implements OnInit {
           setTimeout(() => {
          dialogRef.close();
 
-         
-         }, 1700)
-        })
-
-        
-          this.crud.deleteTransactionById(id)
+         this.crud.deleteTransactionById(id)
       .subscribe(
         response => {
           if(response){
@@ -227,6 +224,12 @@ export class DashboardComponent implements OnInit {
         error => {
           //console.log(error)
         });
+
+         }, 1700)
+        })
+
+
+          
       }
     })
 

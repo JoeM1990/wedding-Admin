@@ -80,12 +80,7 @@ export class PaiementComponent implements OnInit {
           setTimeout(() => {
          dialogRef.close();
 
-         
-         }, 1700)
-        })
-        
-
-          this.crud.deletePaiementById(id)
+         this.crud.deletePaiementById(id)
       .subscribe(
         response => {
           if(response){
@@ -96,6 +91,12 @@ export class PaiementComponent implements OnInit {
         error => {
           //console.log(error)
         });
+         
+         }, 1700)
+        })
+
+
+          
       }
     })
 
