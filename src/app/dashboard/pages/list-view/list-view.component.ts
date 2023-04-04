@@ -90,9 +90,9 @@ export class ListViewComponent implements OnInit {
 
       if(res.length>0){
         this.visibleListe=true;
-        this.visibleMessage=false;
+        //this.visibleMessage=false;
       }else{
-        this.visibleMessage=true;
+        //this.visibleMessage=true;
         this.visibleListe=false;
       }
 
@@ -127,8 +127,12 @@ export class ListViewComponent implements OnInit {
       if(res == 'true'){
         //this.crud.deleteItem(Item);
         //this.crud.deleteFile(url);
-        this.crud.deleteFileByName(name);
-        this.crud.deleteUploadById(id);
+        this.crud.deleteFileByName(name).subscribe(res=>{
+          this.crud.deleteUploadById(id).subscribe(res=>{
+          
+          });
+        });
+        
       }
     })
 
