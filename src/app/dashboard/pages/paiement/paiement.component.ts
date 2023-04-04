@@ -5,6 +5,7 @@ import { ConfirmationComponent } from 'src/app/dialog/confirmation/confirmation.
 import { AuthService } from 'src/app/utils/auth/auth.service';
 import { CrudService } from 'src/app/utils/crud/crud.service';
 import  *  as CryptoJS from  'crypto-js';
+import { WaitingComponent } from 'src/app/dialog/waiting/waiting.component';
 
 @Component({
   selector: 'app-paiement',
@@ -71,6 +72,19 @@ export class PaiementComponent implements OnInit {
 
     refDialog.afterClosed().subscribe(res=>{
       if(res == 'true'){
+
+
+        let dialogRef=this.dialog.open(WaitingComponent);
+
+        dialogRef.afterOpened().subscribe(_ => {
+          setTimeout(() => {
+         dialogRef.close();
+
+         
+         }, 1700)
+        })
+        
+
           this.crud.deletePaiementById(id)
       .subscribe(
         response => {
@@ -93,17 +107,31 @@ export class PaiementComponent implements OnInit {
 
     refDialog.afterClosed().subscribe(res=>{
       if(res == 'true'){
-            this.crud.addPaiement(email,forfait)
-        .subscribe(
-          response =>{
-            if(response){
-              //window.location.reload();
-            }
-          },
-          error =>{
-            console.log(error['message']);
-          }
-        );
+
+
+        let dialogRef=this.dialog.open(WaitingComponent);
+
+        dialogRef.afterOpened().subscribe(_ => {
+          setTimeout(() => {
+         dialogRef.close();
+
+
+         this.crud.addPaiement(email,forfait)
+         .subscribe(
+           response =>{
+             if(response){
+               //window.location.reload();
+             }
+           },
+           error =>{
+             console.log(error['message']);
+           }
+         );
+         
+         }, 1700)
+        })
+
+        
       }
     })
   }

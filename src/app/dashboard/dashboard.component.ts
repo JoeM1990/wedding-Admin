@@ -6,6 +6,7 @@ import { ConfirmationComponent } from '../dialog/confirmation/confirmation.compo
 import { AuthService } from '../utils/auth/auth.service';
 import { CrudService } from '../utils/crud/crud.service';
 import  *  as CryptoJS from  'crypto-js';
+import { WaitingComponent } from '../dialog/waiting/waiting.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -140,6 +141,19 @@ export class DashboardComponent implements OnInit {
 
     refDialog.afterClosed().subscribe(res=>{
       if(res == 'true'){
+
+
+        let dialogRef=this.dialog.open(WaitingComponent);
+
+        dialogRef.afterOpened().subscribe(_ => {
+          setTimeout(() => {
+         dialogRef.close();
+
+         
+         }, 1700)
+        })
+
+
         this.crud.updateTransactionById(id,this.updateForm.value)
         .subscribe(
             response => {
@@ -189,6 +203,19 @@ export class DashboardComponent implements OnInit {
 
     refDialog.afterClosed().subscribe(res=>{
       if(res == 'true'){
+
+
+        let dialogRef=this.dialog.open(WaitingComponent);
+
+        dialogRef.afterOpened().subscribe(_ => {
+          setTimeout(() => {
+         dialogRef.close();
+
+         
+         }, 1700)
+        })
+
+        
           this.crud.deleteTransactionById(id)
       .subscribe(
         response => {

@@ -14,6 +14,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from 'src/app/utils/auth/auth.service';
 import { CookieService } from 'ngx-cookie-service';
 import  *  as CryptoJS from  'crypto-js';
+import { WaitingComponent } from 'src/app/dialog/waiting/waiting.component';
 
 
 @Component({
@@ -129,6 +130,17 @@ export class ListViewComponent implements OnInit {
 
     refDialog.afterClosed().subscribe(res=>{
       if(res == 'true'){
+
+
+        let dialogRef=this.dialog.open(WaitingComponent);
+
+        dialogRef.afterOpened().subscribe(_ => {
+          setTimeout(() => {
+         dialogRef.close();
+
+         
+         }, 1700)
+        })
         //this.crud.deleteItem(Item);
         //this.crud.deleteFile(url);
         this.crud.deleteFileByName(name).subscribe(res=>{

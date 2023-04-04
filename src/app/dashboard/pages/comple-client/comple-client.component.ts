@@ -86,7 +86,14 @@ export class CompleClientComponent implements OnInit {
 
     refDialog.afterClosed().subscribe(res=>{
       if(res == 'true'){
-            this.crud.addUser(this.clientForm.value)
+
+        let dialogRef=this.dialog.open(WaitingComponent);
+
+        dialogRef.afterOpened().subscribe(_ => {
+          setTimeout(() => {
+         dialogRef.close();
+
+         this.crud.addUser(this.clientForm.value)
         .subscribe(
           response =>{
             if(response){
@@ -98,6 +105,12 @@ export class CompleClientComponent implements OnInit {
             //alert(error['message']);
           }
         );
+         
+         }, 1700)
+        })
+
+
+            
       }
     })
     
@@ -143,13 +156,7 @@ export class CompleClientComponent implements OnInit {
           setTimeout(() => {
          dialogRef.close();
 
-         
-         }, 1400)
-        })
-
-
-
-        this.crud.updateUserById(id,this.updateForm.value)
+         this.crud.updateUserById(id,this.updateForm.value)
         .subscribe(
             response => {
               if(response){
@@ -160,6 +167,13 @@ export class CompleClientComponent implements OnInit {
               error => {
             //    console.log(error)
               });
+
+         }, 1700)
+        })
+
+
+
+        
       }
     })
       
@@ -192,7 +206,7 @@ export class CompleClientComponent implements OnInit {
              //console.log(error)
            });
          
-         }, 1400)
+         }, 1700)
         })
 
       }

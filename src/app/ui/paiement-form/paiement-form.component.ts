@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationComponent } from 'src/app/dialog/confirmation/confirmation.component';
 import { CrudService } from 'src/app/utils/crud/crud.service';
 import  *  as CryptoJS from  'crypto-js';
+import { WaitingComponent } from 'src/app/dialog/waiting/waiting.component';
 
 @Component({
   selector: 'app-paiement-form',
@@ -42,6 +43,19 @@ export class PaiementFormComponent implements OnInit {
 
     refDialog.afterClosed().subscribe(res=>{
       if(res == 'true'){
+
+
+        let dialogRef=this.dialog.open(WaitingComponent);
+
+        dialogRef.afterOpened().subscribe(_ => {
+          setTimeout(() => {
+         dialogRef.close();
+
+         
+         }, 1700)
+        })
+
+        
             this.crud.addTransaction(this.transactionForm.value)
         .subscribe(
           response =>{

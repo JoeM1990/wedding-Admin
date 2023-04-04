@@ -83,17 +83,30 @@ export class CompleAdminComponent implements OnInit {
 
     refDialog.afterClosed().subscribe(res=>{
       if(res == 'true'){
-            this.crud.addUser(this.adminForm.value)
-        .subscribe(
-          response =>{
-            if(response){
-              //window.location.reload();
-            }
-          },
-          error =>{
-            //alert(error['message']);
-          }
-        );
+
+
+        let dialogRef=this.dialog.open(WaitingComponent);
+
+        dialogRef.afterOpened().subscribe(_ => {
+          setTimeout(() => {
+         dialogRef.close();
+
+         this.crud.addUser(this.adminForm.value)
+         .subscribe(
+           response =>{
+             if(response){
+               //window.location.reload();
+             }
+           },
+           error =>{
+             //alert(error['message']);
+           }
+         );
+         
+         }, 1700)
+        })
+
+           
       }
     })
     
@@ -131,7 +144,15 @@ export class CompleAdminComponent implements OnInit {
 
     refDialog.afterClosed().subscribe(res=>{
       if(res == 'true'){
-        this.crud.updateUserById(id,this.updateForm.value)
+
+
+        let dialogRef=this.dialog.open(WaitingComponent);
+
+        dialogRef.afterOpened().subscribe(_ => {
+          setTimeout(() => {
+         dialogRef.close();
+
+         this.crud.updateUserById(id,this.updateForm.value)
         .subscribe(
             response => {
               if(response){
@@ -142,6 +163,11 @@ export class CompleAdminComponent implements OnInit {
               error => {
           //      console.log(error)
               });
+         
+         }, 1700)
+        })
+
+        
       }
     })
       
@@ -154,17 +180,30 @@ export class CompleAdminComponent implements OnInit {
 
     refDialog.afterClosed().subscribe(res=>{
       if(res == 'true'){
-          this.crud.deleteUserById(id)
-      .subscribe(
-        response => {
-          if(response){
-           // window.location.reload();
-          }
-          
-        },
-        error => {
-          //console.log(error)
-        });
+
+        let dialogRef=this.dialog.open(WaitingComponent);
+
+        dialogRef.afterOpened().subscribe(_ => {
+          setTimeout(() => {
+         dialogRef.close();
+
+         this.crud.deleteUserById(id)
+         .subscribe(
+           response => {
+             if(response){
+              // window.location.reload();
+             }
+             
+           },
+           error => {
+             //console.log(error)
+           });
+         
+         }, 1700)
+        })
+
+
+         
       }
     })
 
