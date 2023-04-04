@@ -29,7 +29,7 @@ export class PaiementComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.getEmail=this.getDataEmail('email_user');
+    this.getEmail=this.getDataEmail('yyyy-0000');
 
     this.checkRole();
 
@@ -110,7 +110,7 @@ export class PaiementComponent implements OnInit {
 
   checkRole(){
 
-    let roleCheck=this.getData('role');
+    let roleCheck=this.getData('xxxx-0000');
 
     if(roleCheck=='Client'){
       this.checkingRole=false;

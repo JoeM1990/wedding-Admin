@@ -65,7 +65,7 @@ export class ListViewComponent implements OnInit {
 
     this.checkRole();
 
-    let email=this.getDataEmail('email_user');
+    let email=this.getDataEmail('yyyy-0000');
     
 
     this.crud.getAllUplaodApi()
@@ -281,7 +281,7 @@ export class ListViewComponent implements OnInit {
   checkRole(){
 
     let roleKey=this.decryptRoleKey('role');
-    let roleCheck=this.getData('role');
+    let roleCheck=this.getData('xxxx-0000');
 
     if(roleCheck=='Client'){
       this.checkingRole=false;

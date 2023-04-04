@@ -188,7 +188,7 @@ export class CompleClientComponent implements OnInit {
   checkRole(){
 
     let roleKey=this.decryptRoleKey('role');
-    let roleCheck=this.getData('role');
+    let roleCheck=this.getData('xxxx-0000');
 
     if(roleCheck=='Client'){
       this.checkingRole=false;

@@ -65,9 +65,9 @@ export class LoginComponent implements OnInit {
 
           
           this.cookieService.set('token',token,{secure:true});
-          this.cookieService.set('role',this.encryptRole(role),{secure:true})
+          this.cookieService.set('xxxx-0000',this.encryptRole(role),{secure:true})
           //localStorage.setItem('token',token);
-          localStorage.setItem('email_user',this.encryptEmail(email));
+          localStorage.setItem('yyyy-0000',this.encryptEmail(email));
 
           //localStorage.setItem('Papa', this.encryptRole(role));
           //localStorage.setItem('role',role);

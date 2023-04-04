@@ -99,7 +99,7 @@ export class GenerateComponent implements OnInit {
     public dialog:MatDialog, public auth:AuthService, private cookieService: CookieService) {
     this.infosForm = this.formBuilder.group({
       //name: this.title2,
-      email_user: this.getDataEmail('email_user'),
+      email_user: this.getDataEmail('yyyy-0000'),
       date:this.changedDate,
     })
    }
@@ -108,7 +108,7 @@ export class GenerateComponent implements OnInit {
 
     this.checkRole();
 
-    let email=this.getDataEmail('email_user');
+    let email=this.getDataEmail('yyyy-0000');
     
     this.crud.countUpload(email).subscribe(res=>{
       this.valueCount=res['value'];
@@ -199,7 +199,7 @@ export class GenerateComponent implements OnInit {
     if(this.valueCount>9){
       if(this.valueCredit>0){
 
-        let email=this.getDataEmail('email_user');
+        let email=this.getDataEmail('yyyy-0000');
 
         let newCredit=this.valueCredit-1;
 
@@ -322,7 +322,7 @@ export class GenerateComponent implements OnInit {
       
         if(file){
           
-          let email=this.getDataEmail('email_user');
+          let email=this.getDataEmail('yyyy-0000');
 
           let name=localStorage.getItem('nomInvite');
 
@@ -349,7 +349,7 @@ export class GenerateComponent implements OnInit {
       
         if(file){
           
-          let email=this.getDataEmail('email_user');
+          let email=this.getDataEmail('yyyy-0000');
           let name=localStorage.getItem('nomInvite');
     
           this.crud.addInvitationApi(file,email,'invitation',this.title2)
@@ -383,7 +383,7 @@ export class GenerateComponent implements OnInit {
         if(fileT){
           
           let name=this.title90;
-          let email=this.getDataEmail('email_user');
+          let email=this.getDataEmail('yyyy-0000');
     
           this.crud.addInvitationApi(fileT,email,'invitation',name)
           .subscribe(
@@ -410,7 +410,7 @@ export class GenerateComponent implements OnInit {
       if(fileT){
         
         let name=localStorage.getItem('nomInvite');
-        let email=this.getDataEmail('email_user');
+        let email=this.getDataEmail('yyyy-0000');
   
         this.crud.addInvitationApi(fileT,email,'invitation',name)
         .subscribe(
@@ -594,7 +594,7 @@ dialogSuccess2(message:any){
 checkRole(){
 
   let roleKey=this.decryptRoleKey('role');
-  let roleCheck=this.getData('role');
+  let roleCheck=this.getData('xxxx-0000');
 
   if(roleCheck=='Client'){
     this.checkingRole=false;
