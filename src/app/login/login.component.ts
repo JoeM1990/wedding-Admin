@@ -22,6 +22,8 @@ export class LoginComponent implements OnInit {
   registerForm:FormGroup;
   password:any;
 
+  progressBar=false;
+
   //email:any
 
   show = false;
@@ -49,13 +51,17 @@ export class LoginComponent implements OnInit {
 
   loginApi(email:any,password:any){
     
+    
 
     if(!email && !password){
       this.dialogError('Veuillez remplir le formulaire');
     }else{
+      this.progressBar=true;
+
       this.auth.loginApi(email,password)
     .subscribe(
       response => {
+        
        // alert(response['message'])
         let token=response['token'];
         let role=response['role'];
@@ -77,10 +83,17 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/dashboard']);
         }
 
+
+        setTimeout(()=>{
+          this.progressBar=false;
+        },3500);
         
         
       },
       error => {
+        setTimeout(()=>{
+          this.progressBar=false;
+        });
         this.dialogError(error['error']);
         this.router.navigate(['/login']);
         ///alert(error);
@@ -92,12 +105,19 @@ export class LoginComponent implements OnInit {
 
   registerUser(){
     if(this.registerForm.valid){
+      this.progressBar=true;
+
       this.auth.registerApi(this.registerForm.value)
     .subscribe(
       response => {
+
         this.dialogSuccess('Enregistrement effectué avec success');
         this.registerForm.reset();
         this.router.navigate(['/login']);
+
+        setTimeout(()=>{
+          this.progressBar=false;
+        },3500);
       },
       error => {
         this.dialogError(error['error']);

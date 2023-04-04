@@ -20,6 +20,15 @@
             *ngIf="registerForm.controls['password'].errors && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)">
             <p *ngIf="registerForm.controls['email'].errors" style="color: red; text-align: center;">Email incorrect</p>
            </div> -->
+
+           <ng-container *ngIf="progressBar">
+            <div class="d-flex justify-content-center">
+              <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+            </div>
+          </ng-container>
+          
 					<button (click)="registerUser()">Valider</button>
 				</form>
 
@@ -32,6 +41,17 @@
 					<label for="chk" aria-hidden="true">Connexion</label>
 					<input type="email" name="email" placeholder="Email" required #emailLog pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
           <input type="password" placeholder="Password"  #passwordLog required/>
+
+          <ng-container *ngIf="progressBar">
+            <div class="d-flex justify-content-center">
+              <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+            </div>
+          </ng-container>
+          
+
+          
 
           <!-- <ngx-spinner
               
