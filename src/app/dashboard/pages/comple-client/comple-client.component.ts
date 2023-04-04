@@ -13,6 +13,7 @@ import { User } from 'src/app/utils/model/user';
 import { MatTableDataSource } from '@angular/material/table';
 import { DataTableDirective } from 'angular-datatables';
 import  *  as CryptoJS from  'crypto-js';
+import { WaitingComponent } from 'src/app/dialog/waiting/waiting.component';
 
 @Component({
   selector: 'app-comple-client',
@@ -151,6 +152,14 @@ export class CompleClientComponent implements OnInit {
   }
 
   deleteUserById(id:any){
+
+    let dialogRef=this.dialog.open(WaitingComponent,{data:'Voulez-vous vous Deconnecter ?'});
+
+    dialogRef.afterOpened().subscribe(_ => {
+      setTimeout(() => {
+         dialogRef.close();
+      }, 1400)
+    })
 
     let refDialog=this.dialog.open(ConfirmationComponent,{data:'Voulez-vous supprimer cet utilisateur ?'});
 

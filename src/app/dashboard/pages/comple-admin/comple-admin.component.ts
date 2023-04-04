@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/utils/auth/auth.service';
 import { CrudService } from 'src/app/utils/crud/crud.service';
 import { User } from 'src/app/utils/model/user';
 import  *  as CryptoJS from  'crypto-js';
+import { WaitingComponent } from 'src/app/dialog/waiting/waiting.component';
 
 @Component({
   selector: 'app-comple-admin',
@@ -209,6 +210,16 @@ export class CompleAdminComponent implements OnInit {
   public getDataKey(key: string) {
     let data = this.cookieService.get(key)|| "";
     return this.decryptRoleKey(data);
+  }
+
+  waitingDialog(){
+    
+    let refDialog=this.dialog.open(WaitingComponent,{data:'Voulez-vous vous Deconnecter ?'});
+
+
+    refDialog.afterClosed().subscribe(res=>{
+      
+    })
   }
 
 
