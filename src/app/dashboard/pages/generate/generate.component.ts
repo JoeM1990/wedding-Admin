@@ -362,13 +362,16 @@ export class GenerateComponent implements OnInit {
       }
       
     }else{
-      let file=this.selectedFilesApi;
+      if(this.valueCredit>0){
+
+        let file=this.selectedFilesApi;
       
         if(file){
           
           let email=this.getDataEmail('yyyy-0000');
+
           let name=localStorage.getItem('nomInvite');
-    
+
           this.crud.addInvitationApi(file,email,'invitation',this.title2)
           .subscribe(
             response =>{
@@ -381,6 +384,11 @@ export class GenerateComponent implements OnInit {
           );
     
         }
+
+
+      }else{
+        this.router.navigate(['/paiement-forfait'])
+      }
     }
    
     
@@ -422,25 +430,33 @@ export class GenerateComponent implements OnInit {
       }
       
     }else{
-      let fileT=this.selectedFilesT.item(0);
+      if(this.valueCredit>0){
+
+       
+        let fileT=this.selectedFilesT.item(0);
       
-      if(fileT){
-        
-        let name=localStorage.getItem('nomInvite');
-        let email=this.getDataEmail('yyyy-0000');
-  
-        this.crud.addInvitationApi(fileT,email,'invitation',name)
-        .subscribe(
-          response =>{
-            //this.dialogSuccess("Success");
-            
-          },
-          error =>{
-            //alert(error)
-            console.log(error['message']);
-          }
-        );
-  
+        if(fileT){
+          
+          let name=this.title90;
+          let email=this.getDataEmail('yyyy-0000');
+    
+          this.crud.addInvitationApi(fileT,email,'invitation',name)
+          .subscribe(
+            response =>{
+              //this.dialogSuccess("Success");
+              
+            },
+            error =>{
+              //alert(error)
+              console.log(error['message']);
+            }
+          );
+    
+        }
+
+
+      }else{
+        this.router.navigate(['/paiement-forfait'])
       }
     }
    
