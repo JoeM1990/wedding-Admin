@@ -9,6 +9,7 @@ import { ErrorComponent } from '../dialog/error/error.component';
 import { SuccessComponent } from '../dialog/success/success.component';
 import { AuthService } from '../utils/auth/auth.service';
 import  *  as CryptoJS from  'crypto-js';
+import { CrudService } from '../utils/crud/crud.service';
 
 
 
@@ -29,7 +30,7 @@ export class LoginComponent implements OnInit {
   show = false;
 
   constructor(public auth:AuthService, public router:Router, public formBuilder:FormBuilder
-    , public dialog:MatDialog, private cookieService: CookieService) {
+    , public dialog:MatDialog, private cookieService: CookieService, public crud:CrudService) {
     this.registerForm=this.formBuilder.group(
       {
       username: ['',[Validators.required]],
@@ -127,6 +128,13 @@ export class LoginComponent implements OnInit {
         //alert("Echec d'enregistrement");
         //console.log(error)
       });
+
+
+      this.crud.addPaiement(this.registerForm.controls['email'].value,"FREE")
+      .subscribe(res=>{
+
+      });
+
     }else{
       this.progressBar=false;
       this.dialogError("Le formulaire est vide ou mal rempli");
