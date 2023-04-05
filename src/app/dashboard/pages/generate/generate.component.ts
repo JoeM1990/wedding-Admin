@@ -600,6 +600,8 @@ checkRole(){
     this.checkingRole=false;
   }else if(roleCheck=='Admin'){
     this.checkingRole2=true;
+  }else{
+    this.auth.logoutApi();
   }
 }
 

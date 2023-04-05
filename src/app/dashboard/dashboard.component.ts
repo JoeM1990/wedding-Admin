@@ -129,6 +129,8 @@ export class DashboardComponent implements OnInit {
       this.checkingRole2=false;
       this.checkingRole3=true;
       //this.checkingRole3=true;
+    }else{
+      this.auth.logoutApi();
     }
   }
 

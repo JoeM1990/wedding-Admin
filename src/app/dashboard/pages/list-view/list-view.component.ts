@@ -345,6 +345,8 @@ export class ListViewComponent implements OnInit {
       this.checkingRole2=true;
       this.visibleAdmin=true;
       this.visibleUser=false;
+    }else{
+      this.auth.logoutApi();
     }
   }
 

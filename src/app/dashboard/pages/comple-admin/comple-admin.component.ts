@@ -230,6 +230,8 @@ export class CompleAdminComponent implements OnInit {
       this.checkingRole=false;
     }else if(roleCheck=='Admin'){
       this.checkingRole2=true;
+    }else{
+      this.auth.logoutApi();
     }
   }
 

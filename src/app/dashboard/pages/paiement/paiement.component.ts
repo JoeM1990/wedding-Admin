@@ -148,6 +148,8 @@ export class PaiementComponent implements OnInit {
       this.checkingRole2=false;
       this.checkingRole3=true;
       //this.checkingRole3=true;
+    }else{
+      this.auth.logoutApi();
     }
   }
 
