@@ -105,6 +105,11 @@ export class CompleClientComponent implements OnInit {
             //alert(error['message']);
           }
         );
+
+        this.crud.addUserPaiement(this.clientForm.controls['email'],"FREE")
+        .subscribe(res=>{
+
+        });
          
          }, 1700)
         })

@@ -130,7 +130,7 @@ export class LoginComponent implements OnInit {
       });
 
 
-      this.crud.addPaiement(this.registerForm.controls['email'].value,"FREE")
+      this.crud.addUserPaiement(this.registerForm.controls['email'].value,"FREE")
       .subscribe(res=>{
 
       });
