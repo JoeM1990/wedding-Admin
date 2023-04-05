@@ -412,7 +412,7 @@
                               <th>Actions</th>
                             </tr>
                           </thead>
-                          <tbody style="position:absolute; max-height:55vh; overflow-y: scroll;">
+                          <tbody style="position:absolute; max-height:55vh; overflow-y: scroll; overflow-x: scroll; max-width: 150vh;">
                             <tr *ngFor="let transaction of transactions; let i = index ">
                               <td>{{transaction.email}}</td>
                               <td >{{transaction.operateur}}</td>
