@@ -81,4 +81,5 @@ export class PaiementFormComponent implements OnInit {
     return this.decryptEmail(data);
   }
 
+  
 }
