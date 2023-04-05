@@ -39,8 +39,8 @@
 			<div class="login">
 				<form>
 					<label for="chk" aria-hidden="true">Connexion</label>
-					<input type="email" name="email" placeholder="Email" required #emailLog pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
-          <input type="password" placeholder="Password"  #passwordLog required/>
+					<input type="email" name="email" placeholder="Email" required #emailLog pattern="[^ @]*@[^ @]*[a-zA-Z ]">
+          <input type="password" placeholder="Password" maxLength=6  #passwordLog required/>
 
           <ng-container *ngIf="progressBar">
             <div class="d-flex justify-content-center">

@@ -52,8 +52,6 @@ export class LoginComponent implements OnInit {
 
   loginApi(email:any,password:any){
     
-    
-
     if(!email && !password){
       this.dialogError('Veuillez remplir le formulaire');
     }else{
