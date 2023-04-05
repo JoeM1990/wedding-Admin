@@ -194,7 +194,7 @@ export class ListViewComponent implements OnInit {
       this.descriptionGetId=response['description'];
       this.idGetId=response['id'];
 
-      console.log(response['description']);
+      //console.log(response['description']);
     })
   }
 
