@@ -172,7 +172,7 @@ export class CrudService {
 
     const requestOptions = { headers: headers };
 
-    return this.httpClient.get(baseUrl+'upload/'+email,requestOptions);
+    return this.httpClient.get(baseUrl+'uploadE/'+email,requestOptions);
   }
 
   getUplaodByIdApi(id:any):Observable<any>{
