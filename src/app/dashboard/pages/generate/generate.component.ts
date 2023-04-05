@@ -308,7 +308,7 @@ export class GenerateComponent implements OnInit {
      
      if(this.valueCredit>0){
 
-        let file=this.selectedFilesApi;
+      let file= this.selectedFilesT.item(0);
       
         if(file){
           
@@ -316,7 +316,7 @@ export class GenerateComponent implements OnInit {
 
           let name=localStorage.getItem('nomInvite');
 
-          this.crud.addInvitationApi(file,email,'invitation',this.title2)
+          this.crud.addInvitationApi(file,email,'invitation',this.title90)
           .subscribe(
             response =>{
               //this.dialogSuccess("Success");

@@ -198,17 +198,17 @@ export class ListViewComponent implements OnInit {
     })
   }
 
-  sendWhatsapp(phoneNumber:any){
+  sendWhatsapp(url:any){
     //const url='https://api.whatsapp.com/send?text=';
     //let urlData=localStorage.getItem('urlToSend')?.toString;
 
     this.urlData=localStorage.getItem('urlToSend');
-    const image=encodeURIComponent(this.urlData);
+    const image=encodeURIComponent(url);
 
-    window.open('https://api.whatsapp.com/send?phone='+phoneNumber+'&text='+image, "popup");
+    //window.open('https://api.whatsapp.com/send?phone='+phoneNumber+'&text='+image, "popup");
 
-    //this.httpClient.post('https://api.whatsapp.com/send?phone='+phoneNumber+'&text='+image,'')
-    
+    window.open('https://api.whatsapp.com/send?text='+image, "popup");
+
     
   }
 
@@ -313,10 +313,6 @@ export class ListViewComponent implements OnInit {
     link.href = dataUrl;
     link.click();
   });
-  }
-
-  sendToWhatsapp(url:any){
-
   }
 
   saveData(url:any) {
