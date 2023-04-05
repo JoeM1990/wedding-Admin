@@ -187,7 +187,10 @@
 
                 <h2>Listes</h2>
 
-                <button type="button" class="btn btn-danger" style="margin-bottom: 10px; margin-left: 10px;">-</button>
+                <ng-container *ngIf="visibleAdmin">
+                  <button type="button" class="btn btn-danger" style="margin-bottom: 10px; margin-left: 10px;">-</button>
+                </ng-container>
+               
 
                  <!-- Basic Bootstrap Table -->
                  <!-- <button type="button" class="btn btn-primary" style="margin-bottom: 10px;" data-bs-toggle="modal" -->
