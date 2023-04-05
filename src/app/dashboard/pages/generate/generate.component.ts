@@ -192,114 +192,56 @@ export class GenerateComponent implements OnInit {
 
   downloadImage(){
 
-    //console.log(this.valueCount)
-    //console.log(this.valueCredit);
+    if(this.valueCredit>0){
 
+      let email=this.getDataEmail('yyyy-0000');
 
-    if(this.valueCount>9){
-      if(this.valueCredit>0){
+      let newCredit=this.valueCredit-1;
 
-        let email=this.getDataEmail('yyyy-0000');
+      //localStorage.removeItem('nomInvite');
+      //localStorage.setItem('nomInvite',this.title2);
 
-        let newCredit=this.valueCredit-1;
+      this.crud.updateCredit(email,newCredit).subscribe(res=>{
 
-        //localStorage.removeItem('nomInvite');
-        //localStorage.setItem('nomInvite',this.title2);
-
-        this.crud.updateCredit(email,newCredit).subscribe(res=>{
-
-          const ok= html2canvas(this.screen.nativeElement).then(canvas => {
-            this.canvas.nativeElement.src = canvas.toDataURL();
-            this.downloadLink.nativeElement.href = canvas.toDataURL('image/png');
-            this.downloadLink.nativeElement.download = this.title2+'.png';
-            this.downloadLink.nativeElement.click();
-          
-            this.visible=false;
-      
-            canvas.toBlob( (blob:any) => {
-             
-              const file = new File( [ blob ],  this.title2+'.png',{ type: "image/png" });
-              const dT = new DataTransfer();
-              dT.items.add( file );
-      
-              //this.selectedFilesOk=file;
-              this.selectedFilesApi=file;
-      
-              
-      
-            //window.location.reload();
-      
-            
-              
-            } );      
-      
-            
-           
-          });
-
-        });
-
-
+        const ok= html2canvas(this.screen.nativeElement).then(canvas => {
+          this.canvas.nativeElement.src = canvas.toDataURL();
+          this.downloadLink.nativeElement.href = canvas.toDataURL('image/png');
+          this.downloadLink.nativeElement.download = this.title2+'.png';
+          this.downloadLink.nativeElement.click();
         
-
-
-      }else{
-        this.router.navigate(['/paiement-forfait'])
-      }
-      
-    }else{
-
-      if(this.valueCredit>0){
-
-        let email=this.getDataEmail('yyyy-0000');
-
-        let newCredit=this.valueCredit-1;
-
-        //localStorage.removeItem('nomInvite');
-        //localStorage.setItem('nomInvite',this.title2);
-
-        this.crud.updateCredit(email,newCredit).subscribe(res=>{
-
-          const ok= html2canvas(this.screen.nativeElement).then(canvas => {
-            this.canvas.nativeElement.src = canvas.toDataURL();
-            this.downloadLink.nativeElement.href = canvas.toDataURL('image/png');
-            this.downloadLink.nativeElement.download = this.title2+'.png';
-            this.downloadLink.nativeElement.click();
-          
-            this.visible=false;
-      
-            canvas.toBlob( (blob:any) => {
-             
-              const file = new File( [ blob ],  this.title2+'.png',{ type: "image/png" });
-              const dT = new DataTransfer();
-              dT.items.add( file );
-      
-              //this.selectedFilesOk=file;
-              this.selectedFilesApi=file;
-      
-              
-      
-            //window.location.reload();
-      
-            
-              
-            } );      
-      
-            
-           
-          });
-
-        });
-
-
-        
-
-
-      }else{
-        this.router.navigate(['/paiement-forfait'])
-      }
+          this.visible=false;
     
+          canvas.toBlob( (blob:any) => {
+           
+            const file = new File( [ blob ],  this.title2+'.png',{ type: "image/png" });
+            const dT = new DataTransfer();
+            dT.items.add( file );
+    
+            //this.selectedFilesOk=file;
+            this.selectedFilesApi=file;
+    
+            
+    
+          //window.location.reload();
+    
+          
+            
+          } );      
+    
+          
+         
+        });
+
+      });
+
+
+      
+
+
+    }else{
+      this.router.navigate(['/paiement-forfait'])
     }
+  
 
   }
 
@@ -332,7 +274,6 @@ export class GenerateComponent implements OnInit {
 
   uploadInvitationApi(){
 
-    if(this.valueCount>9){
       if(this.valueCredit>0){
 
         let file=this.selectedFilesApi;
@@ -360,61 +301,25 @@ export class GenerateComponent implements OnInit {
       }else{
         this.router.navigate(['/paiement-forfait'])
       }
-      
-    }else{
-      if(this.valueCredit>0){
-
-        let file=this.selectedFilesApi;
-      
-        if(file){
-          
-          let email=this.getDataEmail('yyyy-0000');
-
-          let name=localStorage.getItem('nomInvite');
-
-          this.crud.addInvitationApi(file,email,'invitation',this.title2)
-          .subscribe(
-            response =>{
-              //this.dialogSuccess("Success");
-            },
-            error =>{
-              //alert(error)
-              console.log(error['message']);
-            }
-          );
-    
-        }
-
-
-      }else{
-        this.router.navigate(['/paiement-forfait'])
-      }
-    }
-   
-    
     
   }
 
   uploadInvitationApi2(){
      
-    //let fileT=this.selectedFilesT.item(0);
-  
-    if(this.valueCount>9){
-      if(this.valueCredit>0){
+     if(this.valueCredit>0){
 
-       
-        let fileT=this.selectedFilesT.item(0);
+        let file=this.selectedFilesApi;
       
-        if(fileT){
+        if(file){
           
-          let name=this.title90;
           let email=this.getDataEmail('yyyy-0000');
-    
-          this.crud.addInvitationApi(fileT,email,'invitation',name)
+
+          let name=localStorage.getItem('nomInvite');
+
+          this.crud.addInvitationApi(file,email,'invitation',this.title2)
           .subscribe(
             response =>{
               //this.dialogSuccess("Success");
-              
             },
             error =>{
               //alert(error)
@@ -428,39 +333,7 @@ export class GenerateComponent implements OnInit {
       }else{
         this.router.navigate(['/paiement-forfait'])
       }
-      
-    }else{
-      if(this.valueCredit>0){
 
-       
-        let fileT=this.selectedFilesT.item(0);
-      
-        if(fileT){
-          
-          let name=this.title90;
-          let email=this.getDataEmail('yyyy-0000');
-    
-          this.crud.addInvitationApi(fileT,email,'invitation',name)
-          .subscribe(
-            response =>{
-              //this.dialogSuccess("Success");
-              
-            },
-            error =>{
-              //alert(error)
-              console.log(error['message']);
-            }
-          );
-    
-        }
-
-
-      }else{
-        this.router.navigate(['/paiement-forfait'])
-      }
-    }
-   
-    
   }
 
   
