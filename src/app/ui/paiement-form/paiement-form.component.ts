@@ -20,7 +20,7 @@ export class PaiementFormComponent implements OnInit {
 
   constructor(public crud:CrudService,public dialog:MatDialog,public formBuilder: FormBuilder) { 
     this.transactionForm = this.formBuilder.group({
-      email: this.decryptEmail('yyyy-0000'),
+      email: this.getDataEmail('yyyy-0000'),
       forfait:[''],
       operateur:[''],
       reference:[''],
@@ -81,5 +81,5 @@ export class PaiementFormComponent implements OnInit {
     return this.decryptEmail(data);
   }
 
-  
+
 }
