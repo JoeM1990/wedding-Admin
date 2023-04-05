@@ -220,8 +220,8 @@
                           <!-- <td>1</td> -->
                           <td style="width: 400px; ">{{paiement.email}}</td>
                           <td style="width: 300px; ">
-                            <span class="badge bg-label-primary me-1" *ngIf="paiement.creditt>15">{{paiement.creditt}}</span>
-                            <span class="badge bg-label-danger me-1" *ngIf="paiement.creditt<15">{{paiement.creditt}}</span>
+                            <span class="badge bg-label-primary me-1" *ngIf="paiement.creditt>11">{{paiement.creditt}}</span>
+                            <span class="badge bg-label-danger me-1" *ngIf="paiement.creditt<11">{{paiement.creditt}}</span>
                           </td>
 
   
@@ -265,8 +265,8 @@
                         <td *ngIf="paiement.email==getEmail">{{paiement.email}}</td>
                         <td *ngIf="paiement.email==getEmail">
                           <!-- <span class="badge bg-label-primary me-1">{{paiement.creditt}}</span> -->
-                          <span class="badge bg-label-primary me-1" *ngIf="paiement.creditt>10">{{paiement.creditt}}</span>
-                          <span class="badge bg-label-danger me-1" *ngIf="paiement.creditt<10">{{paiement.creditt}}</span>
+                          <span class="badge bg-label-primary me-1" *ngIf="paiement.creditt>11">{{paiement.creditt}}</span>
+                          <span class="badge bg-label-danger me-1" *ngIf="paiement.creditt<11">{{paiement.creditt}}</span>
                         </td>
 
                         <ng-container *ngIf="checkingRole">
