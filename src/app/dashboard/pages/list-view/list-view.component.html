@@ -213,7 +213,7 @@
                         <th>Actions</th>
                       </tr>
                     </thead>
-                    <tbody class="table-border-bottom-0"  style="position:absolute; max-height:50vh; overflow-y: scroll;">
+                    <tbody class="table-border-bottom-0"  style="position:absolute; max-height:50vh; overflow-y: scroll; overflow-x: scroll;">
                       <tr *ngFor="let item of dataAdmin; let i = index">
                         <td style="width: 90px;">{{item.id}}</td>
                         <td style="width: 150px;">{{item.name}}</td>
@@ -258,23 +258,23 @@
                   <table class="table">
                     <thead>
                       <tr>
-                        <th>Id</th>
+                        <!-- <th>Id</th> -->
                         <th>Invité</th>
-                        <th>CRée PAR</th>
+                        <!-- <th>CRée PAR</th> -->
                         <th>Invitation</th>
                         <th>Qr</th>
                         <th>Actions</th>
                       </tr>
                     </thead>
-                    <tbody class="table-border-bottom-0"  style="position:absolute; max-height:50vh; overflow-y: scroll;">
+                    <tbody class="table-border-bottom-0"  style="position:absolute; max-height:50vh; overflow-y: scroll; ">
                       <tr *ngFor="let item of dataUser; let i = index">
-                        <td style="width: 90px;">{{item.id}}</td>
-                        <td style="width: 150px;">{{item.name}}</td>
-                        <td style="width: 150px;">{{item.email}}</td>
-                        <td style="width: 250px;">
+                        <!-- <td style="width: 90px;">{{item.id}}</td> -->
+                        <td style="width: 200px;">{{item.name}}</td>
+                        <!-- <td style="width: 150px;">{{item.email}}</td> -->
+                        <td style="width: 300px;">
                             <img src={{item.description}} width="100px">
                         </td>
-                        <td style="width: 250px;">
+                        <td style="width: 300px;">
                           <div >
                             <ngx-qrcode
                               [elementType]="elementType"
