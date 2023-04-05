@@ -249,38 +249,55 @@ export class GenerateComponent implements OnInit {
       
     }else{
 
-      const ok= html2canvas(this.screen.nativeElement).then(canvas => {
-        this.canvas.nativeElement.src = canvas.toDataURL();
-        this.downloadLink.nativeElement.href = canvas.toDataURL('image/png');
-        this.downloadLink.nativeElement.download = this.title2+'.png';
-        this.downloadLink.nativeElement.click();
-      
-        this.visible=false;
-  
-        canvas.toBlob( (blob:any) => {
-         
-          const file = new File( [ blob ],  this.title2+'.png',{ type: "image/png" });
-          const dT = new DataTransfer();
-          dT.items.add( file );
-  
-          //this.selectedFilesOk=file;
-          this.selectedFilesApi=file;
-  
-          
-  
-        //window.location.reload();
-  
-        
-          
-        } );      
-  
-        
-       
-      });
+      if(this.valueCredit>0){
 
-      ok.then(res=>{
-        this.dialogSuccess2('Success');
-      })
+        let email=this.getDataEmail('yyyy-0000');
+
+        let newCredit=this.valueCredit-1;
+
+        //localStorage.removeItem('nomInvite');
+        //localStorage.setItem('nomInvite',this.title2);
+
+        this.crud.updateCredit(email,newCredit).subscribe(res=>{
+
+          const ok= html2canvas(this.screen.nativeElement).then(canvas => {
+            this.canvas.nativeElement.src = canvas.toDataURL();
+            this.downloadLink.nativeElement.href = canvas.toDataURL('image/png');
+            this.downloadLink.nativeElement.download = this.title2+'.png';
+            this.downloadLink.nativeElement.click();
+          
+            this.visible=false;
+      
+            canvas.toBlob( (blob:any) => {
+             
+              const file = new File( [ blob ],  this.title2+'.png',{ type: "image/png" });
+              const dT = new DataTransfer();
+              dT.items.add( file );
+      
+              //this.selectedFilesOk=file;
+              this.selectedFilesApi=file;
+      
+              
+      
+            //window.location.reload();
+      
+            
+              
+            } );      
+      
+            
+           
+          });
+
+        });
+
+
+        
+
+
+      }else{
+        this.router.navigate(['/paiement-forfait'])
+      }
     
     }
 
