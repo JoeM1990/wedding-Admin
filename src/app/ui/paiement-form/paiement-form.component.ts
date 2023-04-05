@@ -24,7 +24,7 @@ export class PaiementFormComponent implements OnInit {
       email: this.getDataEmail('yyyy-0000'),
       forfait:this.forfaitt,
       operateur:['',[Validators.required]],
-      reference:['',[Validators.required, Validators.minLength(6), Validators.pattern("[a-zA-Z ]*")]],
+      reference:['',[Validators.required, Validators.minLength(6)]],
       status:"NonValide"
     })
   }
