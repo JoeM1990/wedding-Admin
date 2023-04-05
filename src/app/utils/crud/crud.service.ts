@@ -99,7 +99,7 @@ export class CrudService {
 
     return this.httpClient.post(baseUrl+'paiements',{'email':email,'forfait':forfait},requestOptions)
     .pipe( finalize(()=>{
-      this.dialogSuccess("Le forfait a été ajouter avec success");
+      //this.dialogSuccess("Le forfait a été ajouter avec success");
       //window.location.reload();
     })
     )
