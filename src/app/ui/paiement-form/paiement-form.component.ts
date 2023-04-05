@@ -22,9 +22,9 @@ export class PaiementFormComponent implements OnInit {
   constructor(public crud:CrudService,public dialog:MatDialog,public formBuilder: FormBuilder) { 
     this.transactionForm = this.formBuilder.group({
       email: this.getDataEmail('yyyy-0000'),
-      forfait:[''],
+      forfait:this.forfaitt,
       operateur:['',[Validators.required]],
-      reference:['',[Validators.required, Validators.minLength(9)]],
+      reference:['',[Validators.required, Validators.minLength(6), Validators.pattern("[a-zA-Z ]*")]],
       status:"NonValide"
     })
   }

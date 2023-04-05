@@ -83,10 +83,9 @@ export class ListViewComponent implements OnInit {
 
     this.crud.getAllUplaodByEmailApi(email)
     .subscribe(response=>{
-      if(response){
 
-      }
-      this.dataUser=response;
+        this.dataUser=response;
+     
     })
 
     this.crud.getAllItem().subscribe(res => {

@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
     , public dialog:MatDialog, private cookieService: CookieService, public crud:CrudService) {
     this.registerForm=this.formBuilder.group(
       {
-      username: ['',[Validators.required]],
+      username: ['',[Validators.required, Validators.pattern("[a-zA-Z ]*")]],
       email: ['',[Validators.required,Validators.pattern("[^ @]*@[^ @]*"),]],
       password: ['',[Validators.required,Validators.maxLength(6)]],
       role: 'Client',
