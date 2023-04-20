@@ -42,6 +42,8 @@
 					<input type="email" name="email" placeholder="Email" required #emailLog pattern="[^ @]*@[^ @]*[a-zA-Z ]">
           <input type="password" placeholder="Password" maxLength=6  #passwordLog required/>
 
+          
+
           <ng-container *ngIf="progressBar">
             <div class="d-flex justify-content-center">
               <div class="spinner-border text-primary" role="status">
@@ -80,7 +82,7 @@
           
               <button (click)="loginApi(emailLog.value,passwordLog.value)">Se connecter</button>
           
-          
+              <h6 style="color: red; font-size: 15px; text-align: center; margin-top: 10px;" (click)="sendWhatsapp()">Mot de passe oublié?</h6>
 					
 				</form>
 			</div>

@@ -203,6 +203,18 @@ export class LoginComponent implements OnInit {
     return CryptoJS.AES.encrypt(txt, 'email_user').toString();
   }
 
+  sendWhatsapp(){
+    //const url='https://api.whatsapp.com/send?text=';
+    //let urlData=localStorage.getItem('urlToSend')?.toString;
+
+    window.open('https://api.whatsapp.com/send?phone=243816717846'+
+    "&text=Bonjour, je suis utilisateur de l'application WeddingApp \n j'ai oublié le mot de passe", "popup");
+
+    //window.open('https://api.whatsapp.com/phone?=24381671784send?text=', "popup");
+
+    
+  }
+
  
 
   
