@@ -4,9 +4,10 @@
       <!-- <img src="assets/dialog/errorOk.png" width="80px" height="80px"> -->
       <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
       <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+      <input type="number" class="form-control" [(ngModel)]="codeOtp">
       <div class="col-md-12">
-        <button type="button" class="btn btn-primary" mat-dialog-close="true" cl style="margin-right: 20px;">Oui</button>
-        <button type="button" class="btn btn-danger" mat-dialog-close="false" >Non</button>
+        <button type="button" class="btn btn-primary" mat-dialog-close="true" cl style="margin-right: 20px;" (click)="saveOtp()">Envoyer</button>
+        <button type="button" class="btn btn-danger" mat-dialog-close="false" >Annuler</button>
       </div>
     </div>
     <div class="card-footer text-muted">
