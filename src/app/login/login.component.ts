@@ -117,15 +117,18 @@ export class LoginComponent implements OnInit {
         },1500);
 
         this.dialogSuccess('Enregistrement effectué avec success');
-        this.registerForm.reset();
+        //this.registerForm.reset();
         this.router.navigate(['/login']);
+
+        window.location.reload();
 
         
       },
       error => {
         this.progressBar=false;
         this.dialogError(error['error']);
-        this.registerForm.reset();
+        this.router.navigate(['/login']);
+        //this.registerForm.reset();
         //alert("Echec d'enregistrement");
         //console.log(error)
       });
@@ -161,6 +164,8 @@ export class LoginComponent implements OnInit {
         refDialog.afterClosed().subscribe(res=>{
           if(res == 'true'){
             this.registerUser()
+          }else if(res == 'false'){
+            window.location.reload();
           }
         });
         
@@ -168,7 +173,7 @@ export class LoginComponent implements OnInit {
       error => {
         this.progressBar=false;
         this.dialogError(error['error']);
-        this.registerForm.reset();
+        window.location.reload();
         //alert("Echec d'enregistrement");
         //console.log(error)
         console.log(error);
