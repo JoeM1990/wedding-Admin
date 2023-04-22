@@ -70,7 +70,7 @@ export class AuthService {
 
     const requestOptions = { headers: headers };
 
-    return this.httpClient.post(baseUrl+'verificationMail',user,requestOptions);
+    return this.httpClient.post(baseUrl+'validationMail',user,requestOptions);
   }
 
   

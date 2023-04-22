@@ -155,7 +155,14 @@ export class LoginComponent implements OnInit {
           this.progressBar=false;
         },1500);
 
-        this.dialogValidation('');
+        let refDialog=this.dialog.open(ValidationComponent,{data:'Veuillez introduire votre code de validation'});
+
+
+        refDialog.afterClosed().subscribe(res=>{
+          if(res == 'true'){
+            this.registerUser()
+          }
+        });
         
       },
       error => {
@@ -164,6 +171,7 @@ export class LoginComponent implements OnInit {
         this.registerForm.reset();
         //alert("Echec d'enregistrement");
         //console.log(error)
+        console.log(error);
       });
 
     }else{
@@ -203,9 +211,9 @@ export class LoginComponent implements OnInit {
 
     refDialog.afterClosed().subscribe(res=>{
       if(res == 'true'){
-        
+        this.registerUser()
       }
-    })
+    });
   }
 
   // register(email:any,password:any){
