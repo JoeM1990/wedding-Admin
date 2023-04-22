@@ -11,6 +11,7 @@ import { AuthService } from '../utils/auth/auth.service';
 import  *  as CryptoJS from  'crypto-js';
 import { CrudService } from '../utils/crud/crud.service';
 import { ValidationComponent } from '../dialog/validation/validation.component';
+import { RecoveryPasswordComponent } from '../dialog/recovery-password/recovery-password.component';
 
 
 
@@ -219,6 +220,17 @@ export class LoginComponent implements OnInit {
     refDialog.afterClosed().subscribe(res=>{
       if(res == 'true'){
         this.registerUser()
+      }
+    });
+  }
+
+  dialogRecovery(message:any){
+    let refDialog=this.dialog.open(RecoveryPasswordComponent,{data:message});
+
+
+    refDialog.afterClosed().subscribe(res=>{
+      if(res == 'true'){
+        //this.registerUser()
       }
     });
   }
