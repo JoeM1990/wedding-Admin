@@ -27,6 +27,6 @@ export class ValidationComponent implements OnInit {
 
   saveOtp(){
     localStorage.setItem('otpCode',this.codeOtp);
-    console.log(this.codeOtp);
+    //console.log(this.codeOtp);
   }
 }

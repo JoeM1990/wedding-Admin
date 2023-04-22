@@ -43,7 +43,7 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
-  registerApi(user:User){
+  registerApi(user:User, code:any){
     //let token=localStorage.getItem('token');
 
     let token=this.cookieService.get('token');
@@ -55,7 +55,7 @@ export class AuthService {
 
     const requestOptions = { headers: headers };
 
-    return this.httpClient.post(baseUrl+'users',user,requestOptions);
+    return this.httpClient.post(baseUrl+'users/'+code,user,requestOptions);
   }
 
   verificationApi(user:User){

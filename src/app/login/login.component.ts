@@ -10,6 +10,7 @@ import { SuccessComponent } from '../dialog/success/success.component';
 import { AuthService } from '../utils/auth/auth.service';
 import  *  as CryptoJS from  'crypto-js';
 import { CrudService } from '../utils/crud/crud.service';
+import { ValidationComponent } from '../dialog/validation/validation.component';
 
 
 
@@ -105,7 +106,9 @@ export class LoginComponent implements OnInit {
     if(this.registerForm.valid){
       this.progressBar=true;
 
-      this.auth.registerApi(this.registerForm.value)
+      let code= localStorage.getItem('otpCode');
+
+      this.auth.registerApi(this.registerForm.value,code)
     .subscribe(
       response => {
 
@@ -140,6 +143,36 @@ export class LoginComponent implements OnInit {
     
   }
 
+  verificationMailUser(){
+    if(this.registerForm.valid){
+      this.progressBar=true;
+
+      this.auth.verificationApi(this.registerForm.value)
+    .subscribe(
+      response => {
+
+        setTimeout(()=>{
+          this.progressBar=false;
+        },1500);
+
+        this.dialogValidation('');
+        
+      },
+      error => {
+        this.progressBar=false;
+        this.dialogError(error['error']);
+        this.registerForm.reset();
+        //alert("Echec d'enregistrement");
+        //console.log(error)
+      });
+
+    }else{
+      this.progressBar=false;
+      this.dialogError("Le formulaire est vide ou mal rempli");
+    }
+    
+  }
+
   dialogError(message:any){
     const timeout=1400;
 
@@ -162,6 +195,17 @@ export class LoginComponent implements OnInit {
              dialogRef.close();
           }, timeout)
         })
+  }
+
+  dialogValidation(message:any){
+    let refDialog=this.dialog.open(ValidationComponent,{data:''});
+
+
+    refDialog.afterClosed().subscribe(res=>{
+      if(res == 'true'){
+        
+      }
+    })
   }
 
   // register(email:any,password:any){
