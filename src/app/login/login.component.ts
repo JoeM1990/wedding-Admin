@@ -128,6 +128,7 @@ export class LoginComponent implements OnInit {
         this.progressBar=false;
         this.dialogError(error['error']);
         this.router.navigate(['/login']);
+        window.location.reload();
         //this.registerForm.reset();
         //alert("Echec d'enregistrement");
         //console.log(error)
@@ -158,12 +159,13 @@ export class LoginComponent implements OnInit {
           this.progressBar=false;
         },1500);
 
-        let refDialog=this.dialog.open(ValidationComponent,{data:'Veuillez introduire votre code de validation'});
+        let refDialog=this.dialog.open(ValidationComponent,{data:"Veuillez introduire le code de validation \n envoyé a \n"+this.registerForm.controls['email'].value});
 
 
         refDialog.afterClosed().subscribe(res=>{
           if(res == 'true'){
             this.registerUser()
+            localStorage.removeItem('otpCode');
           }else if(res == 'false'){
             window.location.reload();
           }
@@ -172,11 +174,11 @@ export class LoginComponent implements OnInit {
       },
       error => {
         this.progressBar=false;
-        this.dialogError(error['error']);
+        this.dialogError('Erreur du serveur');
         window.location.reload();
         //alert("Echec d'enregistrement");
         //console.log(error)
-        console.log(error);
+        //console.log(error);
       });
 
     }else{

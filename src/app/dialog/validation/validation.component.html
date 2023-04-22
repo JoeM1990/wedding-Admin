@@ -1,10 +1,10 @@
 <div class="card text-center">
     <div class="card-body">
-      <h5 class="card-title" style="text-decoration: double; font-size: 32px;">{{data}}</h5>
+      <h5 class="" style="text-decoration: double; font-size: 26px;">{{data}}</h5>
       <!-- <img src="assets/dialog/errorOk.png" width="80px" height="80px"> -->
       <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
       <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-      <input type="number" class="form-control" [(ngModel)]="codeOtp">
+      <input type="number" class="form-control" [(ngModel)]="codeOtp" style="margin-top: 15px;">
       <div class="col-md-12" style="margin-top: 20px;">
         <button type="button" class="btn btn-primary" mat-dialog-close="true" cl style="margin-right: 20px;" (click)="saveOtp()">Envoyer</button>
         <button type="button" class="btn btn-danger" mat-dialog-close="false" >Annuler</button>
