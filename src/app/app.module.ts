@@ -43,6 +43,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import {MatTableModule} from '@angular/material/table';
 import { SplashScreenComponent } from './splash-screen/splash-screen.component';
+import { ValidationComponent } from './dialog/validation/validation.component';
 //import { SimpleMatTableComponent } from './simple-mat-table/simple-mat-table.component';
 
 //import { NgxSpinnerModule } from "ngx-spinner";
@@ -65,7 +66,8 @@ import { SplashScreenComponent } from './splash-screen/splash-screen.component';
     WaitingComponent,
     PaiementForfaitComponent,
     PaiementFormComponent,
-    SplashScreenComponent
+    SplashScreenComponent,
+    ValidationComponent
   ],
   imports: [
     BrowserModule,

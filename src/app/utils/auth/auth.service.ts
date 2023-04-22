@@ -58,6 +58,21 @@ export class AuthService {
     return this.httpClient.post(baseUrl+'users',user,requestOptions);
   }
 
+  verificationApi(user:User){
+    //let token=localStorage.getItem('token');
+
+    let token=this.cookieService.get('token');
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    })
+
+    const requestOptions = { headers: headers };
+
+    return this.httpClient.post(baseUrl+'verificationMail',user,requestOptions);
+  }
+
   
 
   // register(email: string, password: string){
