@@ -101,7 +101,7 @@ export class AuthService {
 
     const requestOptions = { headers: headers };
 
-    return this.httpClient.put(baseUrl+'/passwordRecovery',{'email':email,
+    return this.httpClient.put(baseUrl+'passwordRecovery',{'email':email,
     'password':password,'code':code},requestOptions);
 
   }
