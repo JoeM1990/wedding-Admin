@@ -73,6 +73,37 @@ export class AuthService {
     return this.httpClient.post(baseUrl+'validationMail',user,requestOptions);
   }
 
+  verificationApiRecovery(email:any){
+    //let token=localStorage.getItem('token');
+
+    let token=this.cookieService.get('token');
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    })
+
+    const requestOptions = { headers: headers };
+
+    return this.httpClient.post(baseUrl+'validationMailRecovery/'+email,requestOptions);
+  }
+
+  recoveryPasswordApi(email:any,password:any,code:any){
+    //let token=localStorage.getItem('token');
+
+    let token=this.cookieService.get('token');
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    })
+
+    const requestOptions = { headers: headers };
+
+    return this.httpClient.post(baseUrl+'/passwordRecovery/'+email+'/'+password+'/'+code,requestOptions);
+  }
+
+
   
 
   // register(email: string, password: string){

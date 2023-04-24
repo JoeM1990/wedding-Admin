@@ -11,6 +11,7 @@ export class RecoveryPasswordComponent implements OnInit {
 
   codeOtpRecovery:any
   passwordRecovery:any;
+  emailRecovery:any;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data:string, private matDialogRef: MatDialogRef<ConfirmationComponent>) { }
 
@@ -28,6 +29,7 @@ export class RecoveryPasswordComponent implements OnInit {
   saveData(){
     localStorage.setItem('otpCodeRecovery',this.codeOtpRecovery);
     localStorage.setItem('passwordRecovery',this.passwordRecovery);
+    //localStorage.setItem('emailRecovery',this.emailRecovery);
     //console.log(this.codeOtp);
   }
 

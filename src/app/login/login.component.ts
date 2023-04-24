@@ -31,6 +31,9 @@ export class LoginComponent implements OnInit {
 
   show = false;
 
+  emailUser:any;
+  passwordUser:any
+
   constructor(public auth:AuthService, public router:Router, public formBuilder:FormBuilder
     , public dialog:MatDialog, private cookieService: CookieService, public crud:CrudService) {
     this.registerForm=this.formBuilder.group(
@@ -148,6 +151,46 @@ export class LoginComponent implements OnInit {
     
   }
 
+  recoveryPasswordUser(){
+   
+      //this.progressBar=true;
+
+      let code = localStorage.getItem('otpCodeRecovery');
+      let password = localStorage.getItem('passwordRecovery');
+      
+
+      this.auth.recoveryPasswordApi(this.emailUser,password,code)
+    .subscribe(
+      response => {
+
+        setTimeout(()=>{
+          this.progressBar=false;
+        },1500);
+
+        localStorage.removeItem('otpCodeRecovery');
+        localStorage.removeItem('passwordRecovery');
+
+        this.dialogSuccess('Recuperation mot de passe effectué avec success');
+        //this.registerForm.reset();
+        this.router.navigate(['/login']);
+
+        window.location.reload();
+
+        
+      },
+      error => {
+        this.progressBar=false;
+        //this.dialogError(error['error']);
+        this.router.navigate(['/login']);
+        window.location.reload();
+        //this.registerForm.reset();
+        //alert("Echec d'enregistrement");
+        //console.log(error)
+      });
+    
+  }
+
+
   verificationMailUser(){
     if(this.registerForm.valid){
       this.progressBar=true;
@@ -189,6 +232,39 @@ export class LoginComponent implements OnInit {
     
   }
 
+  verificationMailUserRecovery(){
+    if(!this.emailUser){
+      
+      this.progressBar=false;
+      this.dialogError("Veuillez introduire votre adresse email");
+
+    }else{
+      this.progressBar=true;
+
+      this.auth.verificationApiRecovery(this.emailUser)
+    .subscribe(
+      response => {
+
+        setTimeout(()=>{
+          this.progressBar=false;
+        },1500);
+
+        this.dialogRecovery("Veuillez introduire le code de validation \n envoyé a \n"+this.emailUser);
+
+        
+      },
+      error => {
+        this.progressBar=false;
+        this.dialogError('Erreur du serveur');
+        window.location.reload();
+        //alert("Echec d'enregistrement");
+        //console.log(error)
+        //console.log(error);
+      });
+    }
+    
+  }
+
   dialogError(message:any){
     const timeout=1400;
 
@@ -225,14 +301,18 @@ export class LoginComponent implements OnInit {
   }
 
   dialogRecovery(message:any){
-    let refDialog=this.dialog.open(RecoveryPasswordComponent,{data:message});
+
+
+      let refDialog=this.dialog.open(RecoveryPasswordComponent,{data:message});
 
 
     refDialog.afterClosed().subscribe(res=>{
       if(res == 'true'){
-        //this.registerUser()
+       this.recoveryPasswordUser();
       }
     });
+
+         
   }
 
   // register(email:any,password:any){
@@ -285,6 +365,8 @@ export class LoginComponent implements OnInit {
 
     
   }
+
+  
 
  
 
