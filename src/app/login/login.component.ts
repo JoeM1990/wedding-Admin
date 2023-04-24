@@ -180,10 +180,10 @@ export class LoginComponent implements OnInit {
       },
       error => {
         this.progressBar=false;
-        this.dialogError('Erreur');
+        this.dialogError(error['error']);
         //console.log(error);
         this.router.navigate(['/login']);
-        window.location.reload();
+        //window.location.reload();
         //this.registerForm.reset();
         //alert("Echec d'enregistrement");
         //console.log(error)
@@ -267,7 +267,7 @@ export class LoginComponent implements OnInit {
   }
 
   dialogError(message:any){
-    const timeout=1400;
+    const timeout=2900;
 
         let dialogRef=this.dialog.open(ErrorComponent,{data:message});
 
