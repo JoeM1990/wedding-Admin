@@ -180,7 +180,8 @@ export class LoginComponent implements OnInit {
       },
       error => {
         this.progressBar=false;
-        //this.dialogError(error['error']);
+        this.dialogError('Erreur');
+        //console.log(error);
         this.router.navigate(['/login']);
         window.location.reload();
         //this.registerForm.reset();

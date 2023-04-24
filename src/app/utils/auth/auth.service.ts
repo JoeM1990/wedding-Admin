@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { MatDialog } from '@angular/material/dialog';
@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 import { ErrorComponent } from 'src/app/dialog/error/error.component';
 import { SuccessComponent } from 'src/app/dialog/success/success.component';
 import { User } from '../model/user';
+import * as e from 'express';
 
 const baseUrl = 'http://localhost:8080/api/';
 @Injectable({
@@ -100,7 +101,9 @@ export class AuthService {
 
     const requestOptions = { headers: headers };
 
-    return this.httpClient.post(baseUrl+'/passwordRecovery/'+email+'/'+password+'/'+code,requestOptions);
+    return this.httpClient.put(baseUrl+'/passwordRecovery',{'email':email,
+    'password':password,'code':code},requestOptions);
+
   }
 
 
