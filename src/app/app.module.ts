@@ -45,6 +45,7 @@ import {MatTableModule} from '@angular/material/table';
 import { SplashScreenComponent } from './splash-screen/splash-screen.component';
 import { ValidationComponent } from './dialog/validation/validation.component';
 import { RecoveryPasswordComponent } from './dialog/recovery-password/recovery-password.component';
+import { HomePubComponent } from './ui/home-pub/home-pub.component';
 //import { SimpleMatTableComponent } from './simple-mat-table/simple-mat-table.component';
 
 //import { NgxSpinnerModule } from "ngx-spinner";
@@ -69,7 +70,8 @@ import { RecoveryPasswordComponent } from './dialog/recovery-password/recovery-p
     PaiementFormComponent,
     SplashScreenComponent,
     ValidationComponent,
-    RecoveryPasswordComponent
+    RecoveryPasswordComponent,
+    HomePubComponent
   ],
   imports: [
     BrowserModule,

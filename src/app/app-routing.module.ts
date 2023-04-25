@@ -12,10 +12,12 @@ import { SplashScreenComponent } from './splash-screen/splash-screen.component';
 import { PaiementForfaitComponent } from './ui/paiement-forfait/paiement-forfait.component';
 import { PaiementFormComponent } from './ui/paiement-form/paiement-form.component';
 import { AuthGuard } from './utils/guard/auth.guard';
+import { HomePubComponent } from './ui/home-pub/home-pub.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'splash-screen' },
   { path: 'login', component:LoginComponent},
+  { path: 'home-pub', component:HomePubComponent},
   { path: 'splash-screen', component:SplashScreenComponent},
   { path: 'dashboard', component:DashboardComponent,canActivate:[AuthGuard]},
   { path: 'compte-admin', component:CompleAdminComponent,canActivate:[AuthGuard]},
