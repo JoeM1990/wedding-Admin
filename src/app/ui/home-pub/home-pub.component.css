@@ -20,7 +20,7 @@
   li {
     display: inline;
     float: left;
-    padding-left: 10px;
+    padding-left: 12px;
   }
 
   a{
@@ -32,3 +32,9 @@
     text-decoration: wavy;
     transform: matrix();
   }
+
+.btn{
+    background-color: #696cff;
+    color: white;
+    margin-left: 60px;
+}
