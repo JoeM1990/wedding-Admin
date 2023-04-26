@@ -211,7 +211,7 @@ export class CompleAdminComponent implements OnInit {
 
   onConfirmation(){
     
-    let refDialog=this.dialog.open(ConfirmationComponent,{data:'Voulez-vous vous Deconnecter ?'});
+    let refDialog=this.dialog.open(ConfirmationComponent,{data:'Voulez-vous vous Déconnecter ?'});
 
 
     refDialog.afterClosed().subscribe(res=>{
@@ -255,7 +255,7 @@ export class CompleAdminComponent implements OnInit {
 
   waitingDialog(){
     
-    let refDialog=this.dialog.open(WaitingComponent,{data:'Voulez-vous vous Deconnecter ?'});
+    let refDialog=this.dialog.open(WaitingComponent,{data:'Voulez-vous vous Déconnecter ?'});
 
 
     refDialog.afterClosed().subscribe(res=>{

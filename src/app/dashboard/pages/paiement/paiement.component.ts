@@ -55,7 +55,7 @@ export class PaiementComponent implements OnInit {
 
   onConfirmation(){
     
-    let refDialog=this.dialog.open(ConfirmationComponent,{data:'Voulez-vous vous Deconnecter ?'});
+    let refDialog=this.dialog.open(ConfirmationComponent,{data:'Voulez-vous vous Déconnecter ?'});
 
 
     refDialog.afterClosed().subscribe(res=>{
@@ -67,7 +67,7 @@ export class PaiementComponent implements OnInit {
 
   deleteCreditById(id:any){
 
-    let refDialog=this.dialog.open(ConfirmationComponent,{data:'Voulez-vous supprimer ce credit ?'});
+    let refDialog=this.dialog.open(ConfirmationComponent,{data:'Voulez-vous supprimer ce crédit ?'});
 
 
     refDialog.afterClosed().subscribe(res=>{
@@ -103,7 +103,7 @@ export class PaiementComponent implements OnInit {
   }
 
   addForfait(email:any,forfait:any){
-    let refDialog=this.dialog.open(ConfirmationComponent,{data:'Voulez-vous ajouter ce credit?'});
+    let refDialog=this.dialog.open(ConfirmationComponent,{data:'Voulez-vous ajouter ce crédit?'});
 
 
     refDialog.afterClosed().subscribe(res=>{

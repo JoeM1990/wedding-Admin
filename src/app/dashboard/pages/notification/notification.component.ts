@@ -17,7 +17,7 @@ export class NotificationComponent implements OnInit {
 
   onConfirmation(){
     
-    let refDialog=this.dialog.open(ConfirmationComponent,{data:'Voulez-vous vous Deconnecter ?'});
+    let refDialog=this.dialog.open(ConfirmationComponent,{data:'Voulez-vous vous Déconnecter ?'});
 
 
     refDialog.afterClosed().subscribe(res=>{
