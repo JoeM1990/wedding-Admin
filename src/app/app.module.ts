@@ -47,6 +47,7 @@ import { ValidationComponent } from './dialog/validation/validation.component';
 import { RecoveryPasswordComponent } from './dialog/recovery-password/recovery-password.component';
 import { HomePubComponent } from './ui/home-pub/home-pub.component';
 import { FormPayComponent } from './ui/form-pay/form-pay.component';
+import { TeamComponent } from './ui/team/team.component';
 //import { SimpleMatTableComponent } from './simple-mat-table/simple-mat-table.component';
 
 //import { NgxSpinnerModule } from "ngx-spinner";
@@ -74,7 +75,8 @@ import { FormPayComponent } from './ui/form-pay/form-pay.component';
     ValidationComponent,
     RecoveryPasswordComponent,
     HomePubComponent,
-    FormPayComponent
+    FormPayComponent,
+    TeamComponent
   ],
   imports: [
     BrowserModule,
