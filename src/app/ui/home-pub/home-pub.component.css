@@ -63,10 +63,10 @@ footer{
   /* height:100px; */
 }
 
-body{
-  background-color: #696cff;
+.image{
+  display: flex;
+  justify-content: center;
 }
-
 
 
   
