@@ -37,12 +37,17 @@
     background-color: white;
     color: #696cff;
     margin-left: 60px;
+
+    transition-property: transform;
+    transition-duration: 1000ms;
+    
 }
 
 .btn:hover{
   background-color: #696cff;
   color: white;
-  transition: width 2s, height 4s;
+  /* transition: width 2s, height 4s; */
+  transform: scale(1.15);
 }
 
 .centered-element{
@@ -66,6 +71,12 @@ footer{
 .image{
   display: flex;
   justify-content: center;
+  transition-property: transform;
+  transition-duration: 1000ms;
+}
+
+.image:hover{
+  transform: scale(1.15);
 }
 
 
