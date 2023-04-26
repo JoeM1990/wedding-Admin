@@ -34,9 +34,14 @@
   }
 
 .btn{
-    background-color: #696cff;
-    color: white;
+    background-color: white;
+    color: #696cff;
     margin-left: 60px;
+}
+
+.btn:hover{
+  background-color: #696cff;
+  color: white;
 }
 
 .centered-element{
