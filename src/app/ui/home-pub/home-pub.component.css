@@ -42,6 +42,7 @@
 .btn:hover{
   background-color: #696cff;
   color: white;
+  transition: width 2s, height 4s;
 }
 
 .centered-element{
