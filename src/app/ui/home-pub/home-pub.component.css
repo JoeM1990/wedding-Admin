@@ -79,5 +79,12 @@ footer{
   transform: scale(1.15);
 }
 
+.animate{
+  animation-duration: 3s;
+  animation-name: slidein;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
 
   
