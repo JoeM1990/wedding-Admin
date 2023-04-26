@@ -40,7 +40,7 @@ export class PaiementFormComponent implements OnInit {
 
   addTransaction(){
 
-      let refDialog=this.dialog.open(ConfirmationComponent,{data:'Voulez-vous ajouter cette reference?'});
+      let refDialog=this.dialog.open(ConfirmationComponent,{data:'Voulez-vous ajouter cette référence?'});
 
 
       refDialog.afterClosed().subscribe(res=>{
