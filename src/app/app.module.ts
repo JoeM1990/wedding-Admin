@@ -52,6 +52,7 @@ import { FormPayComponent } from './ui/form-pay/form-pay.component';
 //import { NgxSpinnerModule } from "ngx-spinner";
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
