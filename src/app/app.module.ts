@@ -48,6 +48,7 @@ import { RecoveryPasswordComponent } from './dialog/recovery-password/recovery-p
 import { HomePubComponent } from './ui/home-pub/home-pub.component';
 import { FormPayComponent } from './ui/form-pay/form-pay.component';
 import { TeamComponent } from './ui/team/team.component';
+import { ContactComponent } from './ui/contact/contact.component';
 //import { SimpleMatTableComponent } from './simple-mat-table/simple-mat-table.component';
 
 //import { NgxSpinnerModule } from "ngx-spinner";
@@ -76,7 +77,8 @@ import { TeamComponent } from './ui/team/team.component';
     RecoveryPasswordComponent,
     HomePubComponent,
     FormPayComponent,
-    TeamComponent
+    TeamComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
