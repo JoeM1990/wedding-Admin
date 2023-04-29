@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { Observable } from 'rxjs';
+
 import { ConfirmationComponent } from 'src/app/dialog/confirmation/confirmation.component';
 
 import { AuthService } from 'src/app/utils/auth/auth.service';
@@ -12,6 +12,9 @@ import { CrudService } from 'src/app/utils/crud/crud.service';
 import { User } from 'src/app/utils/model/user';
 import  *  as CryptoJS from  'crypto-js';
 import { WaitingComponent } from 'src/app/dialog/waiting/waiting.component';
+
+import { from, Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-comple-admin',
@@ -73,6 +76,12 @@ export class CompleAdminComponent implements OnInit {
       },
       error => {
         //console.log(error)
+      });
+
+      this.crud.getAllUserApi().subscribe({
+        next(response){
+          
+        }
       });
   }
 

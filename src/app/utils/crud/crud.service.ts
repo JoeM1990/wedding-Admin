@@ -5,12 +5,13 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { MatDialog } from '@angular/material/dialog';
 import { CookieService } from 'ngx-cookie-service';
-import { finalize, Observable } from 'rxjs';
+import { finalize, Observable, from } from 'rxjs';
 import { SuccessComponent } from 'src/app/dialog/success/success.component';
 import { FileUpload } from '../model/file-upload';
 import { Item } from '../model/item';
 import { Transaction } from '../model/transaction';
 import { User } from '../model/user';
+
 
 
 const baseUrl = 'http://localhost:8080/api/';
@@ -135,6 +136,8 @@ export class CrudService {
     })
 
     const requestOptions = { headers: headers };
+
+    const data = from(fetch(baseUrl+'users'));
 
     return this.httpClient.get(baseUrl+'users',requestOptions);
   }
