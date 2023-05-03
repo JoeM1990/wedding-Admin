@@ -141,4 +141,17 @@ transform: scale(1.20);
 }
 
 
+.square {
+  width: 200px;
+  height: 200px;
+  /* background: orange; */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .square-animation {
+    animation: wipe-enter 1s 1;
+  }
+}
+
+
   
