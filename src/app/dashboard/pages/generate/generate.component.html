@@ -445,7 +445,7 @@
                     <div class="row">
                       <div class="col mb-3">
                         <label for="nameBasic" class="form-label">Background Image</label>
-                        <input type="file" id="nameBasic" class="form-control"  (change)="onFileUploadChange($event)" #selectFileChange/>
+                        <input type="file" id="nameBasic" class="form-control"/>
                       </div>
                     </div>
                     <!-- <div class="row g-2">
@@ -490,7 +490,14 @@
                     <div class="row">
                       <div class="col mb-3">
                         <label for="nameBasic" class="form-label">Background Image</label>
-                        <input type="file" id="nameBasic" class="form-control" />
+                        <input type="file" id="nameBasic" class="form-control"   (change)="onFileUploadChange($event)" #selectFileChange/>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col mb-3">
+                        <label for="nameBasic" class="form-label">Couleur Texte</label>
+                        <input type="text" id="nameBasic" class="form-control"/>
                       </div>
                     </div>
                 
@@ -499,7 +506,7 @@
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                       Close
                     </button>
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Valider</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="changeBack11()">Valider</button>
                   </div>
                 </div>
               </div>

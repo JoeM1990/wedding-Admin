@@ -195,7 +195,7 @@ export class GenerateComponent implements OnInit {
   }
 
   changeBack11(){   
-    this.photo='../../../../assets/templates/b8.png';
+    this.photo=this.imagePreviewChange;
     this.style='black';
   }
 
