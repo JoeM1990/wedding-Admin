@@ -497,12 +497,7 @@
                     <div class="row">
                       <div class="col mb-3">
                         <label for="nameBasic" class="form-label">Couleur Texte</label>
-                        <select class="form-control">
-                          <option style="color: black;">Black</option>
-                          <option style="color: white;">White</option>
-                          <option style="color: yellow;">Yellow</option>
-                          <option style="color: blue;">Bleu</option>
-                        </select>
+                       <input class="form-control" type="color" [(ngModel)]="color" id="colorText" (change)="onColorChange($event)">
                       </div>
                     </div>
                 

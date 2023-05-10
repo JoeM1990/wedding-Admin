@@ -36,6 +36,8 @@ export class GenerateComponent implements OnInit {
   title90:any;
   title900:any;
 
+  color:any;
+
   imgGet:any;
 
   photo:any;
@@ -194,9 +196,15 @@ export class GenerateComponent implements OnInit {
     this.style='black';
   }
 
-  changeBack11(){   
+  changeBack11(){  
     this.photo=this.imagePreviewChange;
-    this.style='black';
+    this.style=this.color;
+    alert(this.color);
+  }
+
+  onColorChange(event:any){
+    this.color=event.target.value;
+    //alert(this.color);
   }
 
   downloadImage(){
