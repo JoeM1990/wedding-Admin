@@ -34,6 +34,7 @@ export class GenerateComponent implements OnInit {
   title77:any;
   title88:any;
   title90:any;
+  title900:any;
 
   imgGet:any;
 
