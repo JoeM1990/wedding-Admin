@@ -237,6 +237,13 @@
                           <input type="text" class="form-control" id="defaultFormControlInput" placeholder="Empereur"
                             aria-describedby="defaultFormControlHelp" [(ngModel)]="title3" [maxLength]="10"/>
 
+                            <label for="defaultFormControlInput" class="form-label">Type Mariage</label>
+                            <select class="form-control" id="defaultFormControlInput" [(ngModel)]="title900">
+                              <option>Mariage Civil</option>
+                              <option>Mariage Religieux</option>
+                              <option>Mariage Coutumier</option>
+                            </select>
+
                             <div class="row">
                               <div class="col">
                                 <label for="defaultFormControlInput" class="form-label">Date</label>
@@ -302,12 +309,7 @@
                           <input type="text" class="form-control" id="defaultFormControlInput" placeholder="Empereur"
                             aria-describedby="defaultFormControlHelp" [(ngModel)]="title3" [maxLength]="10"/>
 
-                            <label for="defaultFormControlInput" class="form-label">Type Mariage</label>
-                            <select class="form-control" id="defaultFormControlInput" [(ngModel)]="title900">
-                              <option>Mariage Civil</option>
-                              <option>Mariage Religieux</option>
-                              <option>Mariage Coutumier</option>
-                            </select>
+                            
                           <!-- <input type="text" class="form-control" id="defaultFormControlInput" placeholder="Empereur"
                             aria-describedby="defaultFormControlHelp" [(ngModel)]="title3" [maxLength]="10"/> -->
 
@@ -367,8 +369,8 @@
                         <label class="" style="text-transform: capitalize; font-family: 'Acme', serif; font-size: 20px; margin-top: 10px; text-align: right; margin-right: 3px;" [ngStyle]="{'color': style }">Table : {{title3}}</label><br>
                         <h5 class="card-header" style="align-items: center;  text-align: center; font-family: 'Playball', serif; font-size: 50px; margin-top: 10px; text-transform: capitalize;" [ngStyle]="{'color': style }" >{{title1}}{{title77}}{{title88}}</h5>
                         <h5 class="card-header" style="align-items: center;  text-align: center; font-family: 'Playball', serif; font-size: 50px; margin-top: -10px; text-transform: capitalize;" [ngStyle]="{'color': style }" >{{title66}}</h5>
-                        <h5 class="card-header" style="align-items: center;  text-align: center; font-family: 'Playball', serif; font-size: 30px; margin-top: 20px;" [ngStyle]="{'color': style }" >{{title900}}</h5>
-                        <h5 class="card-header" style="align-items: center;  text-align: center; font-family: 'Playball', serif; font-size: 50px; margin-top: 50px;" [ngStyle]="{'color': style }" >SAVE THE DATE</h5>
+                        <h5 class="card-header" style="align-items: center;  text-align: center; font-family: 'Julee', serif; font-size: 20px;" [ngStyle]="{'color': style }" >{{title900}}</h5>
+                        <h5 class="card-header" style="align-items: center;  text-align: center; font-family: 'Playball', serif; font-size: 50px; " [ngStyle]="{'color': style }" >SAVE THE DATE</h5>
                         <h5 class="card-header" style="align-items: center;  text-align: center; font-family: 'Julee', serif; font-size: 30px; margin-top: -10px;" [ngStyle]="{'color': style }" >{{title6}}|{{title7}}</h5>
                         <label class="" style="text-transform: capitalize; font-family: 'Acme', serif; text-align: center;" [ngStyle]="{'color': style }">{{title4}}</label><br>
                         <!-- <div class="card-body justify-content-center" > -->

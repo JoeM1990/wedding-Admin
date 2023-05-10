@@ -431,6 +431,7 @@ export class GenerateComponent implements OnInit {
     this.title6="";
     this.title66="";
     this.title7="";
+    this.title900="";
   
     this.visibleWedding=false;
   }
@@ -455,6 +456,7 @@ checkCheckBoxvalue2(event: any ){
     this.title6="";
     this.title66="";
     this.title7="";
+    this.title900="";
   }
 }
 
