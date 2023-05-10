@@ -490,14 +490,14 @@
                     <div class="row">
                       <div class="col mb-3">
                         <label for="nameBasic" class="form-label">Background Image</label>
-                        <input type="file" id="nameBasic" class="form-control"   (change)="onFileUploadChange($event)" #selectFileChange/>
+                        <input type="file" id="nameBasic" class="form-control"   (change)="onFileUploadChange($event)" #selectFileChange accept="image/*"/>
                       </div>
                     </div>
 
                     <div class="row">
                       <div class="col mb-3">
                         <label for="nameBasic" class="form-label">Couleur Texte</label>
-                       <input class="form-control" type="color" [(ngModel)]="color" id="colorText" (change)="onColorChange($event)">
+                       <input class="form-control" type="color" [(ngModel)]="color" id="colorText" (change)="onColorChange($event)" >
                       </div>
                     </div>
                 
@@ -541,7 +541,7 @@
                       <div class="col mb-3">
                         <label for="nameBasic" class="form-label">Image</label>
                         
-                          <input type="file" id="nameBasic" class="form-control" (change)="selectFile($event)" />
+                          <input type="file" id="nameBasic" class="form-control" (change)="selectFile($event)" accept="image/*"/>
                        
                       </div>
                     </div>
