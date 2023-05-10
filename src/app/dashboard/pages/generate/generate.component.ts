@@ -45,6 +45,9 @@ export class GenerateComponent implements OnInit {
   visibleQr=false;
   visibleT=false;
 
+  selecetdFileChange! : File;
+  imagePreviewChange:any;
+
   @ViewChild('screen')
   screen!: ElementRef;
   @ViewChild('canvas')
@@ -187,6 +190,11 @@ export class GenerateComponent implements OnInit {
   }
 
   changeBack10(){   
+    this.photo='../../../../assets/templates/b8.png';
+    this.style='black';
+  }
+
+  changeBack11(){   
     this.photo='../../../../assets/templates/b8.png';
     this.style='black';
   }
@@ -499,6 +507,15 @@ dialogSuccess2(message:any){
         }, timeout)
       })
 }
+
+  onFileUploadChange(event:any){
+    this.selecetdFileChange = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = () => {
+    this.imagePreviewChange = reader.result;
+    };
+    reader.readAsDataURL(this.selecetdFileChange);
+  }
 
 checkRole(){
 
