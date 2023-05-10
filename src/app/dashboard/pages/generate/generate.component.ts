@@ -47,6 +47,9 @@ export class GenerateComponent implements OnInit {
   visibleQr=false;
   visibleT=false;
 
+  stateCheck=true;
+  stateCheck2=false;
+
   selecetdFileChange! : File;
   imagePreviewChange:any;
 
@@ -199,7 +202,7 @@ export class GenerateComponent implements OnInit {
   changeBack11(){  
     this.photo=this.imagePreviewChange;
     this.style=this.color;
-    alert(this.color);
+   // alert(this.color);
   }
 
   onColorChange(event:any){
@@ -437,6 +440,9 @@ export class GenerateComponent implements OnInit {
     this.title88=" & ";
     this.visibleWedding=true;
     this.visibleAutres=false;  
+
+   
+
   }else{
     this.title88="";
     this.title77="";
@@ -460,6 +466,8 @@ checkCheckBoxvalue2(event: any ){
     this.title88="";
     this.visibleAutres=true;
     this.visibleWedding=false;
+
+    
    
   }else{
     this.title88="";
