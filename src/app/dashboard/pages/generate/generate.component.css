@@ -21,11 +21,13 @@ h5:hover{
     border: 2px solid;
     border-color: #696cff;
     border-radius: 50px;
+    cursor: move;
 }
 
 .drag:hover{
     border: 2px solid;
     border-color: #696cff;
     border-radius: 50px;
+    cursor: move;
 }
 
