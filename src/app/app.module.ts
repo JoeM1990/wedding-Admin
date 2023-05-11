@@ -52,7 +52,7 @@ import { ContactComponent } from './ui/contact/contact.component';
 //import { SimpleMatTableComponent } from './simple-mat-table/simple-mat-table.component';
 
 //import { NgxSpinnerModule } from "ngx-spinner";
-
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 
 @NgModule({
@@ -99,6 +99,7 @@ import { ContactComponent } from './ui/contact/contact.component';
     NgxDatatableModule,
     MatTableModule,
     DataTablesModule,
+    DragDropModule
     //Ng2TableModule
     //NgxSpinnerModule
   ],
