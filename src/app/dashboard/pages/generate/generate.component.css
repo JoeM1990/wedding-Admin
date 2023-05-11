@@ -12,3 +12,20 @@ footer{
     background-size: auto; 
 }
 
+.dragDrop{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+h5:hover{
+    border: 2px solid;
+    border-color: #696cff;
+    border-radius: 50px;
+}
+
+.drag:hover{
+    border: 2px solid;
+    border-color: #696cff;
+    border-radius: 50px;
+}
+
