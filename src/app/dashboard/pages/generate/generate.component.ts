@@ -98,6 +98,9 @@ export class GenerateComponent implements OnInit {
   visibleWedding=false;
   visibleAutres=false;
 
+  visibleForm1=false;
+  visibleForm2=false;
+
   valueCount!:number;
   valueCredit!:number;
 
@@ -239,13 +242,9 @@ export class GenerateComponent implements OnInit {
     
             //this.selectedFilesOk=file;
             this.selectedFilesApi=file;
-    
-            
-    
+        
           //window.location.reload();
-    
           
-            
           } );      
     
           
@@ -253,10 +252,6 @@ export class GenerateComponent implements OnInit {
         });
 
       });
-
-
-      
-
 
     }else{
       this.router.navigate(['/paiement-forfait'])
@@ -481,6 +476,24 @@ checkCheckBoxvalue2(event: any ){
     this.title66="";
     this.title7="";
     this.title900="";
+  }
+}
+
+checkForm1value(event: any ){
+  this.check= event.target.checked;
+
+  if(this.check==true){
+    this.visibleForm1=true
+    this.visibleForm2=false
+  }
+}
+
+checkForm2value(event: any ){
+  this.check= event.target.checked;
+
+  if(this.check==true){
+    this.visibleForm2=true
+    this.visibleForm1=false
   }
 }
 
