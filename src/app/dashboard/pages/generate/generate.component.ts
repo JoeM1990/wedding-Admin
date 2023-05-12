@@ -95,6 +95,9 @@ export class GenerateComponent implements OnInit {
   check3=false;
   check4=false;
 
+  checkForm1=false;
+  checkForm2=false;
+
   visibleWedding=false;
   visibleAutres=false;
 
@@ -480,18 +483,18 @@ checkCheckBoxvalue2(event: any ){
 }
 
 checkForm1value(event: any ){
-  this.check= event.target.checked;
+  this.checkForm1= event.target.checked;
 
-  if(this.check==true){
+  if(this.checkForm1==true){
     this.visibleForm1=true
     this.visibleForm2=false
   }
 }
 
 checkForm2value(event: any ){
-  this.check= event.target.checked;
+  this.checkForm2= event.target.checked;
 
-  if(this.check==true){
+  if(this.checkForm2==true){
     this.visibleForm2=true
     this.visibleForm1=false
   }
