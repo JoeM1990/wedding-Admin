@@ -413,6 +413,8 @@
                   </ng-container>
 
 
+
+                  <ng-container *ngIf="visibleForm1">
                     <div class="col-md-6" style="margin-bottom: 30px;">
                       <!-- <button type="button" class="btn btn-primary" style="margin-bottom: 10px;" data-bs-toggle="modal"
                  data-bs-target="#basicModal">Background</button> -->
@@ -431,6 +433,8 @@
                         <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
                         data-bs-target="#basicModalChangeImage">+</button>
                       </div>
+
+                      
 
                       <div class="dragDrop">
                         <div class="card mb-4 fondChange dragDrop" id="sectionImage" [ngStyle]="{'background-image': 'url(' + photo + ')'}" style="height: 600px; " #screen>
@@ -461,6 +465,64 @@
                       </div>
                       
                     </div>
+                  </ng-container>
+
+
+                  <ng-container >
+                    <div class="col-md-6" style="margin-bottom: 30px;">
+                      <!-- <button type="button" class="btn btn-primary" style="margin-bottom: 10px;" data-bs-toggle="modal"
+                 data-bs-target="#basicModal">Background</button> -->
+
+                      <div class="btn-group" role="group" aria-label="Basic example" style="margin-bottom: 10px; margin-left: -1%;">
+                        <button type="button" class="btn btn-secondary" (click)="changeBack1()">1</button>
+                        <button type="button" class="btn btn-secondary" (click)="changeBack2()">2</button>
+                        <button type="button" class="btn btn-secondary" (click)="changeBack3()">3</button>
+                        <button type="button" class="btn btn-secondary" (click)="changeBack4()">4</button>
+                        <button type="button" class="btn btn-secondary" (click)="changeBack5()">5</button>
+                        <button type="button" class="btn btn-secondary" (click)="changeBack6()">6</button>
+                        <button type="button" class="btn btn-secondary" (click)="changeBack7()">7</button>
+                        <button type="button" class="btn btn-secondary" (click)="changeBack8()">8</button>
+                        <button type="button" class="btn btn-secondary" (click)="changeBack9()">9</button>
+                        <button type="button" class="btn btn-secondary" (click)="changeBack10()">10</button>
+                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                        data-bs-target="#basicModalChangeImage">+</button>
+                      </div>
+
+                      
+
+                      <div class="dragDrop">
+                        <div class="card mb-4 fondChange dragDrop" id="sectionImage" [ngStyle]="{'background-image': 'url(' + photo + ')'}" style="height: 600px; " #screen>
+                          <label class="drag" style="text-transform: capitalize; font-family: 'Acme', serif; font-size: 20px; margin-top: 10px; text-align: right; margin-right: 3px;" [ngStyle]="{'color': style }" cdkDragBoundary=".dragDrop"  cdkDrag>Table : {{title3}}</label><br>
+                          <h5 class="card-header" style="align-items: center;  text-align: center; font-family: 'Playball', serif; font-size: 50px; margin-top: 10px; text-transform: capitalize;" [ngStyle]="{'color': style }" cdkDragBoundary=".dragDrop"  cdkDrag>{{title1}}{{title77}}{{title88}}</h5>
+                          <h5 class="card-header" style="align-items: center;  text-align: center; font-family: 'Playball', serif; font-size: 50px; margin-top: -10px; text-transform: capitalize;" [ngStyle]="{'color': style }" cdkDragBoundary=".dragDrop"  cdkDrag>{{title66}}</h5>
+                          <h5 class="card-header" style="align-items: center;  text-align: center; font-family: 'Julee', serif; font-size: 20px;" [ngStyle]="{'color': style }" cdkDragBoundary=".dragDrop"  cdkDrag>{{title900}}</h5>
+                          <div cdkDragBoundary=".dragDrop"  cdkDrag>
+                            <h5 class="card-header" style="align-items: center;  text-align: center; font-family: 'Playball', serif; font-size: 50px; " [ngStyle]="{'color': style }" >SAVE THE DATE</h5>
+                          </div>
+                          
+                          <h5 class="card-header" style="align-items: center;  text-align: center; font-family: 'Julee', serif; font-size: 30px; margin-top: -10px;" [ngStyle]="{'color': style }" cdkDragBoundary=".dragDrop"  cdkDrag>{{title6}}|{{title7}}</h5>
+                          <label class="drag" style="text-transform: capitalize; font-family: 'Acme', serif; text-align: center;" [ngStyle]="{'color': style }" cdkDragBoundary=".dragDrop"  cdkDrag>{{title4}}</label><br>
+                          <!-- <div class="card-body justify-content-center" > -->
+                            <!-- <label class="" style="text-transform: uppercase; font-family: 'Acme', serif;" [ngStyle]="{'color': style }">{{title1}}</label><br> -->
+                            
+                          <!-- </div> -->
+  
+                        
+                          <label class="drag" style="text-transform: capitalize; font-family: 'Acme', serif; font-size: 20px; margin-top: -10px; text-align: center; text-transform: uppercase;" [ngStyle]="{'color': style }" cdkDragBoundary=".dragDrop"  cdkDrag>{{title2}}</label><br>
+                            <label class="drag" style="text-transform: capitalize; font-family: 'Acme', serif; font-size: 20px; margin-top: -48px; text-align: center;" [ngStyle]="{'color': style }" cdkDragBoundary=".dragDrop"  cdkDrag>..............................................................</label><br>
+                           
+                            <!-- <label class="" style="text-transform: capitalize; margin-left: 40%; font-family: 'Acme', serif;" [ngStyle]="{'color': style }">----------------------</label><br> -->
+                            
+                            <!-- <label class="" style="text-transform: capitalize; font-family: 'Acme', serif; text-align: center; margin-top: 50px; font-size: 30px;" [ngStyle]="{'color': style }">{{title1}}</label><br> -->
+                            <label class="form-label drag" style=" align-items: center; text-align: center; font-family: 'Acme', serif; margin-top: 20px; font-size: 20px; text-transform: capitalize;" [ngStyle]="{'color': style }" cdkDragBoundary=".dragDrop"  cdkDrag>Bienvenue</label>
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </ng-container>
+
+
+                    
 
                  </div>
 
