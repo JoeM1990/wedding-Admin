@@ -41,6 +41,7 @@ export class GenerateComponent implements OnInit {
   imgGet:any;
 
   photo:any;
+  photo2:any;
   style:any;
 
   visible=true;
@@ -52,6 +53,9 @@ export class GenerateComponent implements OnInit {
 
   selecetdFileChange! : File;
   imagePreviewChange:any;
+
+  selecetdFileChangeForm! : File;
+  imagePreviewChangeForm:any;
 
   @ViewChild('screen')
   screen!: ElementRef;
@@ -207,6 +211,12 @@ export class GenerateComponent implements OnInit {
 
   changeBack11(){  
     this.photo=this.imagePreviewChange;
+    this.style=this.color;
+   // alert(this.color);
+  }
+
+  changeBack12(){  
+    this.photo2=this.imagePreviewChangeForm;
     this.style=this.color;
    // alert(this.color);
   }
@@ -541,6 +551,15 @@ dialogSuccess2(message:any){
 }
 
   onFileUploadChange(event:any){
+    this.selecetdFileChange = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = () => {
+    this.imagePreviewChange = reader.result;
+    };
+    reader.readAsDataURL(this.selecetdFileChange);
+  }
+
+  onFileUploadChangeForm(event:any){
     this.selecetdFileChange = event.target.files[0];
     const reader = new FileReader();
     reader.onload = () => {
