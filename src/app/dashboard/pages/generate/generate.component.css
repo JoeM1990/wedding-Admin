@@ -70,9 +70,11 @@ h5:hover{
     width: 543px;
     height: 660px;
     /* box-sizing: content-box; */
-    /* padding-top: 220px; */
+    padding-top: 100px;
     position: relative;
     background: #333;
+    background-position: center;
+    background-size: cover;
   }
 
   .flag:after {
