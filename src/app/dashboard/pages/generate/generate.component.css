@@ -32,8 +32,8 @@ h5:hover{
 }
 
 .oval {
-    height: 700px;
-    width: 400px;
+    height: 500px;
+    width: 500px;
     background-color: rgb(132, 127, 127);
     border-radius: 50%;
     cursor: move;
@@ -65,3 +65,53 @@ h5:hover{
     transform: rotate(135deg);
     cursor: move;
   }
+
+  .flag {
+    width: 543px;
+    height: 660px;
+    /* box-sizing: content-box; */
+    /* padding-top: 220px; */
+    position: relative;
+    background: #333;
+  }
+
+  .flag:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 13px solid #fff;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+  }
+
+  .heart {
+    /* Modify size here: */
+    --size: 450px;
+  
+    position: relative;
+    width: var(--size);
+    height: calc(var(--size) * 0.3);
+  }
+  
+  /* .heart:before,
+  .heart:after {
+    position: absolute;
+    content: "";
+    left: calc(var(--size) * 0.55);
+    top: 0;
+    width: calc(var(--size) * 0.55);
+    height: calc(var(--size) * 0.85);
+    background: #333;
+    border-radius: calc(var(--size) * 0.55) calc(var(--size) * 0.55) 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+  }
+  
+  .heart:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+  } */
