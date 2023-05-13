@@ -31,3 +31,12 @@ h5:hover{
     cursor: move;
 }
 
+.oval {
+    height: 400px;
+    width: 400px;
+    background-color: black;
+    border-radius: 50%;
+    cursor: move;
+    align-items: center;
+    margin-top: 10px;
+  }
