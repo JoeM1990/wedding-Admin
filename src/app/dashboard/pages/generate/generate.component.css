@@ -34,11 +34,14 @@ h5:hover{
 .oval {
     height: 700px;
     width: 400px;
-    background-color: black;
+    background-color: rgb(132, 127, 127);
     border-radius: 50%;
     cursor: move;
     align-items: center;
     margin-top: 10px;
+    text-align: center;
+    background-position: center;
+    background-size: cover;
   }
 
   .point-burst {
