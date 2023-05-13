@@ -493,7 +493,8 @@
                       <div class="dragDrop">
                         <div class="card mb-4 fondChange dragDrop" id="sectionImage" [ngStyle]="{'background-image': 'url(' + photo + ')'}" style="height: 600px; " #screen>
                           <!-- <label class="drag" style="text-transform: capitalize; font-family: 'Acme', serif; font-size: 20px; margin-top: 10px; text-align: right; margin-right: 3px;" [ngStyle]="{'color': style }" cdkDragBoundary=".dragDrop"  cdkDrag>Table : {{title3}}</label><br> -->
-                          <div class="oval" [ngStyle]="{'background-image': 'url(' + photo2 + ')'}">
+                          <div class="oval" [ngStyle]="{'background-image': 'url(' + photo2 + ')'}" data-bs-toggle="modal"
+                          data-bs-target="#basicModalChangeImageForm" cdkDragBoundary=".dragDrop"  cdkDrag>
 
                           </div>
                           <h5 class="card-header" style="align-items: center;  text-align: center; font-family: 'Playball', serif; font-size: 50px; margin-top: 10px; text-transform: capitalize;" [ngStyle]="{'color': style }" cdkDragBoundary=".dragDrop"  cdkDrag>{{title1}}{{title77}}{{title88}}</h5>
@@ -645,6 +646,38 @@
                       Close
                     </button>
                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="changeBack11()">Valider</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal fade" id="basicModalChangeImageForm" tabindex="-1" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                  
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="col mb-3">
+                        <label for="nameBasic" class="form-label">Background Image</label>
+                        <input type="file" id="nameBasic" class="form-control"   (change)="onFileUploadChangeForm($event)" #selectFileChangeForm accept="image/*"/>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                      Close
+                    </button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="changeBack12()">Valider</button>
                   </div>
                 </div>
               </div>

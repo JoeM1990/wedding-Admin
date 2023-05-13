@@ -560,12 +560,12 @@ dialogSuccess2(message:any){
   }
 
   onFileUploadChangeForm(event:any){
-    this.selecetdFileChange = event.target.files[0];
+    this.selecetdFileChangeForm = event.target.files[0];
     const reader = new FileReader();
     reader.onload = () => {
-    this.imagePreviewChange = reader.result;
+    this.imagePreviewChangeForm = reader.result;
     };
-    reader.readAsDataURL(this.selecetdFileChange);
+    reader.readAsDataURL(this.selecetdFileChangeForm);
   }
 
 checkRole(){
