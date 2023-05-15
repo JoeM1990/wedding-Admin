@@ -429,6 +429,77 @@
                     </div>
                   </ng-container>
 
+                  <ng-container  *ngIf="visibleForm3">
+                    <div class="col-md-6">
+                    <div class="card mb-4">
+                      <!-- <h5 class="card-header">Informations</h5> -->
+                      <div class="card-body">
+                        <div>
+                         
+                          <label for="defaultFormControlInput" class="form-label">Mariage de</label>
+                          <div class="row">
+                            <div class="col">
+                              <label for="defaultFormControlInput" class="form-label">Homme</label>
+                              <input type="text" class="form-control" id="defaultFormControlInput" placeholder="Joe"
+                                   aria-describedby="defaultFormControlHelp" [(ngModel)]="title66" [maxLength]="10"/>
+                            </div>
+                            <div class="col">
+                              <label for="defaultFormControlInput" class="form-label">Femme</label>
+                              <input type="text" class="form-control" id="defaultFormControlInput" placeholder="Viki"
+                                  aria-describedby="defaultFormControlHelp" [(ngModel)]="title77" [maxLength]="10"/> <br>
+                            </div>
+
+                          </div>
+                          <!-- <input type="text" class="form-control" id="defaultFormControlInput" placeholder="Festival"
+                            aria-describedby="defaultFormControlHelp" [(ngModel)]="title1" [maxLength]="50" pattern="[A-Za-z]"/> -->
+                         <label for="defaultFormControlInput" class="form-label">Nom Invite</label>
+                          <input type="text" class="form-control" id="defaultFormControlInput" placeholder="Joe Monkila"
+                            aria-describedby="defaultFormControlHelp" [(ngModel)]="title2" [maxLength]="20" /> 
+                        <!-- <label for="defaultFormControlInput" class="form-label">Table</label>
+                          <input type="text" class="form-control" id="defaultFormControlInput" placeholder="Empereur"
+                            aria-describedby="defaultFormControlHelp" [(ngModel)]="title3" [maxLength]="10"/> -->
+
+                            <label for="defaultFormControlInput" class="form-label">Type Mariage</label>
+                            <select class="form-control" id="defaultFormControlInput" [(ngModel)]="title900">
+                              <option>Mariage Civil</option>
+                              <option>Mariage Religieux</option>
+                              <option>Mariage Coutumier</option>
+                            </select>
+
+                            <div class="row">
+                              <div class="col">
+                                <label for="defaultFormControlInput" class="form-label">Date</label>
+                                <input type="date" class="form-control" id="defaultFormControlInput" placeholder="24-12-2023"
+                                     aria-describedby="defaultFormControlHelp" [(ngModel)]="title6" [maxLength]="10"/>
+                              </div>
+                              <div class="col">
+                                <label for="defaultFormControlInput" class="form-label">Heure</label>
+                                <input type="time" class="form-control" id="defaultFormControlInput" placeholder="17:00"
+                                    aria-describedby="defaultFormControlHelp" [(ngModel)]="title7" [maxLength]="5"/>
+                              </div>
+
+                            </div>
+                            
+                        <!-- <label for="defaultFormControlInput" class="form-label">Lieu </label>
+                          <input type="text" class="form-control" id="defaultFormControlInput" placeholder="Kin Marche "
+                            aria-describedby="defaultFormControlHelp" [(ngModel)]="title4" [maxLength]="20" /> -->
+                         
+                            <button type="button" class="btn btn-primary" style="margin-top: 10px;" (click)="downloadImage()">Down</button>
+                            <button type="button" class="btn btn-primary" style="margin-top: 10px; margin-left: 10px;" (click)="uploadInvitationApi()">Qr</button>
+                            <button type="button" class="btn btn-primary" style="margin-top: 10px; margin-left: 5px;" data-bs-toggle="modal"
+                            data-bs-target="#uploadModal">Upload</button>
+                            <!-- <button type="button" class="btn btn-primary" style="margin-top: 10px; margin-left: 5px;" (click)="generateQr()">Qr</button> -->
+                            <!-- <button type="button" class="btn btn-primary" style="margin-top: 10px; margin-left: 5px;" (click)="downloadQr()">Down Qr</button> -->
+                            <!-- <button type="button" class="btn btn-primary" style="margin-top: 10px; margin-left: 10px;">View</button> -->
+                          <!-- <div id="defaultFormControlHelp" class="form-text">
+                            We'll never share your details with anyone else.
+                          </div> -->
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                  </ng-container>
+
                   <ng-container  *ngIf="visibleAutres">
                     <div class="col-md-6">
                     <div class="card mb-4">
@@ -613,6 +684,68 @@
                       
                     </div>
                   </ng-container>
+
+                  <ng-container *ngIf="visibleForm3">
+                    <div class="col-md-6" style="margin-bottom: 30px;">
+                      <!-- <button type="button" class="btn btn-primary" style="margin-bottom: 10px;" data-bs-toggle="modal"
+                 data-bs-target="#basicModal">Background</button> -->
+
+                      <div class="btn-group" role="group" aria-label="Basic example" style="margin-bottom: 10px; margin-left: -1%;">
+                        <button type="button" class="btn btn-secondary" (click)="changeBack122()">1</button>
+                        <button type="button" class="btn btn-secondary" (click)="changeBack123()">2</button>
+                        <button type="button" class="btn btn-secondary" (click)="changeBack124()">3</button>
+                        <button type="button" class="btn btn-secondary" (click)="changeBack125()">4</button>
+                        <button type="button" class="btn btn-secondary" (click)="changeBack126()">5</button>
+                        <!-- <button type="button" class="btn btn-secondary" (click)="changeBack4()">4</button>
+                        <button type="button" class="btn btn-secondary" (click)="changeBack5()">5</button>
+                        <button type="button" class="btn btn-secondary" (click)="changeBack6()">6</button>
+                        <button type="button" class="btn btn-secondary" (click)="changeBack7()">7</button>
+                        <button type="button" class="btn btn-secondary" (click)="changeBack8()">8</button>
+                        <button type="button" class="btn btn-secondary" (click)="changeBack9()">9</button>
+                        <button type="button" class="btn btn-secondary" (click)="changeBack10()">10</button> -->
+                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                        data-bs-target="#basicModalChangeImage">+</button>
+                      </div>
+
+                      
+
+                      <div class="dragDrop">
+                        <div class="card mb-4 fondChange dragDrop" id="sectionImage" [ngStyle]="{'background-image': 'url(' + photo3 + ')'}" style="height: 600px; " #screen>
+                          <!-- <label class="drag" style="text-transform: capitalize; font-family: 'Acme', serif; font-size: 20px; margin-top: 10px; text-align: right; margin-right: 3px;" [ngStyle]="{'color': style }" cdkDragBoundary=".dragDrop"  cdkDrag>Table : {{title3}}</label><br> -->
+                          <div class="circle" [ngStyle]="{'background-image': 'url(' + photo2 + ')'}" data-bs-toggle="modal"
+                          data-bs-target="#basicModalChangeImageForm" cdkDragBoundary=".dragDrop"  cdkDrag>
+                                 <h2 style="margin-top: 30%; color: white;">+ Photo</h2>
+
+                          </div>
+                          <h5 class="card-header" style="align-items: center;  text-align: center; font-family: 'Playball', serif; font-size: 50px; margin-top: 10px; text-transform: capitalize;" [ngStyle]="{'color': style }" cdkDragBoundary=".dragDrop"  cdkDrag>{{title1}}{{title77}}{{title88}}</h5>
+                          <h5 class="card-header" style="align-items: center;  text-align: center; font-family: 'Playball', serif; font-size: 50px; margin-top: -10px; text-transform: capitalize;" [ngStyle]="{'color': style }" cdkDragBoundary=".dragDrop"  cdkDrag>{{title66}}</h5>
+                          <h5 class="card-header" style="align-items: center;  text-align: center; font-family: 'Julee', serif; font-size: 20px;" [ngStyle]="{'color': style }" cdkDragBoundary=".dragDrop"  cdkDrag>{{title900}}</h5>
+                          <div cdkDragBoundary=".dragDrop"  cdkDrag>
+                            <h5 class="card-header" style="align-items: center;  text-align: center; font-family: 'Playball', serif; font-size: 50px; margin-top: 50dp;" [ngStyle]="{'color': style }" >SAVE THE DATE</h5>
+                          </div>
+                          
+                          <h5 class="card-header" style="align-items: center;  text-align: center; font-family: 'Julee', serif; font-size: 15px; margin-top: -10px;" [ngStyle]="{'color': style }" cdkDragBoundary=".dragDrop"  cdkDrag>{{title6}}|{{title7}}</h5>
+                          <!-- <label class="drag" style="text-transform: capitalize; font-family: 'Acme', serif; text-align: center;" [ngStyle]="{'color': style }" cdkDragBoundary=".dragDrop"  cdkDrag>{{title4}}</label><br> -->
+                          <!-- <div class="card-body justify-content-center" > -->
+                            <!-- <label class="" style="text-transform: uppercase; font-family: 'Acme', serif;" [ngStyle]="{'color': style }">{{title1}}</label><br> -->
+                            
+                          <!-- </div> -->
+  
+                        
+                          <!-- <label class="drag" style="text-transform: capitalize; font-family: 'Acme', serif; font-size: 20px; margin-top: -10px; text-align: center; text-transform: uppercase;" [ngStyle]="{'color': style }" cdkDragBoundary=".dragDrop"  cdkDrag>{{title2}}</label><br> -->
+                            <!-- <label class="drag" style="text-transform: capitalize; font-family: 'Acme', serif; font-size: 20px; margin-top: -48px; text-align: center;" [ngStyle]="{'color': style }" cdkDragBoundary=".dragDrop"  cdkDrag>..............................................................</label><br> -->
+                           
+                            <!-- <label class="" style="text-transform: capitalize; margin-left: 40%; font-family: 'Acme', serif;" [ngStyle]="{'color': style }">----------------------</label><br> -->
+                            
+                            <!-- <label class="" style="text-transform: capitalize; font-family: 'Acme', serif; text-align: center; margin-top: 50px; font-size: 30px;" [ngStyle]="{'color': style }">{{title1}}</label><br> -->
+                            <!-- <label class="form-label drag" style=" align-items: center; text-align: center; font-family: 'Acme', serif; margin-top: 20px; font-size: 20px; text-transform: capitalize;" [ngStyle]="{'color': style }" cdkDragBoundary=".dragDrop"  cdkDrag>Bienvenue</label> -->
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </ng-container>
+
+                  
 
 
                     
