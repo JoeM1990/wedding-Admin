@@ -125,6 +125,8 @@ export class GenerateComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.title88=" & ";
+
     this.checkRole();
 
     let email=this.getDataEmail('yyyy-0000');
