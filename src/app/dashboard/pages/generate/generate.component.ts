@@ -42,6 +42,7 @@ export class GenerateComponent implements OnInit {
 
   photo:any;
   photo2:any;
+  photo3:any;
   style:any;
 
   visible=true;
@@ -219,6 +220,24 @@ export class GenerateComponent implements OnInit {
 
   changeBack12(){  
     this.photo2=this.imagePreviewChangeForm;
+    this.style=this.color;
+   // alert(this.color);
+  }
+
+  changeBack122(){  
+    this.photo3='../../../../assets/templates/fond40.png';
+    this.style=this.color;
+   // alert(this.color);
+  }
+
+  changeBack123(){  
+    this.photo3='../../../../assets/templates/fond41.png';
+    this.style=this.color;
+   // alert(this.color);
+  }
+
+  changeBack124(){  
+    this.photo3='../../../../assets/templates/fond42.png';
     this.style=this.color;
    // alert(this.color);
   }
