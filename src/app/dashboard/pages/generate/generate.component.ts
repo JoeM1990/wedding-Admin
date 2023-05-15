@@ -43,6 +43,7 @@ export class GenerateComponent implements OnInit {
   photo:any;
   photo2:any;
   photo3:any;
+  photo4:any;
   style:any;
 
   visible=true;
@@ -251,6 +252,36 @@ export class GenerateComponent implements OnInit {
   }
 
   changeBack126(){  
+    this.photo3='../../../../assets/templates/fond45.png';
+    this.style='black';
+   // alert(this.color);
+  }
+
+  changeBack100(){  
+    this.photo4='../../../../assets/templates/fond45.png';
+    this.style='black';
+   // alert(this.color);
+  }
+
+  changeBack101(){  
+    this.photo4='../../../../assets/templates/fond45.png';
+    this.style='black';
+   // alert(this.color);
+  }
+
+  changeBack102(){  
+    this.photo4='../../../../assets/templates/fond45.png';
+    this.style='black';
+   // alert(this.color);
+  }
+
+  changeBack103(){  
+    this.photo3='../../../../assets/templates/fond45.png';
+    this.style='black';
+   // alert(this.color);
+  }
+
+  changeBack104(){  
     this.photo3='../../../../assets/templates/fond45.png';
     this.style='black';
    // alert(this.color);
