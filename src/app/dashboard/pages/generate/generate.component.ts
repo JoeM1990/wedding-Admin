@@ -102,12 +102,14 @@ export class GenerateComponent implements OnInit {
 
   checkForm1=false;
   checkForm2=false;
+  checkForm3=false;
 
   visibleWedding=false;
   visibleAutres=false;
 
   visibleForm1=false;
   visibleForm2=false;
+  visibleForm3=false;
 
   valueCount!:number;
   valueCredit!:number;
@@ -531,6 +533,7 @@ checkForm1value(event: any ){
   if(this.checkForm1==true){
     this.visibleForm1=true
     this.visibleForm2=false
+    this.visibleForm3=false
   }
 }
 
@@ -540,6 +543,17 @@ checkForm2value(event: any ){
   if(this.checkForm2==true){
     this.visibleForm2=true
     this.visibleForm1=false
+    this.visibleForm3=false
+  }
+}
+
+checkForm3value(event: any ){
+  this.checkForm3= event.target.checked;
+
+  if(this.checkForm3==true){
+    this.visibleForm3=true
+    this.visibleForm1=false
+    this.visibleForm2=false
   }
 }
 
