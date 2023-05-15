@@ -118,8 +118,8 @@ h5:hover{
     transform-origin: 100% 100%;
   } */
   .circle {
-    height: 750px;
-    width: 250px;
+    height: 350px;
+    width: 350px;
     background-color: #555; 
     border-radius: 50%;
     background-position: center;

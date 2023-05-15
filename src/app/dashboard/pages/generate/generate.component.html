@@ -713,11 +713,24 @@
                       <div class="dragDrop">
                         <div class="card mb-4 fondChange dragDrop" id="sectionImage" [ngStyle]="{'background-image': 'url(' + photo3 + ')'}" style="height: 600px; " #screen>
                           <!-- <label class="drag" style="text-transform: capitalize; font-family: 'Acme', serif; font-size: 20px; margin-top: 10px; text-align: right; margin-right: 3px;" [ngStyle]="{'color': style }" cdkDragBoundary=".dragDrop"  cdkDrag>Table : {{title3}}</label><br> -->
-                          <div class="circle" [ngStyle]="{'background-image': 'url(' + photo2 + ')'}" data-bs-toggle="modal"
-                          data-bs-target="#basicModalChangeImageForm" cdkDragBoundary=".dragDrop"  cdkDrag>
-                                 <h2 style="margin-top: 30%; color: white;"></h2>
 
+                          <div class="row">
+                            <div class="col-sm">
+
+                            </div>
+                            <div class="col-sm">
+                              <div class="circle" [ngStyle]="{'background-image': 'url(' + photo2 + ')'}" data-bs-toggle="modal"
+                                     data-bs-target="#basicModalChangeImageForm" cdkDragBoundary=".dragDrop"  cdkDrag>
+                                 <h2 style="margin-top: 30%; color: white;"></h2>
+                              </div>
+                            </div>
+                            <div class="col-sm">
+
+                            </div>
+                            
                           </div>
+
+                          
                           <h5 class="card-header" style="align-items: center;  text-align: center; font-family: 'Playball', serif; font-size: 50px; margin-top: 10px; text-transform: capitalize;" [ngStyle]="{'color': style }" cdkDragBoundary=".dragDrop"  cdkDrag>{{title1}}{{title77}}{{title88}}</h5>
                           <h5 class="card-header" style="align-items: center;  text-align: center; font-family: 'Playball', serif; font-size: 50px; margin-top: -10px; text-transform: capitalize;" [ngStyle]="{'color': style }" cdkDragBoundary=".dragDrop"  cdkDrag>{{title66}}</h5>
                           <h5 class="card-header" style="align-items: center;  text-align: center; font-family: 'Julee', serif; font-size: 20px;" [ngStyle]="{'color': style }" cdkDragBoundary=".dragDrop"  cdkDrag>{{title900}}</h5>
