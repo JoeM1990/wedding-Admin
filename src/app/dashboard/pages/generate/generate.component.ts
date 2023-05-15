@@ -249,7 +249,7 @@ export class GenerateComponent implements OnInit {
   }
 
   changeBack126(){  
-    this.photo3='../../../../assets/templates/fond44.png';
+    this.photo3='../../../../assets/templates/fond45.png';
     this.style='black';
    // alert(this.color);
   }
