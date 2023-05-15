@@ -257,6 +257,12 @@ export class GenerateComponent implements OnInit {
    // alert(this.color);
   }
 
+  changeBack127(){  
+    this.photo3='../../../../assets/templates/fond46.png';
+    this.style='black';
+   // alert(this.color);
+  }
+
   changeBack100(){  
     this.photo4='../../../../assets/templates/fond45.png';
     this.style='black';
