@@ -242,6 +242,18 @@ export class GenerateComponent implements OnInit {
    // alert(this.color);
   }
 
+  changeBack125(){  
+    this.photo3='../../../../assets/templates/fond43.png';
+    this.style='black';
+   // alert(this.color);
+  }
+
+  changeBack126(){  
+    this.photo3='../../../../assets/templates/fond44.png';
+    this.style='black';
+   // alert(this.color);
+  }
+
   onColorChange(event:any){
     this.color=event.target.value;
     //alert(this.color);
