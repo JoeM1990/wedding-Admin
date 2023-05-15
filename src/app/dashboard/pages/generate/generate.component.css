@@ -120,6 +120,10 @@ h5:hover{
   .circle {
     height: 750px;
     width: 450px;
-    background-color: #555;
+    background-color: #555; 
     border-radius: 50%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    
   }
