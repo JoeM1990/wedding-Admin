@@ -119,11 +119,12 @@ h5:hover{
   } */
   .circle {
     height: 300px;
-    width: 30px;
+    width: 300px;
     background-color: #555; 
     border-radius: 50%;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    margin-top: -88px;
     
   }
