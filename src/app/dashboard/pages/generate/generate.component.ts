@@ -264,25 +264,25 @@ export class GenerateComponent implements OnInit {
   }
 
   changeBack100(){  
-    this.photo4='../../../../assets/templates/fond45.png';
+    this.photo4='white';
     this.style='black';
    // alert(this.color);
   }
 
   changeBack101(){  
-    this.photo4='../../../../assets/templates/fond45.png';
+    this.photo4='bisque';
     this.style='black';
    // alert(this.color);
   }
 
   changeBack102(){  
-    this.photo4='../../../../assets/templates/fond45.png';
+    this.photo4='palegoldenrod';
     this.style='black';
    // alert(this.color);
   }
 
   changeBack103(){  
-    this.photo4='../../../../assets/templates/fond45.png';
+    this.photo4='khak';
     this.style='black';
    // alert(this.color);
   }
