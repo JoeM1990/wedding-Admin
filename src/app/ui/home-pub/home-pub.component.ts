@@ -29,4 +29,38 @@ export class HomePubComponent implements OnInit {
   }
   ];
 
+  imgCollection: Array<object> = [
+    {
+      image: 'assets/model/Joe.png',
+      thumbImage: 'assets/model/Joe.png',
+      alt: 'Image 1',
+      title: 'Image 1'
+    }, {
+      image: 'assets/model/Joe (1).png',
+      thumbImage: 'assets/model/Joe (1).png',
+      title: 'Image 2',
+      alt: 'Image 2'
+    }, {
+      image: 'assets/model/Joe (2).png',
+      thumbImage: 'assets/model/Joe (2).png',
+      title: 'Image 3',
+      alt: 'Image 3'
+    }, {
+      image: 'assets/model/Joe (3).png',
+      thumbImage: 'assets/model/Joe (3).png',
+      title: 'Image 4',
+      alt: 'Image 4'
+    }, {
+      image: 'assets/model/Joe (4).png',
+      thumbImage: 'assets/model/Joe (4).png',
+      title: 'Image 5',
+      alt: 'Image 5'
+    }, {
+      image: 'assets/model/Joe (5).png',
+      thumbImage: 'assets/model/Joe (5).png',
+      title: 'Image 6',
+      alt: 'Image 6'
+    }
+];
+
 }

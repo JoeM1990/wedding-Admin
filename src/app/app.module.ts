@@ -54,6 +54,8 @@ import { ContactComponent } from './ui/contact/contact.component';
 //import { NgxSpinnerModule } from "ngx-spinner";
 import {DragDropModule} from '@angular/cdk/drag-drop';
 
+import { NgImageSliderModule } from 'ng-image-slider';
+
 
 @NgModule({
   declarations: [
@@ -99,9 +101,10 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     NgxDatatableModule,
     MatTableModule,
     DataTablesModule,
-    DragDropModule
+    DragDropModule,
     //Ng2TableModule
     //NgxSpinnerModule
+    NgImageSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
