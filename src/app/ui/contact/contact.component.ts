@@ -41,7 +41,7 @@ export class ContactComponent implements OnInit {
   }
 
   dialogSuccess(message:any){
-    const timeout=1400;
+    const timeout=1700;
 
       let dialogRef=this.dialog.open(SuccessComponent,{data:message});
 
@@ -54,7 +54,8 @@ export class ContactComponent implements OnInit {
 
   sendMessage(){
     if(this.contactForm.valid){
-      this.dialogSuccess("Success")
+      this.dialogSuccess("Success");
+      window.location.reload()
     }else{
       this.dialogError("Le formulaire est vide ou mal rempli")
     }
