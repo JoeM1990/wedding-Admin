@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-contact',
@@ -7,7 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+  contactForm:FormGroup;
+
+  constructor(public formBuilder:FormBuilder
+    , public dialog:MatDialog) { 
+    this.contactForm=this.formBuilder.group(
+      {
+      name: ['',[Validators.required, Validators.pattern("[a-zA-Z ]*")]],
+      email: ['',[Validators.required,Validators.pattern("[^ @]*@[^ @]*"),]],
+      message: ['',[Validators.required,]],
+      }
+    )
+  }
 
   ngOnInit(): void {
   }
