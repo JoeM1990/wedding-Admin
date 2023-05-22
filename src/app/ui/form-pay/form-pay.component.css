@@ -40,3 +40,21 @@
     min-height: 100vh;
   }
   
+
+  .icon4:hover{
+    /* background-color: #696cff; */
+    /* color: white; */
+    /* transition: width 2s, height 4s; */
+    transform: scale(1.10);
+    }
+  
+    .icon4{
+      /* background-color: white; */
+      /* color: #696cff; */
+      /* margin-left: 60px; */
+    
+      transition-property: transform;
+      transition-duration: 1000ms;
+      
+    }
+    
