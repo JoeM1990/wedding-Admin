@@ -57,6 +57,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 //import { NgImageSliderModule } from 'ng-image-slider';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
