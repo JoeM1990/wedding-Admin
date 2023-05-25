@@ -87,6 +87,25 @@ export class CrudService {
     )
   }
 
+  sendMailContact(email:any,message:any,username:any):Observable<any>{
+
+    let token=this.cookieService.get('token');
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    })
+
+    const requestOptions = { headers: headers };
+
+    return this.httpClient.post(baseUrl+'sendMailContact',{'email':email,'message':message,'username':username},requestOptions)
+    .pipe( finalize(()=>{
+      this.dialogSuccess("Le message a été envoyé avec success");
+      //window.location.reload();
+    })
+    )
+  }
+
   addUserPaiement(email:any,forfait:any):Observable<any>{
 
     let token=this.cookieService.get('token');
