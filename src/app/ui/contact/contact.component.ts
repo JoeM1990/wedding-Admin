@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ErrorComponent } from 'src/app/dialog/error/error.component';
 import { SuccessComponent } from 'src/app/dialog/success/success.component';
+import { CrudService } from 'src/app/utils/crud/crud.service';
 
 @Component({
   selector: 'app-contact',
@@ -14,7 +15,7 @@ export class ContactComponent implements OnInit {
   contactForm:FormGroup;
 
   constructor(public formBuilder:FormBuilder
-    , public dialog:MatDialog) { 
+    , public dialog:MatDialog, public crud:CrudService) { 
     this.contactForm=this.formBuilder.group(
       {
       name: ['',[Validators.required, Validators.pattern("[a-zA-Z ]*")]],
@@ -54,11 +55,19 @@ export class ContactComponent implements OnInit {
 
   sendMessage(){
     if(this.contactForm.valid){
-      this.dialogSuccess("Success");
+      //this.dialogSuccess("Success");
+
+      let email = this.contactForm.controls['email'].value
+      let username =  this.contactForm.controls['username'].value
+      let message = this.contactForm.controls['message'].value
+
+      this.crud.sendMailContact(email,message,username)
+
       window.location.reload()
     }else{
       this.dialogError("Le formulaire est vide ou mal rempli")
     }
   }
+
 
 }
