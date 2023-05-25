@@ -57,17 +57,20 @@ export class ContactComponent implements OnInit {
     if(this.contactForm.valid){
       //this.dialogSuccess("Success");
 
+     
+
       let email = this.contactForm.controls['email'].value
-      let username =  this.contactForm.controls['username'].value
+      let username =  this.contactForm.controls['name'].value
       let message = this.contactForm.controls['message'].value
+
 
       this.crud.sendMailContact(email,message,username)
       .subscribe(
         response=>{
-
+          alert('success')
         },
         error=>{
-          
+          alert(error)
         }
       )
 
