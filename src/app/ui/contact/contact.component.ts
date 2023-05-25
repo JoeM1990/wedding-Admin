@@ -62,6 +62,14 @@ export class ContactComponent implements OnInit {
       let message = this.contactForm.controls['message'].value
 
       this.crud.sendMailContact(email,message,username)
+      .subscribe(
+        response=>{
+
+        },
+        error=>{
+          
+        }
+      )
 
       window.location.reload()
     }else{
