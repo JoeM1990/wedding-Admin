@@ -10,7 +10,9 @@ import { SuccessComponent } from 'src/app/dialog/success/success.component';
 import { User } from '../model/user';
 import * as e from 'express';
 
-const baseUrl = 'http://localhost:8080/api/';
+// const baseUrl = 'http://localhost:8080/api/';
+
+const baseUrl = 'https://api-weddingapp.monkila-tech.com/api/';
 @Injectable({
   providedIn: 'root'
 })

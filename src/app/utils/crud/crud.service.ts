@@ -14,7 +14,9 @@ import { User } from '../model/user';
 
 
 
-const baseUrl = 'http://localhost:8080/api/';
+// const baseUrl = 'http://localhost:8080/api/';
+
+const baseUrl = 'https://api-weddingapp.monkila-tech.com/api/';
 @Injectable({
   providedIn: 'root'
 })
@@ -23,7 +25,9 @@ export class CrudService {
   private basePath = '/uploadQr';
   private basePath2 = '/uploadInvitation';
 
-  private baseApi='http://localhost:8080/api/';
+  //private baseApi='http://localhost:8080/api/';
+
+  private baseApi='https://api-weddingapp.monkila-tech.com/api/';
 
   constructor(private angularFirestore: AngularFirestore,private storage: AngularFireStorage,
     private db: AngularFireDatabase,public httpClient:HttpClient, public dialog:MatDialog
