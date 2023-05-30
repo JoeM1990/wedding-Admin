@@ -218,9 +218,10 @@ export class LoginComponent implements OnInit {
         
       },
       error => {
+        console.log(error);
         this.progressBar=false;
         this.dialogError('Erreur du serveur');
-        window.location.reload();
+        //window.location.reload();
         //alert("Echec d'enregistrement");
         //console.log(error)
         //console.log(error);

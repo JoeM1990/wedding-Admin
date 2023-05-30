@@ -12,7 +12,7 @@ import * as e from 'express';
 
 // const baseUrl = 'http://localhost:8080/api/';
 
-const baseUrl = 'https://api-weddingapp.monkila-tech.com/api/';
+const baseUrl = 'https://www.api-weddingapp.monkila-tech.com/api/';
 @Injectable({
   providedIn: 'root'
 })
@@ -53,7 +53,8 @@ export class AuthService {
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
+      'Authorization': `Bearer ${token}`,
+      // 'Access-Control-Allow-Origin': '*'
     })
 
     const requestOptions = { headers: headers };
@@ -68,7 +69,8 @@ export class AuthService {
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
+      'Authorization': `Bearer ${token}`,
+      // 'Access-Control-Allow-Origin': '*'
     })
 
     const requestOptions = { headers: headers };
