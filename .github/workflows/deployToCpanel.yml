@@ -53,7 +53,7 @@ jobs:
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@3.1.1
         with:
-          ftp-server: "${{ secrets.CD_FTP_SERVER }}"
-          ftp-username: "${{ secrets.CD_FTP_USERNAME }}"
-          ftp-password: "${{ secrets.CD_FTP_PASSWORD }}"
+          ftp-server: "${{ secrets.FTP_SERVER }}"
+          ftp-username: "${{ secrets.FTP_USERNAME }}"
+          ftp-password: "${{ secrets.FTP_PASSWORD }}"
           local-dir: "dist/"
