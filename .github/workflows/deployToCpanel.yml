@@ -14,10 +14,10 @@ jobs:
         with:
           fetch-depth: 2
 
-      - name: Use Node.js 18.9.0
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18.9.0'
+      # - name: Use Node.js 18.9.0
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: '18.9.0'
 
       - name: Cache npm dependencies
         uses: actions/cache@v3
@@ -26,11 +26,11 @@ jobs:
           path: '**/node_modules'
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
 
-      - name: 🔨 Install Dependencies
-        if: steps.npm-cache.outputs.cache-hit != 'true'
-        run: |
-          npm install --force
-          git reset --hard
+      # - name: 🔨 Install Dependencies
+      #   if: steps.npm-cache.outputs.cache-hit != 'true'
+      #   run: |
+      #     npm install --force
+      #     git reset --hard
       - name: 📂 Sync folders and files to the server
         uses: SamKirkland/FTP-Deploy-Action@4.3.3
         with:
