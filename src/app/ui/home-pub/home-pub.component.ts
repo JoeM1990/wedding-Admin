@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CrudService } from 'src/app/utils/crud/crud.service';
 
 @Component({
@@ -10,7 +11,7 @@ export class HomePubComponent implements OnInit {
 
   
 
-  constructor(public crud:CrudService) { }
+  constructor(public crud:CrudService, public router:Router) { }
 
   ngOnInit(): void {
     
@@ -18,6 +19,10 @@ export class HomePubComponent implements OnInit {
 
   sendMail(){
     
+  }
+
+  goTo(){
+    this.router.navigate(['/login']);
   }
 
 }
