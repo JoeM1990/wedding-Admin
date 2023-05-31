@@ -47,8 +47,8 @@ jobs:
       # - name: Build Application
       #   run: npm run ci:build
       
-      - name: List Files in Distribution Directory
-        run: ls -R ./dist
+      # - name: List Files in Distribution Directory
+      #   run: ls -R ./dist
         
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@3.1.1
