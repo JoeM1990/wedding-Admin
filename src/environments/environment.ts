@@ -12,7 +12,8 @@ export const environment = {
     messagingSenderId: "474896962980",
     appId: "1:474896962980:web:cdf0f565d64d0954f11d31",
     measurementId: "G-VQCJ9E1LM3"
-  }
+  },
+  baseURL : 'https://www.api-weddingapp.monkila-tech.com/api/'
 };
 
 /*

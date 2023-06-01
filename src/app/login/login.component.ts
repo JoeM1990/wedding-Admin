@@ -88,9 +88,11 @@ export class LoginComponent implements OnInit {
         }
 
 
-        setTimeout(()=>{
-          this.progressBar=false;
-        },3500);
+        // setTimeout(()=>{
+        //   this.progressBar=false;
+        // },3500);
+
+        this.progressBar=false;
         
         
       },
@@ -116,9 +118,11 @@ export class LoginComponent implements OnInit {
     .subscribe(
       response => {
 
-        setTimeout(()=>{
-          this.progressBar=false;
-        },1500);
+        // setTimeout(()=>{
+        //   this.progressBar=false;
+        // },1500);
+
+        this.progressBar=false;
 
         this.dialogSuccess('Enregistrement effectué avec success');
         //this.registerForm.reset();
@@ -163,9 +167,11 @@ export class LoginComponent implements OnInit {
     .subscribe(
       response => {
 
-        setTimeout(()=>{
-          this.progressBar=false;
-        },1500);
+        // setTimeout(()=>{
+        //   this.progressBar=false;
+        // },1500);
+
+        this.progressBar=false;
 
         localStorage.removeItem('otpCodeRecovery');
         localStorage.removeItem('passwordRecovery');
@@ -200,9 +206,11 @@ export class LoginComponent implements OnInit {
     .subscribe(
       response => {
 
-        setTimeout(()=>{
-          this.progressBar=false;
-        },1500);
+        this.progressBar=false;
+
+        // setTimeout(()=>{
+        //   this.progressBar=false;
+        // },1500);
 
         let refDialog=this.dialog.open(ValidationComponent,{data:"Veuillez introduire le code de validation \n envoyé a \n"+this.registerForm.controls['email'].value});
 
@@ -247,9 +255,11 @@ export class LoginComponent implements OnInit {
     .subscribe(
       response => {
 
-        setTimeout(()=>{
-          this.progressBar=false;
-        },1500);
+        this.progressBar=false;
+
+        // setTimeout(()=>{
+        //   this.progressBar=false;
+        // },1500);
 
         this.dialogRecovery("Veuillez introduire le code de validation \n envoyé a \n"+this.emailUser);
 
