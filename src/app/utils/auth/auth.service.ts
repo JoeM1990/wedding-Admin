@@ -12,7 +12,7 @@ import * as e from 'express';
 
 // const baseUrl = 'http://localhost:8080/api/';
 
- const baseUrl = 'https://www.api-weddingapp.monkila-tech.com/api/';
+ const baseUrl = 'api-weddingapp.monkila-tech.com/api/';
 
 // const baseUrl = 'https://api-weddingapp.onrender.com/api/'
 @Injectable({
