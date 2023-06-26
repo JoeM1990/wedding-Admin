@@ -102,7 +102,7 @@ export class LoginComponent implements OnInit {
         this.dialogError(error['error']);
         this.router.navigate(['/login']);
         ///alert(error);
-        //console.log(error);
+        console.log(error);
       });
     }
     
@@ -139,7 +139,7 @@ export class LoginComponent implements OnInit {
         window.location.reload();
         //this.registerForm.reset();
         //alert("Echec d'enregistrement");
-        //console.log(error)
+        console.log(error)
       });
 
 

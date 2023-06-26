@@ -4,16 +4,17 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { Observable } from 'rxjs';
+import { Observable, takeUntil } from 'rxjs';
 import { ErrorComponent } from 'src/app/dialog/error/error.component';
 import { SuccessComponent } from 'src/app/dialog/success/success.component';
 import { User } from '../model/user';
 import * as e from 'express';
+import axios from 'axios';
 
 // const baseUrl = 'http://localhost:8080/api/';
 
- const baseUrl = 'api-weddingapp.monkila-tech.com/api/';
- 
+ const baseUrl = 'https://www.api-weddingapp.monkila-tech.com/api/';
+
 
 // const baseUrl = 'https://api-weddingapp.onrender.com/api/'
 @Injectable({
@@ -68,17 +69,32 @@ export class AuthService {
   verificationApi(user:User){
     //let token=localStorage.getItem('token');
 
+    var xmlReq = new XMLHttpRequest();
+
     let token=this.cookieService.get('token');
 
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json; charset=utf-8',
       'Authorization': `Bearer ${token}`,
-      // 'Access-Control-Allow-Origin': '*'
+      'Access-Control-Allow-Origin': '*',
+      // 'Access-Control-Allow-Methods': 'DELETE, POST, GET',
+      // 'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With'
     })
 
     const requestOptions = { headers: headers };
 
-    return this.httpClient.post(baseUrl+'validationMail',user,requestOptions);
+    // return  axios.post(baseUrl+'validationMail/',user, {
+    //   headers:{
+    //     'Content-Type': 'application/json',
+    //     'Authorization': `Bearer ${token}`,
+    //   }
+    // })
+
+    return this.httpClient.post(baseUrl+'validationMail/',user,requestOptions);
+
+    //return xmlReq.open('POST',baseUrl+'validationMail/',true)
+
+
   }
 
   verificationApiRecovery(email:any){

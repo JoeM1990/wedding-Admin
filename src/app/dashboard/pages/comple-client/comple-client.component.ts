@@ -103,6 +103,7 @@ export class CompleClientComponent implements OnInit {
           },
           error =>{
             //alert(error['message']);
+            console.log(error)
           }
         );
 
