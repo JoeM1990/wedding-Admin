@@ -13,10 +13,7 @@ import axios from 'axios';
 
  const baseUrl = 'http://localhost:3000/api/';
 
- //const baseUrl = 'https://www.api-weddingapp.monkila-tech.com/api/';
 
-
-// const baseUrl = 'https://api-weddingapp.onrender.com/api/'
 
 @Injectable({
   providedIn: 'root'
@@ -27,8 +24,8 @@ export class AuthService {
     , public httpClient:HttpClient, private cookieService: CookieService) { }
 
   login(email : string, password : string){
-    this.fireauth.signInWithEmailAndPassword(email,password).then( () =>{
-        localStorage.setItem('token','true');
+    this.fireauth.signInWithEmailAndPassword(email,password).then( (e) =>{
+        localStorage.setItem('token',e.token);
         localStorage.setItem('email_user',email);
         this.router.navigate(['/dashboard']);
         return true;
