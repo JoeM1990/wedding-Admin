@@ -75,29 +75,22 @@ export class AuthService {
       'Content-Type': 'application/json; charset=utf-8',
       'Authorization': `Bearer ${token}`,
       'Access-Control-Allow-Origin': '*',
-      // 'Access-Control-Allow-Methods': 'DELETE, POST, GET',
-      // 'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With'
+     
     })
 
     const requestOptions = { headers: headers };
 
-    // return  axios.post(baseUrl+'validationMail/',user, {
-    //   headers:{
-    //     'Content-Type': 'application/json',
-    //     'Authorization': `Bearer ${token}`,
-    //   }
-    // })
+   
 
     return this.httpClient.post(baseUrl+'validationMail/',user,requestOptions);
 
-    //return xmlReq.open('POST',baseUrl+'validationMail/',true)
+ 
 
 
   }
 
   verificationApiRecovery(email:any){
-    //let token=localStorage.getItem('token');
-
+   
     let token=this.cookieService.get('token');
 
     const headers = new HttpHeaders({
@@ -111,7 +104,6 @@ export class AuthService {
   }
 
   recoveryPasswordApi(email:any,password:any,code:any){
-    //let token=localStorage.getItem('token');
 
     let token=this.cookieService.get('token');
 
@@ -126,34 +118,6 @@ export class AuthService {
     'password':password,'code':code},requestOptions);
 
   }
-
-
-  
-
-  // register(email: string, password: string){
-  //   this.fireauth.createUserWithEmailAndPassword(email,password).then( () => {
-  //     this.dialogSuccess('Enregistrement effectué avec succes')
-  //     //alert('Enregistrement effectue')
-  //     this.router.navigate(['/login']);
-  //   }, err => {
-  //     //alert(err.message);
-  //     this.dialogError('Echec d enregistrement');
-  //     this.router.navigate(['/login']);
-  //   }
-
-  //   )
-
-   
-  // }
-
-  // logout(){
-  //   this.fireauth.signOut().then( () => {
-  //     localStorage.removeItem('token');
-  //     this.router.navigate(['/login']);
-  //   }, err  => {
-  //     alert(err.message);
-  //   })
-  // }
 
   checkLogin(){
     return !! this.cookieService.get('token');
@@ -184,7 +148,6 @@ export class AuthService {
         })
   }
 
-  
 
 
 }
