@@ -53,14 +53,6 @@ export class LoginComponent implements OnInit {
 
   login(email:any,password:any){
     this.auth.login(email,password);
-
-
-    // if(email=='jnkiwa25@gmail.com' && password=='405522'){
-    //   localStorage.setItem('token','true');
-    //   localStorage.setItem('email_user',email);
-    //   this.router.navigate(['/dashboard']);
-    // }
-
   }
 
   loginApi(email:any,password:any){
