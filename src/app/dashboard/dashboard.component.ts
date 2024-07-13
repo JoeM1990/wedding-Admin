@@ -54,7 +54,7 @@ export class DashboardComponent implements OnInit {
         this.countUser=response["value"]
       },
       error => {
-        //console.log(error)
+        console.log(error)
       });
 
       this.crud.countUserActive()
@@ -63,7 +63,7 @@ export class DashboardComponent implements OnInit {
         this.countUserActive=response["value"]
       },
       error => {
-        //console.log(error)
+        console.log(error)
       });
 
       this.crud.countUserDesactive()
@@ -72,7 +72,7 @@ export class DashboardComponent implements OnInit {
         this.countUserDesactive=response["value"]
       },
       error => {
-        //console.log(error)
+        console.log(error)
       });
 
       this.crud.countTransactionActive()
@@ -81,7 +81,7 @@ export class DashboardComponent implements OnInit {
         this.countTransactionActive=response["value"]
       },
       error => {
-        //console.log(error)
+        console.log(error)
       });
 
       this.crud.countTransactionDesactive()
@@ -90,7 +90,7 @@ export class DashboardComponent implements OnInit {
         this.countTransactionDesactive=response["value"]
       },
       error => {
-        //console.log(error)
+        console.log(error)
       });
 
       this.crud.getAllTransactionApi()
@@ -99,7 +99,7 @@ export class DashboardComponent implements OnInit {
           this.transactions=response;
         },
         error => {
-          //console.log(error)
+          console.log(error)
         });
   
 
@@ -170,7 +170,7 @@ export class DashboardComponent implements OnInit {
               
             },
               error => {
-          //      console.log(error)
+               console.log(error)
               });
          
          }, 1700)
@@ -196,7 +196,7 @@ export class DashboardComponent implements OnInit {
         })
       },
       error => {
-        //console.log(error)
+        console.log(error)
       });
   }
 
