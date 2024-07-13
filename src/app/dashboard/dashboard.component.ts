@@ -224,7 +224,7 @@ export class DashboardComponent implements OnInit {
           
         },
         error => {
-          //console.log(error)
+          console.log(error)
         });
 
          }, 1700)
