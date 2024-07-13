@@ -448,24 +448,6 @@ export class GenerateComponent implements OnInit {
       
       this.currentFileUpload = new FileUpload(file);
       this.crud.addInvitation(this.currentFileUpload,this.infosForm.value);
-      //this.uploadInvitation();
-
-      // let email=localStorage.getItem('email_user');
-
-      // this.crud.addInvitationApi(file,email,'invitation')
-      // .subscribe(
-      //   response =>{
-      //     if(response){
-      //       //alert(response['message'])
-      //       //window.location.reload();
-      //     }
-          
-      //   },
-      //   error =>{
-      //     alert(error['message']);
-      //   }
-      // );
-      
       
     }
     
