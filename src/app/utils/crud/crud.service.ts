@@ -25,9 +25,7 @@ export class CrudService {
   private basePath = '/uploadQr';
   private basePath2 = '/uploadInvitation';
 
-  //private baseApi='http://localhost:8080/api/';
-
-  private baseApi='https://www.api-weddingapp.monkila-tech.com/api/';
+  private baseApi='http://localhost:8080/api/';
 
   constructor(private angularFirestore: AngularFirestore,private storage: AngularFireStorage,
     private db: AngularFireDatabase,public httpClient:HttpClient, public dialog:MatDialog
@@ -556,14 +554,8 @@ export class CrudService {
 
       item.description=downloadURL;
       item.name=localStorage.getItem('nomForm')?.toString();
-
-      //localStorage.removeItem('urlInvitation');
-      //localStorage.setItem('urlInvitation',downloadURL);
-      //item.email_user=localStorage.getItem('email_user')?.toString();
+        
       this.addItem(item);
-
-      //this.dialogSuccess("L'invitation a été generer avec success");
-      //alert('success');
       
       });
         })
@@ -622,12 +614,10 @@ export class CrudService {
       item.description=downloadURL;
       item.name=localStorage.getItem('nomForm')?.toString();
       
-      //localStorage.removeItem('urlQr');
       localStorage.setItem('urlQr',downloadURL);
-      //item.email_user=localStorage.getItem('email_user')?.toString();
+     
       this.addQr(item);
       //alert('success');
-      
       });
         })
       ).subscribe();
@@ -662,10 +652,6 @@ export class CrudService {
       }
     );
   }
-
-  // downloadFile(): Observable<HttpResponse<Blob>>{		
-	// 	return this.httpClient.get('http://localhost:8080/employees/download', { responseType: ResponseContentType.Blob });
-  //  }
 
   dialogSuccess(message:any){
     const timeout=1400;
