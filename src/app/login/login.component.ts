@@ -73,9 +73,7 @@ export class LoginComponent implements OnInit {
 
         this.dialogSuccess('Bienvenue')
 
-        //this.getData('Papa');
         if(token){
-
           
           this.cookieService.set('token',token,{secure:true});
           this.cookieService.set('xxxx-0000',this.encryptRole(role),{secure:true})
@@ -229,10 +227,7 @@ export class LoginComponent implements OnInit {
         console.log(error);
         this.progressBar=false;
         this.dialogError('Erreur du serveur');
-        //window.location.reload();
-        //alert("Echec d'enregistrement");
-        //console.log(error)
-        //console.log(error);
+      
       });
 
     }else{
@@ -257,10 +252,6 @@ export class LoginComponent implements OnInit {
 
         this.progressBar=false;
 
-        // setTimeout(()=>{
-        //   this.progressBar=false;
-        // },1500);
-
         this.dialogRecovery("Veuillez introduire le code de validation \n envoyé a \n"+this.emailUser);
 
         
@@ -269,9 +260,7 @@ export class LoginComponent implements OnInit {
         this.progressBar=false;
         this.dialogError('Erreur du serveur');
         window.location.reload();
-        //alert("Echec d'enregistrement");
-        //console.log(error)
-        //console.log(error);
+        
       });
     }
     
@@ -327,10 +316,6 @@ export class LoginComponent implements OnInit {
          
   }
 
-  // register(email:any,password:any){
-  //   this.auth.register(email,password);
-  // }
-
   onClick() {
     if (this.password === 'password') {
       this.password = 'text';
@@ -367,15 +352,9 @@ export class LoginComponent implements OnInit {
   }
 
   sendWhatsapp(){
-    //const url='https://api.whatsapp.com/send?text=';
-    //let urlData=localStorage.getItem('urlToSend')?.toString;
-
+  
     window.open('https://api.whatsapp.com/send?phone=243816717846'+
-    "&text=Bonjour, je suis utilisateur de l'application WeddingApp \n j'ai oublié le mot de passe", "popup");
-
-    //window.open('https://api.whatsapp.com/phone?=24381671784send?text=', "popup");
-
-    
+    "&text=Bonjour, je suis utilisateur de l'application WeddingApp \n j'ai oublié le mot de passe", "popup");  
   }
 
   
