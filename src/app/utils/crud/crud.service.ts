@@ -45,7 +45,6 @@ export class CrudService {
     return this.httpClient.post(baseUrl+'usersAdmin',user,requestOptions)
     .pipe( finalize(()=>{
       this.dialogSuccess("L'utilisateur a été ajouter avec success");
-      //window.location.reload();
     })
     )
   }
@@ -64,7 +63,6 @@ export class CrudService {
     return this.httpClient.post(baseUrl+'transactions',transaction,requestOptions)
     .pipe( finalize(()=>{
       this.dialogSuccess("La reference a été ajouter avec success");
-      //window.location.reload();
     })
     )
   }
@@ -83,7 +81,6 @@ export class CrudService {
     return this.httpClient.post(baseUrl+'paiements',{'email':email,'forfait':forfait},requestOptions)
     .pipe( finalize(()=>{
       this.dialogSuccess("Le forfait a été ajouter avec success");
-      //window.location.reload();
     })
     )
   }
@@ -102,7 +99,6 @@ export class CrudService {
     return this.httpClient.post(baseUrl+'sendMailContact',{'email':email,'message':message,'username':username},requestOptions)
     .pipe( finalize(()=>{
       this.dialogSuccess("Le message a été envoyé avec success");
-      //window.location.reload();
     })
     )
   }
@@ -141,7 +137,6 @@ export class CrudService {
     return this.httpClient.post(baseUrl+'paiementss',{'email':email,'forfait':forfait},requestOptions)
     .pipe( finalize(()=>{
       this.dialogSuccess("Le forfait a été retirer avec success");
-      //window.location.reload();
     })
     )
   }
