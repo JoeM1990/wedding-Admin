@@ -55,10 +55,7 @@ export class ContactComponent implements OnInit {
 
   sendMessage(){
     if(this.contactForm.valid){
-      //this.dialogSuccess("Success");
-
      
-
       let email = this.contactForm.controls['email'].value
       let username =  this.contactForm.controls['name'].value
       let message = this.contactForm.controls['message'].value
