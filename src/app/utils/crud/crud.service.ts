@@ -14,9 +14,8 @@ import { User } from '../model/user';
 
 
 
-// const baseUrl = 'http://localhost:8080/api/';
+const baseUrl = 'http://localhost:8080/api/';
 
-const baseUrl = 'https://www.api-weddingapp.monkila-tech.com/api/';
 @Injectable({
   providedIn: 'root'
 })
