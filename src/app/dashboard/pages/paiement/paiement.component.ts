@@ -40,7 +40,7 @@ export class PaiementComponent implements OnInit {
         this.paiement=response;
       },
       error => {
-        //console.log(error)
+        console.log(error)
       });
 
       this.crud.getAllUserApi()
@@ -49,7 +49,7 @@ export class PaiementComponent implements OnInit {
         this.user=response;
       },
       error => {
-        //console.log(error)
+        console.log(error)
       });
   }
 
@@ -89,7 +89,7 @@ export class PaiementComponent implements OnInit {
           
         },
         error => {
-          //console.log(error)
+          console.log(error)
         });
          
          }, 1700)
