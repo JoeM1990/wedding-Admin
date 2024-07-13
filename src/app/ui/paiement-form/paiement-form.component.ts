@@ -61,7 +61,7 @@ export class PaiementFormComponent implements OnInit {
               }
             },
             error =>{
-              //console.log(error['message']);
+              console.log(error['message']);
             }
           );
            
