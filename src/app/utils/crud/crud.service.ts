@@ -275,7 +275,6 @@ export class CrudService {
     return this.httpClient.put(baseUrl+'users/'+id,user,requestOptions)
     .pipe( finalize(()=>{
       this.dialogSuccess("L'utilisateur a été modifier avec success");
-      //window.location.reload();
     })
     );
     
@@ -295,7 +294,6 @@ export class CrudService {
     return this.httpClient.put(baseUrl+'transactions/'+id,transaction,requestOptions)
     .pipe( finalize(()=>{
       this.dialogSuccess("La transaction a été modifier avec success");
-      //window.location.reload();
     })
     );
     
@@ -314,7 +312,6 @@ export class CrudService {
     return this.httpClient.delete(baseUrl+'users/'+id,requestOptions)
     .pipe( finalize(()=>{
       this.dialogSuccess("L'utilisateur a été supprimer avec success");
-      //window.location.reload();
     })
     )
   }
@@ -332,7 +329,6 @@ export class CrudService {
     return this.httpClient.delete(baseUrl+'paiements/'+id,requestOptions)
     .pipe( finalize(()=>{
       this.dialogSuccess("Le credit a été supprimer avec success");
-      //window.location.reload();
     })
     )
   }
@@ -350,7 +346,6 @@ export class CrudService {
     return this.httpClient.delete(baseUrl+'transactions/'+id,requestOptions)
     .pipe( finalize(()=>{
       this.dialogSuccess("La transaction a été supprimer avec success");
-      //window.location.reload();
     })
     )
   }
@@ -368,7 +363,6 @@ export class CrudService {
     return this.httpClient.delete(baseUrl+'uploadById/'+id,requestOptions)
     .pipe( finalize(()=>{
       //this.dialogSuccess("L'invitation a été supprimer avec success");
-      //window.location.reload();
     })
     )
   }
@@ -386,7 +380,6 @@ export class CrudService {
     return this.httpClient.delete(baseUrl+'upload/'+name,requestOptions)
     .pipe( finalize(()=>{
       this.dialogSuccess("L'invitation a été supprimer avec success");
-      //window.location.reload();
     })
     )
   }
@@ -488,11 +481,8 @@ export class CrudService {
     return this.httpClient.request(req)
     .pipe( finalize(()=>{
       this.dialogSuccess("L'invitation a été generer avec success");
-      //window.location.reload();
     })
     );
-
-    //return this.httpClient.post(baseUrl+'upload',formData,requestOptions);
   }
 
   verifyForfait(email:any):Observable<any>{
@@ -534,7 +524,6 @@ export class CrudService {
     return this.httpClient.put(baseUrl+'paiements/'+email,{'creditt':credit},requestOptions)
     .pipe( finalize(()=>{
       this.dialogSuccess3("Success");
-      //window.location.reload();
     })
     );
   }
