@@ -75,12 +75,11 @@ export class CompleAdminComponent implements OnInit {
         //this.data=response;
       },
       error => {
-        //console.log(error)
+        console.log(error)
       });
 
       this.crud.getAllUserApi().subscribe({
         next(response){
-          
         }
       });
   }
@@ -142,7 +141,7 @@ export class CompleAdminComponent implements OnInit {
         })
       },
       error => {
-        //console.log(error)
+        console.log(error)
       });
   }
 
@@ -170,7 +169,7 @@ export class CompleAdminComponent implements OnInit {
         
             },
               error => {
-          //      console.log(error)
+                console.log(error)
               });
          
          }, 1700)
