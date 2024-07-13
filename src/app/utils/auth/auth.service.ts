@@ -42,15 +42,14 @@ export class AuthService {
   }
 
   logoutApi(){
-    //localStorage.removeItem('token');
+   
     this.cookieService.deleteAll();
     localStorage.clear();
     this.router.navigate(['/login']);
   }
 
   registerApi(user:User, code:any){
-    //let token=localStorage.getItem('token');
-
+  
     let token=this.cookieService.get('token');
 
     const headers = new HttpHeaders({
@@ -65,8 +64,7 @@ export class AuthService {
   }
 
   verificationApi(user:User){
-    //let token=localStorage.getItem('token');
-
+   
     var xmlReq = new XMLHttpRequest();
 
     let token=this.cookieService.get('token');
@@ -83,10 +81,6 @@ export class AuthService {
    
 
     return this.httpClient.post(baseUrl+'validationMail/',user,requestOptions);
-
- 
-
-
   }
 
   verificationApiRecovery(email:any){
@@ -147,7 +141,6 @@ export class AuthService {
           }, timeout)
         })
   }
-
 
 
 }
