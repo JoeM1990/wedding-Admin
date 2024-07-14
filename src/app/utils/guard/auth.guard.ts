@@ -19,7 +19,7 @@ export class AuthGuard implements CanActivate {
     }
       this.router.navigate(['/login']);
       this.dialogError("Veuillez d'abord vous connecter");
-      //alert("Veuillez d'abord vous connecter");
+    
     return false;
     
   }
@@ -28,7 +28,6 @@ export class AuthGuard implements CanActivate {
     const timeout=1200;
 
         let dialogRef=this.dialog.open(ErrorComponent,{data:message});
-
         dialogRef.afterOpened().subscribe(_ => {
           setTimeout(() => {
              dialogRef.close();
