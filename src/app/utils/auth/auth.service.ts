@@ -122,7 +122,6 @@ export class AuthService {
     const timeout=1200;
 
       let dialogRef=this.dialog.open(SuccessComponent,{data:message});
-
         dialogRef.afterOpened().subscribe(_ => {
           setTimeout(() => {
              dialogRef.close();
@@ -132,7 +131,6 @@ export class AuthService {
 
   dialogError(message:any){
     const timeout=1200;
-
         let dialogRef=this.dialog.open(ErrorComponent,{data:message});
 
         dialogRef.afterOpened().subscribe(_ => {
